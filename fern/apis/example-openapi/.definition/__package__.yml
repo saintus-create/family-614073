@@ -1,0 +1,55 @@
+types:
+  Plant:
+    properties:
+      category: optional<string>
+      name: optional<string>
+      status: optional<PlantStatus>
+      tags: optional<list<string>>
+    source:
+      openapi: openapi.yaml
+  PlantResponse:
+    properties:
+      id: optional<integer>
+      name: optional<string>
+      status: optional<string>
+      tags: optional<list<string>>
+    source:
+      openapi: openapi.yaml
+  PlantStatus:
+    enum:
+      - available
+      - pending
+      - sold
+    inline: true
+    source:
+      openapi: openapi.yaml
+  User:
+    properties:
+      email: optional<string>
+      id: optional<integer>
+      username: optional<string>
+    source:
+      openapi: openapi.yaml
+  UserAuthResponse:
+    properties:
+      expiresIn:
+        docs: Token expiration time in seconds
+        type: optional<integer>
+      token:
+        docs: Authentication token
+        type: optional<string>
+    source:
+      openapi: openapi.yaml
+errors:
+  BadRequestError:
+    docs: Invalid ID supplied
+    status-code: 400
+    type: unknown
+  MethodNotAllowedError:
+    docs: Invalid input
+    status-code: 405
+    type: unknown
+  NotFoundError:
+    docs: Plant not found
+    status-code: 404
+    type: unknown
