@@ -51,8 +51,29 @@ navigation:
           - page: Support
             path: docs/pages/support.mdx
             icon: fa-duotone fa-headset
-          - page: Articles
-            path: docs/pages/articles.mdx
+          - page: Pharmacological interventions for ADHD
+            path: docs/pages/pharmacological-interventions-for-adhd-a-systematic-review-a.mdx
+            icon: fa-duotone fa-file-lines
+          - page: Treatment Outcomes With Licensed and Unlicensed Stimulant Doses
+            path: docs/pages/treatment-outcomes-with-licensed-and-unlicensed-stimulant-do.mdx
+            icon: fa-duotone fa-file-lines
+          - page: Methylphenidate dose optimization for ADHD treatment
+            path: docs/pages/methylphenidate-dose-optimization-for-adhd-treatment-review-.mdx
+            icon: fa-duotone fa-file-lines
+          - page: Off-label Prescribing Trends for ADHD Medications in Very Young Children
+            path: docs/pages/off-label-prescribing-trends-for-adhd-medications-in-very-yo.mdx
+            icon: fa-duotone fa-file-lines
+          - page: A 14-Month Randomized Clinical Trial of Treatment Strategies for ADHD
+            path: docs/pages/a-14-month-randomized-clinical-trial-of-treatment-strategies.mdx
+            icon: fa-duotone fa-file-lines
+          - page: Safety and effectiveness of methylphenidate ER multi-unit pellet system
+            path: docs/pages/safety-and-effectiveness-of-methylphenidate-er-multi-unit-pe.mdx
+            icon: fa-duotone fa-file-lines
+          - page: Once-daily medications for the pharmacological management of ADHD
+            path: docs/pages/once-daily-medications-for-the-pharmacological-management-of.mdx
+            icon: fa-duotone fa-file-lines
+          - page: First-Time Users of ADHD Medication Among Children and Adolescents in Germany
+            path: docs/pages/first-time-users-of-adhd-medication-among-children-and-adole.mdx
             icon: fa-duotone fa-file-lines
   - tab: API Reference
     layout:
