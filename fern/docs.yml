@@ -26,6 +26,9 @@ tabs:
   changelog:
     display-name: Changelog
     icon: clock
+  articles:
+    display-name: Articles
+    icon: file-lines
 navigation:
   - tab: home
     layout:
@@ -51,7 +54,11 @@ navigation:
           - page: Support
             path: docs/pages/support.mdx
             icon: fa-duotone fa-headset
-          - page: Articles
+  - tab: articles
+    layout:
+      - section: Research Articles
+        contents:
+          - page: All Articles
             path: docs/pages/articles.mdx
             icon: fa-duotone fa-file-lines
   - tab: API Reference
