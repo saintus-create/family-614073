@@ -28,137 +28,73 @@ navigation:
         slug: welcome
   - tab: evidence
     layout:
-      - section: "Evidence Overview — Systematic Reviews & Meta-Analyses"
+      - section: Evidence Overview
         contents:
-        - page: Pharmacological Interventions for ADHD
-          path: docs/pages/pharmacological-interventions.mdx
-          slug: pharmacological-interventions
-        - page: Treatment Outcomes — Licensed vs Unlicensed Stimulant Doses
-          path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-          slug: treatment-outcomes-stimulant-doses
-        - page: Methylphenidate Dose Optimization
-          path: docs/pages/methylphenidate-dose-optimization.mdx
-          slug: methylphenidate-dose-optimization
-      - section: Evidence Overview — Network Meta-Analyses
+          - page: Pharmacological interventions for ADHD (dose-effect NMA)
+            path: docs/pages/pharmacological-interventions.mdx
+            slug: pharmacological-interventions
+          - page: Treatment outcomes — licensed vs unlicensed stimulant doses
+            path: docs/pages/treatment-outcomes-stimulant-doses.mdx
+            slug: treatment-outcomes-stimulant-doses
+          - page: Methylphenidate dose optimization
+            path: docs/pages/methylphenidate-dose-optimization.mdx
+            slug: methylphenidate-dose-optimization
+      - section: Medications
         contents:
-        - page: Pharmacological Interventions for ADHD
-          path: docs/pages/pharmacological-interventions.mdx
-          slug: pharmacological-interventions
-      - section: Medication — Stimulants — Methylphenidate
+          - page: Methylphenidate dose optimization
+            path: docs/pages/methylphenidate-dose-optimization.mdx
+            slug: methylphenidate-dose-optimization
+          - page: MTA 14-month RCT of treatment strategies
+            path: docs/pages/mta-14-month-rct.mdx
+            slug: mta-14-month-rct
+          - page: Methylphenidate ER multi-unit pellet system
+            path: docs/pages/methylphenidate-er-mups.mdx
+            slug: methylphenidate-er-mups
+          - page: Once-daily MAS XR in adults
+            path: docs/pages/once-daily-mas-xr-adults.mdx
+            slug: once-daily-mas-xr-adults
+          - page: First-time ADHD medication users in Germany
+            path: docs/pages/first-time-users-germany.mdx
+            slug: first-time-users-germany
+      - section: Dose & Titration
         contents:
-        - page: Methylphenidate Dose Optimization
-          path: docs/pages/methylphenidate-dose-optimization.mdx
-          slug: methylphenidate-dose-optimization
-        - page: MTA 14-Month RCT of Treatment Strategies
-          path: docs/pages/mta-14-month-rct.mdx
-          slug: mta-14-month-rct
-        - page: Methylphenidate ER Multi-Unit Pellet System
-          path: docs/pages/methylphenidate-er-mups.mdx
-          slug: methylphenidate-er-mups
-        - page: Treatment Outcomes — Licensed vs Unlicensed Stimulant Doses
-          path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-          slug: treatment-outcomes-stimulant-doses
-      - section: Medication — Stimulants — Amphetamines
+          - page: Methylphenidate dose optimization
+            path: docs/pages/methylphenidate-dose-optimization.mdx
+            slug: methylphenidate-dose-optimization
+          - page: Treatment outcomes — licensed vs unlicensed stimulant doses
+            path: docs/pages/treatment-outcomes-stimulant-doses.mdx
+            slug: treatment-outcomes-stimulant-doses
+          - page: Once-daily MAS XR in adults
+            path: docs/pages/once-daily-mas-xr-adults.mdx
+            slug: once-daily-mas-xr-adults
+          - page: Off-label prescribing in very young children
+            path: docs/pages/off-label-prescribing-young-children.mdx
+            slug: off-label-prescribing-young-children
+          - page: First-time ADHD medication users in Germany
+            path: docs/pages/first-time-users-germany.mdx
+            slug: first-time-users-germany
+      - section: Treatment Outcomes & Safety
         contents:
-        - page: Once-Daily MAS XR in Adults
-          path: docs/pages/once-daily-mas-xr-adults.mdx
-          slug: once-daily-mas-xr-adults
-        - page: Treatment Outcomes — Licensed vs Unlicensed Stimulant Doses
-          path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-          slug: treatment-outcomes-stimulant-doses
-      - section: Medication — Non-Stimulants
+          - page: Pharmacological interventions for ADHD (dose-effect NMA)
+            path: docs/pages/pharmacological-interventions.mdx
+            slug: pharmacological-interventions
+          - page: Treatment outcomes — licensed vs unlicensed stimulant doses
+            path: docs/pages/treatment-outcomes-stimulant-doses.mdx
+            slug: treatment-outcomes-stimulant-doses
+          - page: Methylphenidate ER multi-unit pellet system
+            path: docs/pages/methylphenidate-er-mups.mdx
+            slug: methylphenidate-er-mups
+      - section: Populations & Prescribing
         contents:
-        - page: Pharmacological Interventions for ADHD
-          path: docs/pages/pharmacological-interventions.mdx
-          slug: pharmacological-interventions
-        - page: First-Time ADHD Medication Users in Germany
-          path: docs/pages/first-time-users-germany.mdx
-          slug: first-time-users-germany
-      - section: "Dose & Titration — Dose Optimization"
-        contents:
-        - page: Methylphenidate Dose Optimization
-          path: docs/pages/methylphenidate-dose-optimization.mdx
-          slug: methylphenidate-dose-optimization
-        - page: MTA 14-Month RCT of Treatment Strategies
-          path: docs/pages/mta-14-month-rct.mdx
-          slug: mta-14-month-rct
-      - section: "Dose & Titration — High-Dose / Off-Label Use"
-        contents:
-        - page: Treatment Outcomes — Licensed vs Unlicensed Stimulant Doses
-          path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-          slug: treatment-outcomes-stimulant-doses
-        - page: Once-Daily MAS XR in Adults
-          path: docs/pages/once-daily-mas-xr-adults.mdx
-          slug: once-daily-mas-xr-adults
-        - page: Off-Label Prescribing in Very Young Children
-          path: docs/pages/off-label-prescribing-young-children.mdx
-          slug: off-label-prescribing-young-children
-        - page: First-Time ADHD Medication Users in Germany
-          path: docs/pages/first-time-users-germany.mdx
-          slug: first-time-users-germany
-      - section: Treatment Outcomes
-        contents:
-        - page: Pharmacological Interventions for ADHD
-          path: docs/pages/pharmacological-interventions.mdx
-          slug: pharmacological-interventions
-        - page: Treatment Outcomes — Licensed vs Unlicensed Stimulant Doses
-          path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-          slug: treatment-outcomes-stimulant-doses
-        - page: MTA 14-Month RCT of Treatment Strategies
-          path: docs/pages/mta-14-month-rct.mdx
-          slug: mta-14-month-rct
-      - section: "Safety & Adverse Effects"
-        contents:
-        - page: Methylphenidate ER Multi-Unit Pellet System
-          path: docs/pages/methylphenidate-er-mups.mdx
-          slug: methylphenidate-er-mups
-        - page: Treatment Outcomes — Licensed vs Unlicensed Stimulant Doses
-          path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-          slug: treatment-outcomes-stimulant-doses
-      - section: "Populations — Children & Adolescents"
-        contents:
-        - page: MTA 14-Month RCT of Treatment Strategies
-          path: docs/pages/mta-14-month-rct.mdx
-          slug: mta-14-month-rct
-        - page: First-Time ADHD Medication Users in Germany
-          path: docs/pages/first-time-users-germany.mdx
-          slug: first-time-users-germany
-      - section: Populations — Very Young Children
-        contents:
-        - page: Off-Label Prescribing in Very Young Children
-          path: docs/pages/off-label-prescribing-young-children.mdx
-          slug: off-label-prescribing-young-children
-      - section: Populations — Adults
-        contents:
-        - page: Once-Daily MAS XR in Adults
-          path: docs/pages/once-daily-mas-xr-adults.mdx
-          slug: once-daily-mas-xr-adults
-        - page: Methylphenidate Dose Optimization
-          path: docs/pages/methylphenidate-dose-optimization.mdx
-          slug: methylphenidate-dose-optimization
-      - section: Formulations — Extended Release
-        contents:
-        - page: Methylphenidate ER Multi-Unit Pellet System
-          path: docs/pages/methylphenidate-er-mups.mdx
-          slug: methylphenidate-er-mups
-      - section: Formulations — Once-Daily
-        contents:
-        - page: Once-Daily MAS XR in Adults
-          path: docs/pages/once-daily-mas-xr-adults.mdx
-          slug: once-daily-mas-xr-adults
-      - section: Formulations — Multi-Unit / Divided Dosing
-        contents:
-        - page: MTA 14-Month RCT of Treatment Strategies
-          path: docs/pages/mta-14-month-rct.mdx
-          slug: mta-14-month-rct
-      - section: Real-World / Prescribing Evidence
-        contents:
-        - page: Off-Label Prescribing in Very Young Children
-          path: docs/pages/off-label-prescribing-young-children.mdx
-          slug: off-label-prescribing-young-children
-        - page: First-Time ADHD Medication Users in Germany
-          path: docs/pages/first-time-users-germany.mdx
-          slug: first-time-users-germany
+          - page: Off-label prescribing in very young children
+            path: docs/pages/off-label-prescribing-young-children.mdx
+            slug: off-label-prescribing-young-children
+          - page: First-time ADHD medication users in Germany
+            path: docs/pages/first-time-users-germany.mdx
+            slug: first-time-users-germany
+          - page: MTA 14-month RCT of treatment strategies
+            path: docs/pages/mta-14-month-rct.mdx
+            slug: mta-14-month-rct
 navbar-links:
   - type: filled
     text: Edit
