@@ -28,22 +28,19 @@ navigation:
         slug: welcome
   - tab: evidence
     layout:
-      - section: Evidence Overview
+      - section: Systematic Reviews
         contents:
           - page: Pharmacological interventions for ADHD (dose-effect NMA)
             path: docs/pages/pharmacological-interventions.mdx
             slug: pharmacological-interventions
-          - page: Treatment outcomes licensed vs unlicensed stimulant doses
+          - page: Treatment outcomes with licensed and unlicensed stimulant doses
             path: docs/pages/treatment-outcomes-stimulant-doses.mdx
             slug: treatment-outcomes-stimulant-doses
           - page: Methylphenidate dose optimization
             path: docs/pages/methylphenidate-dose-optimization.mdx
             slug: methylphenidate-dose-optimization
-      - section: Medications
+      - section: Clinical Trials
         contents:
-          - page: Methylphenidate dose optimization
-            path: docs/pages/methylphenidate-dose-optimization.mdx
-            slug: methylphenidate-dose-optimization
           - page: MTA 14-month RCT of treatment strategies
             path: docs/pages/mta-14-month-rct.mdx
             slug: mta-14-month-rct
@@ -53,38 +50,7 @@ navigation:
           - page: Once-daily MAS XR in adults
             path: docs/pages/once-daily-mas-xr-adults.mdx
             slug: once-daily-mas-xr-adults
-          - page: First-time ADHD medication users in Germany
-            path: docs/pages/first-time-users-germany.mdx
-            slug: first-time-users-germany
-      - section: Dose & Titration
-        contents:
-          - page: Methylphenidate dose optimization
-            path: docs/pages/methylphenidate-dose-optimization.mdx
-            slug: methylphenidate-dose-optimization
-          - page: Treatment outcomes licensed vs unlicensed stimulant doses
-            path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-            slug: treatment-outcomes-stimulant-doses
-          - page: Once-daily MAS XR in adults
-            path: docs/pages/once-daily-mas-xr-adults.mdx
-            slug: once-daily-mas-xr-adults
-          - page: Off-label prescribing in very young children
-            path: docs/pages/off-label-prescribing-young-children.mdx
-            slug: off-label-prescribing-young-children
-          - page: First-time ADHD medication users in Germany
-            path: docs/pages/first-time-users-germany.mdx
-            slug: first-time-users-germany
-      - section: Treatment Outcomes & Safety
-        contents:
-          - page: Pharmacological interventions for ADHD (dose-effect NMA)
-            path: docs/pages/pharmacological-interventions.mdx
-            slug: pharmacological-interventions
-          - page: Treatment outcomes licensed vs unlicensed stimulant doses
-            path: docs/pages/treatment-outcomes-stimulant-doses.mdx
-            slug: treatment-outcomes-stimulant-doses
-          - page: Methylphenidate ER multi-unit pellet system
-            path: docs/pages/methylphenidate-er-mups.mdx
-            slug: methylphenidate-er-mups
-      - section: Populations & Prescribing
+      - section: Prescribing Practice
         contents:
           - page: Off-label prescribing in very young children
             path: docs/pages/off-label-prescribing-young-children.mdx
@@ -92,9 +58,6 @@ navigation:
           - page: First-time ADHD medication users in Germany
             path: docs/pages/first-time-users-germany.mdx
             slug: first-time-users-germany
-          - page: MTA 14-month RCT of treatment strategies
-            path: docs/pages/mta-14-month-rct.mdx
-            slug: mta-14-month-rct
 navbar-links:
   - type: filled
     text: Edit
