@@ -33,7 +33,7 @@ navigation:
           - page: Pharmacological interventions for ADHD (dose-effect NMA)
             path: docs/pages/pharmacological-interventions.mdx
             slug: pharmacological-interventions
-          - page: Treatment outcomes — licensed vs unlicensed stimulant doses
+          - page: Treatment outcomes licensed vs unlicensed stimulant doses
             path: docs/pages/treatment-outcomes-stimulant-doses.mdx
             slug: treatment-outcomes-stimulant-doses
           - page: Methylphenidate dose optimization
@@ -61,7 +61,7 @@ navigation:
           - page: Methylphenidate dose optimization
             path: docs/pages/methylphenidate-dose-optimization.mdx
             slug: methylphenidate-dose-optimization
-          - page: Treatment outcomes — licensed vs unlicensed stimulant doses
+          - page: Treatment outcomes licensed vs unlicensed stimulant doses
             path: docs/pages/treatment-outcomes-stimulant-doses.mdx
             slug: treatment-outcomes-stimulant-doses
           - page: Once-daily MAS XR in adults
@@ -78,7 +78,7 @@ navigation:
           - page: Pharmacological interventions for ADHD (dose-effect NMA)
             path: docs/pages/pharmacological-interventions.mdx
             slug: pharmacological-interventions
-          - page: Treatment outcomes — licensed vs unlicensed stimulant doses
+          - page: Treatment outcomes licensed vs unlicensed stimulant doses
             path: docs/pages/treatment-outcomes-stimulant-doses.mdx
             slug: treatment-outcomes-stimulant-doses
           - page: Methylphenidate ER multi-unit pellet system
