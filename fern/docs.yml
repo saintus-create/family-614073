@@ -168,3 +168,37 @@ navigation:
           - page: First-time users in Germany (claims data)
             path: docs/pages/first-time-users-of-adhd-medication-among-children-and-adole.mdx
             slug: rw-germany
+navbar-links:
+  - type: filled
+    text: Edit
+    url: https://dashboard.buildwithfern.com
+colors:
+  accent-primary:
+    light: "#007CBA"
+    dark: "#007CBA"
+  background:
+    light: "#F7FBFD"
+    dark: "#000609"
+  border:
+    light: "#C8D1D5"
+    dark: "#252E32"
+theme:
+  page-actions: toolbar
+  footer-nav: minimal
+  tabs: bubble
+logo:
+  dark: docs/assets/logo-dark.svg
+  light: docs/assets/logo.svg
+  height: 20
+  href: https://buildwithfern.com
+favicon: docs/assets/favicon.svg
+css:
+  - styles.css
+  - docs/assets/onboarding-theme.css
+js: custom.js
+typography:
+  headingsFont:
+    name: Inter
+  bodyFont:
+    name: Inter
+ai-search: {}
