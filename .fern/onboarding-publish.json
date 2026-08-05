@@ -1,0 +1,10 @@
+{
+  "desiredContentHash": "291cbf68a440e095a34e3891dbac888ccd84bd266ceab00d622eaa21cff0654a",
+  "docsUrl": "https://us-fda-154115.docs.buildwithfern.com",
+  "starter": {
+    "repoOwner": "fern-api",
+    "repoName": "docs-starter-internal",
+    "commitSha": "7a136fbd26e750f96d049759bc080129b23e7a5c",
+    "label": "2026-07-layouts-launch"
+  }
+}
