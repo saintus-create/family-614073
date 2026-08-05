@@ -4,144 +4,65 @@ subtitle: Searchable collection of imported research articles
 slug: articles
 ---
 
-import { useState } from "react";
+The following articles were imported from a JSON data file and are searchable via the docs search bar.
 
-const articles = [
-  {
-    title: "Pharmacological interventions for ADHD: a systematic review and dose\u2013effect network meta-analysis",
-    journal: "The Lancet Psychiatry",
-    year: 2026,
-    doi: "10.1016/S2215-0366(26)00091-X",
-    medication: "Amphetamines, Methylphenidate, Guanfacine, Atomoxetine",
-    usageType: "Off-label (unlicensed high-dose) and Dose Titration Support",
-    keyFindings: "Identified dose-effect patterns across age groups. For amphetamines, efficacy plateaued at ~25mg/day in children and ~50mg/day in adults. Methylphenidate showed no clear plateau in children but peaked at ~50mg/day in adults.",
-    sourceUrl: "https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(26)00091-X/fulltext",
-  },
-  {
-    title: "Treatment Outcomes With Licensed and Unlicensed Stimulant Doses for Adults With Attention-Deficit/Hyperactivity Disorder: A Systematic Review and Meta-Analysis",
-    journal: "JAMA Psychiatry",
-    year: 2024,
-    doi: "10.1001/jamapsychiatry.2023.4073",
-    medication: "Methylphenidate, Amphetamines",
-    usageType: "Off-label (unlicensed high-dose)",
-    keyFindings: "Meta-analysis found that unlicensed stimulant doses were not associated with greater efficacy than licensed high doses but had a significantly higher risk of discontinuation due to adverse events.",
-    sourceUrl: "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2811310",
-  },
-  {
-    title: "Methylphenidate dose optimization for ADHD treatment: review of safety, efficacy, and dosing strategies",
-    journal: "Drugs",
-    year: 2017,
-    doi: "10.1007/s40261-017-0534-1",
-    medication: "Methylphenidate",
-    usageType: "Dose Titration Support",
-    keyFindings: "Review of dosing strategies highlighting the importance of individualized dose optimization for maximizing efficacy while minimizing adverse effects.",
-    sourceUrl: "https://link.springer.com/article/10.1007/s40261-017-0534-1",
-  },
-  {
-    title: "Off-label Prescribing Trends for ADHD Medications in Very Young Children",
-    journal: "The Journal of Pediatric Pharmacology and Therapeutics",
-    year: 2017,
-    doi: "10.5863/1551-6776-22.6.423",
-    medication: "Amphetamines, Methylphenidate",
-    usageType: "Off-label (unlicensed high-dose)",
-    keyFindings: "Analysis of off-label prescribing patterns in young children, highlighting the prevalence of unlicensed dosing practices.",
-    sourceUrl: "https://journals.lww.com/jpet/fulltext/2017/06000/off_label_prescribing_trends_for_adhd.1.aspx",
-  },
-  {
-    title: "A 14-Month Randomized Clinical Trial of Treatment Strategies for Attention-Deficit/Hyperactivity Disorder",
-    journal: "Archives of General Psychiatry (JAMA Psychiatry)",
-    year: 1999,
-    doi: "10.1001/archpsyc.56.12.1073",
-    medication: "Methylphenidate, Amphetamines",
-    usageType: "Dose Titration Support",
-    keyFindings: "Long-term randomized trial comparing different treatment strategies and their effectiveness over a 14-month period.",
-    sourceUrl: "https://archpsyc.jamanetwork.com/article.aspx?articleid=1073",
-  },
-  {
-    title: "Safety and effectiveness of methylphenidate ER multi-unit pellet system in ADHD",
-    journal: "South African Journal of Psychiatry",
-    year: 2024,
-    doi: "10.4102/sajpsychiatry.v30i0.2357",
-    medication: "Methylphenidate",
-    usageType: "Dose Titration Support",
-    keyFindings: "Evaluation of the extended-release methylphenidate formulation for safety and efficacy in ADHD management.",
-    sourceUrl: "https://journals.co.za/doi/full/10.4102/sajpsychiatry.v30i0.2357",
-  },
-  {
-    title: "Once-daily medications for the pharmacological management of attention-deficit/hyperactivity disorder",
-    journal: "Clinical Psychopharmacology and Neuroscience",
-    year: 2009,
-    doi: "10.2147/cpn.s4130",
-    medication: "Methylphenidate, Amphetamines, Atomoxetine",
-    usageType: "Dose Titration Support",
-    keyFindings: "Review of once-daily pharmacological options for ADHD, comparing efficacy and convenience of different medication formulations.",
-    sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2703934/",
-  },
-  {
-    title: "First-Time Users of ADHD Medication Among Children and Adolescents in Germany: A Population-Based Study",
-    journal: "Frontiers in Psychiatry",
-    year: 2021,
-    doi: "10.3389/fpsyt.2021.653093",
-    medication: "Methylphenidate, Amphetamines",
-    usageType: "Off-label (unlicensed high-dose) and Dose Titration Support",
-    keyFindings: "Population-based analysis of first-time ADHD medication users, examining prescribing patterns and demographic trends in Germany.",
-    sourceUrl: "https://www.frontiersin.org/articles/10.3389/fpsyt.2021.653093/full",
-  },
-];
+| # | Title | Journal | Year | DOI |
+|---|-------|---------|------|-----|
+| 1 | Pharmacological interventions for ADHD: a systematic review and dose–effect network meta-analysis | The Lancet Psychiatry | 2026 | [10.1016/S2215-0366(26)00091-X](https://doi.org/10.1016/S2215-0366(26)00091-X) |
+| 2 | Treatment Outcomes With Licensed and Unlicensed Stimulant Doses for Adults With Attention-Deficit/Hyperactivity Disorder: A Systematic Review and Meta-Analysis | JAMA Psychiatry | 2024 | [10.1001/jamapsychiatry.2023.4073](https://doi.org/10.1001/jamapsychiatry.2023.4073) |
+| 3 | Methylphenidate dose optimization for ADHD treatment: review of safety, efficacy, and dosing strategies | Drugs | 2017 | [10.1007/s40261-017-0534-1](https://doi.org/10.1007/s40261-017-0534-1) |
+| 4 | Off-label Prescribing Trends for ADHD Medications in Very Young Children | The Journal of Pediatric Pharmacology and Therapeutics | 2017 | [10.5863/1551-6776-22.6.423](https://doi.org/10.5863/1551-6776-22.6.423) |
+| 5 | A 14-Month Randomized Clinical Trial of Treatment Strategies for Attention-Deficit/Hyperactivity Disorder | Archives of General Psychiatry (JAMA Psychiatry) | 1999 | [10.1001/archpsyc.56.12.1073](https://doi.org/10.1001/archpsyc.56.12.1073) |
+| 6 | Safety and effectiveness of methylphenidate ER multi-unit pellet system in ADHD | South African Journal of Psychiatry | 2024 | [10.4102/sajpsychiatry.v30i0.2357](https://doi.org/10.4102/sajpsychiatry.v30i0.2357) |
+| 7 | Once-daily medications for the pharmacological management of attention-deficit/hyperactivity disorder | Clinical Psychopharmacology and Neuroscience | 2009 | [10.2147/cpn.s4130](https://doi.org/10.2147/cpn.s4130) |
+| 8 | First-Time Users of ADHD Medication Among Children and Adolescents in Germany: A Population-Based Study | Frontiers in Psychiatry | 2021 | [10.3389/fpsyt.2021.653093](https://doi.org/10.3389/fpsyt.2021.653093) |
 
-function ArticleSearch() {
-  const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState(null);
+## Key Details
 
-  const filtered = articles.filter(
-    (a) =>
-      a.title.toLowerCase().includes(query.toLowerCase()) ||
-      a.journal.toLowerCase().includes(query.toLowerCase()) ||
-      a.medication.toLowerCase().includes(query.toLowerCase()) ||
-      a.doi.toLowerCase().includes(query.toLowerCase())
-  );
+### Article 1 — Pharmacological interventions for ADHD
+- **Medication:** Amphetamines, Methylphenidate, Guanfacine, Atomoxetine
+- **Usage Type:** Off-label (unlicensed high-dose) and Dose Titration Support
+- **Key Findings:** Identified dose-effect patterns across age groups. For amphetamines, efficacy plateaued at ~25mg/day in children and ~50mg/day in adults. Methylphenidate showed no clear plateau in children but peaked at ~50mg/day in adults.
+- **Source:** [The Lancet Psychiatry](https://www.thelancet.com/journals/lanpsy/article/PIIS2215-0366(26)00091-X/fulltext)
 
-  return (
-    <div>
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Search articles by title, journal, medication, or DOI..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="search-input"
-        />
-      </div>
-      <p className="result-count">
-        {filtered.length} of {articles.length} articles
-      </p>
-      <div className="article-list">
-        {filtered.map((article, idx) => (
-          <div
-            key={idx}
-            className="article-card"
-            onClick={() => setSelected(selected === idx ? null : idx)}
-          >
-            <h3>{article.title}</h3>
-            <p className="article-meta">
-              <strong>{article.journal}</strong> ({article.year}) &middot; DOI: {article.doi}
-            </p>
-            <p className="article-meta">
-              Medication: {article.medication} &middot; Usage: {article.usageType}
-            </p>
-            {selected === idx && (
-              <div className="article-detail">
-                <p><strong>Key Findings:</strong> {article.keyFindings}</p>
-                <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer">
-                  View Source &rarr;
-                </a>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+### Article 2 — Treatment Outcomes With Licensed and Unlicensed Stimulant Doses
+- **Medication:** Methylphenidate, Amphetamines
+- **Usage Type:** Off-label (unlicensed high-dose)
+- **Key Findings:** Meta-analysis found that unlicensed stimulant doses were not associated with greater efficacy than licensed high doses but had a significantly higher risk of discontinuation due to adverse events.
+- **Source:** [JAMA Psychiatry](https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2811310)
 
-<ArticleSearch />
+### Article 3 — Methylphenidate dose optimization for ADHD treatment
+- **Medication:** Methylphenidate
+- **Usage Type:** Dose Titration Support
+- **Key Findings:** Review of dosing strategies highlighting the importance of individualized dose optimization for maximizing efficacy while minimizing adverse effects.
+- **Source:** [Drugs](https://link.springer.com/article/10.1007/s40261-017-0534-1)
+
+### Article 4 — Off-label Prescribing Trends for ADHD Medications in Very Young Children
+- **Medication:** Amphetamines, Methylphenidate
+- **Usage Type:** Off-label (unlicensed high-dose)
+- **Key Findings:** Analysis of off-label prescribing patterns in young children, highlighting the prevalence of unlicensed dosing practices.
+- **Source:** [J Pediatric Pharmacology and Therapeutics](https://journals.lww.com/jpet/fulltext/2017/06000/off_label_prescribing_trends_for_adhd.1.aspx)
+
+### Article 5 — A 14-Month Randomized Clinical Trial of Treatment Strategies for ADHD
+- **Medication:** Methylphenidate, Amphetamines
+- **Usage Type:** Dose Titration Support
+- **Key Findings:** Long-term randomized trial comparing different treatment strategies and their effectiveness over a 14-month period.
+- **Source:** [Archives of General Psychiatry](https://archpsyc.jamanetwork.com/article.aspx?articleid=1073)
+
+### Article 6 — Safety and effectiveness of methylphenidate ER multi-unit pellet system
+- **Medication:** Methylphenidate
+- **Usage Type:** Dose Titration Support
+- **Key Findings:** Evaluation of the extended-release methylphenidate formulation for safety and efficacy in ADHD management.
+- **Source:** [South African Journal of Psychiatry](https://journals.co.za/doi/full/10.4102/sajpsychiatry.v30i0.2357)
+
+### Article 7 — Once-daily medications for the pharmacological management of ADHD
+- **Medication:** Methylphenidate, Amphetamines, Atomoxetine
+- **Usage Type:** Dose Titration Support
+- **Key Findings:** Review of once-daily pharmacological options for ADHD, comparing efficacy and convenience of different medication formulations.
+- **Source:** [Clinical Psychopharmacology and Neuroscience](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2703934/)
+
+### Article 8 — First-Time Users of ADHD Medication Among Children and Adolescents in Germany
+- **Medication:** Methylphenidate, Amphetamines
+- **Usage Type:** Off-label (unlicensed high-dose) and Dose Titration Support
+- **Key Findings:** Population-based analysis of first-time ADHD medication users, examining prescribing patterns and demographic trends in Germany.
+- **Source:** [Frontiers in Psychiatry](https://www.frontiersin.org/articles/10.3389/fpsyt.2021.653093/full)
