@@ -34,23 +34,8 @@ navigation:
         slug: welcome
   - tab: docs
     layout:
-      - section: Get started
+      - section: Articles
         contents:
-          - page: Edit your docs
-            path: docs/pages/editing-your-docs.mdx
-            icon: fa-duotone fa-pen-to-square
-          - page: Write content
-            path: docs/pages/writing-content.mdx
-            icon: fa-duotone fa-file-lines
-          - page: Set up navigation
-            path: docs/pages/navigation.mdx
-            icon: fa-duotone fa-sitemap
-          - page: Customize your docs
-            path: docs/pages/customization.mdx
-            icon: fa-duotone fa-palette
-          - page: Support
-            path: docs/pages/support.mdx
-            icon: fa-duotone fa-headset
           - page: Pharmacological interventions for ADHD
             path: docs/pages/pharmacological-interventions-for-adhd-a-systematic-review-a.mdx
             icon: fa-duotone fa-file-lines
