@@ -51,6 +51,9 @@ navigation:
           - page: Support
             path: docs/pages/support.mdx
             icon: fa-duotone fa-headset
+          - page: Articles
+            path: docs/pages/articles.mdx
+            icon: fa-duotone fa-file-lines
   - tab: API Reference
     layout:
       - section: Overview
