@@ -1,2 +1,8 @@
 # Materialized layout previews (scripts/dev-layout.sh, publish-layouts.yml)
 .preview/
+
+# Generated Fern definition
+fern/apis/example-openapi/.definition/
+
+# Accidental data page
+fern/docs/pages/data.mdx
