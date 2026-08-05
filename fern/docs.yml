@@ -8,7 +8,7 @@ instances:
         repo: family-614073
         branch: main
       launch: dashboard
-title: U.S. FDA | Documentation
+title: U.S. FDA | Clinical Evidence Index
 layout:
   searchbar-placement: header
   page-width: full
@@ -17,92 +17,154 @@ tabs:
   home:
     display-name: Home
     icon: home
-  API Reference:
-    display-name: API Reference
-    icon: puzzle
-  docs:
-    display-name: Docs
+  evidence:
+    display-name: Evidence
     icon: book
-  changelog:
-    display-name: Changelog
-    icon: clock
 navigation:
   - tab: home
     layout:
       - page: Home
         path: docs/pages/welcome.mdx
         slug: welcome
-  - tab: docs
+  - tab: evidence
     layout:
-      - section: Articles
+      - section: Evidence Overview
         contents:
-          - page: Pharmacological interventions for ADHD
+          - section: Systematic Reviews & Meta-Analyses
+            contents:
+              - page: Pharmacological interventions for ADHD (dose-effect NMA)
+                path: docs/pages/pharmacological-interventions-for-adhd-a-systematic-review-a.mdx
+                slug: nma-pharm-interventions
+              - page: Treatment outcomes with licensed vs unlicensed stimulant doses
+                path: docs/pages/treatment-outcomes-with-licensed-and-unlicensed-stimulant-do.mdx
+                slug: nma-treatment-outcomes
+              - page: Methylphenidate dose optimization
+                path: docs/pages/methylphenidate-dose-optimization-for-adhd-treatment-review-.mdx
+                slug: review-mph-dose-opt
+      - section: Medication Classes
+        contents:
+          - section: Stimulants
+            contents:
+              - section: Methylphenidate
+                contents:
+                  - page: Methylphenidate dose optimization
+                    path: docs/pages/methylphenidate-dose-optimization-for-adhd-treatment-review-.mdx
+                    slug: mph-dose-opt
+                  - page: MTA 14-month RCT of treatment strategies
+                    path: docs/pages/a-14-month-randomized-clinical-trial-of-treatment-strategies.mdx
+                    slug: mta-rct
+                  - page: Methylphenidate ER multi-unit pellet system
+                    path: docs/pages/safety-and-effectiveness-of-methylphenidate-er-multi-unit-pe.mdx
+                    slug: mph-er-mups
+                  - page: Treatment outcomes with licensed vs unlicensed stimulant doses
+                    path: docs/pages/treatment-outcomes-with-licensed-and-unlicensed-stimulant-do.mdx
+                    slug: stim-outcomes
+              - section: Amphetamines
+                contents:
+                  - page: Once-daily MAS XR in adults
+                    path: docs/pages/once-daily-medications-for-the-pharmacological-management-of.mdx
+                    slug: mas-xr-adults
+                  - page: Treatment outcomes with licensed vs unlicensed stimulant doses
+                    path: docs/pages/treatment-outcomes-with-licensed-and-unlicensed-stimulant-do.mdx
+                    slug: amph-outcomes
+          - section: Non-Stimulants
+            contents:
+              - section: Atomoxetine
+                contents:
+                  - page: Pharmacological interventions for ADHD (dose-effect NMA)
+                    path: docs/pages/pharmacological-interventions-for-adhd-a-systematic-review-a.mdx
+                    slug: atomoxetine-nma
+                  - page: First-time users in Germany (claims data)
+                    path: docs/pages/first-time-users-of-adhd-medication-among-children-and-adole.mdx
+                    slug: atomoxetine-germany
+      - section: Dose & Titration
+        contents:
+          - section: Dose Optimization
+            contents:
+              - page: Methylphenidate dose optimization
+                path: docs/pages/methylphenidate-dose-optimization-for-adhd-treatment-review-.mdx
+                slug: dose-opt
+              - page: MTA 14-month RCT of treatment strategies
+                path: docs/pages/a-14-month-randomized-clinical-trial-of-treatment-strategies.mdx
+                slug: dose-opt-rct
+          - section: High-Dose / Off-Label Use
+            contents:
+              - page: Treatment outcomes with licensed vs unlicensed stimulant doses
+                path: docs/pages/treatment-outcomes-with-licensed-and-unlicensed-stimulant-do.mdx
+                slug: highdose-outcomes
+              - page: Once-daily MAS XR in adults
+                path: docs/pages/once-daily-medications-for-the-pharmacological-management-of.mdx
+                slug: highdose-mas
+              - page: Off-label prescribing in very young children
+                path: docs/pages/off-label-prescribing-trends-for-adhd-medications-in-very-yo.mdx
+                slug: highdose-preschool
+              - page: First-time users in Germany (claims data)
+                path: docs/pages/first-time-users-of-adhd-medication-among-children-and-adole.mdx
+                slug: highdose-germany
+      - section: Treatment Outcomes
+        contents:
+          - page: Pharmacological interventions for ADHD (dose-effect NMA)
             path: docs/pages/pharmacological-interventions-for-adhd-a-systematic-review-a.mdx
-            icon: fa-duotone fa-file-lines
-          - page: Treatment Outcomes With Licensed and Unlicensed Stimulant Doses
+            slug: outcomes-nma
+          - page: Treatment outcomes with licensed vs unlicensed stimulant doses
             path: docs/pages/treatment-outcomes-with-licensed-and-unlicensed-stimulant-do.mdx
-            icon: fa-duotone fa-file-lines
-          - page: Methylphenidate dose optimization for ADHD treatment
-            path: docs/pages/methylphenidate-dose-optimization-for-adhd-treatment-review-.mdx
-            icon: fa-duotone fa-file-lines
-          - page: Off-label Prescribing Trends for ADHD Medications in Very Young Children
-            path: docs/pages/off-label-prescribing-trends-for-adhd-medications-in-very-yo.mdx
-            icon: fa-duotone fa-file-lines
-          - page: A 14-Month Randomized Clinical Trial of Treatment Strategies for ADHD
+            slug: outcomes-comp
+          - page: MTA 14-month RCT of treatment strategies
             path: docs/pages/a-14-month-randomized-clinical-trial-of-treatment-strategies.mdx
-            icon: fa-duotone fa-file-lines
-          - page: Safety and effectiveness of methylphenidate ER multi-unit pellet system
-            path: docs/pages/safety-and-effectiveness-of-methylphenidate-er-multi-unit-pe.mdx
-            icon: fa-duotone fa-file-lines
-          - page: Once-daily medications for the pharmacological management of ADHD
-            path: docs/pages/once-daily-medications-for-the-pharmacological-management-of.mdx
-            icon: fa-duotone fa-file-lines
-          - page: First-Time Users of ADHD Medication Among Children and Adolescents in Germany
-            path: docs/pages/first-time-users-of-adhd-medication-among-children-and-adole.mdx
-            icon: fa-duotone fa-file-lines
-  - tab: API Reference
-    layout:
-      - section: Overview
+            slug: outcomes-rct
+      - section: Safety & Adverse Effects
         contents:
-          - page: API reference
-            path: docs/pages/api-reference-overview.mdx
-            icon: fa-duotone fa-book
-      - api: Swagger Plant Store - OpenAPI 3.1
-        flattened: false
-  - tab: changelog
-    layout:
-      - changelog: docs/changelog
-navbar-links:
-  - type: filled
-    text: Edit
-    url: https://dashboard.buildwithfern.com
-colors:
-  accent-primary:
-    light: "#007CBA"
-    dark: "#007CBA"
-  background:
-    light: "#F7FBFD"
-    dark: "#000609"
-  border:
-    light: "#C8D1D5"
-    dark: "#252E32"
-theme:
-  page-actions: toolbar
-  footer-nav: minimal
-  tabs: bubble
-logo:
-  dark: docs/assets/logo-dark.svg
-  light: docs/assets/logo.svg
-  height: 20
-  href: https://buildwithfern.com
-favicon: docs/assets/favicon.svg
-css:
-  - styles.css
-  - docs/assets/onboarding-theme.css
-js: custom.js
-typography:
-  headingsFont:
-    name: Inter
-  bodyFont:
-    name: Inter
-ai-search: {}
+          - page: Methylphenidate ER multi-unit pellet system
+            path: docs/pages/safety-and-effectiveness-of-methylphenidate-er-multi-unit-pe.mdx
+            slug: safety-mups
+          - page: Treatment outcomes with licensed vs unlicensed stimulant doses
+            path: docs/pages/treatment-outcomes-with-licensed-and-unlicensed-stimulant-do.mdx
+            slug: safety-outcomes
+      - section: Populations
+        contents:
+          - section: Children & Adolescents
+            contents:
+              - page: MTA 14-month RCT of treatment strategies
+                path: docs/pages/a-14-month-randomized-clinical-trial-of-treatment-strategies.mdx
+                slug: pop-children
+              - page: First-time users in Germany (claims data)
+                path: docs/pages/first-time-users-of-adhd-medication-among-children-and-adole.mdx
+                slug: pop-germany
+          - section: Very Young Children
+            contents:
+              - page: Off-label prescribing in very young children
+                path: docs/pages/off-label-prescribing-trends-for-adhd-medications-in-very-yo.mdx
+                slug: pop-preschool
+          - section: Adults
+            contents:
+              - page: Once-daily MAS XR in adults
+                path: docs/pages/once-daily-medications-for-the-pharmacological-management-of.mdx
+                slug: pop-adults
+              - page: Methylphenidate dose optimization
+                path: docs/pages/methylphenidate-dose-optimization-for-adhd-treatment-review-.mdx
+                slug: pop-mph-adults
+      - section: Formulations & Administration
+        contents:
+          - section: Extended Release
+            contents:
+              - page: Methylphenidate ER multi-unit pellet system
+                path: docs/pages/safety-and-effectiveness-of-methylphenidate-er-multi-unit-pe.mdx
+                slug: form-er
+          - section: Once-Daily
+            contents:
+              - page: Once-daily MAS XR in adults
+                path: docs/pages/once-daily-medications-for-the-pharmacological-management-of.mdx
+                slug: form-once-daily
+          - section: Multi-Unit / Divided Dosing
+            contents:
+              - page: MTA 14-month RCT of treatment strategies
+                path: docs/pages/a-14-month-randomized-clinical-trial-of-treatment-strategies.mdx
+                slug: form-divided
+      - section: Real-World / Prescribing Evidence
+        contents:
+          - page: Off-label prescribing in very young children
+            path: docs/pages/off-label-prescribing-trends-for-adhd-medications-in-very-yo.mdx
+            slug: rw-preschool
+          - page: First-time users in Germany (claims data)
+            path: docs/pages/first-time-users-of-adhd-medication-among-children-and-adole.mdx
+            slug: rw-germany
