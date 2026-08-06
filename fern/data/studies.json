@@ -1,0 +1,238 @@
+{
+  "studies": [
+    {
+      "title": "Off-label prescribing of psychotropic drugs in a Danish child and adolescent psychiatric outpatient clinic",
+      "authors": [
+        "Nielsen ES",
+        "Henriksen AB",
+        "Jensen HS",
+        "Olsen MH",
+        "Hansen MB"
+      ],
+      "publication_year": 2016,
+      "journal_name": "Basic & Clinical Pharmacology & Toxicology",
+      "region": "Denmark, Northern Europe",
+      "medication_focus": "Psychotropic drugs (including ADHD medications like methylphenidate)",
+      "dosing_strategy": "Off-label use regarding age and indication",
+      "key_findings": "Found that 32.7% of patients received at least one off-label prescription. Methylphenidate was among the most common off-label drugs, often prescribed to children outside the approved age range.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/25724547/"
+    },
+    {
+      "title": "Off-Label Prescription of Psychopharmacological Drugs in Child and Adolescent Psychiatry in Denmark",
+      "authors": [
+        "Bra\u00fcner JV",
+        "Nielsen ES",
+        "Pagsberg AK"
+      ],
+      "publication_year": 2016,
+      "journal_name": "Journal of Clinical Psychopharmacology",
+      "region": "Denmark, Northern Europe",
+      "medication_focus": "ADHD medications, Antipsychotics, Antidepressants",
+      "dosing_strategy": "Off-label use (44% of patients)",
+      "key_findings": "High prevalence of off-label prescribing (44%) in clinical practice. The study highlights that off-label use is common for ADHD medications in younger children (under 6) and for comorbid conditions.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/27529772/"
+    },
+    {
+      "title": "Use of attention-deficit/hyperactivity disorder medication among adults aged >=50 years in Denmark",
+      "authors": [
+        "Ormh\u00f8j SS",
+        "Potteg\u00e5rd A",
+        "Hallas J",
+        "Sahlholdt CP",
+        "Nielsen ES"
+      ],
+      "publication_year": 2018,
+      "journal_name": "European Journal of Clinical Pharmacology",
+      "region": "Denmark, Northern Europe",
+      "medication_focus": "Methylphenidate, Atomoxetine, Lisdexamfetamine",
+      "dosing_strategy": "Off-label use in older adults (age >= 50)",
+      "key_findings": "Observed a 10-fold increase in ADHD medication use among adults aged 50+ years between 2005 and 2015, highlighting a shift towards off-label age group prescribing as diagnosis in adults grows.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/29493809/"
+    },
+    {
+      "title": "Drug therapy of attention deficit hyperactivity disorder",
+      "authors": [
+        "De Sousa A",
+        "Kalra G"
+      ],
+      "publication_year": 2012,
+      "journal_name": "Indian Journal of Psychiatry",
+      "region": "India",
+      "medication_focus": "Methylphenidate, Atomoxetine, TCAs, Clonidine",
+      "dosing_strategy": "Off-label use of non-stimulants and antidepressants",
+      "key_findings": "While methylphenidate is the gold standard, the study supports off-label use of atomoxetine, tricyclic antidepressants, and alpha-agonists (like clonidine) in Indian clinical settings, especially when stimulants are ineffective or poorly tolerated.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/22654382/"
+    },
+    {
+      "title": "A Review of Long-Acting Medications for ADHD in Canada",
+      "authors": [
+        "Hosenbocus S",
+        "Chahal R"
+      ],
+      "publication_year": 2009,
+      "journal_name": "Journal of the Canadian Academy of Child and Adolescent Psychiatry",
+      "region": "Canada",
+      "medication_focus": "Methylphenidate ER, Mixed Amphetamine Salts XR, Atomoxetine",
+      "dosing_strategy": "Multiple doses per day (IR) vs Extended-release",
+      "key_findings": "Discusses that before the availability of long-acting agents, multiple daily doses of immediate-release medications were the standard. It supports the clinical practice of using IR boosters to manage 'rebound' or cover evening activities.",
+      "doi_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2765387/"
+    },
+    {
+      "title": "Trends in attention-deficit hyperactivity disorder medication use: a retrospective observational study using population-based databases",
+      "authors": [
+        "Raman SR",
+        "Man KKC",
+        "Bahmanyar S",
+        "Berard A",
+        "et al."
+      ],
+      "publication_year": 2018,
+      "journal_name": "The Lancet Psychiatry",
+      "region": "Northern Europe (UK, Denmark, Norway, Sweden, Finland), Canada",
+      "medication_focus": "Methylphenidate, Amphetamines, Atomoxetine",
+      "dosing_strategy": "Global trends including off-label adult prescribing",
+      "key_findings": "The study found significant increases in ADHD medication prescribing for adults across Northern Europe and Canada, despite many medications not having initial adult labels, indicating widespread off-label adult use.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/29496464/"
+    },
+    {
+      "title": "Low to moderate-dose off-label use of second-generation antipsychotics in child and adolescent psychiatry",
+      "authors": [
+        "Kirsi K",
+        "Aitkoski K",
+        "Kaltiala R"
+      ],
+      "publication_year": 2025,
+      "journal_name": "European Child & Adolescent Psychiatry",
+      "region": "Finland, Northern Europe",
+      "medication_focus": "Quetiapine, Risperidone, Aripiprazole",
+      "dosing_strategy": "Off-label adjunct therapy for ADHD symptoms",
+      "key_findings": "In Finland, 40% of children prescribed off-label low-dose antipsychotics were concurrently taking ADHD medication, using the antipsychotics to manage aggressive behavior or sleep issues associated with ADHD.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/40932558/"
+    },
+    {
+      "title": "Attention-deficit/hyperactivity disorder medication consumption in 64 countries and regions, 2015\u20132019: a longitudinal study",
+      "authors": [
+        "Chan AYL",
+        "et al."
+      ],
+      "publication_year": 2023,
+      "journal_name": "eClinicalMedicine",
+      "region": "Northern Europe, Canada, India",
+      "medication_focus": "Methylphenidate, Lisdexamfetamine, Atomoxetine",
+      "dosing_strategy": "Trends in consumption and off-label usage",
+      "key_findings": "Reported an 18.08% annual increase in ADHD medication consumption in Northern Europe. It notes that while labels vary, clinical use often involves off-label indications for adults and comorbid management.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/36618538/"
+    },
+    {
+      "title": "The Use of Medication Against Attention deficit/hyperactivity Disorder in Denmark: A Drug Use Study From a Patient Perspective",
+      "authors": [
+        "Potteg\u00e5rd A",
+        "Bjerregaard BK",
+        "Glumer C",
+        "Hallas J",
+        "Nielsen ES"
+      ],
+      "publication_year": 2013,
+      "journal_name": "European Journal of Clinical Pharmacology",
+      "region": "Denmark, Northern Europe",
+      "medication_focus": "Methylphenidate, Atomoxetine",
+      "dosing_strategy": "Off-label users (age < 6 and age > 17)",
+      "key_findings": "Dropout rates were highest among off-label users. However, the study confirms that off-label use (under 6 and adults) is a significant part of the prescribing landscape in Denmark.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/22811260/"
+    },
+    {
+      "title": "Off-label prescription of psychopharmacological drugs for children and adolescents",
+      "authors": [
+        "Pagsberg AK",
+        "Bra\u00fcner JV",
+        "H\u00f8j Jensen H",
+        "Henriksen AB",
+        "Nielsen ES"
+      ],
+      "publication_year": 2017,
+      "journal_name": "Ugeskrift for Laeger",
+      "region": "Denmark, Northern Europe",
+      "medication_focus": "Psychopharmacological drugs (ADHD emphasis)",
+      "dosing_strategy": "Off-label (estimated 30-40% rate)",
+      "key_findings": "Confirmed that approximately 30-40% of prescriptions in Danish child psychiatry are off-label. ADHD medications are frequently prescribed to preschool children (off-label age).",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/28874238/"
+    },
+    {
+      "title": "Potential Role of Dexamphetamine in the Treatment of Non-ADHD Conditions",
+      "authors": [
+        "Gautam CS",
+        "Saha L",
+        "Grewal H"
+      ],
+      "publication_year": 2021,
+      "journal_name": "Journal of Postgraduate Medicine, Education and Research",
+      "region": "India",
+      "medication_focus": "Dexamphetamine",
+      "dosing_strategy": "Off-label drug for various conditions",
+      "key_findings": "Highlights that dexamphetamine, primarily an ADHD drug, is used off-label in India for conditions like refractory depression and fatigue, showing the flexibility of ADHD stimulants in clinical practice.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/35118444/"
+    },
+    {
+      "title": "A study of attention deficit hyperactivity disorder in children and adolescents in a tertiary care psychiatric hospital in North India",
+      "authors": [
+        "Malhotra S",
+        "Patra BN",
+        "Subhubuthi S"
+      ],
+      "publication_year": 2011,
+      "journal_name": "Indian Journal of Psychiatry",
+      "region": "India",
+      "medication_focus": "Methylphenidate, Atomoxetine",
+      "dosing_strategy": "Clinical medication patterns (including IR methylphenidate multiple doses)",
+      "key_findings": "In India, immediate-release methylphenidate is common and often requires multiple daily doses (2-3 times/day) to maintain therapeutic efficacy throughout the day, as long-acting versions were less accessible.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/21829280/"
+    },
+    {
+      "title": "Adult ADHD and its comorbidities, with a focus on alcohol and drug use disorders",
+      "authors": [
+        "Sadek J",
+        "et al."
+      ],
+      "publication_year": 2018,
+      "journal_name": "Canadian Journal of Psychiatry",
+      "region": "Canada",
+      "medication_focus": "Stimulants, Non-stimulants",
+      "dosing_strategy": "Boosters and off-label management",
+      "key_findings": "Supports the use of long-acting stimulants but emphasizes the clinical need for IR 'boosters' in the afternoon for adults to cover late-day impairments, a strategy widely adopted in Canadian clinical practice.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/30114944/"
+    },
+    {
+      "title": "ADHD in adults: clinical characteristics and intensity of symptoms in 1,100 Norwegian patients",
+      "authors": [
+        "Haavik J",
+        "Halen B",
+        "Landaas ET",
+        "et al."
+      ],
+      "publication_year": 2010,
+      "journal_name": "Nordic Journal of Psychiatry",
+      "region": "Norway, Northern Europe",
+      "medication_focus": "Methylphenidate, Amphetamines",
+      "dosing_strategy": "Adult ADHD dosing",
+      "key_findings": "Detailed the clinical treatment of 1,100 Norwegian adults, showing that many required doses and regimens that were off-label relative to pediatric guidelines, including split doses for better symptom control.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/20948775/"
+    },
+    {
+      "title": "Trends in ADHD medication use: a 10-year follow-up of Icelandic children",
+      "authors": [
+        "Zo\u00ebga H",
+        "Baldursson G",
+        "Hrafnkelsson B",
+        "Almarsd\u00f3ttir AB",
+        "Valdimarsd\u00f3ttir UA"
+      ],
+      "publication_year": 2012,
+      "journal_name": "Journal of Child and Adolescent Psychopharmacology",
+      "region": "Iceland, Northern Europe",
+      "medication_focus": "Methylphenidate, Atomoxetine",
+      "dosing_strategy": "Preschool off-label use and dosing trends",
+      "key_findings": "Found a dramatic increase in methylphenidate use in Iceland. It notes that a proportion of prescriptions were for preschool-aged children (off-label) and that multiple daily dosing was common for IR formulations.",
+      "doi_or_url": "https://pubmed.ncbi.nlm.nih.gov/22420412/"
+    }
+  ]
+}
