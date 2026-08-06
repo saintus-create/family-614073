@@ -30,60 +30,60 @@ navigation:
   - section: Articles
     contents:
     - page: A Review of Long-Acting Medications for ADHD in Canada
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/a-review-of-long-acting-medications-for-adhd-in-canada.mdx
+      path: docs/pages/a-review-of-long-acting-medications-for-adhd-in-canada.mdx
       slug: a-review-of-long-acting-medications-for-adhd-in-canada
     - page: A study of attention deficit hyperactivity disorder in children and adolescents
         in a tertiary care psychiatric hospital in North India
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/a-study-of-attention-deficit-hyperactivity-disorder-in-child.mdx
+      path: docs/pages/a-study-of-attention-deficit-hyperactivity-disorder-in-child.mdx
       slug: a-study-of-attention-deficit-hyperactivity-disorder-in-child
     - page: 'ADHD in adults: clinical characteristics and intensity of symptoms in
         1,100 Norwegian patients'
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/adhd-in-adults-clinical-characteristics-and-intensity-of-sym.mdx
+      path: docs/pages/adhd-in-adults-clinical-characteristics-and-intensity-of-sym.mdx
       slug: adhd-in-adults-clinical-characteristics-and-intensity-of-sym
     - page: Adult ADHD and its comorbidities, with a focus on alcohol and drug use
         disorders
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/adult-adhd-and-its-comorbidities-with-a-focus-on-alcohol-and.mdx
+      path: docs/pages/adult-adhd-and-its-comorbidities-with-a-focus-on-alcohol-and.mdx
       slug: adult-adhd-and-its-comorbidities-with-a-focus-on-alcohol-and
     - page: 'Attention-deficit/hyperactivity disorder medication consumption in 64
         countries and regions, 2015–2019: a longitudinal study'
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/attention-deficithyperactivity-disorder-medication-consumpti.mdx
+      path: docs/pages/attention-deficithyperactivity-disorder-medication-consumpti.mdx
       slug: attention-deficithyperactivity-disorder-medication-consumpti
     - page: Drug therapy of attention deficit hyperactivity disorder
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/drug-therapy-of-attention-deficit-hyperactivity-disorder.mdx
+      path: docs/pages/drug-therapy-of-attention-deficit-hyperactivity-disorder.mdx
       slug: drug-therapy-of-attention-deficit-hyperactivity-disorder
     - page: Low to moderate-dose off-label use of second-generation antipsychotics
         in child and adolescent psychiatry
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/low-to-moderate-dose-off-label-use-of-second-generation-anti.mdx
+      path: docs/pages/low-to-moderate-dose-off-label-use-of-second-generation-anti.mdx
       slug: low-to-moderate-dose-off-label-use-of-second-generation-anti
     - page: Off-label prescribing of psychotropic drugs in a Danish child and adolescent
         psychiatric outpatient clinic
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/off-label-prescribing-of-psychotropic-drugs-in-a-danish-chil.mdx
+      path: docs/pages/off-label-prescribing-of-psychotropic-drugs-in-a-danish-chil.mdx
       slug: off-label-prescribing-of-psychotropic-drugs-in-a-danish-chil
     - page: Off-label prescription of psychopharmacological drugs for children and
         adolescents
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/off-label-prescription-of-psychopharmacological-drugs-for-ch.mdx
+      path: docs/pages/off-label-prescription-of-psychopharmacological-drugs-for-ch.mdx
       slug: off-label-prescription-of-psychopharmacological-drugs-for-ch
     - page: Off-Label Prescription of Psychopharmacological Drugs in Child and Adolescent
         Psychiatry in Denmark
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/off-label-prescription-of-psychopharmacological-drugs-in-chi.mdx
+      path: docs/pages/off-label-prescription-of-psychopharmacological-drugs-in-chi.mdx
       slug: off-label-prescription-of-psychopharmacological-drugs-in-chi
     - page: Potential Role of Dexamphetamine in the Treatment of Non-ADHD Conditions
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/potential-role-of-dexamphetamine-in-the-treatment-of-non-adh.mdx
+      path: docs/pages/potential-role-of-dexamphetamine-in-the-treatment-of-non-adh.mdx
       slug: potential-role-of-dexamphetamine-in-the-treatment-of-non-adh
     - page: 'The Use of Medication Against Attention deficit/hyperactivity Disorder
         in Denmark: A Drug Use Study From a Patient Perspective'
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/the-use-of-medication-against-attention-deficithyperactivity.mdx
+      path: docs/pages/the-use-of-medication-against-attention-deficithyperactivity.mdx
       slug: the-use-of-medication-against-attention-deficithyperactivity
     - page: 'Trends in ADHD medication use: a 10-year follow-up of Icelandic children'
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/trends-in-adhd-medication-use-a-10-year-follow-up-of-iceland.mdx
+      path: docs/pages/trends-in-adhd-medication-use-a-10-year-follow-up-of-iceland.mdx
       slug: trends-in-adhd-medication-use-a-10-year-follow-up-of-iceland
     - page: 'Trends in attention-deficit hyperactivity disorder medication use: a
         retrospective observational study using population-based databases'
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/trends-in-attention-deficit-hyperactivity-disorder-medicatio.mdx
+      path: docs/pages/trends-in-attention-deficit-hyperactivity-disorder-medicatio.mdx
       slug: trends-in-attention-deficit-hyperactivity-disorder-medicatio
     - page: Use of attention-deficit/hyperactivity disorder medication among adults
         aged >=50 years in Denmark
-      path: /Users/2024-jan/adhd/family-614073/fern/docs/pages/use-of-attention-deficithyperactivity-disorder-medication-am.mdx
+      path: docs/pages/use-of-attention-deficithyperactivity-disorder-medication-am.mdx
       slug: use-of-attention-deficithyperactivity-disorder-medication-am
 navbar-links:
 - type: filled
