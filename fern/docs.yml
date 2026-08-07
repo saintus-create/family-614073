@@ -6,7 +6,7 @@ instances:
       repo: family-614073
       branch: main
     launch: dashboard
-title: U.S. FDA | Clinical Evidence Index
+title: Clinical Evidence Index
 layout:
   searchbar-placement: header
   page-width: full
@@ -29,278 +29,278 @@ navigation:
   - page: Evidence Overview
     path: docs/pages/evidence-overview.mdx
     icon: fa-regular fa-list
-  - section: Articles
+  - section: Studies
     contents:
-    - page: Pharmacokinetics of lisdexamfetamine dimesylate in healthy adults
-      path: docs/pages/study-256-pharmacokinetics-of-lisdexamfetamine-dimesylate-in-healthy-a.mdx
-      slug: study-256-pharmacokinetics-of-lisdexamfetamine-dimesylate-in-healthy-a
-    - page: Safety and pharmacokinetics of LDX in Japanese and Caucasian adults
-      path: docs/pages/study-257-safety-and-pharmacokinetics-of-ldx-in-japanese-and-caucasian.mdx
-      slug: study-257-safety-and-pharmacokinetics-of-ldx-in-japanese-and-caucasian
-    - page: Efficacy of lisdexamfetamine in pediatric ADHD patients
-      path: docs/pages/study-258-efficacy-of-lisdexamfetamine-in-pediatric-adhd-patients.mdx
-      slug: study-258-efficacy-of-lisdexamfetamine-in-pediatric-adhd-patients
-    - page: Patterns of lisdexamfetamine use in Europe
-      path: docs/pages/study-259-patterns-of-lisdexamfetamine-use-in-europe.mdx
-      slug: study-259-patterns-of-lisdexamfetamine-use-in-europe
-    - page: Long-term safety and efficacy of LDX in children and adolescents
-      path: docs/pages/study-260-long-term-safety-and-efficacy-of-ldx-in-children-and-adolesc.mdx
-      slug: study-260-long-term-safety-and-efficacy-of-ldx-in-children-and-adolesc
-    - page: 'Efficacy of Adderall for ADHD: a meta-analysis'
-      path: docs/pages/study-261-efficacy-of-adderall-for-adhd-a-meta-analysis.mdx
-      slug: study-261-efficacy-of-adderall-for-adhd-a-meta-analysis
-    - page: 'Adderall XR: long-acting stimulant for single daily dosing'
-      path: docs/pages/study-262-adderall-xr-long-acting-stimulant-for-single-daily-dosing.mdx
-      slug: study-262-adderall-xr-long-acting-stimulant-for-single-daily-dosing
-    - page: Comparative efficacy of Adderall and methylphenidate
-      path: docs/pages/study-263-comparative-efficacy-of-adderall-and-methylphenidate.mdx
-      slug: study-263-comparative-efficacy-of-adderall-and-methylphenidate
-    - page: Pharmacokinetics and dosing of Adderall
-      path: docs/pages/study-264-pharmacokinetics-and-dosing-of-adderall.mdx
-      slug: study-264-pharmacokinetics-and-dosing-of-adderall
-    - page: Adderall XR in adults with ADHD
-      path: docs/pages/study-265-adderall-xr-in-adults-with-adhd.mdx
-      slug: study-265-adderall-xr-in-adults-with-adhd
-    - page: MPH for ADHD in children with intellectual disability
-      path: docs/pages/study-266-mph-for-adhd-in-children-with-intellectual-disability.mdx
-      slug: study-266-mph-for-adhd-in-children-with-intellectual-disability
-    - page: Real-world effectiveness of MPH on academic achievement
-      path: docs/pages/study-267-real-world-effectiveness-of-mph-on-academic-achievement.mdx
-      slug: study-267-real-world-effectiveness-of-mph-on-academic-achievement
-    - page: Safety and adverse effects of methylphenidate
-      path: docs/pages/study-268-safety-and-adverse-effects-of-methylphenidate.mdx
-      slug: study-268-safety-and-adverse-effects-of-methylphenidate
-    - page: Pharmacokinetics of methylphenidate formulations
-      path: docs/pages/study-269-pharmacokinetics-of-methylphenidate-formulations.mdx
-      slug: study-269-pharmacokinetics-of-methylphenidate-formulations
-    - page: Methylphenidate dose optimization in Norway
-      path: docs/pages/study-270-methylphenidate-dose-optimization-in-norway.mdx
-      slug: study-270-methylphenidate-dose-optimization-in-norway
-    - page: Efficacy and safety of OROS-MPH in adults with ADHD
-      path: docs/pages/study-271-efficacy-and-safety-of-oros-mph-in-adults-with-adhd.mdx
-      slug: study-271-efficacy-and-safety-of-oros-mph-in-adults-with-adhd
-    - page: LDX for ADHD in adults with executive function deficits
-      path: docs/pages/study-272-ldx-for-adhd-in-adults-with-executive-function-deficits.mdx
-      slug: study-272-ldx-for-adhd-in-adults-with-executive-function-deficits
-    - page: Long-term safety of Mixed Amphetamine Salts XR in adults
-      path: docs/pages/study-273-long-term-safety-of-mixed-amphetamine-salts-xr-in-adults.mdx
-      slug: study-273-long-term-safety-of-mixed-amphetamine-salts-xr-in-adults
-    - page: Dexmethylphenidate XR in children and adolescents
-      path: docs/pages/study-274-dexmethylphenidate-xr-in-children-and-adolescents.mdx
-      slug: study-274-dexmethylphenidate-xr-in-children-and-adolescents
-    - page: Randomized trial of LDX in children with ADHD and ODD
-      path: docs/pages/study-275-randomized-trial-of-ldx-in-children-with-adhd-and-odd.mdx
-      slug: study-275-randomized-trial-of-ldx-in-children-with-adhd-and-odd
-    - page: A randomized trial of MPH-LA in children with ADHD
-      path: docs/pages/study-276-a-randomized-trial-of-mph-la-in-children-with-adhd.mdx
-      slug: study-276-a-randomized-trial-of-mph-la-in-children-with-adhd
-    - page: 12-month safety and efficacy extension study in BED
-      path: docs/pages/study-277-12-month-safety-and-efficacy-extension-study-in-bed.mdx
-      slug: study-277-12-month-safety-and-efficacy-extension-study-in-bed
-    - page: Workplace environment simulation in adults with ADHD
-      path: docs/pages/study-278-workplace-environment-simulation-in-adults-with-adhd.mdx
-      slug: study-278-workplace-environment-simulation-in-adults-with-adhd
-    - page: Long-term atomoxetine treatment in children
-      path: docs/pages/study-279-long-term-atomoxetine-treatment-in-children.mdx
-      slug: study-279-long-term-atomoxetine-treatment-in-children
-    - page: 'LDX and growth in children: 2-year longitudinal data'
-      path: docs/pages/study-280-ldx-and-growth-in-children-2-year-longitudinal-data.mdx
-      slug: study-280-ldx-and-growth-in-children-2-year-longitudinal-data
-    - page: Effect of food on LDX pharmacokinetics (Update)
-      path: docs/pages/study-281-effect-of-food-on-ldx-pharmacokinetics-update.mdx
-      slug: study-281-effect-of-food-on-ldx-pharmacokinetics-update
-    - page: PET imaging of dopamine transporter occupancy
-      path: docs/pages/study-282-pet-imaging-of-dopamine-transporter-occupancy.mdx
-      slug: study-282-pet-imaging-of-dopamine-transporter-occupancy
-    - page: 'LDX for BED: Double-blind withdrawal study'
-      path: docs/pages/study-283-ldx-for-bed-double-blind-withdrawal-study.mdx
-      slug: study-283-ldx-for-bed-double-blind-withdrawal-study
-    - page: Human abuse liability of oral/IV LDX
-      path: docs/pages/study-284-human-abuse-liability-of-oraliv-ldx.mdx
-      slug: study-284-human-abuse-liability-of-oraliv-ldx
-    - page: 10-year structural heart safety report
-      path: docs/pages/study-285-10-year-structural-heart-safety-report.mdx
-      slug: study-285-10-year-structural-heart-safety-report
-    - page: Long-term Safety and Efficacy of Lisdexamfetamine
+    - page: Long-term Safety and Efficacy of Lisdexamfetamin...
       path: docs/pages/study-286-long-term-safety-and-efficacy-of-lisdexamfetamine.mdx
-      slug: study-286-long-term-safety-and-efficacy-of-lisdexamfetamine
-    - page: Lisdexamfetamine in Adults with Moderate to Severe ADHD
+      icon: fa-regular fa-file-lines
+    - page: Lisdexamfetamine in Adults with Moderate to Seve...
       path: docs/pages/study-287-lisdexamfetamine-in-adults-with-moderate-to-severe-adhd.mdx
-      slug: study-287-lisdexamfetamine-in-adults-with-moderate-to-severe-adhd
-    - page: Lisdexamfetamine Dimesylate for Binge Eating Disorder
+      icon: fa-regular fa-file-lines
+    - page: Lisdexamfetamine Dimesylate for Binge Eating Dis...
       path: docs/pages/study-288-lisdexamfetamine-dimesylate-for-binge-eating-disorder.mdx
-      slug: study-288-lisdexamfetamine-dimesylate-for-binge-eating-disorder
+      icon: fa-regular fa-file-lines
     - page: Efficacy of LDX in Children with ADHD & ODD
       path: docs/pages/study-289-efficacy-of-ldx-in-children-with-adhd-odd.mdx
-      slug: study-289-efficacy-of-ldx-in-children-with-adhd-odd
+      icon: fa-regular fa-file-lines
     - page: 'Switch from MPH to LDX: A Randomized Trial'
       path: docs/pages/study-290-switch-from-mph-to-ldx-a-randomized-trial.mdx
-      slug: study-290-switch-from-mph-to-ldx-a-randomized-trial
+      icon: fa-regular fa-file-lines
     - page: Maintenance of Efficacy in Adult ADHD
       path: docs/pages/study-291-maintenance-of-efficacy-in-adult-adhd.mdx
-      slug: study-291-maintenance-of-efficacy-in-adult-adhd
+      icon: fa-regular fa-file-lines
     - page: Human Abuse Liability of Lisdexamfetamine
       path: docs/pages/study-292-human-abuse-liability-of-lisdexamfetamine.mdx
-      slug: study-292-human-abuse-liability-of-lisdexamfetamine
+      icon: fa-regular fa-file-lines
     - page: Cardiovascular Effects of LDX in Children
       path: docs/pages/study-293-cardiovascular-effects-of-ldx-in-children.mdx
-      slug: study-293-cardiovascular-effects-of-ldx-in-children
+      icon: fa-regular fa-file-lines
     - page: Executive Function Improvements in Adults
       path: docs/pages/study-294-executive-function-improvements-in-adults.mdx
-      slug: study-294-executive-function-improvements-in-adults
+      icon: fa-regular fa-file-lines
     - page: 'LDX for BED: 12-Month Safety Study'
       path: docs/pages/study-295-ldx-for-bed-12-month-safety-study.mdx
-      slug: study-295-ldx-for-bed-12-month-safety-study
+      icon: fa-regular fa-file-lines
     - page: 'LDX and Growth in Children: 2-Year Data'
       path: docs/pages/study-296-ldx-and-growth-in-children-2-year-data.mdx
-      slug: study-296-ldx-and-growth-in-children-2-year-data
+      icon: fa-regular fa-file-lines
     - page: Effect of Food on LDX Pharmacokinetics
       path: docs/pages/study-297-effect-of-food-on-ldx-pharmacokinetics.mdx
-      slug: study-297-effect-of-food-on-ldx-pharmacokinetics
+      icon: fa-regular fa-file-lines
     - page: Pharmacokinetics in Children Aged 6-12
       path: docs/pages/study-298-pharmacokinetics-in-children-aged-6-12.mdx
-      slug: study-298-pharmacokinetics-in-children-aged-6-12
+      icon: fa-regular fa-file-lines
     - page: 'LDX in Adolescents: A Randomized Trial'
       path: docs/pages/study-299-ldx-in-adolescents-a-randomized-trial.mdx
-      slug: study-299-ldx-in-adolescents-a-randomized-trial
+      icon: fa-regular fa-file-lines
     - page: Long-term Functional Outcomes in Adults
       path: docs/pages/study-300-long-term-functional-outcomes-in-adults.mdx
-      slug: study-300-long-term-functional-outcomes-in-adults
+      icon: fa-regular fa-file-lines
     - page: LDX occupancy in the human brain (2026 Update)
       path: docs/pages/study-301-ldx-occupancy-in-the-human-brain-2026-update.mdx
-      slug: study-301-ldx-occupancy-in-the-human-brain-2026-update
+      icon: fa-regular fa-file-lines
     - page: Polygenic scores & LDX dose prediction
       path: docs/pages/study-302-polygenic-scores-ldx-dose-prediction.mdx
-      slug: study-302-polygenic-scores-ldx-dose-prediction
-    - page: Efficacy Ceiling and Severe Executive Dysfunction
+      icon: fa-regular fa-file-lines
+    - page: Efficacy Ceiling and Severe Executive Dysfunctio...
       path: docs/pages/study-303-efficacy-ceiling-and-severe-executive-dysfunction.mdx
-      slug: study-303-efficacy-ceiling-and-severe-executive-dysfunction
+      icon: fa-regular fa-file-lines
     - page: ROI of Brand LDX vs Generic Substitutes
       path: docs/pages/study-304-roi-of-brand-ldx-vs-generic-substitutes.mdx
-      slug: study-304-roi-of-brand-ldx-vs-generic-substitutes
+      icon: fa-regular fa-file-lines
     - page: Circadian Alignment in ADHD Adults
       path: docs/pages/study-305-circadian-alignment-in-adhd-adults.mdx
-      slug: study-305-circadian-alignment-in-adhd-adults
+      icon: fa-regular fa-file-lines
     - page: Adverse Event Reduction via Graduated Titration
       path: docs/pages/study-306-adverse-event-reduction-via-graduated-titration.mdx
-      slug: study-306-adverse-event-reduction-via-graduated-titration
+      icon: fa-regular fa-file-lines
     - page: Long-term use of Mixed Amphetamine Salts
       path: docs/pages/study-307-long-term-use-of-mixed-amphetamine-salts.mdx
-      slug: study-307-long-term-use-of-mixed-amphetamine-salts
+      icon: fa-regular fa-file-lines
     - page: MAS XR and Workplace Performance
       path: docs/pages/study-308-mas-xr-and-workplace-performance.mdx
-      slug: study-308-mas-xr-and-workplace-performance
+      icon: fa-regular fa-file-lines
     - page: Extended-release MPH in Adults
       path: docs/pages/study-309-extended-release-mph-in-adults.mdx
-      slug: study-309-extended-release-mph-in-adults
+      icon: fa-regular fa-file-lines
     - page: MPH and Academic Performance
       path: docs/pages/study-310-mph-and-academic-performance.mdx
-      slug: study-310-mph-and-academic-performance
+      icon: fa-regular fa-file-lines
     - page: ADHD Persistence into the 6th Decade
       path: docs/pages/study-311-adhd-persistence-into-the-6th-decade.mdx
-      slug: study-311-adhd-persistence-into-the-6th-decade
+      icon: fa-regular fa-file-lines
     - page: LDX as Adjunct in Treatment Resistant Depression
       path: docs/pages/study-312-ldx-as-adjunct-in-treatment-resistant-depression.mdx
-      slug: study-312-ldx-as-adjunct-in-treatment-resistant-depression
+      icon: fa-regular fa-file-lines
     - page: 'National Prescribing Trends: 2020-2025'
       path: docs/pages/study-313-national-prescribing-trends-2020-2025.mdx
-      slug: study-313-national-prescribing-trends-2020-2025
+      icon: fa-regular fa-file-lines
     - page: Metabolic Pathway in RBC Conversion
       path: docs/pages/study-314-metabolic-pathway-in-rbc-conversion.mdx
-      slug: study-314-metabolic-pathway-in-rbc-conversion
+      icon: fa-regular fa-file-lines
     - page: Clinical Standards for Adult Transition
       path: docs/pages/study-315-clinical-standards-for-adult-transition.mdx
-      slug: study-315-clinical-standards-for-adult-transition
+      icon: fa-regular fa-file-lines
     - page: Lisdexamfetamine for the Treatment of ADHD
       path: docs/pages/study-316-lisdexamfetamine-for-the-treatment-of-adhd.mdx
-      slug: study-316-lisdexamfetamine-for-the-treatment-of-adhd
+      icon: fa-regular fa-file-lines
     - page: LDX and Comorbid Depression in Adults
       path: docs/pages/study-317-ldx-and-comorbid-depression-in-adults.mdx
-      slug: study-317-ldx-and-comorbid-depression-in-adults
+      icon: fa-regular fa-file-lines
     - page: Switching from OROS-MPH to LDX in Children
       path: docs/pages/study-318-switching-from-oros-mph-to-ldx-in-children.mdx
-      slug: study-318-switching-from-oros-mph-to-ldx-in-children
+      icon: fa-regular fa-file-lines
     - page: Cognitive Gains in Adult ADHD on LDX
       path: docs/pages/study-319-cognitive-gains-in-adult-adhd-on-ldx.mdx
-      slug: study-319-cognitive-gains-in-adult-adhd-on-ldx
+      icon: fa-regular fa-file-lines
     - page: 'LDX Use in Binge Eating Disorder: Meta-Analysis'
       path: docs/pages/study-320-ldx-use-in-binge-eating-disorder-meta-analysis.mdx
-      slug: study-320-ldx-use-in-binge-eating-disorder-meta-analysis
+      icon: fa-regular fa-file-lines
     - page: ADHD Treatment and Substance Use Disorder Risk
       path: docs/pages/study-321-adhd-treatment-and-substance-use-disorder-risk.mdx
-      slug: study-321-adhd-treatment-and-substance-use-disorder-risk
+      icon: fa-regular fa-file-lines
     - page: 'LDX for ADHD: A Systematic Review of Efficacy'
       path: docs/pages/study-322-ldx-for-adhd-a-systematic-review-of-efficacy.mdx
-      slug: study-322-ldx-for-adhd-a-systematic-review-of-efficacy
+      icon: fa-regular fa-file-lines
     - page: 'Adult ADHD: Treatment with LDX in Europe'
       path: docs/pages/study-323-adult-adhd-treatment-with-ldx-in-europe.mdx
-      slug: study-323-adult-adhd-treatment-with-ldx-in-europe
+      icon: fa-regular fa-file-lines
     - page: ADHD Symptoms and Occupational Status
       path: docs/pages/study-324-adhd-symptoms-and-occupational-status.mdx
-      slug: study-324-adhd-symptoms-and-occupational-status
+      icon: fa-regular fa-file-lines
     - page: LDX Safety in Adults with Stable CAD
       path: docs/pages/study-325-ldx-safety-in-adults-with-stable-cad.mdx
-      slug: study-325-ldx-safety-in-adults-with-stable-cad
+      icon: fa-regular fa-file-lines
     - page: Stimulant Therapy and Bone Mineral Density
       path: docs/pages/study-326-stimulant-therapy-and-bone-mineral-density.mdx
-      slug: study-326-stimulant-therapy-and-bone-mineral-density
+      icon: fa-regular fa-file-lines
     - page: LDX Effectiveness in Clinical Practice
       path: docs/pages/study-327-ldx-effectiveness-in-clinical-practice.mdx
-      slug: study-327-ldx-effectiveness-in-clinical-practice
+      icon: fa-regular fa-file-lines
     - page: 'ADHD and Motor Vehicle Accidents: 2024 Update'
       path: docs/pages/study-328-adhd-and-motor-vehicle-accidents-2024-update.mdx
-      slug: study-328-adhd-and-motor-vehicle-accidents-2024-update
+      icon: fa-regular fa-file-lines
     - page: fMRI Connectivity Changes Post-LDX Treatment
       path: docs/pages/study-329-fmri-connectivity-changes-post-ldx-treatment.mdx
-      slug: study-329-fmri-connectivity-changes-post-ldx-treatment
+      icon: fa-regular fa-file-lines
     - page: Economic Burden of ADHD Under-Treatment
       path: docs/pages/study-330-economic-burden-of-adhd-under-treatment.mdx
-      slug: study-330-economic-burden-of-adhd-under-treatment
+      icon: fa-regular fa-file-lines
     - page: Cardiac Structure Assessment After 5 Years LDX
       path: docs/pages/study-331-cardiac-structure-assessment-after-5-years-ldx.mdx
-      slug: study-331-cardiac-structure-assessment-after-5-years-ldx
+      icon: fa-regular fa-file-lines
     - page: Gene-Based Dosing Requirements for LDX
       path: docs/pages/study-332-gene-based-dosing-requirements-for-ldx.mdx
-      slug: study-332-gene-based-dosing-requirements-for-ldx
+      icon: fa-regular fa-file-lines
     - page: Adult ADHD Remission Criteria
       path: docs/pages/study-333-adult-adhd-remission-criteria.mdx
-      slug: study-333-adult-adhd-remission-criteria
+      icon: fa-regular fa-file-lines
     - page: Generic vs Brand Pharmacokinetic Mismatch
       path: docs/pages/study-334-generic-vs-brand-pharmacokinetic-mismatch.mdx
-      slug: study-334-generic-vs-brand-pharmacokinetic-mismatch
+      icon: fa-regular fa-file-lines
     - page: 'TDAH: L''importance de la titration (France)'
-      path: docs/pages/study-335-tdah-limportance-de-la-titration-france.mdx
-      slug: study-335-tdah-limportance-de-la-titration-france
+      path: docs/pages/study-335-tdah-l-importance-de-la-titration-france.mdx
+      icon: fa-regular fa-file-lines
     - page: Circadian Rhythm Disorders in Adult ADHD
       path: docs/pages/study-336-circadian-rhythm-disorders-in-adult-adhd.mdx
-      slug: study-336-circadian-rhythm-disorders-in-adult-adhd
+      icon: fa-regular fa-file-lines
     - page: ROI of Early LDX Intervention in Adults
       path: docs/pages/study-337-roi-of-early-ldx-intervention-in-adults.mdx
-      slug: study-337-roi-of-early-ldx-intervention-in-adults
+      icon: fa-regular fa-file-lines
     - page: Long-acting Stimulants and Suicide Prevention
       path: docs/pages/study-338-long-acting-stimulants-and-suicide-prevention.mdx
-      slug: study-338-long-acting-stimulants-and-suicide-prevention
+      icon: fa-regular fa-file-lines
     - page: LDX Treatment in the Elderly ADHD Population
       path: docs/pages/study-339-ldx-treatment-in-the-elderly-adhd-population.mdx
-      slug: study-339-ldx-treatment-in-the-elderly-adhd-population
+      icon: fa-regular fa-file-lines
     - page: Impact of LDX on Binge-Eating Remission
       path: docs/pages/study-340-impact-of-ldx-on-binge-eating-remission.mdx
-      slug: study-340-impact-of-ldx-on-binge-eating-remission
+      icon: fa-regular fa-file-lines
     - page: LDX PK Stability in Gastric Bypass Patients
       path: docs/pages/study-341-ldx-pk-stability-in-gastric-bypass-patients.mdx
-      slug: study-341-ldx-pk-stability-in-gastric-bypass-patients
+      icon: fa-regular fa-file-lines
     - page: 'Persistence of Treatment: LDX vs MPH'
       path: docs/pages/study-342-persistence-of-treatment-ldx-vs-mph.mdx
-      slug: study-342-persistence-of-treatment-ldx-vs-mph
+      icon: fa-regular fa-file-lines
     - page: ADHD and Academic Achievement in Chile
       path: docs/pages/study-343-adhd-and-academic-achievement-in-chile.mdx
-      slug: study-343-adhd-and-academic-achievement-in-chile
+      icon: fa-regular fa-file-lines
     - page: Dopamine Transporter Occupancy PET Study
       path: docs/pages/study-344-dopamine-transporter-occupancy-pet-study.mdx
-      slug: study-344-dopamine-transporter-occupancy-pet-study
+      icon: fa-regular fa-file-lines
     - page: 'ADHD Transition: Pediatric to Adult Dosing'
       path: docs/pages/study-345-adhd-transition-pediatric-to-adult-dosing.mdx
-      slug: study-345-adhd-transition-pediatric-to-adult-dosing
+      icon: fa-regular fa-file-lines
+    - page: Pharmacokinetics of lisdexamfetamine dimesylate...
+      path: docs/pages/study-256-pharmacokinetics-of-lisdexamfetamine-dimesylate-in-healthy-adults.mdx
+      icon: fa-regular fa-file-lines
+    - page: Safety and pharmacokinetics of LDX in Japanese a...
+      path: docs/pages/study-257-safety-and-pharmacokinetics-of-ldx-in-japanese-and-caucasian-adults.mdx
+      icon: fa-regular fa-file-lines
+    - page: Efficacy of lisdexamfetamine in pediatric ADHD p...
+      path: docs/pages/study-258-efficacy-of-lisdexamfetamine-in-pediatric-adhd-patients.mdx
+      icon: fa-regular fa-file-lines
+    - page: Patterns of lisdexamfetamine use in Europe
+      path: docs/pages/study-259-patterns-of-lisdexamfetamine-use-in-europe.mdx
+      icon: fa-regular fa-file-lines
+    - page: Long-term safety and efficacy of LDX in children...
+      path: docs/pages/study-260-long-term-safety-and-efficacy-of-ldx-in-children-and-adolescents.mdx
+      icon: fa-regular fa-file-lines
+    - page: 'Efficacy of Adderall for ADHD: a meta-analysis'
+      path: docs/pages/study-261-efficacy-of-adderall-for-adhd-a-meta-analysis.mdx
+      icon: fa-regular fa-file-lines
+    - page: 'Adderall XR: long-acting stimulant for single da...'
+      path: docs/pages/study-262-adderall-xr-long-acting-stimulant-for-single-daily-dosing.mdx
+      icon: fa-regular fa-file-lines
+    - page: Comparative efficacy of Adderall and methylpheni...
+      path: docs/pages/study-263-comparative-efficacy-of-adderall-and-methylphenidate.mdx
+      icon: fa-regular fa-file-lines
+    - page: Pharmacokinetics and dosing of Adderall
+      path: docs/pages/study-264-pharmacokinetics-and-dosing-of-adderall.mdx
+      icon: fa-regular fa-file-lines
+    - page: Adderall XR in adults with ADHD
+      path: docs/pages/study-265-adderall-xr-in-adults-with-adhd.mdx
+      icon: fa-regular fa-file-lines
+    - page: MPH for ADHD in children with intellectual disab...
+      path: docs/pages/study-266-mph-for-adhd-in-children-with-intellectual-disability.mdx
+      icon: fa-regular fa-file-lines
+    - page: Real-world effectiveness of MPH on academic achi...
+      path: docs/pages/study-267-real-world-effectiveness-of-mph-on-academic-achievement.mdx
+      icon: fa-regular fa-file-lines
+    - page: Safety and adverse effects of methylphenidate
+      path: docs/pages/study-268-safety-and-adverse-effects-of-methylphenidate.mdx
+      icon: fa-regular fa-file-lines
+    - page: Pharmacokinetics of methylphenidate formulations
+      path: docs/pages/study-269-pharmacokinetics-of-methylphenidate-formulations.mdx
+      icon: fa-regular fa-file-lines
+    - page: Methylphenidate dose optimization in Norway
+      path: docs/pages/study-270-methylphenidate-dose-optimization-in-norway.mdx
+      icon: fa-regular fa-file-lines
+    - page: Efficacy and safety of OROS-MPH in adults with A...
+      path: docs/pages/study-271-efficacy-and-safety-of-oros-mph-in-adults-with-adhd.mdx
+      icon: fa-regular fa-file-lines
+    - page: LDX for ADHD in adults with executive function d...
+      path: docs/pages/study-272-ldx-for-adhd-in-adults-with-executive-function-deficits.mdx
+      icon: fa-regular fa-file-lines
+    - page: Long-term safety of Mixed Amphetamine Salts XR i...
+      path: docs/pages/study-273-long-term-safety-of-mixed-amphetamine-salts-xr-in-adults.mdx
+      icon: fa-regular fa-file-lines
+    - page: Dexmethylphenidate XR in children and adolescent...
+      path: docs/pages/study-274-dexmethylphenidate-xr-in-children-and-adolescents.mdx
+      icon: fa-regular fa-file-lines
+    - page: Randomized trial of LDX in children with ADHD an...
+      path: docs/pages/study-275-randomized-trial-of-ldx-in-children-with-adhd-and-odd.mdx
+      icon: fa-regular fa-file-lines
+    - page: A randomized trial of MPH-LA in children with AD...
+      path: docs/pages/study-276-a-randomized-trial-of-mph-la-in-children-with-adhd.mdx
+      icon: fa-regular fa-file-lines
+    - page: 12-month safety and efficacy extension study in...
+      path: docs/pages/study-277-12-month-safety-and-efficacy-extension-study-in-bed.mdx
+      icon: fa-regular fa-file-lines
+    - page: Workplace environment simulation in adults with...
+      path: docs/pages/study-278-workplace-environment-simulation-in-adults-with-adhd.mdx
+      icon: fa-regular fa-file-lines
+    - page: Long-term atomoxetine treatment in children
+      path: docs/pages/study-279-long-term-atomoxetine-treatment-in-children.mdx
+      icon: fa-regular fa-file-lines
+    - page: 'LDX and growth in children: 2-year longitudinal...'
+      path: docs/pages/study-280-ldx-and-growth-in-children-2-year-longitudinal-data.mdx
+      icon: fa-regular fa-file-lines
+    - page: Effect of food on LDX pharmacokinetics (Update)
+      path: docs/pages/study-281-effect-of-food-on-ldx-pharmacokinetics-update.mdx
+      icon: fa-regular fa-file-lines
+    - page: PET imaging of dopamine transporter occupancy
+      path: docs/pages/study-282-pet-imaging-of-dopamine-transporter-occupancy.mdx
+      icon: fa-regular fa-file-lines
+    - page: 'LDX for BED: Double-blind withdrawal study'
+      path: docs/pages/study-283-ldx-for-bed-double-blind-withdrawal-study.mdx
+      icon: fa-regular fa-file-lines
+    - page: Human abuse liability of oral/IV LDX
+      path: docs/pages/study-284-human-abuse-liability-of-oral-iv-ldx.mdx
+      icon: fa-regular fa-file-lines
+    - page: 10-year structural heart safety report
+      path: docs/pages/study-285-10-year-structural-heart-safety-report.mdx
+      icon: fa-regular fa-file-lines
 navbar-links:
 - type: filled
   text: Edit
@@ -316,7 +316,6 @@ colors:
     light: '#C8D1D5'
     dark: '#252E32'
 theme:
-  page-actions: toolbar
   footer-nav: minimal
   tabs: bubble
 logo:
