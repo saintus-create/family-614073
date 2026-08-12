@@ -30,8 +30,86 @@ FERN = ROOT / 'fern'
 PAGES = FERN / 'docs' / 'pages'
 STUDIES_DIR = PAGES / 'studies'
 INDEX_DIR = PAGES / 'index'
+LABELS_DIR = PAGES / 'labels'
 DOCS_YML = FERN / 'docs.yml'
 STUDIES_JSON = FERN / 'data' / 'studies.json'
+LABELS_JSON = FERN / 'data' / 'labels.json'
+
+REGION_ORDER = [
+    'North America', 'Europe', 'Asia', 'Oceania',
+    'Latin America', 'Middle East', 'Africa',
+]
+
+REGION_ICON = {
+    'North America': 'fa-regular fa-earth-americas',
+    'Latin America': 'fa-regular fa-earth-americas',
+    'Europe': 'fa-regular fa-earth-europe',
+    'Asia': 'fa-regular fa-earth-asia',
+    'Middle East': 'fa-regular fa-earth-asia',
+    'Africa': 'fa-regular fa-earth-africa',
+    'Oceania': 'fa-regular fa-earth-oceania',
+}
+
+# Mirrors COUNTRY_REGION in scripts/fetch_pubmed.py; used to nest countries
+# under their region in the sidebar.
+COUNTRY_REGION_LOOKUP = {
+    'United States': 'North America', 'Canada': 'North America', 'Mexico': 'North America',
+    'Brazil': 'Latin America', 'Argentina': 'Latin America', 'Chile': 'Latin America',
+    'Colombia': 'Latin America',
+    'United Kingdom': 'Europe', 'Germany': 'Europe', 'Netherlands': 'Europe',
+    'Sweden': 'Europe', 'Denmark': 'Europe', 'Norway': 'Europe', 'Finland': 'Europe',
+    'Iceland': 'Europe', 'Spain': 'Europe', 'Italy': 'Europe', 'France': 'Europe',
+    'Belgium': 'Europe', 'Switzerland': 'Europe', 'Austria': 'Europe', 'Ireland': 'Europe',
+    'Portugal': 'Europe', 'Poland': 'Europe', 'Czech Republic': 'Europe',
+    'Hungary': 'Europe', 'Greece': 'Europe', 'Russia': 'Europe',
+    'Turkey': 'Middle East', 'Israel': 'Middle East', 'Iran': 'Middle East',
+    'Saudi Arabia': 'Middle East',
+    'China': 'Asia', 'Taiwan': 'Asia', 'Hong Kong': 'Asia', 'Japan': 'Asia',
+    'South Korea': 'Asia', 'India': 'Asia', 'Singapore': 'Asia', 'Thailand': 'Asia',
+    'Malaysia': 'Asia',
+    'Egypt': 'Africa', 'South Africa': 'Africa', 'Nigeria': 'Africa',
+    'Australia': 'Oceania', 'New Zealand': 'Oceania',
+}
+
+REGIMEN_ORDER = [
+    'Once daily',
+    'Twice daily',
+    'Three times daily',
+    'Divided / multiple daily doses',
+    'Extended release',
+    'Immediate release',
+    'Titrated to effect',
+    'Single dose (study)',
+]
+
+REGIMEN_ICON = {
+    'Once daily': 'fa-regular fa-sun',
+    'Twice daily': 'fa-regular fa-clock',
+    'Three times daily': 'fa-regular fa-hourglass-half',
+    'Divided / multiple daily doses': 'fa-regular fa-layer-group',
+    'Extended release': 'fa-regular fa-chart-line',
+    'Immediate release': 'fa-regular fa-bolt',
+    'Titrated to effect': 'fa-regular fa-sliders',
+    'Single dose (study)': 'fa-regular fa-1',
+}
+
+# Boxed warnings and controlled-substance status are the label sections a
+# reader most needs up front, so they render as their own callouts.
+LABEL_SECTION_ORDER = [
+    'Boxed warning',
+    'Indications and usage',
+    'Dosage and administration',
+    'Dosage detail',
+    'Dosage forms and strengths',
+    'Contraindications',
+    'Controlled substance',
+    'Abuse',
+    'Dependence',
+    'Pregnancy',
+    'Lactation',
+    'Pediatric use',
+    'Geriatric use',
+]
 
 # Badge intents per study design, strongest evidence first.
 DESIGN_ORDER = [
@@ -148,6 +226,16 @@ def yaml_quote(text: str) -> str:
     return '"' + str(text).replace('\\', '\\\\').replace('"', '\\"') + '"'
 
 
+def jsx_attr(text: str) -> str:
+    """Quote a value for a JSX attribute.
+
+    JSX is not YAML: a backslash-escaped quote is a syntax error there, so any
+    double quote in the value has to become an HTML entity instead. Study titles
+    routinely contain quoted phrases, e.g. Not Really "The Same Thing".
+    """
+    return '"' + mdx_safe(text).replace('"', '&quot;') + '"'
+
+
 def author_line(authors: list, limit: int = 6) -> str:
     if not authors:
         return 'No author listed'
@@ -203,6 +291,8 @@ def build_study_page(s: dict, related: list) -> str:
         badges.append(f'<Badge intent="info" minimal>{s["year"]}</Badge>')
     for topic in s['topics'][:4]:
         badges.append(f'<Badge intent="note" minimal outlined>{mdx_safe(topic)}</Badge>')
+    for regimen in s['regimens'][:3]:
+        badges.append(f'<Badge intent="tip" minimal>{mdx_safe(regimen)}</Badge>')
     if s['pmcid']:
         badges.append('<Badge intent="success" minimal>Free full text</Badge>')
 
@@ -237,6 +327,9 @@ def build_study_page(s: dict, related: list) -> str:
         f'| Study design | {esc_cell(s["design"])} |',
         f'| Publication types | {esc_cell(", ".join(s["publication_types"]) or "Not stated")} |',
         f'| Population | {esc_cell(", ".join(s["populations"]) or "Not specified in abstract")} |',
+        f'| Country | {esc_cell(", ".join(s["countries"]) or "Not stated in affiliations")} |',
+        f'| Dosing regimen | {esc_cell(", ".join(s["regimens"]) or "Not stated in abstract")} |',
+        f'| Doses named | {esc_cell(", ".join(s["doses"]) or "None named in abstract")} |',
         f'| Language | {esc_cell(lang)} |',
         f'| Sources | {source_links(s)} |',
         '',
@@ -265,7 +358,7 @@ def build_study_page(s: dict, related: list) -> str:
         for r in related:
             desc = mdx_safe(f"{r['journal']} · {r['year'] or 'n.d.'} · {r['design']}")
             lines.append(
-                f'  <Card title={yaml_quote(truncate(r["title"], 72))} '
+                f'  <Card title={jsx_attr(truncate(r["title"], 72))} '
                 f'icon="{DESIGN_ICON.get(r["design"], "fa-regular fa-file-lines")}" '
                 f'href="/{study_slug(r)}">')
             lines.append(f'    {desc}')
@@ -384,6 +477,218 @@ def build_topic_page(topic: str, studies: list) -> str:
     return '\n'.join(lines)
 
 
+def build_region_page(region: str, studies: list) -> str:
+    countries = Counter(c for s in studies for c in s['countries']
+                        if s['regions'] and region in s['regions'])
+    lines = [
+        '---',
+        f'title: {yaml_quote(region)}',
+        f'subtitle: {yaml_quote(f"{len(studies)} records with authors based in {region}")}',
+        f'slug: region-{slugify(region)}',
+        '---',
+        '',
+        'Location is taken from author affiliations on the PubMed record, so a '
+        'multinational collaboration appears under every region it involves.',
+        '',
+        '## Countries represented',
+        '',
+        '| Country | Records |',
+        '|---|---|',
+    ]
+    for country, n in countries.most_common():
+        lines.append(f'| [{country}](/country-{slugify(country)}) | {n} |')
+    lines += ['', '## Records', '']
+    lines += study_table(studies)
+    lines.append('')
+    return '\n'.join(lines)
+
+
+def build_country_page(country: str, studies: list) -> str:
+    lines = [
+        '---',
+        f'title: {yaml_quote(country)}',
+        f'subtitle: {yaml_quote(f"{len(studies)} records with authors based in {country}")}',
+        f'slug: country-{slugify(country)}',
+        '---',
+        '',
+    ]
+    lines += study_table(studies)
+    lines.append('')
+    return '\n'.join(lines)
+
+
+def build_regimen_page(regimen: str, studies: list) -> str:
+    doses = Counter(d.lower().replace(' ', '') for s in studies for d in s['doses'])
+    lines = [
+        '---',
+        f'title: {yaml_quote(regimen)}',
+        f'subtitle: {yaml_quote(f"{len(studies)} records describing this regimen")}',
+        f'slug: regimen-{slugify(regimen)}',
+        '---',
+        '',
+        '<Callout intent="warning">',
+        'Regimens are detected from abstract wording, which reflects what each study '
+        'administered under trial conditions. These are not dosing recommendations. '
+        'Approved dosing is on the [regulatory guidance](/regulatory) pages.',
+        '</Callout>',
+        '',
+    ]
+    if doses:
+        top = ', '.join(f'`{d}`' for d, _ in doses.most_common(12))
+        lines += ['**Dose strengths named in these abstracts:** ' + top, '']
+    lines += study_table(studies)
+    lines.append('')
+    return '\n'.join(lines)
+
+
+def build_regulatory_overview(labels: dict) -> str:
+    lines = [
+        '---',
+        'title: Regulatory guidance',
+        'subtitle: Approved prescribing information from the US FDA label archive',
+        'slug: regulatory',
+        '---',
+        '',
+        '<Callout intent="warning">',
+        'Reference material, not medical advice. These pages reproduce approved US '
+        'prescribing information as published in DailyMed. Labelling, approved '
+        'indications, age limits and controlled-substance scheduling differ by country '
+        '— outside the US, consult the applicable national regulator. Always read the '
+        'current full label before any clinical decision.',
+        '</Callout>',
+        '',
+        f'Source: {labels["source"]}. Retrieved {labels["generated"]}.',
+        '',
+        '## Products',
+        '',
+        '<CardGroup cols={2}>',
+    ]
+    for lab in labels['labels']:
+        boxed = any(s['kind'] == 'Boxed warning' for s in lab['sections'])
+        desc = lab['brands'] + (' · Boxed warning' if boxed else '')
+        lines.append(
+            f'  <Card title={jsx_attr(lab["name"])} '
+            f'icon="fa-regular fa-file-prescription" href="/label-{lab["key"]}">')
+        lines.append(f'    {mdx_safe(desc)}')
+        lines.append('  </Card>')
+    lines += ['</CardGroup>', '']
+
+    lines += [
+        '## Scheduling and boxed warnings at a glance',
+        '',
+        '| Product | Boxed warning | Controlled substance |',
+        '|---|---|---|',
+    ]
+    for lab in labels['labels']:
+        boxed = 'Yes' if any(s['kind'] == 'Boxed warning' for s in lab['sections']) else 'No'
+        csa = next((s['text'] for s in lab['sections']
+                    if s['kind'] == 'Controlled substance'), '')
+        m = re.search(r'Schedule\s+([IVX]+)', csa)
+        if m:
+            sched = f'Schedule {m.group(1)}'
+        elif re.search(r'not a controlled substance', csa, re.IGNORECASE):
+            sched = 'Not scheduled'
+        else:
+            sched = 'See label'
+        lines.append(
+            f'| [{esc_cell(lab["name"])}](/label-{lab["key"]}) | {boxed} | {sched} |')
+    lines += [
+        '',
+        '<Callout intent="note">',
+        'International note: the index catalogues research from 45 countries, but the '
+        'labels below are US-specific. Lisdexamfetamine, for example, is marketed as '
+        'Vyvanse in the US and Elvanse in much of Europe, with differing approved '
+        'populations. See [research by region](/browse) for the evidence base outside '
+        'the US.',
+        '</Callout>',
+        '',
+    ]
+    return '\n'.join(lines)
+
+
+def build_label_page(lab: dict) -> str:
+    by_kind = defaultdict(list)
+    for sec in lab['sections']:
+        by_kind[sec['kind']].append(sec)
+
+    lines = [
+        '---',
+        f'title: {yaml_quote(lab["name"])}',
+        f'subtitle: {yaml_quote("US prescribing information · " + lab["brands"])}',
+        f'slug: label-{lab["key"]}',
+        '---',
+        '',
+    ]
+
+    csa = next((s['text'] for s in lab['sections'] if s['kind'] == 'Controlled substance'), '')
+    m = re.search(r'Schedule\s+([IVX]+)', csa)
+    badges = []
+    if m:
+        badges.append(f'<Badge intent="warning">Schedule {m.group(1)}</Badge>')
+    elif re.search(r'not a controlled substance', csa, re.IGNORECASE):
+        badges.append('<Badge intent="success" minimal>Not a controlled substance</Badge>')
+    if by_kind.get('Boxed warning'):
+        badges.append('<Badge intent="error">Boxed warning</Badge>')
+    badges.append(f'<Badge intent="info" minimal>Label published {lab["published"]}</Badge>')
+    lines += [' '.join(badges), '']
+
+    for sec in by_kind.get('Boxed warning', []):
+        lines += [
+            '<Callout intent="error">',
+            f'**{mdx_safe(sec["title"])}**',
+            '',
+            mdx_safe(sec['text']),
+            '</Callout>',
+            '',
+        ]
+
+    lines += [
+        '| | |',
+        '|---|---|',
+        f'| Active ingredient | {esc_cell(lab["name"])} |',
+        f'| Common brand names | {esc_cell(lab["brands"])} |',
+        f'| Label version | {esc_cell(lab["spl_title"])} |',
+        f'| Published | {esc_cell(lab["published"])} |',
+        f'| Source | [DailyMed SPL]({lab["url"]}) |',
+        '',
+    ]
+
+    # Dosing gets its own section since it is the reason most people arrive.
+    dosing = by_kind.get('Dosage and administration', []) + by_kind.get('Dosage detail', [])
+    if dosing:
+        lines += ['## Dosage and administration', '', '<AccordionGroup>']
+        for sec in dosing:
+            lines.append(f'  <Accordion title={jsx_attr(sec["title"])}>')
+            for para in mdx_safe(sec['text']).split('\n'):
+                if para.strip():
+                    lines.append(f'    {para}')
+            lines.append('  </Accordion>')
+        lines += ['</AccordionGroup>', '']
+
+    rest = [k for k in LABEL_SECTION_ORDER
+            if k not in ('Boxed warning', 'Dosage and administration', 'Dosage detail')]
+    remaining = [(k, s) for k in rest for s in by_kind.get(k, [])]
+    if remaining:
+        lines += ['## Full label sections', '', '<AccordionGroup>']
+        for _, sec in remaining:
+            lines.append(f'  <Accordion title={jsx_attr(sec["title"])}>')
+            for para in mdx_safe(sec['text']).split('\n'):
+                if para.strip():
+                    lines.append(f'    {para}')
+            lines.append('  </Accordion>')
+        lines += ['</AccordionGroup>', '']
+
+    lines += [
+        '<Callout intent="warning">',
+        'Reproduced from the approved US label; sections are abridged for indexing. '
+        f'Read the [complete current label]({lab["url"]}) before any clinical use. '
+        'Requirements differ outside the United States.',
+        '</Callout>',
+        '',
+    ]
+    return '\n'.join(lines)
+
+
 def build_browse_page(data: dict, studies: list) -> str:
     by_coll = defaultdict(list)
     for s in studies:
@@ -414,7 +719,7 @@ def build_browse_page(data: dict, studies: list) -> str:
         if not items:
             continue
         lines.append(
-            f'  <Card title={yaml_quote(coll["name"])} '
+            f'  <Card title={jsx_attr(coll["name"])} '
             f'icon="{COLLECTION_ICON.get(coll["key"], "fa-regular fa-folder")}" '
             f'href="/collection-{coll["key"]}">')
         lines.append(f'    {len(items)} records')
@@ -436,11 +741,37 @@ def build_browse_page(data: dict, studies: list) -> str:
     lines += ['', '  </Tab>', '  <Tab title="By topic">', '', '| Topic | Records |', '|---|---|']
     for topic, n in topics.most_common():
         lines.append(f'| [{topic}](/topic-{slugify(topic)}) | {n} |')
+    lines += ['', '  </Tab>', '  <Tab title="By region">', '', '| Region | Records |', '|---|---|']
+    regions = Counter(r for s in studies for r in s['regions'])
+    for region in REGION_ORDER:
+        if regions.get(region):
+            lines.append(f'| [{region}](/region-{slugify(region)}) | {regions[region]} |')
+    lines += ['', '  </Tab>', '  <Tab title="By regimen">', '',
+              '| Dosing regimen | Records |', '|---|---|']
+    regimens = Counter(r for s in studies for r in s['regimens'])
+    for regimen in REGIMEN_ORDER:
+        if regimens.get(regimen):
+            lines.append(f'| [{regimen}](/regimen-{slugify(regimen)}) | {regimens[regimen]} |')
     lines += ['', '  </Tab>', '  <Tab title="By decade">', '', '| Decade | Records |', '|---|---|']
     decades = Counter(f'{(y // 10) * 10}s' for y in years)
     for decade in sorted(decades):
         lines.append(f'| {decade} | {decades[decade]} |')
     lines += ['', '  </Tab>', '</Tabs>', '']
+
+    countries = Counter(c for s in studies for c in s['countries'])
+    lines += [
+        '## Geographic coverage',
+        '',
+        f'Author affiliations place these records across **{len(countries)} countries**. '
+        'Coverage is uneven — the literature itself is concentrated in North America and '
+        'Europe, and this index inherits that skew.',
+        '',
+        '| Country | Records |',
+        '|---|---|',
+    ]
+    for country, n in countries.most_common(15):
+        lines.append(f'| [{country}](/country-{slugify(country)}) | {n} |')
+    lines.append('')
 
     lines += [
         '## How this index is built',
@@ -495,7 +826,7 @@ def build_browse_page(data: dict, studies: list) -> str:
     return '\n'.join(lines)
 
 
-def build_welcome_page(data: dict, studies: list) -> str:
+def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
     years = [s['year'] for s in studies if s['year']]
     designs = Counter(s['design'] for s in studies)
     trials = designs['Randomized controlled trial'] + designs['Clinical trial']
@@ -526,9 +857,9 @@ def build_welcome_page(data: dict, studies: list) -> str:
         'href="/design-meta-analysis">',
         f'    {synth} meta-analyses and systematic reviews',
         '  </Card>',
-        '  <Card title="Safety & tolerability" icon="fa-regular fa-shield-halved" '
-        'href="/topic-safety-tolerability">',
-        '    Adverse events, cardiovascular and growth outcomes',
+        '  <Card title="Regulatory guidance" icon="fa-regular fa-file-prescription" '
+        'href="/regulatory">',
+        '    Approved US dosing, scheduling and boxed warnings',
         '  </Card>',
         '</CardGroup>',
         '',
@@ -541,6 +872,8 @@ def build_welcome_page(data: dict, studies: list) -> str:
         f'| Controlled trials | {trials} |',
         f'| Evidence syntheses | {synth} |',
         f'| Free full text available | {sum(1 for s in studies if s["pmcid"])} |',
+        f'| Countries represented | {len({c for s in studies for c in s["countries"]})} |',
+        f'| Products with approved labelling | {n_labels} |',
         f'| Catalogue built | {data["generated"]} |',
         '',
         '<Callout intent="warning">',
@@ -558,7 +891,8 @@ def build_welcome_page(data: dict, studies: list) -> str:
 # navigation
 # --------------------------------------------------------------------------
 
-def update_nav(data: dict, studies: list, designs: dict, topics: dict):
+def update_nav(data: dict, studies: list, designs: dict, topics: dict,
+               regions: dict, countries: dict, regimens: dict, labels: dict):
     with open(DOCS_YML) as f:
         d = yaml.safe_load(f)
 
@@ -604,6 +938,52 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict):
         'icon': TOPIC_ICON.get(name, 'fa-regular fa-tag'),
     } for name in sorted(topics)]
     catalogue.append({'section': 'Topics', 'contents': topic_items, 'collapsed': True})
+
+    regimen_items = [{
+        'page': truncate(name),
+        'path': f'docs/pages/index/regimen-{slugify(name)}.mdx',
+        'icon': REGIMEN_ICON.get(name, 'fa-regular fa-clock'),
+    } for name in REGIMEN_ORDER if regimens.get(name)]
+    catalogue.append({'section': 'Dosing regimens', 'contents': regimen_items,
+                      'collapsed': True})
+
+    # Regions nest their countries so the sidebar stays navigable at 45 countries.
+    region_items = []
+    for region in REGION_ORDER:
+        if not regions.get(region):
+            continue
+        in_region = sorted({c for s in regions[region] for c in s['countries']
+                            if COUNTRY_REGION_LOOKUP.get(c) == region})
+        region_items.append({
+            'section': region,
+            'collapsed': True,
+            'contents': [{
+                'page': 'Overview',
+                'path': f'docs/pages/index/region-{slugify(region)}.mdx',
+                'icon': REGION_ICON.get(region, 'fa-regular fa-globe'),
+            }] + [{
+                'page': truncate(c),
+                'path': f'docs/pages/index/country-{slugify(c)}.mdx',
+                'icon': 'fa-regular fa-location-dot',
+            } for c in in_region if countries.get(c)],
+        })
+    catalogue.append({'section': 'Regions & countries', 'contents': region_items,
+                      'collapsed': True})
+
+    if labels.get('labels'):
+        catalogue.append({
+            'section': 'Regulatory guidance',
+            'collapsed': True,
+            'contents': [{
+                'page': 'Overview',
+                'path': 'docs/pages/regulatory.mdx',
+                'icon': 'fa-regular fa-scale-balanced',
+            }] + [{
+                'page': truncate(lab['name']),
+                'path': f'docs/pages/labels/label-{lab["key"]}.mdx',
+                'icon': 'fa-regular fa-file-prescription',
+            } for lab in labels['labels']],
+        })
 
     # Records, grouped by decade so no single section runs hundreds deep.
     by_decade = defaultdict(list)
@@ -656,9 +1036,26 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict):
         'whom, and keep effect sizes in the units the abstract uses.\n'
         '- The index is a relevance-ranked sample of PubMed, not a systematic review, so do '
         'not present a tally of records as evidence of consensus.\n\n'
+        'Geography: records carry the countries listed in author affiliations. When asked '
+        'about a country or region, use those tags and say how many records support the '
+        'answer. Coverage is concentrated in North America and Europe, so do not present '
+        'the index as representative of worldwide practice.\n\n'
+        'Dosing questions: separate the two sources sharply.\n'
+        '- Study regimens (once daily, divided doses, extended release, titration) are '
+        'tagged from abstracts and describe what a trial administered. Report them as study '
+        'conditions, never as recommendations.\n'
+        '- The regulatory pages carry approved US prescribing information from DailyMed. '
+        'Quote those for approved dosing, and link the product label page.\n'
+        '- Approved dosing, age limits and controlled-substance scheduling differ by '
+        'country; the labels indexed here are US-only. Say so when a dosing question could '
+        'be international.\n'
+        '- Never synthesise a dose recommendation, extrapolate beyond the label, or advise '
+        'on titration for an individual.\n\n'
         'Scope: this is a research index, not medical advice. State that briefly when a '
         'question turns clinical, then answer the bibliographic question fully. Do not '
-        'recommend doses, compare products commercially, or advise on any individual case.'
+        'recommend doses, compare products commercially, or advise on any individual case. '
+        'For anything resembling a personal treatment decision, direct the reader to a '
+        'qualified clinician and the full approved label.'
     )
 
     with open(DOCS_YML, 'w') as f:
@@ -669,8 +1066,9 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict):
 def main():
     data = json.loads(STUDIES_JSON.read_text())
     studies = data['studies']
+    labels = json.loads(LABELS_JSON.read_text()) if LABELS_JSON.exists() else {'labels': []}
 
-    for directory in (STUDIES_DIR, INDEX_DIR):
+    for directory in (STUDIES_DIR, INDEX_DIR, LABELS_DIR):
         directory.mkdir(parents=True, exist_ok=True)
         for old in directory.glob('*.mdx'):
             old.unlink()
@@ -707,13 +1105,45 @@ def main():
     for name, items in topics.items():
         (INDEX_DIR / f'topic-{slugify(name)}.mdx').write_text(build_topic_page(name, items))
 
-    (PAGES / 'browse.mdx').write_text(build_browse_page(data, studies))
-    (PAGES / 'welcome.mdx').write_text(build_welcome_page(data, studies))
+    regions = defaultdict(list)
+    for s in studies:
+        for r in s['regions']:
+            regions[r].append(s)
+    for name, items in regions.items():
+        (INDEX_DIR / f'region-{slugify(name)}.mdx').write_text(
+            build_region_page(name, items))
 
-    update_nav(data, studies, designs, topics)
+    countries = defaultdict(list)
+    for s in studies:
+        for c in s['countries']:
+            countries[c].append(s)
+    for name, items in countries.items():
+        (INDEX_DIR / f'country-{slugify(name)}.mdx').write_text(
+            build_country_page(name, items))
+
+    regimens = defaultdict(list)
+    for s in studies:
+        for r in s['regimens']:
+            regimens[r].append(s)
+    for name, items in regimens.items():
+        (INDEX_DIR / f'regimen-{slugify(name)}.mdx').write_text(
+            build_regimen_page(name, items))
+
+    if labels.get('labels'):
+        (PAGES / 'regulatory.mdx').write_text(build_regulatory_overview(labels))
+        for lab in labels['labels']:
+            (LABELS_DIR / f'label-{lab["key"]}.mdx').write_text(build_label_page(lab))
+
+    (PAGES / 'browse.mdx').write_text(build_browse_page(data, studies))
+    (PAGES / 'welcome.mdx').write_text(
+        build_welcome_page(data, studies, len(labels.get('labels', []))))
+
+    update_nav(data, studies, designs, topics, regions, countries, regimens, labels)
 
     print(f'Generated {len(studies)} record pages, {len(by_coll)} collections, '
-          f'{len(designs)} designs, {len(topics)} topics.')
+          f'{len(designs)} designs, {len(topics)} topics, {len(regions)} regions, '
+          f'{len(countries)} countries, {len(regimens)} regimens, '
+          f'{len(labels.get("labels", []))} labels.')
 
 
 if __name__ == '__main__':

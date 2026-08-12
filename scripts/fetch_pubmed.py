@@ -106,6 +106,41 @@ COLLECTIONS = [
                  'OR "adverse events"[Title/Abstract] OR mortality[Title/Abstract])',
         'retmax': 55,
     },
+    {
+        'key': 'dosing-regimens',
+        'name': 'Dosing regimens & daily schedules',
+        'query': '(ADHD[Title/Abstract] OR "binge eating"[Title/Abstract]) '
+                 'AND (lisdexamfetamine[Title/Abstract] OR methylphenidate[Title/Abstract] '
+                 'OR amphetamine[Title/Abstract] OR atomoxetine[Title/Abstract]) '
+                 'AND ("once daily"[Title/Abstract] OR "twice daily"[Title/Abstract] '
+                 'OR "divided doses"[Title/Abstract] OR "multiple dose"[Title/Abstract] '
+                 'OR "extended release"[Title/Abstract] OR "immediate release"[Title/Abstract] '
+                 'OR "dosing regimen"[Title/Abstract] OR "duration of effect"[Title/Abstract])',
+        'retmax': 60,
+    },
+    {
+        'key': 'international',
+        'name': 'International & cross-national research',
+        'query': '(ADHD[Title/Abstract] AND (medication[Title/Abstract] OR stimulant*[Title/Abstract] '
+                 'OR pharmacotherap*[Title/Abstract])) '
+                 'AND (international[Title/Abstract] OR cross-national[Title/Abstract] '
+                 'OR multinational[Title/Abstract] OR "multicenter"[Title/Abstract] '
+                 'OR Europe[Title/Abstract] OR Asia[Title/Abstract] OR "Latin America"[Title/Abstract] '
+                 'OR Africa[Title/Abstract] OR Australia[Title/Abstract] OR Japan[Title/Abstract] '
+                 'OR China[Title/Abstract] OR Brazil[Title/Abstract] OR Scandinavia[Title/Abstract] '
+                 'OR "national registry"[Title/Abstract])',
+        'retmax': 70,
+    },
+    {
+        'key': 'guidelines',
+        'name': 'Clinical guidelines & consensus statements',
+        'query': '(ADHD[Title/Abstract] OR "binge eating"[Title/Abstract]) '
+                 'AND (guideline*[Title/Abstract] OR "consensus statement"[Title/Abstract] '
+                 'OR recommendation*[Title/Abstract] OR "standards of care"[Title/Abstract] '
+                 'OR NICE[Title/Abstract] OR "practice parameter"[Title/Abstract]) '
+                 'AND (treatment[Title/Abstract] OR medication[Title/Abstract] OR dos*[Title/Abstract])',
+        'retmax': 55,
+    },
 ]
 
 # Study-design classification, checked in order. Driven by PubMed's own
@@ -138,6 +173,93 @@ POPULATIONS = [
     ('Adults', r'\badults?\b|\badulthood'),
     ('Older adults', r'\bolder adults?\b|\belderly\b|\bgeriatric'),
 ]
+
+# Dosing regimens, read off the abstract. Captures how often a dose is taken --
+# the distinction between one daily dose and a divided/multiple daily schedule.
+REGIMENS = [
+    ('Once daily', r'\bonce[-\s]?daily\b|\bonce a day\b|\bo\.?d\.?\b(?![a-z])|\bq\.?d\.?\b|\bsingle daily dose'),
+    ('Twice daily', r'\btwice[-\s]?daily\b|\btwice a day\b|\bb\.?i\.?d\.?\b|\btwo daily doses'),
+    ('Three times daily', r'\bthree times (a |per )?day\b|\bt\.?i\.?d\.?\b|\bthrice daily'),
+    ('Divided / multiple daily doses', r'\bdivided dose|\bmultiple[-\s]?dose|\bsplit[-\s]?dose|'
+                                       r'\bmultiple daily\b|\btwice[-\s]?daily\b|\bthree times (a |per )?day\b|'
+                                       r'\bb\.?i\.?d\.?\b|\bt\.?i\.?d\.?\b'),
+    ('Titrated to effect', r'\btitrat|\bdose[-\s]?optimi[sz]|\bstepwise dos|\bup-?titrat|\bforced[-\s]?dose'),
+    ('Single dose (study)', r'\bsingle[-\s]?dose\b|\bsingle oral dose\b'),
+    ('Extended release', r'\bextended[-\s]?release\b|\bXR\b|\bER\b(?![a-z])|\bOROS\b|\bmodified[-\s]?release|'
+                         r'\blong[-\s]?acting\b|\bprolonged[-\s]?release'),
+    ('Immediate release', r'\bimmediate[-\s]?release\b|\bIR\b(?![a-z])|\bshort[-\s]?acting\b'),
+]
+
+# Country of the research, taken from author affiliations. PubMed affiliations
+# are free text, so match on the trailing country name plus common variants.
+COUNTRY_PATTERNS = [
+    ('United States', r'\bUSA\b|\bU\.S\.A\b|\bUnited States\b|\bU\.S\.\b'),
+    ('United Kingdom', r'\bUnited Kingdom\b|\bUK\b|\bEngland\b|\bScotland\b|\bWales\b|\bLondon\b'),
+    ('Canada', r'\bCanada\b'),
+    ('Germany', r'\bGermany\b|\bDeutschland\b'),
+    ('Netherlands', r'\bNetherlands\b|\bHolland\b'),
+    ('Sweden', r'\bSweden\b'),
+    ('Denmark', r'\bDenmark\b'),
+    ('Norway', r'\bNorway\b'),
+    ('Finland', r'\bFinland\b'),
+    ('Iceland', r'\bIceland\b'),
+    ('Spain', r'\bSpain\b|\bEspaña\b'),
+    ('Italy', r'\bItaly\b|\bItalia\b'),
+    ('France', r'\bFrance\b'),
+    ('Belgium', r'\bBelgium\b'),
+    ('Switzerland', r'\bSwitzerland\b'),
+    ('Austria', r'\bAustria\b'),
+    ('Ireland', r'\bIreland\b'),
+    ('Portugal', r'\bPortugal\b'),
+    ('Poland', r'\bPoland\b'),
+    ('Czech Republic', r'\bCzech\b'),
+    ('Hungary', r'\bHungary\b'),
+    ('Greece', r'\bGreece\b'),
+    ('Turkey', r'\bTurkey\b|\bTürkiye\b'),
+    ('Israel', r'\bIsrael\b'),
+    ('Russia', r'\bRussia\b'),
+    ('China', r'\bChina\b|\bBeijing\b|\bShanghai\b'),
+    ('Taiwan', r'\bTaiwan\b'),
+    ('Hong Kong', r'\bHong Kong\b'),
+    ('Japan', r'\bJapan\b'),
+    ('South Korea', r'\bKorea\b'),
+    ('India', r'\bIndia\b'),
+    ('Singapore', r'\bSingapore\b'),
+    ('Thailand', r'\bThailand\b'),
+    ('Malaysia', r'\bMalaysia\b'),
+    ('Iran', r'\bIran\b'),
+    ('Saudi Arabia', r'\bSaudi\b'),
+    ('Egypt', r'\bEgypt\b'),
+    ('South Africa', r'\bSouth Africa\b'),
+    ('Nigeria', r'\bNigeria\b'),
+    ('Australia', r'\bAustralia\b'),
+    ('New Zealand', r'\bNew Zealand\b'),
+    ('Brazil', r'\bBrazil\b|\bBrasil\b'),
+    ('Argentina', r'\bArgentina\b'),
+    ('Chile', r'\bChile\b'),
+    ('Mexico', r'\bMexico\b|\bMéxico\b'),
+    ('Colombia', r'\bColombia\b'),
+]
+
+# Rough UN-style region grouping so the index can report geographic spread.
+COUNTRY_REGION = {
+    'United States': 'North America', 'Canada': 'North America', 'Mexico': 'North America',
+    'Brazil': 'Latin America', 'Argentina': 'Latin America', 'Chile': 'Latin America',
+    'Colombia': 'Latin America',
+    'United Kingdom': 'Europe', 'Germany': 'Europe', 'Netherlands': 'Europe',
+    'Sweden': 'Europe', 'Denmark': 'Europe', 'Norway': 'Europe', 'Finland': 'Europe',
+    'Iceland': 'Europe', 'Spain': 'Europe', 'Italy': 'Europe', 'France': 'Europe',
+    'Belgium': 'Europe', 'Switzerland': 'Europe', 'Austria': 'Europe', 'Ireland': 'Europe',
+    'Portugal': 'Europe', 'Poland': 'Europe', 'Czech Republic': 'Europe',
+    'Hungary': 'Europe', 'Greece': 'Europe', 'Russia': 'Europe',
+    'Turkey': 'Middle East', 'Israel': 'Middle East', 'Iran': 'Middle East',
+    'Saudi Arabia': 'Middle East',
+    'China': 'Asia', 'Taiwan': 'Asia', 'Hong Kong': 'Asia', 'Japan': 'Asia',
+    'South Korea': 'Asia', 'India': 'Asia', 'Singapore': 'Asia', 'Thailand': 'Asia',
+    'Malaysia': 'Asia',
+    'Egypt': 'Africa', 'South Africa': 'Africa', 'Nigeria': 'Africa',
+    'Australia': 'Oceania', 'New Zealand': 'Oceania',
+}
 
 TOPICS = [
     ('Efficacy', r'\befficac|\bsymptom reduction|\bADHD-RS|\btreatment effect|\bresponse rate'),
@@ -211,6 +333,7 @@ def parse_article(art) -> dict:
         return None
 
     authors = []
+    affiliations = []
     for a in art.findall('./MedlineCitation/Article/AuthorList/Author'):
         last = text_of(a, './LastName')
         initials = text_of(a, './Initials')
@@ -219,6 +342,10 @@ def parse_article(art) -> dict:
             authors.append(f'{last} {initials}'.strip())
         elif collective:
             authors.append(collective)
+        for aff in a.findall('./AffiliationInfo/Affiliation'):
+            val = ''.join(aff.itertext()).strip()
+            if val:
+                affiliations.append(val)
 
     journal = (text_of(art, './MedlineCitation/Article/Journal/ISOAbbreviation')
                or text_of(art, './MedlineCitation/Article/Journal/Title'))
@@ -264,11 +391,30 @@ def parse_article(art) -> dict:
     populations = [n for n, p in POPULATIONS if re.search(p, haystack)]
     topics = [n for n, p in TOPICS if re.search(p, haystack)]
 
+    # Regimen matching is case-sensitive for the abbreviation-heavy patterns
+    # (XR, IR, OROS), so run it against the original casing.
+    regimen_text = f'{title} {abstract}'
+    regimens = [n for n, p in REGIMENS if re.search(p, regimen_text, re.IGNORECASE if n not in
+                ('Extended release', 'Immediate release') else 0)]
+
+    # Dose strengths actually named in the abstract, e.g. "30 mg", "1.2 mg/kg".
+    doses = sorted(set(
+        re.findall(r'\b\d+(?:\.\d+)?\s?mg(?:/kg)?(?:/day)?\b', abstract, re.IGNORECASE)),
+        key=lambda d: float(re.match(r'[\d.]+', d).group()))
+
+    aff_text = ' ; '.join(affiliations)
+    countries = [n for n, p in COUNTRY_PATTERNS if re.search(p, aff_text)]
+    regions = sorted({COUNTRY_REGION[c] for c in countries if c in COUNTRY_REGION})
+
     return {
         'pmid': pmid,
         'title': title,
         'title_translated': translated,
         'authors': authors,
+        'countries': countries,
+        'regions': regions,
+        'regimens': regimens,
+        'doses': doses,
         'journal': journal,
         'year': year,
         'language': language,

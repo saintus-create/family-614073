@@ -11,11 +11,12 @@ PubMed returns them. No metadata is hand-entered.
 ## How it works
 
 ```
-scripts/fetch_pubmed.py    ->  fern/data/studies.json   (harvest from PubMed)
+scripts/fetch_pubmed.py    ->  fern/data/studies.json   (literature, from PubMed)
+scripts/fetch_labels.py    ->  fern/data/labels.json    (approved labelling, from DailyMed)
 generate_evidence_site.py  ->  fern/docs/pages/**       (render MDX + nav)
 ```
 
-`fern/data/studies.json` is the single source of truth. Both the pages under
+Those two JSON files are the single source of truth. Both the pages under
 `fern/docs/pages/` and the `navigation` block of `fern/docs.yml` are generated — edit the
 data or the generator, never the output.
 
@@ -23,6 +24,7 @@ data or the generator, never the output.
 
 ```bash
 python3 scripts/fetch_pubmed.py      # re-query PubMed, rewrite studies.json
+python3 scripts/fetch_labels.py      # re-pull FDA labels, rewrite labels.json
 python3 generate_evidence_site.py    # rebuild all pages and navigation
 fern check                           # validate
 fern docs dev                        # preview locally
@@ -45,9 +47,24 @@ title has drifted from the stored copy. Run this before publishing.
 | Study design | PubMed publication types, with an abstract-text fallback |
 | Topics | matched against abstract text; a record can carry several |
 | Populations | matched against abstract text |
+| Countries / regions | author affiliations on the PubMed record |
+| Dosing regimens | abstract wording (once daily, divided doses, XR/IR, titration) |
+| Regulatory guidance | DailyMed Structured Product Labels |
 
 Adding a collection means adding one entry to `COLLECTIONS` in `scripts/fetch_pubmed.py`
 and re-running both scripts.
+
+### Two kinds of dosing information
+
+These are deliberately kept apart, and the AI prompt is instructed not to conflate them:
+
+- **Study regimens** (`regimen-*` pages) describe what a trial administered. They are
+  study conditions, not recommendations.
+- **Regulatory guidance** (`regulatory`, `label-*` pages) is approved US prescribing
+  information reproduced from DailyMed.
+
+Approved dosing, age limits and controlled-substance scheduling differ by country. The
+labels indexed here are US-only; the literature spans 45 countries.
 
 ## Conventions
 

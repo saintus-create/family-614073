@@ -1,0 +1,619 @@
+{
+ "generated": "2026-08-12",
+ "source": "DailyMed (U.S. National Library of Medicine) Structured Product Labels",
+ "note": "Approved US prescribing information, reproduced verbatim. Labelling differs by country.",
+ "labels": [
+  {
+   "key": "lisdexamfetamine",
+   "name": "Lisdexamfetamine dimesylate",
+   "brands": "Vyvanse, Elvanse (EU/UK)",
+   "spl_title": "LISDEXAMFETAMINE DIMESYLATE TABLET, CHEWABLE [TEVA PHARMACEUTICALS, INC.]",
+   "setid": "bdb03bfa-0398-41e5-8e73-ded696cbca32",
+   "published": "Aug 03, 2026",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bdb03bfa-0398-41e5-8e73-ded696cbca32",
+   "sections": [
+    {
+     "kind": "Boxed warning",
+     "title": "WARNING: ABUSE, MISUSE, AND ADDICTION",
+     "text": "Lisdexamfetamine dimesylate has a high potential for abuse and misuse, which can lead to the development of a substance use disorder, including addiction. Misuse and abuse of CNS stimulants, including lisdexamfetamine dimesylate, can result in overdose and death [see Overdosage (10)], and this risk is increased with higher doses or unapproved methods of administration, such as snorting or injection. Before prescribing lisdexamfetamine dimesylate chewable tablets, assess each patient’s risk for abuse, misuse, and addiction. Educate patients and their families about these risks, proper storage of the drug, and proper disposal of any unused drug. Throughout lisdexamfetamine dimesylate treatment, reassess each patient’s risk of abuse, misuse, and addiction and frequently monitor for signs and symptoms of abuse, misuse, and addiction [see Warnings and Precautions (5.1), Drug Abuse and Dependence (9.2)]."
+    },
+    {
+     "kind": "Indications and usage",
+     "title": "1 INDICATIONS AND USAGE",
+     "text": "Lisdexamfetamine dimesylate chewable tablets are indicated for the treatment of:\n- Attention Deficit Hyperactivity Disorder (ADHD) in adults and pediatric patients 6 years and older [see Clinical Studies (14.1)].\n- Moderate to severe binge eating disorder (BED) in adults [see Clinical Studies (14.2)].\n- The use of lisdexamfetamine dimesylate chewable tablets is not recommended in pediatric patients younger than 6 years of age because they had higher plasma exposure and a higher incidence of adverse reactions (e.g., weight loss) than patients 6 years and older at the same dosage [see Warnings and Precautions (5.5), Use in Specific Populations (8.4)].\n- Lisdexamfetamine dimesylate chewable tablets are not indicated or recommended for weight loss. Use of other sympathomimetic drugs for weight loss has been associated with serious cardiovascular adverse events. The safety and effectiveness of lisdexamfetamine dimesylate chewable tablets for the treatment of obesity have not been established [see Warnings and Precautions (5.2)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.1 Pretreatment Screening",
+     "text": "- for the presence of cardiac disease (i.e., perform a careful history, family history of sudden death or ventricular arrhythmia, and physical exam) [see Warnings and Precautions (5.2)].\n- the family history and clinically evaluate patients for motor or verbal tics or Tourette’s syndrome before initiating lisdexamfetamine dimesylate chewable tablets [see Warnings and Precautions (5.8)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.2 General Administration Information",
+     "text": "Take lisdexamfetamine dimesylate chewable tablets orally in the morning with or without food; avoid afternoon doses because of the potential for insomnia. Lisdexamfetamine dimesylate chewable tablets may be administered in one of the following ways: Lisdexamfetamine dimesylate capsules can be substituted with lisdexamfetamine dimesylate chewable tablets on a unit per unit/mg per mg basis (for example, 30 mg capsules for 30 mg chewable tablet) Do not take anything less than one chewable tablet per day. A single dose should not be divided.\n- Lisdexamfetamine dimesylate chewable tablets must be chewed thoroughly before swallowing."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.3 Dosage for Treatment of ADHD",
+     "text": "The recommended starting dosage in adults and pediatric patients 6 years and older is 30 mg once daily in the morning. Dosage may be adjusted in increments of 10 mg or 20 mg at approximately weekly intervals up to maximum recommended dosage of 70 mg once daily [see Clinical Studies (14.1)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.4 Dosage for Treatment of Moderate to Severe BED in Adults",
+     "text": "The recommended starting dosage in adults is 30 mg once daily to be titrated in increments of 20 mg at approximately weekly intervals to achieve the recommended target dose of 50 mg to 70 mg once daily. The maximum recommended dosage is 70 mg once daily [see Clinical Studies (14.2)]. Discontinue lisdexamfetamine dimesylate chewable tablets if binge eating does not improve."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.5 Dosage in Patients with Renal Impairment",
+     "text": "In patients with severe renal impairment (GFR 15 to <30 mL/min/1.73 m2), the maximum dosage should not exceed 50 mg once daily. In patients with end stage renal disease (ESRD, GFR <15 mL/min/1.73 m2), the maximum recommended dosage is 30 mg once daily [see Use in Specific Populations (8.6)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.6 Dosage Modifications due to Drug Interactions",
+     "text": "Agents that alter urinary pH can impact urinary excretion and alter blood levels of amphetamine. Acidifying agents (e.g., ascorbic acid) decrease blood levels, while alkalinizing agents (e.g., sodium bicarbonate) increase blood levels. Adjust lisdexamfetamine dimesylate chewable tablets dosage accordingly [see Drug Interactions (7.1)]."
+    },
+    {
+     "kind": "Dosage forms and strengths",
+     "title": "3 DOSAGE FORMS AND STRENGTHS",
+     "text": "Chewable tablets: 10 mg: White to off-white round tablets debossed with L10 on one side and TV on the other side 20 mg: White to off-white hexagonal tablets debossed with L20 on one side and TV on the other side 30 mg: White to off-white triangular tablets debossed with L30 on one side and TV on the other side 40 mg: White to off-white capsule shaped tablets debossed with L40 on one side and TV on the other side 50 mg: White to off-white square tablets debossed with L50 on one side and TV on the other side 60 mg: White to off-white diamond shaped tablets debossed with L60 on one side and TV on the other side"
+    },
+    {
+     "kind": "Contraindications",
+     "title": "4 CONTRAINDICATIONS",
+     "text": "Lisdexamfetamine dimesylate chewable tablets are contraindicated in patients with:\n- Known hypersensitivity to amphetamine products or other ingredients of lisdexamfetamine dimesylate chewable tablets. Anaphylactic reactions, Stevens-Johnson Syndrome, angioedema, and urticaria have been observed in postmarketing reports [see Adverse Reactions (6.2)].\n- Patients taking monoamine oxidase inhibitors (MAOIs), or within 14 days of stopping MAOIs (including MAOIs such as linezolid or intravenous methylene blue), because of an increased risk of hypertensive crisis [see Warnings and Precautions (5.7) and Drug Interactions (7.1)]."
+    },
+    {
+     "kind": "Pregnancy",
+     "title": "8.1 Pregnancy",
+     "text": "Risk Summary The limited available data from published literature and postmarketing reports on use of lisdexamfetamine dimesylate in pregnant women are not sufficient to inform a drug-associated risk for major birth defects and miscarriage. Adverse pregnancy outcomes, including premature delivery and low birth weight, have been seen in infants born to mothers dependent on amphetamines [see Clinical Considerations]. In animal reproduction studies, lisdexamfetamine dimesylate (a prodrug of d-amphetamine) had no effects on embryo-fetal morphological development or survival when administered orally to pregnant rats and rabbits throughout the period of organogenesis. Pre- and postnatal studies were not conducted with lisdexamfetamine dimesylate. However, amphetamine (d- to l- ratio of 3:1) administration to pregnant rats during gestation and lactation caused a decrease in pup survival and a decrease in pup body weight that correlated with a delay in developmental landmarks at clinically relevant doses of amphetamine. In addition, adverse effects on reproductive performance were observed in pups whose mothers were treated with amphetamine. Long-term neurochemical and behavioral effects have also been reported in animal developmental studies using clinically relevant doses of amphetamine [see Data]. The estimated background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2% to 4% and 15% to 20%, respectively. Clinical Considerations Fetal/Neonatal Adverse Reactions Amphetamines, such as lisdexamfetamine dimesylate, cause vasoconstriction and thereby may decrease placental perfusion. In addition, amphetamines can stimulate uterine contractions increasing the risk of premature delivery. Infants born to amphetamine-dependent mothers have an increased risk of premature delivery and low birth weight. Monitor infants born to mothers taking amphetamines for symptoms of withdrawal such as feeding difficulties, irritability, agitation, and excessive drowsiness. Data Animal Data Lisdexamfetamine dimesylate had no apparent effects on embryo-fetal morphological development or survival when administered orally to pregnant rats and rabbits throughout the period of organogenesis at doses of up to 40 and 120 mg/kg/day, respectively. These doses are approximately 5.5 and 33 times, respectively, the maximum recommended human dose (MRHD) of 70 mg/day given to adults, on a mg/m2 body surface area basis. A study was conducted with amphetamine (d- to l-enantiomer ratio of 3:1) in which pregnant rats received daily oral doses of 2, 6, and 10 mg/kg from gestation day 6 to lactation day 20. All doses caused hyperactivity and decreased weight gain in the dams. A decrease in pup survival was seen at all doses. A decrease in pup body weight was seen at 6 and 10 mg/kg which correlated with delays in developmental landmarks, such as preputial separation and vaginal opening. Increased pup locomotor activity was seen at 10 mg/kg on day 22 postpartum but not at 5 weeks postweaning. When pups were tested for reproductive performance at maturation, gestational weight gain, number of implantations, and number of delivered pups were decreased in the group whose mothers had been given 10 mg/kg. A number of studies from the literature in rodents indicate that prenatal or early postnatal exposure to amphetamine (d- or d, l-) at doses similar to those used clinically can result in long-term neurochemical and behavioral alterations. Reported behavioral effects include learning and memory deficits, altered locomotor activity, and changes in sexual function."
+    },
+    {
+     "kind": "Lactation",
+     "title": "8.2 Lactation",
+     "text": "Risk Summary Lisdexamfetamine is a pro-drug of dextroamphetamine. Based on limited case reports in published literature, amphetamine (d-or d, l-) is present in human milk, at relative infant doses of 2% to 13.8% of the maternal weight-adjusted dosage and a milk/plasma ratio ranging between 1.9 and 7.5. There are no reports of adverse effects on the breastfed infant. Long-term neurodevelopmental effects on infants from amphetamine exposure are unknown. It is possible that large dosages of dextroamphetamine might interfere with milk production, especially in women whose lactation is not well established. Because of the potential for serious adverse reactions in nursing infants, including serious cardiovascular reactions, blood pressure and heart rate increase, suppression of growth, and peripheral vasculopathy, advise patients that breastfeeding is not recommended during treatment with lisdexamfetamine dimesylate."
+    },
+    {
+     "kind": "Pediatric use",
+     "title": "8.4 Pediatric Use",
+     "text": "The safety and effectiveness of lisdexamfetamine dimesylate have not been established in pediatric patients below the age of 6 years. ADHD Safety and effectiveness of lisdexamfetamine dimesylate have been established in pediatric patients with ADHD ages 6 to 17 years [see Dosage and Administration (2.3), Adverse Reactions (6.1), Clinical Pharmacology (12.3), and Clinical Studies (14.1)]. Safety and efficacy of lisdexamfetamine dimesylate were evaluated in a double-blind, randomized, parallel-group, placebo-controlled, fixed-dose study in pediatric patients ages 4 to 5 years with ADHD, followed by a 1-year open-label extension study. In these studies, patients experienced elevated rates of adverse reactions, including weight loss, decreased BMI, decreased appetite, insomnia, infections (upper respiratory and nasopharyngitis), irritability, and affect lability. With the same lisdexamfetamine dimesylate dose, mean steady state exposure of dextroamphetamine was approximately 44% higher in pediatric patients ages 4 to 5 years compared to the pediatric patients ages 6 to 11 years. BED Safety and effectiveness of lisdexamfetamine dimesylate have not been established in pediatric patients with BED less than 18 years of age. Growth Suppression Growth should be monitored during treatment with stimulants, including lisdexamfetamine dimesylate, and pediatric patients who are not growing or gaining weight as expected may need to have their treatment interrupted [see Warnings and Precautions (5.5) and Adverse Reactions (6.1)]. Juvenile Animal Data Studies conducted in juvenile rats and dogs at clinically relevant doses showed growth suppression that partially or fully reversed in dogs and female rats but not in male rats after a four-week drug-free recovery period. A study was conducted in which juvenile rats received oral doses of 4, 10, or 40 mg/kg/day of lisdexamfetamine dimesylate from day 7 to day 63 of age. These doses are approximately 0.3, 0.7, and 3 times the maximum recommended human daily dose of 70 mg on a mg/m2 basis for a child. Dose-related decreases in food consumption, bodyweight gain, and crown-rump length were seen; after a four-week drug-free recovery period, bodyweights and crown-rump lengths had significantly recovered in females but were still substantially reduced in males. Time to vaginal opening was delayed in females at the highest dose, but there were no drug effects on fertility when the animals were mated beginning on day 85 of age. In a study in which juvenile dogs received lisdexamfetamine dimesylate for 6 months beginning at 10 weeks of age, decreased bodyweight gain was seen at all doses tested (2, 5, and 12 mg/kg/day, which are approximately 0.5, 1, and 3 times the maximum recommended human daily dose on a mg/m2 basis for a child). This effect partially or fully reversed during a four-week drug-free recovery period."
+    },
+    {
+     "kind": "Geriatric use",
+     "title": "8.5 Geriatric Use",
+     "text": "Clinical studies of lisdexamfetamine dimesylate did not include sufficient numbers of subjects aged 65 and over to determine whether they respond differently from younger subjects. Other reported clinical experience and pharmacokinetic data [see Clinical Pharmacology (12.3)] have not identified differences in responses between the elderly and younger patients. In general, dose selection for an elderly patient should start at the low end of the dosing range, reflecting the greater frequency of decreased hepatic, renal, or cardiac function, and of concomitant disease or other drug therapy."
+    },
+    {
+     "kind": "Controlled substance",
+     "title": "9.1 Controlled Substance",
+     "text": "Lisdexamfetamine dimesylate chewable tablets contain lisdexamfetamine, a prodrug of amphetamine, a Schedule II controlled substance."
+    },
+    {
+     "kind": "Abuse",
+     "title": "9.2 Abuse",
+     "text": "Lisdexamfetamine dimesylate has a high potential for abuse and misuse which can lead to the development of a substance use disorder, including addiction [see Warnings and Precautions (5.1)]. Lisdexamfetamine dimesylate can be diverted for non-medical use into illicit channels or distribution. Abuse is the intentional non-therapeutic use of a drug, even once, to achieve a desired psychological or physiological effect. Misuse is the intentional use, for therapeutic purposes, of a drug by an individual in a way other than prescribed by a health care provider or for whom it was not prescribed. Drug addiction is a cluster of behavioral, cognitive, and physiological phenomena that may include a strong desire to take the drug, difficulties in controlling drug use (e.g., continuing drug use despite harmful consequences, giving a higher priority to drug use than other activities and obligations), and possible tolerance or physical dependence. Misuse and abuse of lisdexamfetamine, a prodrug of amphetamine, may cause increased heart rate, respiratory rate, or blood pressure; sweating; dilated pupils; hyperactivity; restlessness; insomnia; decreased appetite; loss of coordination; tremors; flushed skin; vomiting; and/or abdominal pain. Anxiety, psychosis, hostility, aggression, and suicidal or homicidal ideation have also been observed with CNS stimulants abuse and/or misuse. Misuse and abuse of CNS stimulants, including lisdexamfetamine dimesylate, can result in overdose and death [see Overdosage (10)], and this risk is increased with higher doses or unapproved methods of administration, such as snorting or injection. Studies of Lisdexamfetamine Dimesylate in Drug Abusers A randomized, double-blind, placebo-control, cross-over, abuse liability study in 38 patients with a history of drug abuse was conducted with single-doses of 50, 100, or 150 mg of lisdexamfetamine dimesylate, 40 mg of immediate-release d-amphetamine sulphate (a controlled II substance), and 200 mg of diethylpropion hydrochloride (a controlled IV substance). Lisdexamfetamine dimesylate 100 mg produced significantly less “Drug Liking Effects” as measured by the Drug Rating Questionnaire-Subject score, compared to d-amphetamine 40 mg; and 150 mg of lisdexamfetamine dimesylate demonstrated similar “Drug-Liking Effects” compared to 40 mg of d-amphetamine and 200 mg of diethylpropion. Intravenous administration of 50 mg lisdexamfetamine dimesylate to individuals with a history of drug abuse produced positive subjective responses on scales measuring “Drug Liking”, “Euphoria”, “Amphetamine Effects”, and “Benzedrine Effects” that were greater than placebo but less than those produced by an equivalent dose (20 mg) of intravenous d-amphetamine."
+    },
+    {
+     "kind": "Dependence",
+     "title": "9.3 Dependence",
+     "text": "Physical Dependence Lisdexamfetamine dimesylate may produce physical dependence. Physical dependence is a state that develops as a result of physiological adaptation in response to repeated drug use, manifested by withdrawal signs and symptoms after abrupt discontinuation or a significant dose reduction of a drug. Withdrawal signs and symptoms after abrupt discontinuation or dose reduction following prolonged use of CNS stimulants including lisdexamfetamine dimesylate include dysphoric mood; depression; fatigue; vivid, unpleasant dreams; insomnia or hypersomnia; increased appetite; and psychomotor retardation or agitation. Tolerance Lisdexamfetamine dimesylate may produce tolerance. Tolerance is a physiological state characterized by a reduced response to a drug after repeated administration (i.e., a higher dose of a drug is required to produce the same effect that was once obtained at a lower dose)."
+    }
+   ]
+  },
+  {
+   "key": "amphetamine",
+   "name": "Mixed amphetamine salts",
+   "brands": "Adderall, Adderall XR, Mydayis",
+   "spl_title": "DEXTROAMPHETAMINE SACCHARATE, AMPHETAMINE ASPARTATE MONOHYDRATE, DEXTROAMPHETAMINE SULFATE, AND AMPHETAMINE SULFATE CAPSULE, EXTENDED RELEASE [TEVA PHARMACEUTICALS, INC.]",
+   "setid": "5e84ef60-3050-40d9-9f14-66b85d289e17",
+   "published": "Jul 27, 2026",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e84ef60-3050-40d9-9f14-66b85d289e17",
+   "sections": [
+    {
+     "kind": "Boxed warning",
+     "title": "WARNING: ABUSE, MISUSE, AND ADDICTION",
+     "text": "Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules have a high potential for abuse and misuse, which can lead to the development of a substance use disorder, including addiction. Misuse and abuse of CNS stimulants, including dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules, can result in overdose and death [see Overdosage (10)], and this risk is increased with higher doses or unapproved methods of administration, such as snorting or injection. Before prescribing dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules, assess each patient’s risk for abuse, misuse, and addiction. Educate patients and their families about these risks, proper storage of the drug, and proper disposal of any unused drug. Throughout dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules treatment, reassess each patient’s risk of abuse, misuse, and addiction and frequently monitor for signs and symptoms of abuse, misuse, and addiction [see Warnings and Precautions (5.1), Drug Abuse and Dependence (9.2)]."
+    },
+    {
+     "kind": "Indications and usage",
+     "title": "1 INDICATIONS AND USAGE",
+     "text": "Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules are indicated for the treatment of Attention Deficit Hyperactivity Disorder (ADHD) in patients 13 years and older [see Clinical Studies (14)]. Limitations of Use: Pediatric patients 12 years and younger experienced higher plasma exposure than patients 13 years and older at the same dose, and experienced higher rates of adverse reactions, mainly insomnia and decreased appetite [see Use in Specific Populations (8.4)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.1 Pretreatment Screening",
+     "text": "Prior to treating patients with dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules, assess:\n- for the presence of cardiac disease (i.e., perform a careful history, family history of sudden death or ventricular arrhythmia, and physical exam) [see Warnings and Precautions (5.2)]\n- the family history and clinically evaluate patients for motor or verbal tics or Tourette’s syndrome before initiating dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules [see Warnings and Precautions (5.10)]"
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.2 General Administration Information",
+     "text": "Because the effects of dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules may last up to 16 hours and there is potential for insomnia, administer once daily in the morning upon awakening. In the event of a missed dose, do not administer later in the day. Do not administer additional medication to make up for the missed dose [see Adverse Reactions (6.1), Clinical Studies (14)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.3 Administration Instructions",
+     "text": "Administer dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules orally with or without food. Advise patients to take dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules consistently either with food or without food Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules may be administered in one of the following ways:\n- Swallow dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules whole, or\n- Open capsule and sprinkle the entire contents over a spoonful of applesauce. The sprinkled applesauce should be consumed immediately; it should not be stored. Patients should take the sprinkled applesauce in its entirety without chewing.\n- The dose of a single capsule should not be divided."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.4 Recommended Dosage",
+     "text": "Adults (18 to 55 years) The recommended starting dose of dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules is 12.5 mg once daily in the morning upon awakening. Initial doses of 25 mg once daily may be considered for some patients. Dosage may be adjusted in increments of 12.5 mg no sooner than weekly, up to a maximum dose of 50 mg once daily, based on the therapeutic needs and response of the patient. Doses above 50 mg daily have shown no additional clinically meaningful benefit. Pediatric Patients (13 to 17 years) The recommended starting dose is 12.5 mg once daily in the morning upon awakening. Dosage may be adjusted in increments of 12.5 mg no sooner than weekly, up to a recommended maximum dose of 25 mg once daily. The dose should be individualized according to the needs and response of the patient. Doses higher than 25 mg have not been evaluated in clinical trials in pediatric patients."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.5 Dosage Modifications Due to Drug Interactions",
+     "text": "Agents that alter gastrointestinal and urinary pH can impact urinary excretion and alter blood levels of amphetamine. Acidifying agents (e.g., ascorbic acid) decrease blood levels, while alkalinizing agents (e.g., sodium bicarbonate) increase blood levels. Adjust dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsule dosage accordingly [see Drug Interactions (7.1)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.6 Dosage in Patients with Renal Impairment",
+     "text": "In adult patients with severe renal impairment (GFR between 15 to <30 mL/min/1.73 m2), the recommended starting dose of dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules is 12.5 mg daily with a maximum recommended dose of 25 mg daily. Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules are not recommended for use in patients with end stage renal disease (ESRD <15 mL/min/1.73 m2). In pediatric patients (13 to 17 years) with severe renal impairment, the maximum dose is 12.5 mg, if tolerated [see Use in Specific Populations (8.6), Clinical Pharmacology (12.3)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.7 Switching From Other Amphetamine Products",
+     "text": "For patients switching from another medication or any other amphetamine products, discontinue that treatment, and titrate with dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules using the titration schedule [see Dosage and Administration (2.4)]. Do not substitute for other amphetamine products on a milligram-per-milligram basis because of different amphetamine base compositions and differing pharmacokinetic profiles [see Warnings and Precautions (5.9), Description (11), Clinical Pharmacology (12.3)]."
+    },
+    {
+     "kind": "Dosage forms and strengths",
+     "title": "3 DOSAGE FORMS AND STRENGTHS",
+     "text": "- Extended-release capsules 12.5 mg: orange opaque cap and body, imprinted with A012 on both cap and body in black ink.\n- Extended-release capsules 25 mg: green opaque cap and body, imprinted with A025 on both cap and body in black ink.\n- Extended-release capsules 37.5 mg: blue-green opaque cap and body, imprinted with A038 on both cap and body in black ink.\n- Extended-release capsules 50 mg: blue opaque cap and body, imprinted with A049 on both cap and body in white ink."
+    },
+    {
+     "kind": "Contraindications",
+     "title": "4 CONTRAINDICATIONS",
+     "text": "Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules are contraindicated in patients with:\n- Known hypersensitivity to amphetamine, or other components of dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules. Hypersensitivity reactions such as angioedema and anaphylactic reactions have been reported in patients treated with other amphetamine products [see Adverse Reactions (6.2)].\n- Concomitant treatment with monoamine oxidase inhibitors (MAOIs), and also within 14 days of stopping MAOIs (including MAOIs such as linezolid or intravenous methylene blue), because of an increased risk of hypertensive crisis [see Drug Interactions (7.1)]."
+    },
+    {
+     "kind": "Pregnancy",
+     "title": "8.1 Pregnancy",
+     "text": "Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules during pregnancy. Healthcare providers are encouraged to register patients by calling the National Pregnancy Registry for Psychiatric Medications at 1-866-961-2388 or visiting online at https://womensmentalhealth.org/research/pregnancyregistry/. Risk Summary The limited available data from published literature and postmarketing reports on use of amphetamine in pregnant women are not sufficient to inform a drug-associated risk for major birth defects and miscarriage. Adverse pregnancy outcomes, including premature delivery and low birth weight, have been seen in infants born to mothers dependent on amphetamines [see Clinical Considerations]. In an embryofetal development study, amphetamine (d- to l- enantiomer ratio of 3:1, the same as in dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules) had no effects on embryofetal morphological development or survival when administered to pregnant rats and rabbits throughout the period of organogenesis up to doses 10 times the maximum recommended human dose (MRHD) of 25 mg/day given to adolescents, on a mg/m2 body surface area basis. However, in a pre- and postnatal development study, amphetamine (d- to l- ratio of 3:1) administered orally to pregnant rats during gestation and lactation caused a decrease in pup survival and a decrease in pup body weight that correlated with a delay in developmental landmarks at clinically relevant doses of amphetamine. In addition, adverse effects on reproductive performance were observed in pups whose mothers were treated with amphetamine. Long-term neurochemical and behavioral effects have also been reported in animal developmental studies using clinically relevant doses of amphetamine [see Data]. The estimated background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2% to 4% and 15% to 20%, respectively. Clinical Considerations Fetal/Neonatal Adverse Reactions Amphetamines, such as dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules, cause vasoconstriction and thereby may decrease placental perfusion. In addition, amphetamines can stimulate uterine contractions increasing the risk of premature delivery. Infants born to amphetamine-dependent mothers have an increased risk of premature delivery and low birth weight. Monitor infants born to mothers taking amphetamines for symptoms of withdrawal such as feeding difficulties, irritability, agitation, and excessive drowsiness. Data Animal Data Amphetamine (d- to l- enantiomer ratio of 3:1, the same as in dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules) had no apparent effects on embryofetal morphological development or survival when administered orally to pregnant rats and rabbits throughout the period of organogenesis at doses of up to 6 and 16 mg/kg/day, respectively. These doses are approximately 2 and 10 times, respectively, the maximum recommended human dose (MRHD) of 25 mg/day given to adolescents, on a mg/m2 body surface area basis. Fetal malformations and death have been reported in mice following parenteral administration of d-amphetamine doses of 50 mg/kg/day (approximately 8 times the MRHD given to adolescents on a mg/m2 basis) or greater to pregnant animals. Administration of these doses was also associated with severe maternal toxicity. A pre- and postnatal development study was conducted with amphetamine (d- to l- enantiomer ratio of 3:1) in which pregnant rats received daily oral doses of 2, 6, and 10 mg/kg from gestation Day 6 to lactation Day 20. These doses are approximately 0.6, 2, and 3 times the MRHD of 25 mg/day amphetamine (d- to l- ratio of 3:1) given to adolescents, on a mg/m2 basis. All doses caused hyperactivity and decreased weight gain in the dams. A decrease in pup survival was seen at all doses. A decrease in pup body weight was seen at 6 and 10 mg/kg which correlated with delays in developmental landmarks, such as preputial separation and vaginal opening. Increased pup locomotor activity was seen at 10 mg/kg on Day 22 postpartum but not at 5 weeks postweaning. When pups were tested for reproductive performance at maturation, gestational weight gain, number of implantations, and number of delivered pups were decreased in the group whose mothers had been given 10 mg/kg. A number of studies from the literature in rodents indicate that prenatal or early postnatal exposure to amphetamine (d- or d, l-) at doses similar to those used clinically can result in long-term neurochemical and behavioral alterations. Reported behavioral effects include learning and memory deficits, altered locomotor activity, and changes in sexual function."
+    },
+    {
+     "kind": "Lactation",
+     "title": "8.2 Lactation",
+     "text": "Risk Summary Based on limited case reports in published literature, amphetamine (d- or d, l-) is present in human milk, at relative infant doses of 2% to 13.8% of the maternal weight-adjusted dosage and a milk/plasma ratio ranging between 1.9 and 7.5. There are no reports of adverse effects on the breastfed infant. Long-term neurodevelopmental effects on infants from amphetamine exposure are unknown. It is possible that large dosages of dextroamphetamine might interfere with milk production, especially in women whose lactation is not well established. Because of the potential for serious adverse reactions in nursing infants, including serious cardiovascular reactions, blood pressure and heart rate increase, suppression of growth, and peripheral vasculopathy, advise patients that breastfeeding is not recommended during treatment with dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules."
+    },
+    {
+     "kind": "Pediatric use",
+     "title": "8.4 Pediatric Use",
+     "text": "The safety and effectiveness of dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules in pediatric patients with ADHD ages 13 to 17 years have been established in two placebo-controlled clinical studies [see Adverse Reactions (6.1), Clinical Pharmacology (12.3), Clinical Studies (14)]. The safety and effectiveness of dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules have not been established in pediatric patients ages 12 years and younger. Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules have been studied for the treatment of ADHD in pediatric patients 6 to 12 years in two placebo controlled safety and efficacy trials. In the first trial, pediatric patients 6 to 12 years experienced higher rates of adverse reactions in some cases compared to patients 13 years and older, including higher rates of insomnia (30% vs 8%) and appetite decreased (43% vs 22%). In addition, amphetamine systemic exposures (both d- and l-) in pediatric patients 6 to 12 years following a single dose were higher than those observed in adults at the same dose (72% to 79% higher Cmax and approximately 83% higher AUC). A second trial evaluated a lower dose than those approved for pediatric patients 13 to 17 years; efficacy was not demonstrated for the lower dose. Therefore, a safe and effective dose cannot be established in pediatric patients 12 years and younger. Growth Suppression Growth should be monitored during treatment with stimulants, including dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules, in pediatric patients 13 to 17 years who are not growing or gaining weight as expected may need to have their treatment interrupted [see Warnings and Precautions (5.5), Adverse Reactions (6.1)]. Juvenile Animal Toxicity Data Juvenile rats treated with mixed amphetamine salts (same as in dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules) early in the postnatal period through sexual maturation demonstrated transient changes in motor activity. Learning and memory was impaired at approximately 8 times the maximum recommended human dose (MRHD) given to children on a mg/m2 basis. No recovery was seen following a drug-free period. A delay in sexual maturation was observed at a dose approximately 8 times the MRHD given to children on a mg/m2 basis, although there was no effect on fertility. In a juvenile developmental study, rats received daily oral doses of amphetamine (d to l enantiomer ratio of 3:1, the same as in dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules) of 2, 6, or 20 mg/kg on days 7 to 13 of age; from Day 14 to approximately Day 60 of age these doses were given b.i.d. for total daily doses of 4, 12, or 40 mg/kg. The latter doses are approximately 0.8, 2, and 8 times the MRHD of 25 mg/day given to children on a mg/m2 basis. Postdosing hyperactivity was seen at all doses; motor activity measured prior to the daily dose was decreased during the dosing period but the decreased motor activity was largely absent after an 18 day drug-free recovery period. Performance in the Morris water maze test for learning and memory was impaired at the 40 mg/kg dose, and sporadically at the lower doses, when measured prior to the daily dose during the treatment period; no recovery was seen after a 19 day drug-free period. A delay in the developmental milestones of vaginal opening and preputial separation was seen at 40 mg/kg but there was no effect on fertility."
+    },
+    {
+     "kind": "Geriatric use",
+     "title": "8.5 Geriatric Use",
+     "text": "Clinical studies of dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules did not include sufficient numbers of subjects aged 65 and over to determine whether they respond differently from younger subjects. Other reported clinical experience has not identified differences in responses between the elderly and younger patients. In general, dose selection for an elderly patient should start at the low end of the dosing range, reflecting the greater frequency of decreased hepatic, renal, or cardiac function, and of concomitant disease or other drug therapy."
+    },
+    {
+     "kind": "Controlled substance",
+     "title": "9.1 Controlled Substance",
+     "text": "Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules contain mixed amphetamine salts, a Schedule II controlled substance."
+    },
+    {
+     "kind": "Abuse",
+     "title": "9.2 Abuse",
+     "text": "Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules have a high potential for abuse and misuse which can lead to the development of a substance use disorder, including addiction [see Warnings and Precautions (5.1)]. Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules can be diverted for non-medical use into illicit channels or distribution. Abuse is the intentional non-therapeutic use of a drug, even once, to achieve a desired psychological or physiological effect. Misuse is the intentional use, for therapeutic purposes, of a drug by an individual in a way other than prescribed by a healthcare provider or for whom it was not prescribed. Drug addiction is a cluster of behavioral, cognitive, and physiological phenomena that may include a strong desire to take the drug, difficulties in controlling drug use (e.g., continuing drug use despite harmful consequences, giving a higher priority to drug use than other activities and obligations), and possible tolerance or physical dependence. Misuse and abuse of amphetamine may cause increased heart rate, respiratory rate, or blood pressure; sweating; dilated pupils; hyperactivity; restlessness; insomnia; decreased appetite; loss of coordination; tremors; flushed skin; vomiting; and/or abdominal pain. Anxiety, psychosis, hostility, aggression, and suicidal or homicidal ideation have also been observed with CNS stimulants abuse and/or misuse. Misuse and abuse of CNS stimulants, including dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules, can result in overdose and death [see Overdosage (10)], and this risk is increased with higher doses or unapproved methods of administration, such as snorting or injection."
+    },
+    {
+     "kind": "Dependence",
+     "title": "9.3 Dependence",
+     "text": "Physical Dependence Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules may produce physical dependence. Physical dependence is a state that develops as a result of physiological adaptation in response to repeated drug use, manifested by withdrawal signs and symptoms after abrupt discontinuation or a significant dose reduction of a drug. Withdrawal signs and symptoms after abrupt discontinuation or dose reduction following prolonged use of CNS stimulants including dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules include dysphoric mood; depression; fatigue; vivid, unpleasant dreams; insomnia or hypersomnia; increased appetite; and psychomotor retardation or agitation. Tolerance Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, and amphetamine sulfate extended-release capsules may produce tolerance. Tolerance is a physiological state characterized by a reduced response to a drug after repeated administration (i.e., a higher dose of a drug is required to produce the same effect that was once obtained at a lower dose)."
+    }
+   ]
+  },
+  {
+   "key": "methylphenidate",
+   "name": "Methylphenidate hydrochloride",
+   "brands": "Ritalin, Concerta, Equasym, Medikinet",
+   "spl_title": "METHYLPHENIDATE HYDROCHLORIDE TABLET, EXTENDED RELEASE [GRANULES PHARMACEUTICALS INC.]",
+   "setid": "45d33807-88b2-4b42-9c86-e5b05d7adec1",
+   "published": "Jul 20, 2026",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=45d33807-88b2-4b42-9c86-e5b05d7adec1",
+   "sections": [
+    {
+     "kind": "Boxed warning",
+     "title": "WARNING: ABUSE AND DEPENDENCE",
+     "text": "CNS stimulants, including Methylphenidate hydrochloride extended-release tablets, other methylphenidate-containing products, and amphetamines, have a high potential for abuse and dependence. Assess the risk of abuse prior to prescribing, and monitor for signs of abuse and dependence while on therapy [see Warnings and Precautions (5.1), Drug Abuse and Dependence (9.2, 9.3)] ."
+    },
+    {
+     "kind": "Indications and usage",
+     "title": "1 INDICATIONS AND USAGE",
+     "text": "Methylphenidate hydrochloride extended-release tablets are indicated for the treatment of: The use of methylphenidate hydrochloride extended-release tablets are not recommended in pediatric patients younger than 6 years of age because they had higher plasma exposure and a higher incidence of adverse reactions (e.g., weight loss) than patients 6 years and older at the same dosage\n- Attention Deficit Hyperactivity Disorders (ADHD) in pediatric patients 6 years and older and adults\n- Narcolepsy"
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.1 Pretreatment Screening",
+     "text": "Prior to treating pediatric patients and adults with central nervous system (CNS) stimulants, including Methylphenidate hydrochloride extended-release tablets, assess for the presence of cardiac disease (i.e., perform a careful history including family history of sudden death or ventricular arrhythmia, and physical examination) [see Warnings and Precautions (5.2)] . Assess the risk of abuse prior to prescribing, and monitor for signs of abuse and dependence while on therapy. Maintain careful prescription records, educate patients about abuse, monitor for signs of abuse and overdose, and periodically reevaluate the need for Methylphenidate hydrochloride extended-release tablets use [see Boxed Warning, Warnings and Precautions (5.1), Drug Abuse and Dependence (9)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.2 General Dosing Information",
+     "text": "Methylphenidate hydrochloride extended-release tablets have a duration of action of approximately 8 hours. Therefore, Methylphenidate hydrochloride extended-release tablets may be used in place of methylphenidate hydrochloride tablets when the 8-hour dosage of Methylphenidate hydrochloride extended-release tablets corresponds to the titrated 8-hour dosage of methylphenidate hydrochloride tablets. Methylphenidate hydrochloride extended-release tablets must be swallowed whole and never crushed or chewed. Pharmacological treatment of ADHD may be needed for extended periods. Periodically reevaluate the long-term use of Methylphenidate hydrochloride extended-release tablets, and adjust dosage as needed."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.3 Dose Reduction and Discontinuation",
+     "text": "If paradoxical worsening of symptoms or other adverse reactions occur, reduce the dosage, or, if necessary, discontinue Methylphenidate hydrochloride extended-release tablets. If improvement is not observed after appropriate dosage adjustment over a one-month period, the drug should be discontinued."
+    },
+    {
+     "kind": "Dosage forms and strengths",
+     "title": "3 DOSAGE FORMS AND STRENGTHS",
+     "text": "- 10 mg extended-release tablets, white to off white, round shaped, uncoated, tablets debossed with “FM4” on one side and plain on other side.\n- 20 mg extended-release tablets, white to off white, round shaped, uncoated, tablets debossed with “FM5” on one side and plain on other side."
+    },
+    {
+     "kind": "Contraindications",
+     "title": "4 CONTRAINDICATIONS",
+     "text": "​Patients with pheochromocytoma or a history of pheochromocytoma. Serious reactions, including elevated blood pressure and tachyarrhythmia, have been reported in patients with pheochromocytoma or a history of pheochromocytoma who received an amphetamine product.\n- Hypersensitivity to methylphenidate or other components of Methylphenidate hydrochloride extended-release tablets. Hypersensitivity reactions such as angioedema and anaphylactic reactions have been reported in patients treated with methylphenidate [ see Adverse Reactions (6)].\n- Concomitant treatment with monoamine oxidase inhibitors (MAOIs), or within 14 days following discontinuation of treatment with an MAOI, because of the risk of hypertensive crises [ see Drug Interactions (7.1)]."
+    },
+    {
+     "kind": "Pregnancy",
+     "title": "8.1 Pregnancy",
+     "text": "Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to ADHD medications, including Methylphenidate hydrochloride extended-release tablets, during pregnancy. Healthcare providers are encouraged to register patients by calling the National Pregnancy Registry for ADHD Medications at 1-866-961-2388 or visit https://womensmentalhealth.org/adhd-medications/ Risk Summary Published studies and postmarketing reports on methylphenidate use during pregnancy have not identified a drug-associated risk of major birth defects, miscarriage or adverse maternal or fetal outcomes. There may be risks to the fetus associated with the use of CNS stimulants use during pregnancy [see Clinical Considerations]. No effects on morphological development were observed in embryo-fetal development studies with oral administration of methylphenidate to pregnant rats and rabbits during organogenesis at doses up to 10 and 15 times, respectively, the maximum recommended human dose (MRHD) of 60 mg/day given to adolescents on a mg/m 2basis. However, spina bifida was observed in rabbits at a dose 52 times the MRHD given to adolescents. A decrease in pup body weight was observed in a pre- and post-natal development study with oral administration of methylphenidate to rats throughout pregnancy and lactation at doses 6 times the MRHD given to adolescents (see Data). The estimated background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss, or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2% to 4% and 15% to 20%, respectively. Clinical Considerations Fetal/Neonatal Adverse Reactions CNS stimulants, such as Methylphenidate hydrochloride extended-release tablets, can cause vasoconstriction and thereby decrease placental perfusion. No fetal and/or neonatal adverse reactions have been reported with the use of therapeutic doses of methylphenidate during pregnancy; however, premature delivery and low birth weight infants have been reported in amphetamine-dependent mothers. Data Animal Data In embryo-fetal development studies conducted in rats and rabbits, methylphenidate was administered orally at doses of up to 75 and 200 mg/kg/day, respectively, during the period of organogenesis. Malformations (increased incidence of fetal spina bifida) were observed in rabbits at the highest dose, which is approximately 52 times the MRHD of 60 mg/day given to adolescents on a mg/m 2basis. The no effect level for embryo-fetal development in rabbits was 60 mg/kg/day (15times the MRHD given to adolescents on a mg/m 2basis). There was no evidence of morphological development effects in rats, although increased incidences of fetal skeletal variations were seen at the highest dose level (10 times the MRHD of 60 mg/day given to adolescents on a mg/m 2basis), which was also maternally toxic. The no effect level for embryo-fetal development in rats was 25 mg/kg/day (3 times the MRHD on a mg/m 2basis). When methylphenidate was administered to rats throughout pregnancy and lactation at doses of up to 45 mg/kg/day, offspring body weight gain was decreased at the highest dose (6 times the MRHD of 60 mg/day given to adolescents on a mg/m 2basis), but no other effects on postnatal development were observed. The no effect level for pre- and postnatal development in rats was 15 mg/kg/day (~2 times the MRHD given to adolescents on a mg/m 2basis)."
+    },
+    {
+     "kind": "Lactation",
+     "title": "8.2 Lactation",
+     "text": "Risk Summary Limited published literature, based on milk sampling from seven mothers reports that methylphenidate is present in human milk, which resulted in infant doses of 0.16% to 0.7% of the maternal weight-adjusted dosage and a milk/plasma ratio ranging between 1.1 and 2.7. There are no reports of adverse effects on the breastfed infant and no effects on milk production. Long-term neurodevelopmental effects on infants from stimulant exposure are unknown. The developmental and health benefits of breastfeeding should be considered along with the mother’s clinical need for Methylphenidate hydrochloride extended-release tablets and any potential adverse effects on the breastfed infant from Methylphenidate hydrochloride extended-release tablets or from the underlying maternal condition. Clinical Considerations Monitor breastfeeding infants for adverse reactions, such as agitation, insomnia, anorexia, and reduced weight gain."
+    },
+    {
+     "kind": "Pediatric use",
+     "title": "8.4 Pediatric Use",
+     "text": "The safety and effectiveness of methylphenidate hydrochloride extended-release tablets have not been established in pediatric patients below the age of 6 years. In studies evaluating extended-release methylphenidate products, patients 4 to <6 years of age had higher systemic methylphenidate exposures than those observed in older pediatric patients at the same dosage. Pediatric patients 4 to <6 years of age also had a higher incidence of adverse reactions, including weight loss. The safety and effectiveness of Methylphenidate hydrochloride extended-release tablets for the treatment of ADHD have been established in pediatric patients 6 to 17 years. Long-Term Suppression of Growth Growth should be monitored during treatment with stimulants, including Methylphenidate hydrochloride extended-release tablets. Pediatric patients who are not growing or gaining weight as expected may need to have their treatment interrupted [ see Warnings and Precautions (5.7)] . Juvenile Animal Toxicity Data Rats treated with methylphenidate early in the postnatal period through sexual maturation demonstrated a decrease in spontaneous locomotor activity in adulthood. A deficit in acquisition of a specific learning task was observed in females only. The doses at which these findings were observed are at least 4 times the MRHD of 60 mg/day given to children on a mg/m 2 basis. In a study conducted in young rats, methylphenidate was administered orally at doses of up to 100 mg/kg/day for 9 weeks, starting early in the postnatal period (postnatal Day 7) and continuing through sexual maturity (postnatal Week 10). When these animals were tested as adults (postnatal Weeks 13 to 14), decreased spontaneous locomotor activity was observed in males and females previously treated with 50 mg/kg/day (approximately 4 times the MRHD of 60 mg/day given to children on a mg/m 2 basis) or greater, and a deficit in the acquisition of a specific learning task was seen in females exposed to the highest dose (8 times the MRHD given to children on a mg/m 2 basis). The no effect level for juvenile neurobehavioral development in rats was 5 mg/kg/day (approximately 0.5 times the MRHD given to children on a mg/m 2 basis). The clinical significance of the long-term behavioral effects observed in rats is unknown."
+    },
+    {
+     "kind": "Geriatric use",
+     "title": "8.5 Geriatric Use",
+     "text": "Methylphenidate hydrochloride tablet has not been studied in the geriatric population."
+    },
+    {
+     "kind": "Controlled substance",
+     "title": "9.1 Controlled Substance",
+     "text": "Methylphenidate hydrochloride extended-release tablets contain methylphenidate hydrochloride, a Schedule II controlled substance."
+    },
+    {
+     "kind": "Abuse",
+     "title": "9.2 Abuse",
+     "text": "CNS stimulants, including Methylphenidate hydrochloride extended-release tablets have a high potential for abuse. Abuse is characterized by impaired control over drug use despite harm, and craving. Signs and symptoms of CNS stimulant abuse include increased heart rate, respiratory rate, blood pressure, and/or sweating, dilated pupils, hyperactivity, restlessness, insomnia, decreased appetite, loss of coordination, tremors, flushed skin, vomiting, and/or abdominal pain. Anxiety, psychosis, hostility, aggression, and suicidal or homicidal ideation have also been observed. Abusers of CNS stimulants may chew, snort, inject, or use other unapproved routes of administration which may result in overdose and death [ see Overdosage (10)] . To reduce the abuse of CNS stimulants including Methylphenidate hydrochloride extended-release tablets assess the risk of abuse prior to prescribing. After prescribing, keep careful prescription records, educate patients and their families about abuse and on proper storage and disposal of CNS stimulants [ see How Supplied/Storage and Handling (16)] , monitor for signs of abuse while on therapy, and reevaluate the need for Methylphenidate hydrochloride extended-release tablets use."
+    },
+    {
+     "kind": "Dependence",
+     "title": "9.3 Dependence",
+     "text": "Tolerance Tolerance (a state of adaptation in which exposure to a drug results in a reduction of the drug’s desired and/or undesired effects over time) can occur during chronic therapy with CNS stimulants, including Methylphenidate hydrochloride extended-release tablets. Dependence Physical dependence (which is manifested by a withdrawal syndrome produced by abrupt cessation, rapid dose reduction, or administration of an antagonist) may occur in patients treated with CNS stimulants including Methylphenidate hydrochloride extended-release tablets. Withdrawal symptoms after abrupt cessation following prolonged high-dosage administration of CNS stimulants include dysphoric mood; fatigue; vivid, unpleasant dreams; insomnia or hypersomnia; increased appetite; and psychomotor retardation or agitation."
+    }
+   ]
+  },
+  {
+   "key": "dexmethylphenidate",
+   "name": "Dexmethylphenidate hydrochloride",
+   "brands": "Focalin, Focalin XR",
+   "spl_title": "DEXMETHYLPHENIDATE HYDROCHLORIDE CAPSULE, EXTENDED RELEASE [TEVA PHARMACEUTICALS USA, INC.]",
+   "setid": "dd659d39-41f5-4612-8f17-bad602b4784d",
+   "published": "Jul 20, 2026",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dd659d39-41f5-4612-8f17-bad602b4784d",
+   "sections": [
+    {
+     "kind": "Boxed warning",
+     "title": "WARNING: ABUSE, MISUSE, AND ADDICTION",
+     "text": "Dexmethylphenidate hydrochloride extended-release capsules have a high potential for abuse and misuse, which can lead to the development of a substance use disorder, including addiction. Misuse and abuse of CNS stimulants, including dexmethylphenidate hydrochloride extended-release capsules, can result in overdose and death [see Overdosage (10)], and this risk is increased with higher doses or unapproved methods of administration, such as snorting or injection. Before prescribing dexmethylphenidate hydrochloride extended-release capsules, assess each patient’s risk for abuse, misuse, and addiction. Educate patients and their families about these risks, proper storage of the drug, and proper disposal of any unused drug. Throughout dexmethylphenidate hydrochloride extended-release capsules treatment, reassess each patient’s risk of abuse, misuse, and addiction and frequently monitor for signs and symptoms of abuse, misuse, and addiction [see Warnings and Precautions (5.1), Drug Abuse and Dependence (9.2)]."
+    },
+    {
+     "kind": "Indications and usage",
+     "title": "1 INDICATIONS AND USAGE",
+     "text": "Dexmethylphenidate hydrochloride extended-release capsules are indicated for the treatment of Attention Deficit Hyperactivity Disorder (ADHD) [see Clinical Studies (14)]. Limitations of Use The use of dexmethylphenidate hydrochloride extended-release capsules is not recommended in pediatric patients younger than 6 years of age because they had higher plasma exposure and a higher incidence of adverse reactions (e.g., weight loss) than patients 6 years and older at the same dosage [see Warnings and Precautions (5.7), Use in Specific Populations (8.4)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.1 Pretreatment Screening",
+     "text": "Prior to treating patients with dexmethylphenidate hydrochloride extended-release capsules, assess:\n- for the presence of cardiac disease (i.e., perform a careful history, family history of sudden death or ventricular arrhythmia, and physical exam) [see Warnings and Precautions ( 5.2 )].\n- the family history and clinically evaluate patients for motor or verbal tics or Tourette’s syndrome before initiating dexmethylphenidate hydrochloride extended-release capsules [see Warnings and Precautions (5.10)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.2 Recommended Dosage",
+     "text": "The recommended starting dosage of dexmethylphenidate hydrochloride extended-release capsules for patients who are not currently taking dexmethylphenidate or racemic methylphenidate, or for patients who are on stimulants other than methylphenidate are: The recommended starting dose of dexmethylphenidate hydrochloride extended-release capsules for patients currently using methylphenidate is half (1/2) the total daily dose of racemic methylphenidate.Patients currently using Focalin tablets may be given the same daily dose of dexmethylphenidate hydrochloride extended-release capsules. The dose may be titrated weekly in increments of 5 mg in pediatric patients and 10 mg in adult patients. The dose should be individualized according to the needs and response of the patient. Daily doses above 30 mg in pediatrics and 40 mg in adults have not been studied and are not recommended.\n- Pediatric patients: Start with 5 mg orally once daily in the morning with or without food.\n- Adult patients: Start with 10 mg orally once daily in the morning with or without food."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.3 Administration Instructions",
+     "text": "Dexmethylphenidate hydrochloride extended-release capsules are administered orally and may be taken whole or the capsule may be opened and the entire contents sprinkled onto applesauce. If the patient is using the sprinkled administration method, the sprinkled applesauce should be consumed immediately; it should not be stored. Patients should take the applesauce with sprinkled beads in its entirety without chewing. The dose of a single capsule should not be divided. The contents of the entire capsule should be taken, and patients should not take anything less than one capsule per day."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.4 Dosage Reduction and Discontinuation",
+     "text": "If paradoxical aggravation of symptoms or other adverse reactions occur, reduce the dosage, or if necessary, discontinue dexmethylphenidate hydrochloride extended-release capsules. If improvement is not observed after appropriate dosage adjustment over a one-month period, the drug should be discontinued."
+    },
+    {
+     "kind": "Dosage forms and strengths",
+     "title": "3 DOSAGE FORMS AND STRENGTHS",
+     "text": "- 5 mg extended-release capsules – two-piece hard-gelatin capsule with aqua-blue-opaque cap and aqua-blue-opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5550” on body.\n- 10 mg extended-release capsules – two-piece hard-gelatin capsule with ivory-opaque cap and ivory-opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5551” on body.\n- 15 mg extended-release capsules – two-piece hard-gelatin capsule with blue-green-opaque cap and blue-green-opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5552” on body.\n- 20 mg extended-release capsules – two-piece hard-gelatin capsule with white-opaque cap and white-opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5553” on body.\n- 25 mg extended-release capsules – two-piece hard-gelatin capsule with aqua blue opaque cap and white opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5045” on body.\n- 30 mg extended-release capsules – two-piece hard-gelatin capsule with ivory-opaque cap and white-opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5554” on body.\n- 35 mg extended-release capsules – two-piece hard-gelatin capsule with aqua blue opaque cap and ivory opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5046” on body.\n- 40 mg extended-release capsules – two-piece hard-gelatin capsule with blue-green cap and white-opaque body, filled with white to off-white pellets. Imprinted in black ink with “TEVA” on cap and “5562” on body."
+    },
+    {
+     "kind": "Contraindications",
+     "title": "4 CONTRAINDICATIONS",
+     "text": "- Hypersensitivity to methylphenidate or other components of dexmethylphenidate hydrochloride extended-release capsules. Hypersensitivity reactions, such as angioedema and anaphylactic reactions have been reported in patients treated with methylphenidate [see Adverse Reactions (6.1)].\n- Concomitant treatment with monoamine oxidase inhibitors (MAOIs) or within 14 days following discontinuation of treatment with an MAOI, because of the risk of hypertensive crises [see Drug Interactions (7.1)]."
+    },
+    {
+     "kind": "Pregnancy",
+     "title": "8.1 Pregnancy",
+     "text": "Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to ADHD medications, including dexmethylphenidate hydrochloride extended-release capsules, during pregnancy. Healthcare providers are encouraged to register patients by calling the National Pregnancy Registry for ADHD medications at 1-866-961-2388 or visiting https://womensmentalhealth.org/adhd-medications/. Risk Summary Dexmethylphenidate is the d-threo enantiomer of racemic methylphenidate. Published studies and postmarketing reports on methylphenidate use during pregnancy have not identified a drug-associated risk of major birth defects, miscarriage or adverse maternal or fetal outcomes. There may be risks to the fetus associated with the use of CNS stimulants during pregnancy (see Clinical Considerations). Embryo-fetal development studies in rats showed delayed fetal skeletal ossification at doses up to 5 times the maximum recommended human dose (MRHD) of 20 mg/day given to adults based on plasma levels. A decrease in pup weight in males was observed in a pre- and post-natal development study with oral administration of methylphenidate to rats throughout pregnancy and lactation at doses 5 times the MRHD of 20 mg/day given to adults based on plasma levels (see Data). The estimated background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss, or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2% to 4% and 15% to 20%, respectively. Clinical Considerations Fetal/Neonatal Adverse Reactions CNS stimulants, such as dexmethylphenidate hydrochloride extended-release capsules, can cause vasoconstriction and thereby decrease placental perfusion. No fetal and/or neonatal adverse reactions have been reported with the use of therapeutic doses of methylphenidate during pregnancy; however, premature delivery and low birth weight infants have been reported in amphetamine-dependent mothers. Data Animal Data In embryo-fetal development studies conducted in rats and rabbits, dexmethylphenidate was administered orally at doses of up to 20 and 100 mg/kg/day, respectively, during the period of organogenesis. No evidence of malformations was found in either the rat or rabbit study; however, delayed fetal skeletal ossification was observed at the highest dose level in rats. When dexmethylphenidate was administered to rats throughout pregnancy and lactation at doses of up to 20 mg/kg/day, post-weaning body weight gain was decreased in male offspring at the highest dose, but no other effects on postnatal development were observed. At the highest doses tested, plasma levels [area under the curves (AUCs)] of dexmethylphenidate in pregnant rats and rabbits were approximately 5 and 1 times, respectively, those in adults dosed with 20 mg/day. Plasma levels in adults were comparatively similar to plasma levels in adolescents. Racemic methylphenidate has been shown to cause malformations (increased incidence of fetal spina bifida) in rabbits when given in doses of 200 mg/kg/day throughout organogenesis."
+    },
+    {
+     "kind": "Lactation",
+     "title": "8.2 Lactation",
+     "text": "Risk Summary Dexmethylphenidate is the d-threo enantiomer of racemic methylphenidate. Limited published literature, based on milk sampling from seven mothers' reports that methylphenidate is present in human milk, which resulted in infant doses of 0.16% to 0.7% of the maternal weight-adjusted dosage and a milk/plasma ratio ranging between 1.1 and 2.7. There are no reports of adverse effects on the breastfed infant and no effects on milk production. Long-term neurodevelopmental effects on infants from stimulant exposure are unknown. The developmental and health benefits of breastfeeding should be considered along with the mother’s clinical need for dexmethylphenidate hydrochloride extended-release capsules and any potential adverse effects on the breastfed infant from dexmethylphenidate hydrochloride extended-release capsules or from the underlying maternal condition. Clinical Considerations Monitor breastfeeding infants for adverse reactions, such as agitation, insomnia, anorexia, and reduced weight gain."
+    },
+    {
+     "kind": "Pediatric use",
+     "title": "8.4 Pediatric Use",
+     "text": "The safety and effectiveness of dexmethylphenidate hydrochloride extended-release capsules have not been established in pediatric patients below the age of 6 years. In studies evaluating extended-release methylphenidate products, patients 4 to <6 years of age had higher systemic methylphenidate exposures than those observed in older pediatric patients at the same dosage. Pediatric patients 4 to <6 years of age also had a higher incidence of adverse reactions, including weight loss. The safety and effectiveness of dexmethylphenidate hydrochloride extended-release capsules for the treatment of ADHD have been established in pediatric patients aged 6 to 17 years in two adequate and well-controlled clinical trials [see Clinical Studies ( 14.2 )]. Long Term Suppression of Growth Growth should be monitored during treatment with stimulants, including dexmethylphenidate hydrochloride extended-release capsules. Pediatric patients who are not growing or gaining weight as expected may need to have their treatment interrupted [see Warnings and Precautions (5.7)]. Juvenile Animal Toxicity Data Rats treated with racemic methylphenidate early in the postnatal period through sexual maturation demonstrated a decrease in spontaneous locomotor activity in adulthood. A deficit in acquisition of a specific learning task was observed in females only. The doses at which these findings were observed are at least 6 times the MRHD of 60 mg/day given to children on a mg/m2 basis. In a study conducted in young rats, racemic methylphenidate was administered orally at doses of up to 100 mg/kg/day for 9 weeks, starting early in the postnatal period (postnatal Day 7) and continuing through sexual maturity (postnatal Week 10). When these animals were tested as adults (postnatal Weeks 13 to 14), decreased spontaneous locomotor activity was observed in males and females previously treated with 50 mg/kg/day (approximately 4 times the MRHD of 60 mg/day of racemic methylphenidate given to children on a mg/m2 basis) or greater, and a deficit in the acquisition of a specific learning task was seen in females exposed to the highest dose (8 times the MRHD given to children on a mg/m2 basis). The no effect level for juvenile neurobehavioral development in rats was 5 mg/kg/day (approximately 0.5 times the MRHD given to children on a mg/m2 basis). The clinical significance of the long-term behavioral effects observed in rats is unknown."
+    },
+    {
+     "kind": "Geriatric use",
+     "title": "8.5 Geriatric Use",
+     "text": "Dexmethylphenidate hydrochloride extended-release capsules have not been studied in the geriatric population."
+    },
+    {
+     "kind": "Controlled substance",
+     "title": "9.1 Controlled Substance",
+     "text": "Dexmethylphenidate hydrochloride extended-release capsules contain dexmethylphenidate hydrochloride, a Schedule II controlled substance."
+    },
+    {
+     "kind": "Abuse",
+     "title": "9.2 Abuse",
+     "text": "Dexmethylphenidate hydrochloride extended-release capsules have a high potential for abuse and misuse which can lead to the development of a substance use disorder, including addiction [see Warnings and Precautions (5.1)]. Dexmethylphenidate hydrochloride extended-release capsules can be diverted for non-medical use into illicit channels or distribution. Abuse is the intentional non-therapeutic use of a drug, even once, to achieve a desired psychological or physiological effect. Misuse is the intentional use, for therapeutic purposes, of a drug by an individual in a way other than prescribed by a health care provider or for whom it was not prescribed. Drug addiction is a cluster of behavioral, cognitive, and physiological phenomena that may include a strong desire to take the drug, difficulties in controlling drug use (e.g., continuing drug use despite harmful consequences, giving a higher priority to drug use than other activities and obligations), and possible tolerance or physical dependence. Misuse and abuse of methylphenidate may cause increased heart rate, respiratory rate, or blood pressure; sweating; dilated pupils; hyperactivity; restlessness; insomnia; decreased appetite; loss of coordination; tremors; flushed skin; vomiting; and/or abdominal pain. Anxiety, psychosis, hostility, aggression, and suicidal or homicidal ideation have also been observed with CNS stimulants abuse and/or misuse. Misuse and abuse of CNS stimulants, including dexmethylphenidate hydrochloride extended-release capsules, can result in overdose and death [see Overdosage (10)], and this risk is increased with higher doses or unapproved methods of administration, such as snorting or injection."
+    },
+    {
+     "kind": "Dependence",
+     "title": "9.3 Dependence",
+     "text": "Physical Dependence Dexmethylphenidate hydrochloride extended-release capsules may produce physical dependence. Physical dependence is a state that develops as a result of physiological adaptation in response to repeated drug use, manifested by withdrawal signs and symptoms after abrupt discontinuation or a significant dose reduction of a drug. Withdrawal signs and symptoms after abrupt discontinuation or dose reduction following prolonged use of CNS stimulants including dexmethylphenidate hydrochloride extended-release capsules include dysphoric mood; depression; fatigue; vivid, unpleasant dreams; insomnia or hypersomnia; increased appetite; and psychomotor retardation or agitation. Tolerance Dexmethylphenidate hydrochloride extended-release capsules may produce tolerance. Tolerance is a physiological state characterized by a reduced response to a drug after repeated administration (i.e., a higher dose of a drug is required to produce the same effect that was once obtained at a lower dose)."
+    }
+   ]
+  },
+  {
+   "key": "atomoxetine",
+   "name": "Atomoxetine hydrochloride",
+   "brands": "Strattera",
+   "spl_title": "ATOMOXETINE CAPSULE [CREEKWOOD PHARMACEUTICALS LLC]",
+   "setid": "9b757805-eabf-4301-85be-7a3e38f6b187",
+   "published": "Aug 10, 2026",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9b757805-eabf-4301-85be-7a3e38f6b187",
+   "sections": [
+    {
+     "kind": "Boxed warning",
+     "title": "WARNING: SUICIDAL THOUGHTS AND BEHAVIORS IN PEDIATRIC PATIENTS 6 YEARS OF AGE AND OLDER",
+     "text": "All atomoxetine capsules treated pediatric patients 6 years of age or older should be monitored and observed closely for suicidal thoughts and behavior, clinical worsening, or unusual changes in behavior, especially during the initial months of therapy or at times of dosage changes. Families and caregivers should be advised of the need for close observation and communication with the health care provider. Consider stopping atomoxetine capsules in patients who experience emergent suicidal thoughts and behavior [see Warnings and Precautions ( 5.1)] . Atomoxetine capsules increased the risk of suicidal ideation in pediatric patients aged 6 years of age and older with attention-deficit/hyperactivity disorder (ADHD) in short-term studies."
+    },
+    {
+     "kind": "Indications and usage",
+     "title": "1 INDICATIONS AND USAGE",
+     "text": "Atomoxetine capsules are indicated for the treatment of attention-deficit/hyperactivity disorder (ADHD) in adults and pediatric patients 6 years of age and older. Atomoxetine capsules are indicated as an integral part of a total treatment program for ADHD that may include other measures (psychological, educational, social) for patients with ADHD."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.1 Recommendations Prior to Initiating Atomoxetine Capsules Treatment",
+     "text": "Prior to initiating treatment with atomoxetine capsules, screen patients for a personal or family history of bipolar disorder, mania, or hypomania [see Warnings and Precautions ( 5.6)]"
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.2 Administration Instructions",
+     "text": "Atomoxetine capsules may be taken with or without food. Take atomoxetine capsules whole; do not open the capsules."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.3 Recommended Dosage",
+     "text": "Table 1 includes the recommended atomoxetine capsules dosage in adult patients and pediatric patients 6 years of age and older for acute treatment of ADHD. Table 1: Recommended Dosage of Atomoxetine Capsules for Acute Treatment of ADHD aAdminister either as once daily dosage in the morning or as evenly divided twice daily dosage in the morning and late afternoon/early evening. bNo additional benefit has been demonstrated with atomoxetine dosages higher than 1.2 mg/kg/day [see Clinical Studies ( 14)] . cIf a patient has not achieved an optimal response at 80 mg/day after 2 to 4 additional weeks, may increase the dosage to a maximum of 100 mg/day. There is no data that supports increased effectiveness at a dosage higher than 100 mg/day [see Clinical Studies ( 14)] . Age and Body Weight Starting Dosage Titration Interval Target Dosage Maximum Dosage Pediatrics patients who weigh less than 70 kg 0.5 mg/kg/day Minimum of 3 days 1.2 mg/kg/day a,b 1.4 mg/kg/day or 100 mg/day (whichever is less) a Pediatrics patients who weigh 70 kg or more and adults patients 40 mg/day Minimum of 3 days 80 mg/day a 100 mg/day a,c The health care provider who elects to use atomoxetine capsules for extended periods should periodically reevaluate the long-term usefulness of atomoxetine capsules for the individual patient."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.4 Recommended Dosage in Patients with Hepatic Impairment",
+     "text": "For patients aged 6 years of age or older with:\n- Severe hepatic impairment (HI) (Child-Pugh Class C), the recommended initial and target atomoxetine capsules dosage are 25% of recommended dosage in patients with normal hepatic function [see Use in Specific Populations ( 8.6) and Clinical Pharmacology ( 12.3)].\n- Moderate HI (Child-Pugh Class B), the recommended initial and target atomoxetine capsules dosage is 50% of the recommended dosage in patients with normal hepatic function [see Use in Specific Populations ( 8.6) and Clinical Pharmacology ( 12.3)].\n- Mild HI (Child-Pugh Class A), the recommended initial and target atomoxetine capsules dosage are the same as those with normal hepatic function."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.5 Recommended Dosage with Concomitant Use of Strong CYP2D6 Inhibitors or in CYP2D6 Poor Metabolizers",
+     "text": "Consider genetic testing to determine the patient's CYP2D6 metabolizer status. In patients taking a concomitant strong CYP2D6 inhibitor or who are CYP2D6 poor metabolizers, a longer titration interval of 4 weeks is recommended, if ADHD symptoms fail to improve and the initial atomoxetine capsules dosage are well tolerated. The recommended starting, target, and maximum atomoxetine capsules dosages are the same as outlined in Table 1 [ see Dosage and Administration( 2.3)]. For other CYP2D6 metabolizer types (ultrarapid, normal, and intermediate), follow the recommended dosage, including the recommended titration interval (minimum of 3 days), as outlined in Table 1 [ see Dosage and Administration( 2.3)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.6 Switching to or from a Monoamine Oxidase Inhibitor Antidepressant",
+     "text": "At least 14 days must elapse between discontinuation of a monoamine oxidase inhibitor (MAOI) antidepressant and initiation of atomoxetine capsules. In addition, at least 14 days must elapse after stopping atomoxetine capsules before starting an MAOI antidepressant."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.7 Recommendations for a Missed Dose",
+     "text": "If a atomoxetine capsules dose are missed, take the dose as soon as possible, but do not take more than the prescribed total daily amount of atomoxetine capsules in any 24-hour period."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.8 Recommendations for Discontinution",
+     "text": "When discontinuing atomoxetine capsules, no taper is needed [see Drug Abuse and Dependence ( 9.2, 9.3)]"
+    },
+    {
+     "kind": "Dosage forms and strengths",
+     "title": "3 DOSAGE FORMS AND STRENGTHS",
+     "text": "Each capsule contains atomoxetine hydrochloride equivalent to 10 mg (White Opaque, White Opaque), 18 mg (White Opaque, Yellow Opaque), 25 mg (White Opaque, Blue Opaque), 40 mg (Blue Opaque, Blue Opaque), 60 mg (Yellow Opaque, Blue Opaque), 80 mg (White Opaque, Orange Opaque), or 100 mg (Orange Opaque, Orange Opaque) of atomoxetine."
+    },
+    {
+     "kind": "Contraindications",
+     "title": "4 CONTRAINDICATIONS",
+     "text": "Atomoxetine capsules are contraindicated in patients:\n- With known hypersensitivity reaction to atomoxetine or other constituents of atomoxetine capsules. Hypersensitivity reactions included anaphylaxis, angioneurotic edema, urticaria, and rash [see Warnings and Precautions ( 5.8)] .\n- Taking, or within 14 days of stopping, a monoamine oxidase inhibitor (MAOI) [see Drug Interactions ( 7)].\n- With narrow angle glaucoma. In clinical trials, atomoxetine capsules use was associated with an increased risk of mydriasis.\n- With pheochromocytoma or a history of pheochromocytoma. Serious reactions, including elevated blood pressure and tachyarrhythmia, have been reported in patients with pheochromocytoma or a history of pheochromocytoma who received atomoxetine capsules.\n- With severe cardiac or vascular disorders whose condition would be expected to deteriorate if they had a clinically important increase in blood pressure or heart rate (e.g., 15 to 20 mm Hg in blood pressure or 20 beats per minute in heart rate) [see Warnings and Precautions ( 5.4)] ."
+    },
+    {
+     "kind": "Pregnancy",
+     "title": "8.1 Pregnancy",
+     "text": "Risk Summary Available published studies with atomoxetine capsules use in pregnant women are insufficient to establish a drug-associated risk of major birth defects, miscarriage or adverse maternal or fetal outcomes. Some animal reproduction studies of atomoxetine had adverse developmental outcomes. One of 3 studies in pregnant rabbits dosed during organogenesis resulted in decreased live fetuses and an increase in early resorptions, as well as slight increases in the incidences of atypical origin of carotid artery and absent subclavian artery. These effects were observed at plasma levels (AUC) 3 times and 0.4 times the human plasma levels in other CYP2D6 metabolizer types (ultrarapid, normal, and intermediate) and poor metabolizers receiving the maximum recommended human dose (MRHD), respectively. In rats dosed prior to mating and during organogenesis a decrease in fetal weight (female only) and an increase in the incidence of incomplete ossification of the vertebral arch in fetuses were observed at a dose approximately 5 times the MRHD on a mg/m 2basis. In one of 2 studies in which rats were dosed prior to mating through the periods of organogenesis and lactation, decreased pup weight and decreased pup survival were observed at doses corresponding to 5-6 times the MRHD on a mg/m 2basis. No adverse fetal effects were seen in pregnant rats dosed during the organogenesis period (see Data). The estimated background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss, or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2-4% and 15-20%, respectively. Data Animal Data:Pregnant rabbits were treated with up to 100 mg/kg/day of atomoxetine by gavage throughout the period of organogenesis. At this dose, in 1 of 3 studies, a decrease in live fetuses and an increase in early resorptions was observed. Slight increases in the incidences of atypical origin of carotid artery and absent subclavian artery were observed. These findings were observed at doses that caused slight maternal toxicity. The no-effect dose for these findings was 30 mg/kg/day. The 100 mg/kg dose is approximately 23 times the MRHD on a mg/m 2basis; plasma levels (AUC) of atomoxetine at this dose in rabbits are estimated to be 3.3 times (other CYP2D6 metabolizer types) or 0.4 times (CYP2D6 poor metabolizers) those in humans receiving the MRHD. Rats were treated with up to approximately 50 mg/kg/day of atomoxetine (approximately 6 times the MRHD on a mg/m 2basis) in the diet from 2 weeks (females) or 10 weeks (males) prior to mating through the periods of organogenesis and lactation. In 1 of 2 studies, decreases in pup weight and pup survival were observed. The decreased pup survival was also seen at 25 mg/kg (but not at 13 mg/kg). In a study in which rats were treated with atomoxetine in the diet from 2 weeks (females) or 10 weeks (males) prior to mating throughout the period of organogenesis, a decrease in fetal weight (female only) and an increase in the incidence of incomplete ossification of the vertebral arch in fetuses were observed at 40 mg/kg/day (approximately 5 times the MRHD on a mg/m 2basis) but not at 20 mg/kg/day. No adverse fetal effects were seen when pregnant rats were treated with up to 150 mg/kg/day (approximately 17 times the MRHD on a mg/m 2basis) by gavage throughout the period of organogenesis."
+    },
+    {
+     "kind": "Lactation",
+     "title": "8.2 Lactation",
+     "text": "Risk Summary There are no data on the presence of atomoxetine or its metabolite in human milk, the effects on the breastfed child, or the effects on milk production. Atomoxetine is present in animal milk. When a drug is present in animal milk, it is likely that the drug will be present in human milk. The developmental and health benefits of breastfeeding should be considered along with the mother's clinical need for atomoxetine capsules and any potential adverse effects on the breastfed child from atomoxetine capsules or from the underlying maternal condition."
+    },
+    {
+     "kind": "Pediatric use",
+     "title": "8.4 Pediatric Use",
+     "text": "The safety and effectiveness of atomoxetine capsules for the treatment of ADHD have been established in pediatric patients 6 years of age and older. Anyone considering the use of atomoxetine capsules in a pediatric patient should balance the potential risks with the clinical need [see Boxed Warning and Warnings and Precautions ( 5.1, 5.3, 5.4, 5.10)]. The atomoxetine pharmacokinetics in pediatric patients 6 years of age and older were similar to those in adults. The safety and effectiveness of atomoxetine capsules in pediatric patients less than 6 years of age have not been established. Juvenile Toxicity Animal Data A study was conducted in young rats to evaluate the effects of atomoxetine on growth and neurobehavioral and sexual development. Rats were treated with 1, 10, or 50 mg/kg/day (approximately 0.2, 2, and 8 times, respectively, the maximum human dose on a mg/m 2basis) of atomoxetine given by gavage from the early postnatal period (Day 10 of age) through adulthood. Slight delays in onset of vaginal patency (all doses) and preputial separation (10 and 50 mg/kg), slight decreases in epididymal weight and sperm number (10 and 50 mg/kg), and a slight decrease in corpora lutea (50 mg/kg) were seen, but there were no effects on fertility or reproductive performance. A slight delay in onset of incisor eruption was seen at 50 mg/kg. A slight increase in motor activity was seen on Day 15 (males at 10 and 50 mg/kg and females at 50 mg/kg) and on Day 30 (females at 50 mg/kg) but not on Day 60 of age. There were no effects on learning and memory tests. The significance of these findings to humans is unknown."
+    },
+    {
+     "kind": "Geriatric use",
+     "title": "8.5 Geriatric Use",
+     "text": "The safety, efficacy and pharmacokinetics of atomoxetine capsules in geriatric patients have not been evaluated. Clinical studies of atomoxetine capsules did not include sufficient numbers of patients 65 years of age and older to determine whether they respond differently from younger adult patients."
+    },
+    {
+     "kind": "Controlled substance",
+     "title": "9.1 Controlled Substance",
+     "text": "Atomoxetine capsules contains atomoxetine which is not a controlled substance."
+    },
+    {
+     "kind": "Abuse",
+     "title": "9.2 Abuse",
+     "text": "In a randomized, double-blind, placebo-controlled, abuse-potential study in adults that comparing effects of atomoxetine capsules and placebo, atomoxetine capsules were not associated with stimulant or euphoriant properties. Clinical study data in over 2,000 adults and pediatric patients with ADHD and over 1,200 adults with depression (atomoxetine capsules is not indicated for the treatment of depression) showed only isolated incidents of inappropriate atomoxetine capsules self-administration. Drug discrimination studies in rats and monkeys showed inconsistent stimulus generalization between atomoxetine and cocaine."
+    },
+    {
+     "kind": "Dependence",
+     "title": "9.3 Dependence",
+     "text": "After atomoxetine capsules discontinuation, there was no evidence of symptom rebound or adverse reactions suggesting a atomoxetine capsules discontinuation or withdrawal syndrome."
+    }
+   ]
+  },
+  {
+   "key": "guanfacine",
+   "name": "Guanfacine (extended release)",
+   "brands": "Intuniv",
+   "spl_title": "GUANFACINE TABLET, EXTENDED RELEASE [ACTAVIS PHARMA, INC.]",
+   "setid": "3a171942-37af-430d-8b9d-bb678ca2be4b",
+   "published": "Aug 11, 2026",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3a171942-37af-430d-8b9d-bb678ca2be4b",
+   "sections": [
+    {
+     "kind": "Indications and usage",
+     "title": "1 INDICATIONS AND USAGE",
+     "text": "Guanfacine extended-release tablets are indicated for the treatment of Attention Deficit Hyperactivity Disorder (ADHD) as monotherapy and as adjunctive therapy to stimulant medications [see Clinical Studies ( 14 )]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.1 General Instruction for Use",
+     "text": "Swallow tablets whole. Do not crush, chew, or break tablets because this will increase the rate of guanfacine release. Do not administer with high fat meals, due to increased exposure."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.2 Dose Selection",
+     "text": "Take guanfacine extended-release tablets orally once daily, either in the morning or evening, at approximately the same time each day. Begin at a dose of 1 mg/day, and adjust in increments of no more than 1 mg/week. In monotherapy-clinical trials, there was dose- and exposure-related clinical improvement as well as risks for several clinically significant adverse reactions (hypotension, bradycardia, sedative events). To balance the exposure-related potential benefits and risks, the recommended target dose range depending on clinical response and tolerability for guanfacine extended-release is 0.05 to 0.12 mg/kg/day (total daily dose between 1 to 7 mg) (See Table 1). Table 1: Recommended Target Dose Range for Therapy with Guanfacine Extended-Release Weight Target dose range (0.05 to 0.12 mg/kg/day) 25 to 33.9 kg 2 to 3 mg/day 34 to 41.4 kg 2 to 4 mg/day 41.5 to 49.4 kg 3 to 5 mg/day 49.5 to 58.4 kg 3 to 6 mg/day 58.5 to 91 kg 4 to 7 mg/day >91 kg 5 to 7 mg/day Doses above 4 mg/day have not been evaluated in children (ages 6 to 12 years) and doses above 7 mg/day have not been evaluated in adolescents (ages 13 to 17 years) In the adjunctive trial which evaluated guanfacine extended-release treatment with psychostimulants, the majority of patients reached optimal doses in the 0.05 to 0.12 mg/kg/day range. Doses above 4 mg/day have not been studied in adjunctive trials."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.3 Switching from Immediate-Release Guanfacine to Guanfacine E xtended- R elease",
+     "text": "If switching from immediate-release guanfacine, discontinue that treatment, and titrate with guanfacine extended-release following above recommended schedule. Do not substitute for immediate-release guanfacine tablets on a milligram-per-milligram basis, because of differing pharmacokinetic profiles. Guanfacine extended-release has significantly reduced Cmax (60% lower), bioavailability (43% lower), and a delayed Tmax (3 hours later) compared to those of the same dose of immediate-release guanfacine [see Clinical Pharmacology ( 12.3 )]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.4 Maintenance Treatment",
+     "text": "Pharmacological treatment of ADHD may be needed for extended periods. Healthcare providers should periodically re-evaluate the long-term use of guanfacine extended-release, and adjust weight-based dosage as needed. The majority of children and adolescents reach optimal doses in the 0.05 to 0.12 mg/kg/day range. Doses above 4 mg/day have not been evaluated in children (ages 6 to 12 years) and above 7 mg/day have not been evaluated in adolescents (ages 13 to 17 years) [see Clinical Studies (14)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.5 Discontinuation of Treatment",
+     "text": "Following discontinuation of guanfacine extended-release, patients may experience increases in blood pressure and heart rate [see Warnings and Precautions (5.4) and Adverse Reaction s (6) ]. Patients/caregivers should be instructed not to discontinue guanfacine extended-release without consulting their health care provider. Monitor blood pressure and pulse when reducing the dose or discontinuing the drug. Taper the daily dose in decrements of no more than 1 mg every 3 to 7 days to minimize the risk of rebound hypertension."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.6 Missed Doses",
+     "text": "When reinitiating patients to the previous maintenance dose after two or more missed consecutive doses, consider titration based on patient tolerability."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.7 Dosage Adjustment with Concomitant Use of Strong and Moderate CYP3A4 Inhibitors or Inducers",
+     "text": "Dosage adjustments for guanfacine extended-release are recommended with concomitant use of strong and moderate CYP3A4 inhibitors (e.g., ketoconazole), or CYP3A4 inducers (e.g., carbamazepine) (Table 2) [see Drug Interactions ( 7 )]. Table 2: Guanfacine Extended-Release Dosage Adjustments for Patients Taking Concomitant CYP3A4 Inhibitors or Inducers Clinical Scenarios Starting guanfacine extended-release while currently on a CYP3A4 modulator Continuing guanfacine extended- release while adding a CYP3A4 modulator Continuing guanfacine extended-release while stopping a CYP3A4 modulator CYP3A4 Strong and M oderate Inhibitors Decrease guanfacineextended-releasedosage to half therecommended level.(see Table 1) Decrease guanfacineextended-releasedosage to half therecommended level.(see Table 1) Increase guanfacineextended-releasedosage to recommendedlevel.(see Table 1) CYP3A4 Strong and M oderate Inducers Consider increasing guanfacine extended-release dosage up todouble therecommended level.(see Table 1) Consider increasing guanfacineextended-releasedosage up to double the recommended level over 1 to 2 weeks.(see Table 1) Decrease guanfacineextended-releasedosage to recommendedlevel over 1 to 2 weeks.(see Table 1)"
+    },
+    {
+     "kind": "Dosage forms and strengths",
+     "title": "3 DOSAGE FORMS AND STRENGTHS",
+     "text": "1 mg, 2 mg, 3 mg and 4 mg extended-release tablets"
+    },
+    {
+     "kind": "Contraindications",
+     "title": "4 CONTRAINDICATIONS",
+     "text": "Guanfacine extended-release is contraindicated in patients with a history of a hypersensitivity reaction to guanfacine extended-release or its inactive ingredients, or other products containing guanfacine. Rash and pruritus have been reported."
+    },
+    {
+     "kind": "Pregnancy",
+     "title": "8.1 Pregnancy",
+     "text": "Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to ADHD medications, including guanfacine extended-release tablets, during pregnancy. Healthcare providers are encouraged to register patients by calling the National Pregnancy Registry for ADHD Medications at 1-866-961-2388. Risk Summary Available data with guanfacine over decades of use in pregnant women have not identified a drug-associated risk of major birth defects, miscarriage or adverse maternal or fetal outcomes. However, use of guanfacine in pregnant women over this time has been infrequent. In animal reproduction studies, rabbits and rats exposed to 3 and 4 times the maximum recommended human dose (MRHD), respectively, showed no adverse outcomes. However, higher doses were associated with reduced fetal survival and maternal toxicity (see Data). The estimated background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss, or other adverse outcomes. In the U.S. general population, the estimated risk of major birth defects and miscarriage in clinically recognized pregnancies is 2% to 4% and 15% to 20%, respectively. Data Animal Data Reproduction studies conducted in rats have shown that guanfacine crosses the placenta. However, administration of guanfacine to rabbits and rats during organogenesis at 3 (rabbit) and 4 (rat) times the MRHD of 0.12 mg/kg/day on a mg/m2 basis resulted in no evidence of harm to the fetus. Higher doses (13.5 times the MRHD in both rabbits and rats) were associated with reduced fetal survival and maternal toxicity."
+    },
+    {
+     "kind": "Lactation",
+     "title": "8.2 Lactation",
+     "text": "Risk Summary There are no data on the presence of guanfacine in human milk or the effects on the breastfed infant. The effects on milk production are also unknown. Guanfacine is present in the milk of lactating rats (see Data). If a drug is present in animal milk, it is likely that the drug will be present in human milk. If an infant is exposed to guanfacine through breastmilk, monitor for symptoms of hypotension and bradycardia such as sedation, lethargy and poor feeding (see Clinical Considerations). The developmental and health benefits of breastfeeding should be considered along with the mother’s clinical need for guanfacine extended-release tablets and any potential adverse effects on the breastfed child from guanfacine extended-release tablets or from the underlying maternal condition. Clinical Considerations Monitor breastfeeding infants exposed to guanfacine through breastmilk for sedation, lethargy, and poor feeding. Data Guanfacine was excreted in breast milk of lactating rats at a concentration comparable to that observed in blood, but slightly less than the concentration in plasma when administered following a single oral dose of 5 mg/kg. The concentration of drug in animal milk does not necessarily predict the concentration of drug in human milk."
+    },
+    {
+     "kind": "Pediatric use",
+     "title": "8.4 Pediatric Use",
+     "text": "Safety and efficacy of guanfacine extended-release in pediatric patients less than 6 years of age have not been established. The efficacy of guanfacine extended-release was studied for the treatment of ADHD in five controlled monotherapy clinical trials (up to 15 weeks in duration), one randomized withdrawal study and one controlled adjunctive trial with psychostimulants (8 weeks in duration) in children and adolescents ages 6 to 17 who met DSM-IV® criteria for ADHD [see Adverse Reactions ( 6 ) and Clinical Studies ( 14 )]. Animal Data In studies in juvenile rats, guanfacine alone produced a slight delay in sexual maturation in males and females at 2 to 3 times the maximum recommended human dose (MRHD). Guanfacine in combination with methylphenidate produced a slight delay in sexual maturation and decreased growth as measured by a decrease in bone length in males at a dose of guanfacine comparable to the MRHD and a dose of methylphenidate approximately 4 times the MRHD. In a study where juvenile rats were treated with guanfacine alone from 7 to 59 days of age, development was delayed as indicated by a slight delay in sexual maturation and decreased body weight gain in males at 2 mg/kg/day and in females at 3 mg/kg/day. The No Adverse Effect Level (NOAEL) for delayed sexual maturation was 1 mg/kg/day, which is equivalent to the MRHD of 4 mg/day, on a mg/m2 basis. The effects on fertility were not evaluated in this study. In a study where juvenile rats were treated with guanfacine in combination with methylphenidate from 7 to 59 days of age, a decrease in ulna bone length and a slight delay in sexual maturation were observed in males given 1 mg/kg/day of guanfacine in combination with 50 mg/kg/day of methylphenidate. The NOAELs for these findings were 0.3 mg/kg of guanfacine in combination with 16 mg/kg/day of methylphenidate, which are equivalent to 0.3 and 1.4 times the MRHD of 4 mg/day and 54 mg/day for guanfacine and methylphenidate, respectively, on a mg/m2 basis. These findings were not observed with guanfacine alone at 1 mg/kg/day or methylphenidate alone at 50 mg/kg/day."
+    },
+    {
+     "kind": "Geriatric use",
+     "title": "8.5 Geriatric Use",
+     "text": "The safety and efficacy of guanfacine extended-release in geriatric patients have not been established."
+    },
+    {
+     "kind": "Controlled substance",
+     "title": "9.1 Controlled Substance",
+     "text": "Guanfacine extended-release is not a controlled substance and has no known potential for abuse or dependence."
+    }
+   ]
+  },
+  {
+   "key": "viloxazine",
+   "name": "Viloxazine (extended release)",
+   "brands": "Qelbree",
+   "spl_title": "QELBREE (VILOXAZINE HYDROCHLORIDE) CAPSULE, EXTENDED RELEASE [SUPERNUS PHARMACEUTICALS, INC]",
+   "setid": "aedf408d-0f84-418d-9416-7c39ddb0d29a",
+   "published": "Dec 10, 2025",
+   "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aedf408d-0f84-418d-9416-7c39ddb0d29a",
+   "sections": [
+    {
+     "kind": "Boxed warning",
+     "title": "WARNING: SUICIDAL THOUGHTS AND BEHAVIORS",
+     "text": "In clinical studies, higher rates of suicidal thoughts and behavior were reported in patients with ADHD treated with Qelbree than in patients treated with placebo. Closely monitor all Qelbree-treated patients for clinical worsening, and for emergence of suicidal thoughts and behaviors [see Warnings and Precautions (5.1)] ."
+    },
+    {
+     "kind": "Indications and usage",
+     "title": "1 INDICATIONS AND USAGE",
+     "text": "Qelbree is indicated for the treatment of Attention-Deficit Hyperactivity Disorder (ADHD) in adults and pediatric patients 6 years and older."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.1 Important Considerations Prior to Initiating Treatment",
+     "text": "- Assess heart rate and blood pressure prior to initiating treatment with Qelbree, following increases in dosage, and periodically while on therapy [see Warnings and Precautions (5.2)] .\n- Prior to initiating treatment with Qelbree, screen patients for a personal or family history of suicide, bipolar disorder, and depression [see Warnings and Precautions (5.3)]."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.3 Administration Information",
+     "text": "Administer Qelbree orally with or without food [see Clinical Pharmacology (12.3)] . Do not cut, crush, or chew the capsules. Swallow Qelbree capsules whole, or open the capsule and sprinkle the entire contents over a teaspoonful or tablespoonful of pudding or applesauce. Consume the food mixture in its entirety, without chewing, within 15 minutes for pudding, or within 2 hours for applesauce; do not store for future use."
+    },
+    {
+     "kind": "Dosage detail",
+     "title": "2.4 Dosage Recommendations in Patients with Renal Impairment",
+     "text": "In patients with severe renal impairment (eGFR < 30 mL/min/1.73m 2), the recommended starting dosage is 100 mg once daily. Dosage may be titrated in weekly increments of 50 to 100 mg once daily, to a maximum recommended dosage of 200 mg once daily. No dosage adjustment is recommended in patients with mild to moderate (eGFR of 30 to 89 mL/min/1.73m 2) renal impairment [see Use in Specific Populations (8.6)] ."
+    },
+    {
+     "kind": "Dosage forms and strengths",
+     "title": "3 DOSAGE FORMS AND STRENGTHS",
+     "text": "Qelbree (viloxazine extended-release capsules) are available as: 100 mg: yellow opaque body and cap (printed \"SPN\" on the cap, \"100\" on the body) 150 mg: lavender opaque body and cap (printed \"SPN\" on the cap, \"150\" on the body) 200 mg: light green opaque body and cap (printed \"SPN\" on the cap, \"200\" on the body)"
+    },
+    {
+     "kind": "Contraindications",
+     "title": "4 CONTRAINDICATIONS",
+     "text": "Qelbree is contraindicated in patients:\n- receiving concomitant treatment with monoamine oxidase inhibitors (MAOI), or within 14 days following discontinuing an MAOI, because of an increased risk of hypertensive crisis [see Drug Interactions (7.1)] .\n- receiving concomitant administration of sensitive CYP1A2 substrates or CYP1A2 substrates with a narrow therapeutic range [see Drug Interactions (7.1)]."
+    },
+    {
+     "kind": "Pediatric use",
+     "title": "8.4 Pediatric Use",
+     "text": "The safety and effectiveness of Qelbree in pediatric patients 6 to 17 years of age with ADHD have been established based on randomized, placebo-controlled studies in pediatric patients [see Adverse Reactions (6.1)and Clinical Studies (14)] . The safety and effectiveness of Qelbree have not been established in pediatric patients younger than 6 years old. Patients treated with Qelbree should be monitored for suicidal thoughts and behavior [see Warnings and Precautions (5.1)] , and for changes in weight [see Adverse Reactions (6.1)]."
+    },
+    {
+     "kind": "Geriatric use",
+     "title": "8.5 Geriatric Use",
+     "text": "Clinical trials of Qelbree in the treatment of ADHD did not include sufficient numbers of patients aged 65 and older to determine whether or not they respond differently from younger patients."
+    }
+   ]
+  }
+ ]
+}
