@@ -371,6 +371,9 @@ navigation:
     - page: Viloxazine (extended release)
       path: docs/pages/labels/label-viloxazine.mdx
       icon: fa-regular fa-file-prescription
+  - page: Disclaimer
+    path: docs/pages/disclaimer.mdx
+    icon: fa-regular fa-circle-info
   - section: Records
     contents:
     - section: 2020s
