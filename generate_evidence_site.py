@@ -127,6 +127,21 @@ DESIGN_ORDER = [
     'Other',
 ]
 
+# Records are grouped by strength of evidence, the way a research platform
+# orders its holdings, rather than presented as one flat list.
+EVIDENCE_TIERS = [
+    ('Evidence synthesis', ['Meta-analysis', 'Systematic review']),
+    ('Guidelines', ['Practice guideline']),
+    ('Trials', ['Randomized controlled trial', 'Clinical trial']),
+    ('Observational studies', ['Cohort study', 'Case-control study',
+                               'Cross-sectional study']),
+    ('Pharmacokinetics', ['Pharmacokinetic study']),
+    ('Reviews', ['Review']),
+    ('Case reports', ['Case report']),
+    ('Other records', ['Other']),
+]
+TIER_OF = {d: name for name, ds in EVIDENCE_TIERS for d in ds}
+
 DESIGN_INTENT = {
     'Meta-analysis': 'success',
     'Systematic review': 'success',
@@ -393,23 +408,42 @@ def study_table(studies: list, show: str = 'design') -> list:
     return lines
 
 
-def results_list(studies: list) -> list:
-    """PubMed search-result style: title, authors, source line, PMID, conclusion."""
-    rank = {name: i for i, name in enumerate(DESIGN_ORDER)}
-    ordered = sorted(studies, key=lambda s: (rank.get(s['design'], 99), -(s['year'] or 0)))
+def _entry(s: dict) -> list:
+    tail = f'PMID: {s["pmid"]}'
+    if s['design'] and s['design'] != 'Other':
+        tail += f' · {mdx_safe(s["design"])}'
+    out = [f'#### [{mdx_safe(s["title"])}](/{study_slug(s)})', '',
+           f'{byline(s)} {tail}', '']
+    if s['conclusion']:
+        out += [mdx_safe(s['conclusion']), '']
+    return out
 
+
+def results_list(studies: list, group: str = 'tier') -> list:
+    """Grouped record listing. group='tier' by evidence level, 'decade' by period."""
     lines = []
-    for s in ordered:
-        lines.append(f'### [{mdx_safe(s["title"])}](/{study_slug(s)})')
-        lines.append('')
-        tail = f'PMID: {s["pmid"]}'
-        if s['design'] and s['design'] != 'Other':
-            tail += f' · {mdx_safe(s["design"])}'
-        lines.append(f'{byline(s)} {tail}')
-        lines.append('')
-        if s['conclusion']:
-            lines.append(mdx_safe(s['conclusion']))
-            lines.append('')
+
+    if group == 'decade':
+        buckets = defaultdict(list)
+        for s in studies:
+            buckets[(s['year'] // 10) * 10 if s['year'] else 0].append(s)
+        order = [(f'{d}s' if d else 'Undated', buckets[d])
+                 for d in sorted(buckets, reverse=True)]
+    else:
+        buckets = defaultdict(list)
+        for s in studies:
+            buckets[TIER_OF.get(s['design'], 'Other records')].append(s)
+        order = [(name, buckets[name]) for name, _ in EVIDENCE_TIERS if buckets.get(name)]
+
+    for name, group_studies in order:
+        if not group_studies:
+            continue
+        rank = {d: i for i, d in enumerate(DESIGN_ORDER)}
+        items = sorted(group_studies,
+                       key=lambda s: (rank.get(s['design'], 99), -(s['year'] or 0)))
+        lines += [f'## {name}', '']
+        for s in items:
+            lines += _entry(s)
     return lines
 
 
@@ -441,7 +475,7 @@ def build_design_page(design: str, studies: list) -> str:
         '---',
         '',
     ]
-    lines += results_list(studies)
+    lines += results_list(studies, group='decade')
     return '\n'.join(lines)
 
 
@@ -630,58 +664,55 @@ def build_browse_page(data: dict, studies: list) -> str:
         by_coll[s['collection']].append(s)
     topics = Counter(t for s in studies for t in s['topics'])
     designs = Counter(s['design'] for s in studies)
+    regimens = Counter(r for s in studies for r in s['regimens'])
+    regions = Counter(r for s in studies for r in s['regions'])
+
+    def links(pairs):
+        return ' · '.join(f'[{mdx_safe(label)}]({href})' for label, href in pairs)
 
     lines = [
         '---',
         'title: Browse',
-        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         'slug: browse',
         '---',
         '',
-        '## Drugs',
+        '## Drug',
         '',
-        '<CardGroup cols={3}>',
+        links([(c['name'], f'/collection-{c["key"]}')
+               for c in data['collections'] if by_coll.get(c['key'])]),
+        '',
+        '## Evidence level',
+        '',
     ]
-    for coll in data['collections']:
-        items = by_coll.get(coll['key'])
-        if not items:
-            continue
-        syn = sum(1 for s in items if s['design'] in ('Meta-analysis', 'Systematic review'))
-        lines.append(
-            f'  <Card title={jsx_attr(coll["name"])} '
-            f'icon="{COLLECTION_ICON.get(coll["key"], "fa-regular fa-folder")}" '
-            f'href="/collection-{coll["key"]}">')
-        lines.append(f'    {len(items)} studies · {syn} syntheses')
-        lines.append('  </Card>')
-    lines += ['</CardGroup>', '', '## Topics', '', '<CardGroup cols={2}>']
-    for topic, n in topics.most_common():
-        lines.append(
-            f'  <Card title={jsx_attr(topic)} '
-            f'icon="{TOPIC_ICON.get(topic, "fa-regular fa-tag")}" '
-            f'href="/topic-{slugify(topic)}">')
-        lines.append(f'    {n} studies')
-        lines.append('  </Card>')
-    lines += ['</CardGroup>', '', '## Study designs', '', '<CardGroup cols={3}>']
-    for design in DESIGN_ORDER:
-        if not designs.get(design):
-            continue
-        lines.append(
-            f'  <Card title={jsx_attr(design)} '
-            f'icon="{DESIGN_ICON.get(design, "fa-regular fa-file-lines")}" '
-            f'href="/design-{slugify(design)}">')
-        lines.append(f'    {designs[design]} studies')
-        lines.append('  </Card>')
-    lines += ['</CardGroup>', '']
 
-    regimens = Counter(r for s in studies for r in s['regimens'])
-    regions = Counter(r for s in studies for r in s['regions'])
-    lines += ['## Dosing regimens', '', ' · '.join(
-        f'[{r}](/regimen-{slugify(r)}) ({regimens[r]})'
-        for r in REGIMEN_ORDER if regimens.get(r)), '']
-    lines += ['## Regions', '', ' · '.join(
-        f'[{r}](/region-{slugify(r)}) ({regions[r]})'
-        for r in REGION_ORDER if regions.get(r)), '']
+    # Study designs presented under the same hierarchy the records use.
+    for tier_name, tier_designs in EVIDENCE_TIERS:
+        present = [d for d in tier_designs if designs.get(d)]
+        if not present:
+            continue
+        lines += [f'**{tier_name}** — '
+                  + links([(d, f'/design-{slugify(d)}') for d in present]), '']
 
+    lines += [
+        '## Topic',
+        '',
+        links([(name, f'/topic-{slugify(name)}') for name, _ in topics.most_common()]),
+        '',
+        '## Dosing regimen',
+        '',
+        links([(name, f'/regimen-{slugify(name)}')
+               for name in REGIMEN_ORDER if regimens.get(name)]),
+        '',
+        '## Region',
+        '',
+        links([(name, f'/region-{slugify(name)}')
+               for name in REGION_ORDER if regions.get(name)]),
+        '',
+        '## Regulatory',
+        '',
+        '[Approved US prescribing information](/regulatory)',
+        '',
+    ]
     return '\n'.join(lines)
 
 
@@ -868,22 +899,48 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         'icon': 'fa-regular fa-circle-info',
     })
 
-    # Records, grouped by decade so no single section runs hundreds deep.
-    by_decade = defaultdict(list)
+    # Records: evidence tier -> decade, so no single section runs hundreds deep
+    # and the strongest evidence sits at the top of the tree.
+    by_tier = defaultdict(list)
     for s in studies:
-        by_decade[(s['year'] // 10) * 10 if s['year'] else 0].append(s)
+        by_tier[TIER_OF.get(s['design'], 'Other records')].append(s)
+
     record_sections = []
-    for decade in sorted(by_decade, reverse=True):
-        items = sorted(by_decade[decade], key=lambda x: (-(x['year'] or 0), x['title']))
-        record_sections.append({
-            'section': f'{decade}s' if decade else 'Undated',
-            'collapsed': True,
-            'contents': [{
+    for tier_name, _designs in EVIDENCE_TIERS:
+        tier_studies = by_tier.get(tier_name)
+        if not tier_studies:
+            continue
+        by_decade = defaultdict(list)
+        for s in tier_studies:
+            by_decade[(s['year'] // 10) * 10 if s['year'] else 0].append(s)
+
+        if len(tier_studies) <= 40:
+            contents = [{
                 'page': truncate(s['title']),
                 'path': f'docs/pages/studies/{study_slug(s)}.mdx',
                 'icon': DESIGN_ICON.get(s['design'], 'fa-regular fa-file-lines'),
-            } for s in items],
+            } for s in sorted(tier_studies, key=lambda x: (-(x['year'] or 0), x['title']))]
+        else:
+            contents = []
+            for decade in sorted(by_decade, reverse=True):
+                items = sorted(by_decade[decade],
+                               key=lambda x: (-(x['year'] or 0), x['title']))
+                contents.append({
+                    'section': f'{decade}s' if decade else 'Undated',
+                    'collapsed': True,
+                    'contents': [{
+                        'page': truncate(s['title']),
+                        'path': f'docs/pages/studies/{study_slug(s)}.mdx',
+                        'icon': DESIGN_ICON.get(s['design'], 'fa-regular fa-file-lines'),
+                    } for s in items],
+                })
+
+        record_sections.append({
+            'section': tier_name,
+            'collapsed': True,
+            'contents': contents,
         })
+
     catalogue.append({'section': 'Records', 'contents': record_sections, 'collapsed': True})
 
     for tab in d['navigation']:
