@@ -376,9 +376,6 @@ navigation:
     - section: 2020s
       collapsed: true
       contents:
-      - page: ADHD and Methylphenidate Use in Prepubertal Children and BMI a...
-        path: docs/pages/studies/pmid-41490109.mdx
-        icon: fa-regular fa-users
       - page: 'ADHD and adherence to antihypertensive medication treatment: a...'
         path: docs/pages/studies/pmid-41721349.mdx
         icon: fa-regular fa-layer-group
@@ -406,6 +403,12 @@ navigation:
       - page: 'Safety of acetaminophen use in pregnancy: review of existing e...'
         path: docs/pages/studies/pmid-41780800.mdx
         icon: fa-regular fa-book-open
+      - page: A Matching-Adjusted Indirect Comparison (MAIC) of Centanafadin...
+        path: docs/pages/studies/pmid-40452389.mdx
+        icon: fa-regular fa-flask
+      - page: A protocol for high-dose lisdexamfetamine and contingency mana...
+        path: docs/pages/studies/pmid-40233849.mdx
+        icon: fa-regular fa-flask
       - page: ADHD Diagnosis and Timing of Medication Initiation Among Child...
         path: docs/pages/studies/pmid-40880088.mdx
         icon: fa-regular fa-users
@@ -430,11 +433,17 @@ navigation:
       - page: 'Benefits and harms of ADHD interventions: umbrella review and...'
         path: docs/pages/studies/pmid-41297970.mdx
         icon: fa-regular fa-list-check
+      - page: Bioethical evaluation of methylphenidate and atomoxetine for p...
+        path: docs/pages/studies/pmid-40102913.mdx
+        icon: fa-regular fa-chart-simple
       - page: Co-occurring Anxiety in a Child With Autism and ADHD
         path: docs/pages/studies/pmid-40493916.mdx
         icon: fa-regular fa-file-medical
       - page: Cognitive Behavioral Therapy and Lisdexamfetamine, Alone and C...
         path: docs/pages/studies/pmid-39659158.mdx
+        icon: fa-regular fa-flask
+      - page: Cognitive-Behavioral Therapy and Lisdexamfetamine, Alone and C...
+        path: docs/pages/studies/pmid-40631364.mdx
         icon: fa-regular fa-flask
       - page: Comparative cardiovascular safety of medications for attention...
         path: docs/pages/studies/pmid-40203844.mdx
@@ -451,6 +460,9 @@ navigation:
       - page: 'Eating Disorders: A Review'
         path: docs/pages/studies/pmid-40048192.mdx
         icon: fa-regular fa-book-open
+      - page: Echocardiographic Evaluation of the Effect of Long-Term Methyl...
+        path: docs/pages/studies/pmid-39754497.mdx
+        icon: fa-regular fa-users
       - page: Effect of amphetamines on blood pressure
         path: docs/pages/studies/pmid-40152309.mdx
         icon: fa-regular fa-layer-group
@@ -463,6 +475,9 @@ navigation:
       - page: 'Evaluating ADHD medication trial representativeness: a Swedish...'
         path: docs/pages/studies/pmid-39788146.mdx
         icon: fa-regular fa-flask
+      - page: Experience of neurofeedback and methylphenidate in children wi...
+        path: docs/pages/studies/pmid-39510871.mdx
+        icon: fa-regular fa-file-lines
       - page: 'Headache symptoms in children and adolescents with ADHD: evalu...'
         path: docs/pages/studies/pmid-41107673.mdx
         icon: fa-regular fa-chart-simple
@@ -487,8 +502,14 @@ navigation:
       - page: 'Multidimensional Evaluation of Lisdexamfetamine: Pharmacology...'
         path: docs/pages/studies/pmid-41001763.mdx
         icon: fa-regular fa-book-open
+      - page: Neurodevelopmental effects of omega-3 fatty acids and its comb...
+        path: docs/pages/studies/pmid-40043588.mdx
+        icon: fa-regular fa-file-lines
       - page: New frontiers in pharmacological treatment of attention-defici...
         path: docs/pages/studies/pmid-40478337.mdx
+        icon: fa-regular fa-book-open
+      - page: Nonstimulant Medications for Treatment of Attention-Deficit/Hy...
+        path: docs/pages/studies/pmid-39760346.mdx
         icon: fa-regular fa-book-open
       - page: Not Available
         path: docs/pages/studies/pmid-40145729.mdx
@@ -508,6 +529,9 @@ navigation:
       - page: Pharmacotherapy of eating disorders-An update
         path: docs/pages/studies/pmid-39976724.mdx
         icon: fa-regular fa-book-open
+      - page: Placebo-related improvement with methylphenidate treatment in...
+        path: docs/pages/studies/pmid-39126498.mdx
+        icon: fa-regular fa-flask
       - page: Potential treatments for attention-deficit/hyperactivity disor...
         path: docs/pages/studies/pmid-40986064.mdx
         icon: fa-regular fa-book-open
@@ -532,6 +556,9 @@ navigation:
       - page: Real world pharmacovigilance comparison of viloxazine and dext...
         path: docs/pages/studies/pmid-40775008.mdx
         icon: fa-regular fa-file-lines
+      - page: Results of N = 1 randomized, double-blind, placebo-controlled...
+        path: docs/pages/studies/pmid-39601808.mdx
+        icon: fa-regular fa-flask
       - page: 'Safety of Stimulants Across Patient Populations: A Meta-Analys...'
         path: docs/pages/studies/pmid-40343695.mdx
         icon: fa-regular fa-layer-group
@@ -541,6 +568,9 @@ navigation:
       - page: 'Systematic Review and Meta-Analysis: Effects of Pharmacologica...'
         path: docs/pages/studies/pmid-38823477.mdx
         icon: fa-regular fa-list-check
+      - page: The Role of Methylphenidate and Aripiprazole in the Treatment...
+        path: docs/pages/studies/pmid-40238929.mdx
+        icon: fa-regular fa-vial
       - page: The promoting effects of digital targeted cognitive training i...
         path: docs/pages/studies/pmid-40598377.mdx
         icon: fa-regular fa-flask
@@ -553,6 +583,9 @@ navigation:
       - page: A Randomized, Phase 3, Double-Blind, Crossover Comparison of M...
         path: docs/pages/studies/pmid-38404033.mdx
         icon: fa-regular fa-flask
+      - page: A convolution-based in vitro-in vivo correlation model for met...
+        path: docs/pages/studies/pmid-37864318.mdx
+        icon: fa-regular fa-chart-line
       - page: A matching-adjusted indirect comparison of centanafadine versu...
         path: docs/pages/studies/pmid-39132746.mdx
         icon: fa-regular fa-flask
@@ -568,6 +601,12 @@ navigation:
       - page: An Open-Label Extension Study Assessing the Long-Term Safety a...
         path: docs/pages/studies/pmid-39373844.mdx
         icon: fa-regular fa-flask
+      - page: Analysis of the therapeutic effect of pestle needle and EEG bi...
+        path: docs/pages/studies/pmid-39319790.mdx
+        icon: fa-regular fa-flask
+      - page: Assessment of centanafadine in adults with attention-deficit/h...
+        path: docs/pages/studies/pmid-38824626.mdx
+        icon: fa-regular fa-file-lines
       - page: Attention-Deficit/Hyperactivity Disorder in Adults
         path: docs/pages/studies/pmid-39172673.mdx
         icon: fa-regular fa-file-lines
@@ -586,24 +625,42 @@ navigation:
       - page: Current nonstimulant medications for adults with attention-def...
         path: docs/pages/studies/pmid-38915262.mdx
         icon: fa-regular fa-book-open
+      - page: Development of a fluorescent nano-sensing probe for atomoxetin...
+        path: docs/pages/studies/pmid-38981289.mdx
+        icon: fa-regular fa-chart-line
       - page: Dopamine Transporter and CYP2D6 Gene Relationships with Attent...
         path: docs/pages/studies/pmid-39387268.mdx
         icon: fa-regular fa-flask
       - page: Eating Disorders
         path: docs/pages/studies/pmid-37977748.mdx
         icon: fa-regular fa-book-open
+      - page: Efficacy and Safety of Methylphenidate and Atomoxetine in Medi...
+        path: docs/pages/studies/pmid-37982991.mdx
+        icon: fa-regular fa-users
       - page: Efficacy and safety of established and off-label ADHD drug the...
         path: docs/pages/studies/pmid-38433530.mdx
         icon: fa-regular fa-list-check
+      - page: 'Efficacy of pharmacological interventions for ADHD: protocol f...'
+        path: docs/pages/studies/pmid-39396049.mdx
+        icon: fa-regular fa-layer-group
       - page: 'From Consensus Statement to Pills to Pixels: New Innovations i...'
         path: docs/pages/studies/pmid-38686563.mdx
         icon: fa-regular fa-book-open
+      - page: Global burden of ADHD medication-associated cardiovascular dis...
+        path: docs/pages/studies/pmid-39241651.mdx
+        icon: fa-regular fa-file-lines
       - page: Methylphenidate and Atomoxetine in Pregnancy and Possible Adve...
         path: docs/pages/studies/pmid-39504019.mdx
         icon: fa-regular fa-layer-group
       - page: Methylphenidate and Short-Term Cardiovascular Risk
         path: docs/pages/studies/pmid-38446477.mdx
         icon: fa-regular fa-users
+      - page: 'Methylphenidate dose-response in children with ADHD: evidence...'
+        path: docs/pages/studies/pmid-36862163.mdx
+        icon: fa-regular fa-flask
+      - page: Neurobiological basis of reinforcement-based decision making i...
+        path: docs/pages/studies/pmid-38101205.mdx
+        icon: fa-regular fa-flask
       - page: Non-pharmacological treatment of Attention Deficit Disorder wi...
         path: docs/pages/studies/pmid-38326137.mdx
         icon: fa-regular fa-book-open
@@ -628,6 +685,9 @@ navigation:
       - page: Prescription Stimulant Use During Pregnancy and Risk of Neurod...
         path: docs/pages/studies/pmid-38265792.mdx
         icon: fa-regular fa-users
+      - page: 'Psychoeducation for adult ADHD: a scoping review about charact...'
+        path: docs/pages/studies/pmid-38273266.mdx
+        icon: fa-regular fa-layer-group
       - page: Quantification of ADHD medication in biological fluids of preg...
         path: docs/pages/studies/pmid-39171321.mdx
         icon: fa-regular fa-book-open
@@ -643,6 +703,15 @@ navigation:
       - page: Stimulant medications in the management of bulimia nervosa and...
         path: docs/pages/studies/pmid-39137484.mdx
         icon: fa-regular fa-list-check
+      - page: The Dose-Response Relationship of Atomoxetine for the Treatmen...
+        path: docs/pages/studies/pmid-38069471.mdx
+        icon: fa-regular fa-layer-group
+      - page: The Effect of Methylphenidate on Cognition in Patients with Co...
+        path: docs/pages/studies/pmid-38029734.mdx
+        icon: fa-regular fa-flask
+      - page: The effect of methylphenidate on the dopamine and growth hormo...
+        path: docs/pages/studies/pmid-38820857.mdx
+        icon: fa-regular fa-file-lines
       - page: The emerging role of glucagon-like peptide 1 in binge eating
         path: docs/pages/studies/pmid-38642585.mdx
         icon: fa-regular fa-book-open
@@ -667,15 +736,27 @@ navigation:
       - page: 'Binge-Eating Disorder Interventions: Review, Current Status, a...'
         path: docs/pages/studies/pmid-37439970.mdx
         icon: fa-regular fa-book-open
+      - page: Brain tissue iron neurophysiology and its relationship with th...
+        path: docs/pages/studies/pmid-37453207.mdx
+        icon: fa-regular fa-flask
       - page: Effectiveness of cognitive behavioural-based interventions for...
         path: docs/pages/studies/pmid-36794797.mdx
         icon: fa-regular fa-layer-group
+      - page: Effects of one single-dose methylphenidate compared to one sin...
+        path: docs/pages/studies/pmid-37848887.mdx
+        icon: fa-regular fa-flask
+      - page: Electrophysiological and Clinical Predictors of Methylphenidat...
+        path: docs/pages/studies/pmid-35963559.mdx
+        icon: fa-regular fa-flask
       - page: Emotional Eating and Binge Eating Disorders and Night Eating S...
         path: docs/pages/studies/pmid-36678165.mdx
         icon: fa-regular fa-list-check
       - page: Evaluating serdexmethylphenidate and dexmethylphenidate capsul...
         path: docs/pages/studies/pmid-37226489.mdx
         icon: fa-regular fa-book-open
+      - page: Extended-Release Viloxazine Compared with Atomoxetine for Atte...
+        path: docs/pages/studies/pmid-37430151.mdx
+        icon: fa-regular fa-file-lines
       - page: Extended-Release Viloxazine for the Treatment of Attention-Def...
         path: docs/pages/studies/pmid-37021356.mdx
         icon: fa-regular fa-book-open
@@ -688,11 +769,17 @@ navigation:
       - page: Long-term safety of methylphenidate in children and adolescent...
         path: docs/pages/studies/pmid-36958362.mdx
         icon: fa-regular fa-flask
+      - page: Methylphenidate Enhances Spontaneous Fluctuations in Reward an...
+        path: docs/pages/studies/pmid-36717325.mdx
+        icon: fa-regular fa-flask
       - page: Methylphenidate for children and adolescents with attention de...
         path: docs/pages/studies/pmid-36971690.mdx
         icon: fa-regular fa-list-check
       - page: 'Methylphenidate for prison inmates with ADHD: yes or no?'
         path: docs/pages/studies/pmid-36263739.mdx
+        icon: fa-regular fa-flask
+      - page: Methylphenidate, Guanfacine, and Combined Treatment Effects on...
+        path: docs/pages/studies/pmid-35963558.mdx
         icon: fa-regular fa-flask
       - page: Nonstimulant Medications for Attention-Deficit/Hyperactivity D...
         path: docs/pages/studies/pmid-37166701.mdx
@@ -700,6 +787,12 @@ navigation:
       - page: 'Pediatric attention deficit hyperactivity disorder (ADHD): 202...'
         path: docs/pages/studies/pmid-37587841.mdx
         icon: fa-regular fa-book-open
+      - page: 'Personalizing atomoxetine dosing in children with ADHD: what c...'
+        path: docs/pages/studies/pmid-36645468.mdx
+        icon: fa-regular fa-book-open
+      - page: Perspectives of French adolescents with ADHD and child and ado...
+        path: docs/pages/studies/pmid-36899043.mdx
+        icon: fa-regular fa-file-lines
       - page: Polyunsaturated fatty acids (PUFA) for attention deficit hyper...
         path: docs/pages/studies/pmid-37058600.mdx
         icon: fa-regular fa-list-check
@@ -715,21 +808,54 @@ navigation:
       - page: 'Psychostimulants: An Overview'
         path: docs/pages/studies/pmid-37194538.mdx
         icon: fa-regular fa-file-lines
+      - page: Randomised controlled trial of the short-term effects of osmot...
+        path: docs/pages/studies/pmid-35657651.mdx
+        icon: fa-regular fa-flask
+      - page: Real-World Efficacy and Safety of Extended-Release Methylpheni...
+        path: docs/pages/studies/pmid-37144295.mdx
+        icon: fa-regular fa-file-lines
+      - page: Relationship between two forms of impulsivity in mice at basel...
+        path: docs/pages/studies/pmid-37586638.mdx
+        icon: fa-regular fa-file-lines
+      - page: Single-dose effects of methylphenidate and atomoxetine on func...
+        path: docs/pages/studies/pmid-37500785.mdx
+        icon: fa-regular fa-flask
       - page: The Australian evidence-based clinical practice guideline for...
         path: docs/pages/studies/pmid-37254562.mdx
         icon: fa-regular fa-scale-balanced
+      - page: 'The co-use of nicotine and prescription psychostimulants: A re...'
+        path: docs/pages/studies/pmid-37216808.mdx
+        icon: fa-regular fa-book-open
       - page: The diagnosis and treatment of attention-deficit hyperactivity...
         path: docs/pages/studies/pmid-37725058.mdx
         icon: fa-regular fa-book-open
+      - page: The effects of first-dose methylphenidate on the neural signat...
+        path: docs/pages/studies/pmid-36572273.mdx
+        icon: fa-regular fa-flask
+      - page: 'Through the looking glass: Skin signs that help diagnose eatin...'
+        path: docs/pages/studies/pmid-36878454.mdx
+        icon: fa-regular fa-file-lines
       - page: Viloxazine extended-release capsules for the treatment of atte...
         path: docs/pages/studies/pmid-37846759.mdx
         icon: fa-regular fa-book-open
+      - page: l-Arginine/nitric oxide pathway and oxidative stress in adults...
+        path: docs/pages/studies/pmid-37392928.mdx
+        icon: fa-regular fa-chart-line
+      - page: A Long-Term, Open-Label Safety and Tolerability Study of Lisde...
+        path: docs/pages/studies/pmid-35230142.mdx
+        icon: fa-regular fa-vial
       - page: A Phase III, Randomized, Double-Blind, Placebo-Controlled Tria...
         path: docs/pages/studies/pmid-35896943.mdx
         icon: fa-regular fa-flask
       - page: Analgesic drug use in pregnancy and neurodevelopment outcomes...
         path: docs/pages/studies/pmid-35276298.mdx
         icon: fa-regular fa-list-check
+      - page: Analysis of Daily Sleep Diary Measures From Multilayer Extende...
+        path: docs/pages/studies/pmid-35786058.mdx
+        icon: fa-regular fa-flask
+      - page: Association of Perinatal and Childhood Ischemic Stroke With At...
+        path: docs/pages/studies/pmid-35471571.mdx
+        icon: fa-regular fa-users
       - page: 'Atomoxetine in comorbid ADHD/PTSD: A randomized, placebo contr...'
         path: docs/pages/studies/pmid-35312136.mdx
         icon: fa-regular fa-flask
@@ -739,15 +865,30 @@ navigation:
       - page: Cardiovascular Considerations for Stimulant Class Medications
         path: docs/pages/studies/pmid-35697394.mdx
         icon: fa-regular fa-book-open
+      - page: Characterisation of seven medications approved for attention-d...
+        path: docs/pages/studies/pmid-36317558.mdx
+        icon: fa-regular fa-file-lines
       - page: Clinical practice guideline on pharmacological and psychologic...
         path: docs/pages/studies/pmid-34171106.mdx
         icon: fa-regular fa-scale-balanced
+      - page: Comorbid trichotillomania and attention-deficit hyperactivity...
+        path: docs/pages/studies/pmid-35512574.mdx
+        icon: fa-regular fa-file-lines
       - page: Current Pharmacological Treatments for ADHD
         path: docs/pages/studies/pmid-35507282.mdx
         icon: fa-regular fa-book-open
+      - page: Differential Potency of Venlafaxine, Paroxetine, and Atomoxeti...
+        path: docs/pages/studies/pmid-34958348.mdx
+        icon: fa-regular fa-file-lines
+      - page: Dorsal-to-ventral imbalance in the superior longitudinal fasci...
+        path: docs/pages/studies/pmid-35165906.mdx
+        icon: fa-regular fa-flask
       - page: Dose-Dependent Enuresis in Methylphenidate Use
         path: docs/pages/studies/pmid-36314572.mdx
         icon: fa-regular fa-file-lines
+      - page: Efficacy and Safety of Lisdexamfetamine in Preschool Children...
+        path: docs/pages/studies/pmid-35577034.mdx
+        icon: fa-regular fa-flask
       - page: Efficacy and safety of methylphenidate and behavioural parent...
         path: docs/pages/studies/pmid-36306807.mdx
         icon: fa-regular fa-flask
@@ -757,12 +898,27 @@ navigation:
       - page: Evidence-based pharmacological treatment options for ADHD in c...
         path: docs/pages/studies/pmid-34174276.mdx
         icon: fa-regular fa-book-open
+      - page: Exploring women's experiences of treatment for binge eating di...
+        path: docs/pages/studies/pmid-34863926.mdx
+        icon: fa-regular fa-flask
       - page: Extended-release methylphenidate for attention deficit hyperac...
         path: docs/pages/studies/pmid-35201607.mdx
         icon: fa-regular fa-list-check
       - page: Insomnia in Tourette Syndrome and Chronic Tic Disorder
         path: docs/pages/studies/pmid-34693569.mdx
         icon: fa-regular fa-users
+      - page: Long-Term Treatment With Extended-Release Methylphenidate Trea...
+        path: docs/pages/studies/pmid-33892111.mdx
+        icon: fa-regular fa-file-lines
+      - page: Methylphenidate remediates aberrant brain network dynamics in...
+        path: docs/pages/studies/pmid-35640787.mdx
+        icon: fa-regular fa-flask
+      - page: Methylphenidate significantly improves neurocognitive impairme...
+        path: docs/pages/studies/pmid-35306379.mdx
+        icon: fa-regular fa-chart-simple
+      - page: 'Mind-Wandering and Childhood ADHD: Experimental Manipulations...'
+        path: docs/pages/studies/pmid-35247108.mdx
+        icon: fa-regular fa-vial
       - page: Naltrexone-Bupropion and Behavior Therapy, Alone and Combined...
         path: docs/pages/studies/pmid-36285406.mdx
         icon: fa-regular fa-flask
@@ -772,9 +928,18 @@ navigation:
       - page: Nonstimulant Treatments for ADHD
         path: docs/pages/studies/pmid-35697393.mdx
         icon: fa-regular fa-book-open
+      - page: Pharmacotherapy of Attention-Deficit/Hyperactivity Disorder in...
+        path: docs/pages/studies/pmid-35697395.mdx
+        icon: fa-regular fa-book-open
       - page: Psychopharmacologic Management of Eating Disorders
         path: docs/pages/studies/pmid-35576089.mdx
         icon: fa-regular fa-book-open
+      - page: Psychostimulants Modafinil, Atomoxetine and Guanfacine Impair...
+        path: docs/pages/studies/pmid-36142172.mdx
+        icon: fa-regular fa-file-lines
+      - page: Randomized, Double-Blind, Placebo-Controlled, Parallel-Group...
+        path: docs/pages/studies/pmid-34189995.mdx
+        icon: fa-regular fa-flask
       - page: Risk of Cardiovascular Diseases Associated With Medications Us...
         path: docs/pages/studies/pmid-36416824.mdx
         icon: fa-regular fa-layer-group
@@ -790,12 +955,15 @@ navigation:
       - page: The Benefits and Limitations of Stimulants in Treating ADHD
         path: docs/pages/studies/pmid-35503597.mdx
         icon: fa-regular fa-book-open
+      - page: The Development of a PBPK Model for Atomoxetine Using Levels i...
+        path: docs/pages/studies/pmid-35043773.mdx
+        icon: fa-regular fa-chart-line
       - page: The Pharmacokinetics and Pharmacogenomics of Psychostimulants
         path: docs/pages/studies/pmid-35697392.mdx
         icon: fa-regular fa-book-open
-      - page: The effects of stimulant dose and dosing strategy on treatment...
-        path: docs/pages/studies/pmid-35027679.mdx
-        icon: fa-regular fa-layer-group
+      - page: The effect of methylphenidate and mixed amphetamine salts on c...
+        path: docs/pages/studies/pmid-34729642.mdx
+        icon: fa-regular fa-file-lines
       - page: The potential role of stimulants in treating eating disorders
         path: docs/pages/studies/pmid-34846763.mdx
         icon: fa-regular fa-book-open
@@ -805,15 +973,27 @@ navigation:
       - page: 'Treatment of eating disorders: A systematic meta-review of met...'
         path: docs/pages/studies/pmid-36084848.mdx
         icon: fa-regular fa-list-check
+      - page: Treatments for child and adolescent attention deficit hyperact...
+        path: docs/pages/studies/pmid-35987096.mdx
+        icon: fa-regular fa-book-open
+      - page: Withdrawing methylphenidate in relation to serum levels of fer...
+        path: docs/pages/studies/pmid-35714551.mdx
+        icon: fa-regular fa-flask
       - page: Adolescents with concurrent ADHD and substance use disorder; i...
         path: docs/pages/studies/pmid-34978058.mdx
         icon: fa-regular fa-file-lines
       - page: Attention-deficit/hyperactivity disorder and the explore/explo...
         path: docs/pages/studies/pmid-33040092.mdx
         icon: fa-regular fa-flask
+      - page: Differential Treatment Effects of Methylphenidate and Atomoxet...
+        path: docs/pages/studies/pmid-33890819.mdx
+        icon: fa-regular fa-flask
       - page: 'Eating Disorders in Primary Care: Diagnosis and Management'
         path: docs/pages/studies/pmid-33382560.mdx
         icon: fa-regular fa-file-lines
+      - page: Effects of methylphenidate on executive functioning in childre...
+        path: docs/pages/studies/pmid-33778945.mdx
+        icon: fa-regular fa-flask
       - page: Efficacy and Safety of PRC-063, Extended-Release Multilayer Me...
         path: docs/pages/studies/pmid-31916473.mdx
         icon: fa-regular fa-flask
@@ -826,6 +1006,9 @@ navigation:
       - page: Lifetime evolution of ADHD treatment
         path: docs/pages/studies/pmid-33993352.mdx
         icon: fa-regular fa-book-open
+      - page: Lisdexamfetamine Pharmacokinetic Comparison Between Patients W...
+        path: docs/pages/studies/pmid-34291361.mdx
+        icon: fa-regular fa-code-compare
       - page: Long term methylphenidate exposure and growth in children and...
         path: docs/pages/studies/pmid-33080250.mdx
         icon: fa-regular fa-layer-group
@@ -850,12 +1033,15 @@ navigation:
       - page: Pharmacological treatment of eating disorders, comorbid mental...
         path: docs/pages/studies/pmid-32858054.mdx
         icon: fa-regular fa-book-open
+      - page: Population Pharmacokinetics of Viloxazine Extended-Release Cap...
+        path: docs/pages/studies/pmid-34269426.mdx
+        icon: fa-regular fa-flask
       - page: 'Practitioner Review: Pharmacological treatment of attention-de...'
         path: docs/pages/studies/pmid-32845025.mdx
         icon: fa-regular fa-layer-group
-      - page: Regional brain volume predicts response to methylphenidate tre...
-        path: docs/pages/studies/pmid-33430830.mdx
-        icon: fa-regular fa-users
+      - page: Reviewing the role of emerging therapies in the ADHD armamenta...
+        path: docs/pages/studies/pmid-33143485.mdx
+        icon: fa-regular fa-book-open
       - page: 'Shifting uncertainty intolerance: methylphenidate and attentio...'
         path: docs/pages/studies/pmid-33414411.mdx
         icon: fa-regular fa-flask
@@ -895,21 +1081,18 @@ navigation:
       - page: Child and Parental Characteristics of Medication Use for Atten...
         path: docs/pages/studies/pmid-32672488.mdx
         icon: fa-regular fa-users
+      - page: Comparative Efficacy of Methylphenidate and Atomoxetine on Soc...
+        path: docs/pages/studies/pmid-31794244.mdx
+        icon: fa-regular fa-flask
       - page: Current pharmacotherapy for tic disorders
         path: docs/pages/studies/pmid-32286097.mdx
         icon: fa-regular fa-book-open
-      - page: Dose-Related Concentrations of Neuroactive/Psychoactive Drugs...
-        path: docs/pages/studies/pmid-32195989.mdx
-        icon: fa-regular fa-list-check
       - page: Dyskinesia in Treatment-Naive and Stimulant-Treated Children W...
         path: docs/pages/studies/pmid-27864427.mdx
         icon: fa-regular fa-file-lines
       - page: Estimation of an Appropriate Dose of Trazodone for Pediatric I...
         path: docs/pages/studies/pmid-31808613.mdx
         icon: fa-regular fa-chart-line
-      - page: Executive Functioning Outcomes Over 6 Months of Atomoxetine fo...
-        path: docs/pages/studies/pmid-27521574.mdx
-        icon: fa-regular fa-flask
       - page: 'Females with ADHD: An expert consensus statement taking a life...'
         path: docs/pages/studies/pmid-32787804.mdx
         icon: fa-regular fa-file-lines
@@ -937,9 +1120,6 @@ navigation:
       - page: Pharmacologic treatment of attention deficit hyperactivity dis...
         path: docs/pages/studies/pmid-33085721.mdx
         icon: fa-regular fa-list-check
-      - page: Pharmacological properties and clinical effects of the ADHD dr...
-        path: docs/pages/studies/pmid-33132261.mdx
-        icon: fa-regular fa-file-lines
       - page: Phase II/III Study of Lisdexamfetamine Dimesylate in Japanese...
         path: docs/pages/studies/pmid-31718254.mdx
         icon: fa-regular fa-flask
@@ -955,18 +1135,9 @@ navigation:
       - page: Safety and efficacy of guanfacine extended-release in adults w...
         path: docs/pages/studies/pmid-33008345.mdx
         icon: fa-regular fa-flask
-      - page: The effect of methylphenidate on social cognition and oxytocin...
-        path: docs/pages/studies/pmid-31514201.mdx
-        icon: fa-regular fa-flask
-      - page: 'Therapeutic response in children with ADHD: role of observers...'
-        path: docs/pages/studies/pmid-31965445.mdx
-        icon: fa-regular fa-flask
     - section: 2010s
       collapsed: true
       contents:
-      - page: A Signature of Attention-Elicited Electrocortical Activity Dis...
-        path: docs/pages/studies/pmid-28974127.mdx
-        icon: fa-regular fa-flask
       - page: ADHD in adult patients with substance use disorders
         path: docs/pages/studies/pmid-31407043.mdx
         icon: fa-regular fa-book-open
@@ -1006,9 +1177,9 @@ navigation:
       - page: Evaluation of Methylphenidate Safety and Maximum-Dose Titratio...
         path: docs/pages/studies/pmid-31135892.mdx
         icon: fa-regular fa-layer-group
-      - page: How does methylphenidate affect default mode network? A system...
-        path: docs/pages/studies/pmid-31070233.mdx
-        icon: fa-regular fa-list-check
+      - page: Methylphenidate and atomoxetine normalise fronto-parietal unde...
+        path: docs/pages/studies/pmid-31358436.mdx
+        icon: fa-regular fa-flask
       - page: 'New Formulations of Stimulants: An Update for Clinicians'
         path: docs/pages/studies/pmid-31038360.mdx
         icon: fa-regular fa-book-open
@@ -1045,12 +1216,6 @@ navigation:
       - page: Updated European Consensus Statement on diagnosis and treatmen...
         path: docs/pages/studies/pmid-30453134.mdx
         icon: fa-regular fa-chart-simple
-      - page: Acute effects of lisdexamfetamine and D-amphetamine on social...
-        path: docs/pages/studies/pmid-29511807.mdx
-        icon: fa-regular fa-flask
-      - page: Adverse drug events related to mood and emotion in paediatric...
-        path: docs/pages/studies/pmid-29883938.mdx
-        icon: fa-regular fa-layer-group
       - page: Are the effects of methylphenidate uncertain?
         path: docs/pages/studies/pmid-30124188.mdx
         icon: fa-regular fa-layer-group
@@ -1066,12 +1231,6 @@ navigation:
       - page: 'Disordered eating and obesity: associations between binge-eati...'
         path: docs/pages/studies/pmid-29044551.mdx
         icon: fa-regular fa-book-open
-      - page: Effect on Primary Sleep Disorders When Children With ADHD Are...
-        path: docs/pages/studies/pmid-25376194.mdx
-        icon: fa-regular fa-flask
-      - page: Efficacy and tolerability of lisdexamfetamine as an antidepres...
-        path: docs/pages/studies/pmid-29028590.mdx
-        icon: fa-regular fa-layer-group
       - page: International Consensus Statement on Screening, Diagnosis and...
         path: docs/pages/studies/pmid-29510390.mdx
         icon: fa-regular fa-file-lines
@@ -1081,9 +1240,6 @@ navigation:
       - page: Lisdexamfetamine Targets Amygdala Mechanisms That Bias Cogniti...
         path: docs/pages/studies/pmid-29661516.mdx
         icon: fa-regular fa-flask
-      - page: Methylphenidate for attention deficit hyperactivity disorder (...
-        path: docs/pages/studies/pmid-29744873.mdx
-        icon: fa-regular fa-layer-group
       - page: Pharmacological treatment for attention deficit hyperactivity...
         path: docs/pages/studies/pmid-29944175.mdx
         icon: fa-regular fa-list-check
@@ -1120,23 +1276,17 @@ navigation:
       - page: An Evaluation on the Efficacy and Safety of Treatments for Att...
         path: docs/pages/studies/pmid-27738872.mdx
         icon: fa-regular fa-layer-group
-      - page: Assessment of effects of atomoxetine in adult patients with AD...
-        path: docs/pages/studies/pmid-28058589.mdx
-        icon: fa-regular fa-flask
       - page: Attention-Deficit/Hyperactivity Disorder
         path: docs/pages/studies/pmid-28351467.mdx
         icon: fa-regular fa-book-open
       - page: 'Attention-Deficit/Hyperactivity Disorder: A Historical Neurops...'
         path: docs/pages/studies/pmid-29198277.mdx
         icon: fa-regular fa-book-open
-      - page: Comparative efficacy and safety of methylphenidate and atomoxe...
-        path: docs/pages/studies/pmid-28052720.mdx
-        icon: fa-regular fa-layer-group
       - page: Considerations for ADHD in the child with epilepsy and the chi...
         path: docs/pages/studies/pmid-28749241.mdx
         icon: fa-regular fa-book-open
-      - page: Efficacy and Safety of a Chewable Methylphenidate Extended-Rel...
-        path: docs/pages/studies/pmid-28557548.mdx
+      - page: Efficacy and Safety of Atomoxetine Hydrochloride in Asian Adul...
+        path: docs/pages/studies/pmid-24203774.mdx
         icon: fa-regular fa-flask
       - page: Emerging Treatments in Eating Disorders
         path: docs/pages/studies/pmid-28547702.mdx
@@ -1204,9 +1354,6 @@ navigation:
       - page: Atomoxetine and Parent Training for Children With Autism and A...
         path: docs/pages/studies/pmid-27663942.mdx
         icon: fa-regular fa-flask
-      - page: Atomoxetine could improve intra-individual variability in drug...
-        path: docs/pages/studies/pmid-26905919.mdx
-        icon: fa-regular fa-flask
       - page: Atomoxetine-related Takotsubo Cardiomyopathy
         path: docs/pages/studies/pmid-27123802.mdx
         icon: fa-regular fa-file-medical
@@ -1231,12 +1378,6 @@ navigation:
       - page: Combined Stimulant and Guanfacine Administration in Attention-...
         path: docs/pages/studies/pmid-27453079.mdx
         icon: fa-regular fa-flask
-      - page: Effectiveness of atomoxetine and methylphenidate for problemat...
-        path: docs/pages/studies/pmid-27859666.mdx
-        icon: fa-regular fa-flask
-      - page: Effects of d-Methylphenidate, Guanfacine, and Their Combinatio...
-        path: docs/pages/studies/pmid-27453081.mdx
-        icon: fa-regular fa-flask
       - page: Functional outcomes from a head-to-head, randomized, double-bl...
         path: docs/pages/studies/pmid-25999292.mdx
         icon: fa-regular fa-flask
@@ -1258,8 +1399,8 @@ navigation:
       - page: 'Lisdexamfetamine: A pharmacokinetic review'
         path: docs/pages/studies/pmid-27125257.mdx
         icon: fa-regular fa-book-open
-      - page: Osmotic Release Oral System Methylphenidate Versus Atomoxetine...
-        path: docs/pages/studies/pmid-26779845.mdx
+      - page: Methylphenidate and emotional-motivational processing in atten...
+        path: docs/pages/studies/pmid-26852138.mdx
         icon: fa-regular fa-flask
       - page: 'Prescription stimulant medication misuse: Where are we and whe...'
         path: docs/pages/studies/pmid-27690507.mdx
@@ -1282,9 +1423,6 @@ navigation:
       - page: A Randomized, Placebo-Controlled Trial of Guanfacine Extended...
         path: docs/pages/studies/pmid-26506582.mdx
         icon: fa-regular fa-flask
-      - page: A primer on binge eating disorder diagnosis and management
-        path: docs/pages/studies/pmid-26683528.mdx
-        icon: fa-regular fa-book-open
       - page: ADHD and Emotion Dysregulation Among Children and Adolescents
         path: docs/pages/studies/pmid-26243645.mdx
         icon: fa-regular fa-book-open
@@ -1294,14 +1432,8 @@ navigation:
       - page: 'Atomoxetine pharmacogenetics: associations with pharmacokineti...'
         path: docs/pages/studies/pmid-26314574.mdx
         icon: fa-regular fa-book-open
-      - page: Atomoxetine, Parent Training, and Their Combination in Childre...
-        path: docs/pages/studies/pmid-26506581.mdx
-        icon: fa-regular fa-flask
-      - page: Differences in maintenance of response upon discontinuation ac...
-        path: docs/pages/studies/pmid-26169574.mdx
-        icon: fa-regular fa-book-open
-      - page: Effects of Atomoxetine and Osmotic Release Oral System-Methylp...
-        path: docs/pages/studies/pmid-26218871.mdx
+      - page: Differential impact of methylphenidate and atomoxetine on sust...
+        path: docs/pages/studies/pmid-24942409.mdx
         icon: fa-regular fa-flask
       - page: Methylphenidate
         path: docs/pages/studies/pmid-26394513.mdx
@@ -1312,9 +1444,6 @@ navigation:
       - page: 'Safety and Tolerability of Lisdexamfetamine: A Retrospective C...'
         path: docs/pages/studies/pmid-25920467.mdx
         icon: fa-regular fa-users
-      - page: The efficacy of atomoxetine for the treatment of children and...
-        path: docs/pages/studies/pmid-25698145.mdx
-        icon: fa-regular fa-book-open
       - page: The pharmacological management of oppositional behaviour, cond...
         path: docs/pages/studies/pmid-25886655.mdx
         icon: fa-regular fa-layer-group
@@ -1324,12 +1453,6 @@ navigation:
       - page: Time-to-onset and -resolution of adverse events before/after a...
         path: docs/pages/studies/pmid-26329980.mdx
         icon: fa-regular fa-flask
-      - page: 'Toward personalized smoking-cessation treatment: Using a predi...'
-        path: docs/pages/studies/pmid-25659348.mdx
-        icon: fa-regular fa-flask
-      - page: 'Toward quality care in ADHD: defining the goals of treatment'
-        path: docs/pages/studies/pmid-23422237.mdx
-        icon: fa-regular fa-book-open
       - page: A review of the pathophysiology, etiology, and treatment of at...
         path: docs/pages/studies/pmid-24259638.mdx
         icon: fa-regular fa-book-open
@@ -1339,9 +1462,6 @@ navigation:
       - page: ADHD and pregnancy
         path: docs/pages/studies/pmid-24980168.mdx
         icon: fa-regular fa-file-medical
-      - page: ADHD, stimulant treatment in childhood and subsequent substanc...
-        path: docs/pages/studies/pmid-24090624.mdx
-        icon: fa-regular fa-users
       - page: Amphetamine abuse and drug interactions
         path: docs/pages/studies/pmid-25394841.mdx
         icon: fa-regular fa-book-open
@@ -1354,23 +1474,11 @@ navigation:
       - page: Comparative short term efficacy and tolerability of methylphen...
         path: docs/pages/studies/pmid-25031133.mdx
         icon: fa-regular fa-flask
-      - page: Efficacy and safety of atomoxetine hydrochloride in Korean adu...
-        path: docs/pages/studies/pmid-25345739.mdx
-        icon: fa-regular fa-flask
-      - page: Efficacy and safety of extended-release guanfacine hydrochlori...
-        path: docs/pages/studies/pmid-25453486.mdx
-        icon: fa-regular fa-flask
-      - page: Efficacy of lisdexamfetamine dimesylate throughout the day in...
-        path: docs/pages/studies/pmid-23708466.mdx
-        icon: fa-regular fa-flask
       - page: Exploratory meta-analysis on lisdexamfetamine versus placebo i...
         path: docs/pages/studies/pmid-25336914.mdx
         icon: fa-regular fa-layer-group
       - page: Guanfacine for attention deficit and hyperactivity disorder in...
         path: docs/pages/studies/pmid-25156577.mdx
-        icon: fa-regular fa-layer-group
-      - page: Meta-analysis of the association between dopamine transporter...
-        path: docs/pages/studies/pmid-23588108.mdx
         icon: fa-regular fa-layer-group
       - page: Methylphenidate and dexmethylphenidate formulations for childr...
         path: docs/pages/studies/pmid-24973373.mdx
@@ -1381,15 +1489,12 @@ navigation:
       - page: Nutritional supplements for the treatment of ADHD
         path: docs/pages/studies/pmid-25220092.mdx
         icon: fa-regular fa-book-open
+      - page: Pharmacological and clinical dilemmas of prescribing in co-mor...
+        path: docs/pages/studies/pmid-23216449.mdx
+        icon: fa-regular fa-book-open
       - page: Preclinical pharmacokinetics, pharmacology and toxicology of l...
         path: docs/pages/studies/pmid-24594478.mdx
         icon: fa-regular fa-book-open
-      - page: Prepulse inhibition of acoustic startle and the influence of m...
-        path: docs/pages/studies/pmid-22713361.mdx
-        icon: fa-regular fa-flask
-      - page: Randomized, double-blind, placebo-controlled, crossover study...
-        path: docs/pages/studies/pmid-24297663.mdx
-        icon: fa-regular fa-flask
       - page: Relationship of ADHD symptoms and global illness severity in a...
         path: docs/pages/studies/pmid-25295648.mdx
         icon: fa-regular fa-flask
@@ -1399,84 +1504,36 @@ navigation:
       - page: Restriction and elimination diets in ADHD treatment
         path: docs/pages/studies/pmid-25220094.mdx
         icon: fa-regular fa-book-open
-      - page: Shared and drug-specific effects of atomoxetine and methylphen...
-        path: docs/pages/studies/pmid-23048018.mdx
-        icon: fa-regular fa-flask
-      - page: Stimulant use and its impact on growth in children receiving g...
-        path: docs/pages/studies/pmid-24924157.mdx
-        icon: fa-regular fa-users
       - page: Systematic evidence synthesis of treatments for ADHD in childr...
         path: docs/pages/studies/pmid-24627974.mdx
         icon: fa-regular fa-list-check
       - page: 'The potential for misuse and abuse of medications in ADHD: a r...'
         path: docs/pages/studies/pmid-25295651.mdx
         icon: fa-regular fa-book-open
-      - page: The use of lisdexamfetamine dimesylate for the treatment of AD...
-        path: docs/pages/studies/pmid-24948428.mdx
-        icon: fa-regular fa-book-open
-      - page: Treatment response and remission in a double-blind, randomized...
-        path: docs/pages/studies/pmid-25038977.mdx
-        icon: fa-regular fa-flask
-      - page: A post hoc comparison of the effects of lisdexamfetamine dimes...
-        path: docs/pages/studies/pmid-23801529.mdx
-        icon: fa-regular fa-flask
       - page: Amphetamine, past and present--a pharmacological and clinical...
         path: docs/pages/studies/pmid-23539642.mdx
         icon: fa-regular fa-book-open
-      - page: Atomoxetine improved attention in children and adolescents wit...
-        path: docs/pages/studies/pmid-24206099.mdx
-        icon: fa-regular fa-flask
-      - page: Efficacy and safety of lisdexamfetamine dimesylate and atomoxe...
-        path: docs/pages/studies/pmid-23959815.mdx
-        icon: fa-regular fa-flask
       - page: European, randomized, phase 3 study of lisdexamfetamine dimesy...
         path: docs/pages/studies/pmid-23332456.mdx
-        icon: fa-regular fa-flask
-      - page: Lisdexamfetamine dimesylate in adults with attention-deficit/...
-        path: docs/pages/studies/pmid-23945447.mdx
-        icon: fa-regular fa-flask
-      - page: Long-term quality-of-life and functioning comparison of atomox...
-        path: docs/pages/studies/pmid-23963057.mdx
         icon: fa-regular fa-flask
       - page: Pharmacokinetics of coadministered guanfacine extended release...
         path: docs/pages/studies/pmid-23615868.mdx
         icon: fa-regular fa-flask
+      - page: Pharmacological treatment of tic disorders and Tourette Syndro...
+        path: docs/pages/studies/pmid-22728760.mdx
+        icon: fa-regular fa-book-open
       - page: Pharmacotherapy of bipolar disorder in children and adolescent...
         path: docs/pages/studies/pmid-24402215.mdx
         icon: fa-regular fa-book-open
       - page: Phenomenology and treatment of behavioural addictions
         path: docs/pages/studies/pmid-23756285.mdx
         icon: fa-regular fa-book-open
-      - page: Randomized, double-blind trial of guanfacine extended release...
-        path: docs/pages/studies/pmid-23972694.mdx
-        icon: fa-regular fa-flask
-      - page: Self-Reported quality of life in adults with attention-deficit...
-        path: docs/pages/studies/pmid-24106804.mdx
-        icon: fa-regular fa-flask
-      - page: Comparative study of OROS-MPH and atomoxetine on executive fun...
-        path: docs/pages/studies/pmid-22017969.mdx
-        icon: fa-regular fa-flask
-      - page: Cost effectiveness of pharmacotherapies for attention-deficit...
-        path: docs/pages/studies/pmid-22712698.mdx
-        icon: fa-regular fa-list-check
-      - page: Dose response effects of lisdexamfetamine dimesylate treatment...
-        path: docs/pages/studies/pmid-21527575.mdx
-        icon: fa-regular fa-flask
-      - page: Guanfacine extended release as adjunctive therapy to psychosti...
-        path: docs/pages/studies/pmid-22610723.mdx
-        icon: fa-regular fa-book-open
       - page: 'Lisdexamfetamine dimesylate: a new therapeutic option for atte...'
         path: docs/pages/studies/pmid-22762726.mdx
         icon: fa-regular fa-book-open
-      - page: Maintenance of efficacy of lisdexamfetamine dimesylate in adul...
-        path: docs/pages/studies/pmid-22780921.mdx
-        icon: fa-regular fa-flask
       - page: The use of lisdexamfetamine dimesylate for the treatment of AD...
         path: docs/pages/studies/pmid-22243042.mdx
         icon: fa-regular fa-book-open
-      - page: Treating ADHD with agomelatine
-        path: docs/pages/studies/pmid-22491963.mdx
-        icon: fa-regular fa-vial
       - page: A double-blind, placebo-controlled study of atomoxetine in you...
         path: docs/pages/studies/pmid-21422081.mdx
         icon: fa-regular fa-flask
@@ -1486,8 +1543,8 @@ navigation:
       - page: 'ADHD: clinical practice guideline for the diagnosis, evaluatio...'
         path: docs/pages/studies/pmid-22003063.mdx
         icon: fa-regular fa-scale-balanced
-      - page: Atomoxetine and methylphenidate treatment in children with ADH...
-        path: docs/pages/studies/pmid-21165694.mdx
+      - page: Changes of urine dihydroxyphenylglycol to norepinephrine ratio...
+        path: docs/pages/studies/pmid-20525942.mdx
         icon: fa-regular fa-flask
       - page: 'Clonidine extended-release: in attention-deficit hyperactivity...'
         path: docs/pages/studies/pmid-21888447.mdx
@@ -1495,20 +1552,11 @@ navigation:
       - page: Cognitive enhancers for the treatment of ADHD
         path: docs/pages/studies/pmid-21596055.mdx
         icon: fa-regular fa-book-open
-      - page: Comparative efficacy and acceptability of methylphenidate and...
-        path: docs/pages/studies/pmid-22074258.mdx
-        icon: fa-regular fa-layer-group
-      - page: Core ADHD symptom improvement with atomoxetine versus methylph...
-        path: docs/pages/studies/pmid-20837981.mdx
-        icon: fa-regular fa-layer-group
       - page: Dose effects and comparative effectiveness of extended release...
         path: docs/pages/studies/pmid-22136094.mdx
         icon: fa-regular fa-flask
       - page: Effect of lisdexamfetamine dimesylate on sleep in children wit...
         path: docs/pages/studies/pmid-20574056.mdx
-        icon: fa-regular fa-flask
-      - page: Efficacy and safety of lisdexamfetamine dimesylate in adolesce...
-        path: docs/pages/studies/pmid-21421179.mdx
         icon: fa-regular fa-flask
       - page: Once-daily treatment with atomoxetine in adults with attention...
         path: docs/pages/studies/pmid-21406998.mdx
@@ -1516,15 +1564,9 @@ navigation:
       - page: Parent training interventions for Attention Deficit Hyperactiv...
         path: docs/pages/studies/pmid-22161373.mdx
         icon: fa-regular fa-layer-group
-      - page: Pharmacogenetic predictors of methylphenidate dose-response in...
-        path: docs/pages/studies/pmid-22024001.mdx
-        icon: fa-regular fa-flask
       - page: Pharmacological treatment of adult ADHD in Europe
         path: docs/pages/studies/pmid-21906003.mdx
         icon: fa-regular fa-layer-group
-      - page: Psychopharmacological treatment of ADHD symptoms in children w...
-        path: docs/pages/studies/pmid-22191179.mdx
-        icon: fa-regular fa-book-open
       - page: The roles of dopamine and noradrenaline in the pathophysiology...
         path: docs/pages/studies/pmid-21550021.mdx
         icon: fa-regular fa-book-open
@@ -1534,20 +1576,17 @@ navigation:
       - page: Bulimia nervosa
         path: docs/pages/studies/pmid-21418667.mdx
         icon: fa-regular fa-list-check
-      - page: Effects of atomoxetine on self-reported high-risk behaviors an...
-        path: docs/pages/studies/pmid-20642391.mdx
-        icon: fa-regular fa-flask
       - page: Effects of guanfacine extended release on oppositional symptom...
         path: docs/pages/studies/pmid-20806988.mdx
         icon: fa-regular fa-flask
       - page: Guanfacine extended-release for attention-deficit/hyperactivit...
         path: docs/pages/studies/pmid-20831361.mdx
         icon: fa-regular fa-book-open
-      - page: Methylphenidate and atomoxetine enhance prefrontal function th...
-        path: docs/pages/studies/pmid-20855046.mdx
-        icon: fa-regular fa-file-lines
       - page: Pharmacokinetics of lisdexamfetamine dimesylate and its active...
         path: docs/pages/studies/pmid-20206783.mdx
+        icon: fa-regular fa-flask
+      - page: Randomized, controlled trial of atomoxetine for attention-defi...
+        path: docs/pages/studies/pmid-20494267.mdx
         icon: fa-regular fa-flask
       - page: The neurobiological basis of ADHD
         path: docs/pages/studies/pmid-21176172.mdx
@@ -1558,12 +1597,6 @@ navigation:
       - page: A randomized, double-blind, placebo-controlled study of atomox...
         path: docs/pages/studies/pmid-19702486.mdx
         icon: fa-regular fa-flask
-      - page: Assessing the value of atomoxetine in treating children and ad...
-        path: docs/pages/studies/pmid-19570121.mdx
-        icon: fa-regular fa-book-open
-      - page: Atomoxetine treatment in adolescents with attention-deficit/hy...
-        path: docs/pages/studies/pmid-20035590.mdx
-        icon: fa-regular fa-flask
       - page: 'Atomoxetine: a review of its use in attention-deficit hyperact...'
         path: docs/pages/studies/pmid-19445548.mdx
         icon: fa-regular fa-book-open
@@ -1573,12 +1606,6 @@ navigation:
       - page: 'Dexmethylphenidate extended release: a review of its use in th...'
         path: docs/pages/studies/pmid-19958043.mdx
         icon: fa-regular fa-book-open
-      - page: Dopamine-related genotypes and the dose-response effect of met...
-        path: docs/pages/studies/pmid-19364291.mdx
-        icon: fa-regular fa-flask
-      - page: Efficacy and safety of atomoxetine as add-on to psychoeducatio...
-        path: docs/pages/studies/pmid-19156355.mdx
-        icon: fa-regular fa-flask
       - page: 'Evolution of stimulants to treat ADHD: transdermal methylpheni...'
         path: docs/pages/studies/pmid-19051222.mdx
         icon: fa-regular fa-book-open
@@ -1600,18 +1627,6 @@ navigation:
       - page: 'Meta-analysis: treatment of attention-deficit/hyperactivity di...'
         path: docs/pages/studies/pmid-19625978.mdx
         icon: fa-regular fa-layer-group
-      - page: Once-daily atomoxetine for adult attention-deficit/hyperactivi...
-        path: docs/pages/studies/pmid-19142107.mdx
-        icon: fa-regular fa-flask
-      - page: Potential adverse effects of amphetamine treatment on brain an...
-        path: docs/pages/studies/pmid-18698321.mdx
-        icon: fa-regular fa-book-open
-      - page: Systematic review of pharmacological treatments in fragile X s...
-        path: docs/pages/studies/pmid-19822023.mdx
-        icon: fa-regular fa-list-check
-      - page: The efficacy and safety profile of lisdexamfetamine dimesylate...
-        path: docs/pages/studies/pmid-19243715.mdx
-        icon: fa-regular fa-book-open
       - page: Treatment for amphetamine withdrawal
         path: docs/pages/studies/pmid-19370579.mdx
         icon: fa-regular fa-layer-group
@@ -1627,6 +1642,9 @@ navigation:
       - page: Bulimia nervosa
         path: docs/pages/studies/pmid-19450294.mdx
         icon: fa-regular fa-list-check
+      - page: Double-blind, placebo-controlled study of the efficacy and saf...
+        path: docs/pages/studies/pmid-19012818.mdx
+        icon: fa-regular fa-flask
       - page: Efficacy of methylphenidate, psychosocial treatments and their...
         path: docs/pages/studies/pmid-18068284.mdx
         icon: fa-regular fa-layer-group
@@ -1639,18 +1657,12 @@ navigation:
       - page: Lisdexamfetamine dimesylate for childhood ADHD
         path: docs/pages/studies/pmid-18548134.mdx
         icon: fa-regular fa-book-open
-      - page: Long-term effectiveness and safety of lisdexamfetamine dimesyl...
-        path: docs/pages/studies/pmid-18622366.mdx
-        icon: fa-regular fa-vial
       - page: Methylphenidate and amphetamine do not induce cytogenetic dama...
         path: docs/pages/studies/pmid-18978633.mdx
         icon: fa-regular fa-flask
       - page: Attention deficit disorders--drugs or nutrition?
         path: docs/pages/studies/pmid-18309764.mdx
         icon: fa-regular fa-book-open
-      - page: Efficacy and safety of atomoxetine for attention-deficit/hyper...
-        path: docs/pages/studies/pmid-17572882.mdx
-        icon: fa-regular fa-layer-group
       - page: Lisdexamfetamine
         path: docs/pages/studies/pmid-17407369.mdx
         icon: fa-regular fa-book-open
@@ -1663,14 +1675,17 @@ navigation:
       - page: 'Stimulant therapy in the management of ADHD: mixed amphetamine...'
         path: docs/pages/studies/pmid-17714065.mdx
         icon: fa-regular fa-book-open
+      - page: Absence of association with DAT1 polymorphism and response to...
+        path: docs/pages/studies/pmid-16917950.mdx
+        icon: fa-regular fa-flask
       - page: Cognitive effects of immediate-release methylphenidate in chil...
         path: docs/pages/studies/pmid-17161238.mdx
         icon: fa-regular fa-book-open
+      - page: Effects of atomoxetine and methylphenidate on sleep in childre...
+        path: docs/pages/studies/pmid-17252888.mdx
+        icon: fa-regular fa-flask
       - page: Long-term outcomes of stimulant medication in attention-defici...
         path: docs/pages/studies/pmid-16623654.mdx
-        icon: fa-regular fa-book-open
-      - page: 'Methylphenidate and its isomers: their role in the treatment o...'
-        path: docs/pages/studies/pmid-16953648.mdx
         icon: fa-regular fa-book-open
       - page: Osmotic, controlled-release methylphenidate for the treatment...
         path: docs/pages/studies/pmid-17020437.mdx
@@ -1678,9 +1693,6 @@ navigation:
       - page: 'Position of the American Dietetic Association: Nutrition inter...'
         path: docs/pages/studies/pmid-17186637.mdx
         icon: fa-regular fa-scale-balanced
-      - page: The science of stimulant abuse
-        path: docs/pages/studies/pmid-16986449.mdx
-        icon: fa-regular fa-book-open
       - page: Attention-deficit hyperactivity disorder
         path: docs/pages/studies/pmid-16023516.mdx
         icon: fa-regular fa-book-open
@@ -1699,20 +1711,14 @@ navigation:
       - page: A guide to the treatment of adults with ADHD
         path: docs/pages/studies/pmid-15046533.mdx
         icon: fa-regular fa-book-open
-      - page: Amphetamine excretion profile following multidose administrati...
-        path: docs/pages/studies/pmid-15516315.mdx
-        icon: fa-regular fa-vial
-      - page: Atomoxetine, a novel treatment for attention-deficit-hyperacti...
-        path: docs/pages/studies/pmid-15338851.mdx
-        icon: fa-regular fa-book-open
       - page: 'Attention-deficit/hyperactivity disorder: medication treatment...'
         path: docs/pages/studies/pmid-15352536.mdx
         icon: fa-regular fa-book-open
+      - page: New drugs for the treatment of attention-deficit/hyperactivity...
+        path: docs/pages/studies/pmid-15571486.mdx
+        icon: fa-regular fa-book-open
       - page: Non-stimulant medications in the treatment of ADHD
         path: docs/pages/studies/pmid-15322961.mdx
-        icon: fa-regular fa-book-open
-      - page: 'Polymorphisms of the dopamine transporter gene: influence on r...'
-        path: docs/pages/studies/pmid-15059031.mdx
         icon: fa-regular fa-book-open
       - page: Psychological aspects of eating disorders
         path: docs/pages/studies/pmid-15561639.mdx
@@ -1762,15 +1768,18 @@ navigation:
       - page: Methylphenidate (OROS formulation)
         path: docs/pages/studies/pmid-11524026.mdx
         icon: fa-regular fa-file-lines
-      - page: Are stimulants overprescribed for youths with ADHD?
-        path: docs/pages/studies/pmid-10798827.mdx
-        icon: fa-regular fa-book-open
+      - page: Methylphenidate selectively improves story retelling in childr...
+        path: docs/pages/studies/pmid-11642472.mdx
+        icon: fa-regular fa-flask
       - page: The stimulants revisited
         path: docs/pages/studies/pmid-10944658.mdx
         icon: fa-regular fa-book-open
     - section: 1990s
       collapsed: true
       contents:
+      - page: 'A comparison of ritalin and adderall: efficacy and time-course...'
+        path: docs/pages/studies/pmid-10103335.mdx
+        icon: fa-regular fa-flask
       - page: Attention deficit hyperactivity disorder, CNS stimulants and s...
         path: docs/pages/studies/pmid-10028130.mdx
         icon: fa-regular fa-book-open
@@ -1788,6 +1797,9 @@ navigation:
         icon: fa-regular fa-layer-group
       - page: Eating disorders
         path: docs/pages/studies/pmid-10773895.mdx
+        icon: fa-regular fa-book-open
+      - page: Pharmacotherapy of adolescent attention deficit hyperactivity...
+        path: docs/pages/studies/pmid-10065914.mdx
         icon: fa-regular fa-book-open
       - page: Therapy for attention-deficit hyperactivity disorder
         path: docs/pages/studies/pmid-8032506.mdx

@@ -248,25 +248,23 @@ def author_line(authors: list, limit: int = 6) -> str:
     return ', '.join(authors[:limit]) + f', et al. ({len(authors)} authors)'
 
 
-def citation(s: dict) -> str:
-    """Vancouver-style reference line: first six authors, then et al."""
-    names = s['authors']
-    if not names:
-        authors = 'No author listed.'
-    elif len(names) <= 6:
-        authors = ', '.join(names) + '.'
-    else:
-        authors = ', '.join(names[:6]) + ', et al.'
-    bits = [authors]
-    bits.append(f"{s['title']}.")
-    tail = s['journal'] or 'n.p.'
-    if s['year']:
-        tail += f". {s['year']}"
-    bits.append(tail + '.')
+def source_line(s: dict) -> str:
+    """Journal. Year Mon;Volume(Issue):pages. doi: 10.x/y."""
+    date = str(s['year'] or s.get('medline_date') or '').strip()
+    if s.get('month'):
+        date = f"{date} {s['month']}".strip()
+    out = f"{s['journal']}. {date}" if s['journal'] else date
+    vol = s.get('volume') or ''
+    if vol:
+        out += f";{vol}"
+        if s.get('issue'):
+            out += f"({s['issue']})"
+    if s.get('pages'):
+        out += f":{s['pages']}"
+    out = out.rstrip('.') + '.'
     if s['doi']:
-        bits.append(f"doi:{s['doi']}.")
-    bits.append(f"PMID:{s['pmid']}.")
-    return mdx_safe(' '.join(bits))
+        out += f" doi: {s['doi']}."
+    return mdx_safe(out)
 
 
 def pubmed_url(pmid: str) -> str:
@@ -290,85 +288,45 @@ def source_links(s: dict) -> str:
 
 def build_study_page(s: dict, related: list) -> str:
     lang = LANGUAGE_NAMES.get(s['language'], s['language'])
-    badges = [f'<Badge intent="{DESIGN_INTENT.get(s["design"], "note")}">{s["design"]}</Badge>']
-    if s['year']:
-        badges.append(f'<Badge intent="info" minimal>{s["year"]}</Badge>')
-    for topic in s['topics'][:4]:
-        badges.append(f'<Badge intent="note" minimal outlined>{mdx_safe(topic)}</Badge>')
-    for regimen in s['regimens'][:3]:
-        badges.append(f'<Badge intent="tip" minimal>{mdx_safe(regimen)}</Badge>')
-    if s['pmcid']:
-        badges.append('<Badge intent="success" minimal>Free full text</Badge>')
 
     lines = [
         '---',
         f'title: {yaml_quote(s["title"])}',
-        f'subtitle: {yaml_quote(f"{s['journal']} · {s['year'] or 'n.d.'} · PMID {s['pmid']}")}',
         f'slug: {study_slug(s)}',
         '---',
         '',
-        ' '.join(badges),
+        mdx_safe(author_line(s['authors'], 24)),
         '',
-    ]
-
-    if s['conclusion']:
-        lines += [
-            '## Conclusion',
-            '',
-            '> ' + mdx_safe(s['conclusion']).replace('\n', ' '),
-            '',
-        ]
-
-    if s['stats']:
-        lines += ['**Reported:** ' + ' · '.join(
-            f'`{mdx_safe(st["value"])}`' for st in s['stats']), '']
-
-    if s['results']:
-        lines += ['## Results', '', mdx_safe(s['results']), '']
-
-    if s['objective']:
-        lines += ['## Objective', '', mdx_safe(s['objective']), '']
-
-    lines += [
-        '## Record',
+        source_line(s),
         '',
-        '| Field | Value |',
-        '|---|---|',
-        f'| Authors | {esc_cell(author_line(s["authors"], 12))} |',
-        f'| Journal | {esc_cell(s["journal"])} |',
-        f'| Year | {s["year"] or "Not stated"} |',
-        f'| Study design | {esc_cell(s["design"])} |',
-        f'| Population | {esc_cell(", ".join(s["populations"]) or "Not specified in abstract")} |',
-        f'| Country | {esc_cell(", ".join(s["countries"]) or "Not stated in affiliations")} |',
-        f'| Dosing regimen | {esc_cell(", ".join(s["regimens"]) or "Not stated in abstract")} |',
-        f'| Doses named | {esc_cell(", ".join(s["doses"]) or "None named in abstract")} |',
-        f'| Language | {esc_cell(lang + (" (title translated)" if s["title_translated"] else ""))} |',
-        f'| Sources | {source_links(s)} |',
+        f'PMID: [{s["pmid"]}]({pubmed_url(s["pmid"])})'
+        + (f' · PMCID: [{s["pmcid"]}](https://www.ncbi.nlm.nih.gov/pmc/articles/{s["pmcid"]}/)'
+           if s['pmcid'] else '')
+        + (f' · {mdx_safe(s["design"])}' if s['design'] and s['design'] != 'Other' else ''),
         '',
         '## Abstract',
         '',
-        mdx_safe(s['abstract']),
-        '',
     ]
 
-    if s['mesh']:
-        terms = ' '.join(
-            f'<Badge intent="note" minimal outlined>{mdx_safe(m)}</Badge>' for m in s['mesh'])
-        lines += ['## MeSH terms', '', terms, '']
+    body = s['abstract']
+    if not re.search(r'\*\*[A-Za-z][^*]*:\*\*', body) and s['conclusion']:
+        # unstructured abstract: still give the conclusion its own heading
+        lines += [mdx_safe(body), '', '**Conclusion:**', '',
+                  mdx_safe(s['conclusion']), '']
+    else:
+        lines += [mdx_safe(body), '']
 
-    lines += ['## Citation', '', citation(s), '']
+    if s['mesh']:
+        lines += ['## MeSH terms', '',
+                  '\n'.join(f'- {mdx_safe(m)}' for m in s['mesh']), '']
 
     if related:
-        lines += ['## Related records', '', '<CardGroup cols={2}>']
+        lines += ['## Similar articles', '']
         for r in related:
-            desc = mdx_safe(f"{r['journal']} · {r['year'] or 'n.d.'} · {r['design']}")
-            lines.append(
-                f'  <Card title={jsx_attr(truncate(r["title"], 72))} '
-                f'icon="{DESIGN_ICON.get(r["design"], "fa-regular fa-file-lines")}" '
-                f'href="/{study_slug(r)}">')
-            lines.append(f'    {desc}')
-            lines.append('  </Card>')
-        lines += ['</CardGroup>', '']
+            lines.append(f'- [{mdx_safe(r["title"])}](/{study_slug(r)})  ')
+            lines.append(f'  {mdx_safe(author_line(r["authors"], 3))} '
+                         f'{source_line(r)} PMID: {r["pmid"]}')
+        lines.append('')
 
     return '\n'.join(lines)
 
@@ -410,57 +368,39 @@ def study_table(studies: list, show: str = 'design') -> list:
     return lines
 
 
-def findings_list(studies: list, limit: int = 0) -> list:
-    """The studies themselves, each leading with what its authors concluded.
-
-    Strongest designs first, then most recent, so the top of every page is
-    evidence rather than alphabetical filler.
-    """
+def results_list(studies: list) -> list:
+    """PubMed search-result style: title, authors, source line, PMID, conclusion."""
     rank = {name: i for i, name in enumerate(DESIGN_ORDER)}
-    ordered = sorted(
-        studies,
-        key=lambda s: (rank.get(s['design'], 99), -(s['year'] or 0)))
+    ordered = sorted(studies, key=lambda s: (rank.get(s['design'], 99), -(s['year'] or 0)))
 
     lines = []
-    for s in (ordered[:limit] if limit else ordered):
+    for s in ordered:
         lines.append(f'### [{mdx_safe(s["title"])}](/{study_slug(s)})')
         lines.append('')
-        meta = f'{s["journal"]} · {s["year"] or "n.d."} · {s["design"]}'
-        if s['countries']:
-            meta += ' · ' + ', '.join(s['countries'][:3])
-        lines.append(f'{mdx_safe(meta)}')
+        lines.append(mdx_safe(author_line(s['authors'], 8)))
+        lines.append('')
+        tail = f'PMID: {s["pmid"]}'
+        if s['design'] and s['design'] != 'Other':
+            tail += f' · {mdx_safe(s["design"])}'
+        lines.append(f'{source_line(s)} {tail}')
         lines.append('')
         if s['conclusion']:
-            lines.append('> ' + mdx_safe(s['conclusion']).replace('\n', ' '))
-            lines.append('')
-        if s['stats']:
-            lines.append('**Reported:** ' + ' · '.join(
-                f'`{mdx_safe(st["value"])}`' for st in s['stats'][:5]))
+            lines.append(mdx_safe(s['conclusion']))
             lines.append('')
     return lines
 
 
 def build_collection_page(coll: dict, studies: list) -> str:
-    designs = Counter(s['design'] for s in studies)
-    years = [s['year'] for s in studies if s['year']]
     lines = [
         '---',
         f'title: {yaml_quote(coll["name"])}',
-        f'subtitle: {yaml_quote(f"{len(studies)} studies, {min(years)}–{max(years)}" if years else f"{len(studies)} studies")}',
         f'slug: collection-{coll["key"]}',
         '---',
         '',
-        ' '.join(filter(None, [
-            f'<Badge intent="success" minimal>{designs["Meta-analysis"] + designs["Systematic review"]} evidence syntheses</Badge>'
-            if designs['Meta-analysis'] + designs['Systematic review'] else '',
-            f'<Badge intent="check" minimal>{designs["Randomized controlled trial"]} randomized trials</Badge>'
-            if designs['Randomized controlled trial'] else '',
-        ])),
-        '',
     ]
-    lines += findings_list(studies)
+    lines += results_list(studies)
     lines += [
-        '<Accordion title="Search that produced this collection">',
+        '<Accordion title="Search strategy">',
         '```',
         coll['query'],
         '```',
@@ -474,12 +414,11 @@ def build_design_page(design: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(design)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: design-{slugify(design)}',
         '---',
         '',
     ]
-    lines += findings_list(studies)
+    lines += results_list(studies)
     return '\n'.join(lines)
 
 
@@ -487,12 +426,11 @@ def build_topic_page(topic: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(topic)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: topic-{slugify(topic)}',
         '---',
         '',
     ]
-    lines += findings_list(studies)
+    lines += results_list(studies)
     return '\n'.join(lines)
 
 
@@ -502,15 +440,14 @@ def build_region_page(region: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(region)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: region-{slugify(region)}',
         '---',
         '',
-        ' '.join(f'[{c}](/country-{slugify(c)}) ({n})'
-                 for c, n in countries.most_common()),
+        ' · '.join(f'[{c}](/country-{slugify(c)})'
+                   for c, _ in countries.most_common()),
         '',
     ]
-    lines += findings_list(studies)
+    lines += results_list(studies)
     return '\n'.join(lines)
 
 
@@ -518,12 +455,11 @@ def build_country_page(country: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(country)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: country-{slugify(country)}',
         '---',
         '',
     ]
-    lines += findings_list(studies)
+    lines += results_list(studies)
     return '\n'.join(lines)
 
 
@@ -532,15 +468,11 @@ def build_regimen_page(regimen: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(regimen)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: regimen-{slugify(regimen)}',
         '---',
         '',
     ]
-    if doses:
-        lines += ['**Doses studied:** ' + ' · '.join(
-            f'`{d}`' for d, _ in doses.most_common(10)), '']
-    lines += findings_list(studies)
+    lines += results_list(studies)
     return '\n'.join(lines)
 
 
@@ -731,10 +663,6 @@ def build_browse_page(data: dict, studies: list) -> str:
 
 
 def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
-    years = [s['year'] for s in studies if s['year']]
-    designs = Counter(s['design'] for s in studies)
-    trials = designs['Randomized controlled trial'] + designs['Clinical trial']
-    synth = designs['Meta-analysis'] + designs['Systematic review']
     return '\n'.join([
         '---',
         'title: Clinical Evidence Index',
@@ -745,33 +673,13 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
         '---',
         '',
         '<CardGroup cols={2}>',
-        '  <Card title="Browse the index" icon="fa-regular fa-folder-open" href="/browse">',
-        f'    {len(studies)} studies',
+        '  <Card title="Browse" icon="fa-regular fa-folder-open" href="/browse">',
+        '    By drug, topic, study design, dosing regimen and region',
         '  </Card>',
-        '  <Card title="Randomized controlled trials" icon="fa-regular fa-flask" '
-        'href="/design-randomized-controlled-trial">',
-        f'    {designs["Randomized controlled trial"]} studies',
-        '  </Card>',
-        '  <Card title="Evidence syntheses" icon="fa-regular fa-layer-group" '
-        'href="/design-meta-analysis">',
-        f'    {synth} studies',
-        '  </Card>',
-        '  <Card title="Regulatory guidance" icon="fa-regular fa-file-prescription" '
-        'href="/regulatory">',
-        f'    {n_labels} products',
+        '  <Card title="Regulatory" icon="fa-regular fa-file-prescription" href="/regulatory">',
+        '    Approved US prescribing information',
         '  </Card>',
         '</CardGroup>',
-        '',
-        '| | |',
-        '|---|---|',
-        f'| Records indexed | {len(studies)} |',
-        f'| Collections | {len(data["collections"])} |',
-        f'| Controlled trials | {trials} |',
-        f'| Evidence syntheses | {synth} |',
-        f'| Free full text available | {sum(1 for s in studies if s["pmcid"])} |',
-        f'| Countries represented | {len({c for s in studies for c in s["countries"]})} |',
-        f'| Products with approved labelling | {n_labels} |',
-        f'| Catalogue built | {data["generated"]} |',
         '',
         '<Callout intent="warning">',
         'Bibliographic index for research use — not medical advice.',

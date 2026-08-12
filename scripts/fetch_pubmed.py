@@ -355,6 +355,12 @@ def parse_article(art) -> dict:
             or text_of(art, './/ArticleDate/Year'))
     year = int(year) if year.isdigit() else None
 
+    volume = text_of(art, './/JournalIssue/Volume')
+    issue = text_of(art, './/JournalIssue/Issue')
+    pages = text_of(art, './MedlineCitation/Article/Pagination/MedlinePgn')
+    medline_date = text_of(art, './/JournalIssue/PubDate/MedlineDate')
+    month = text_of(art, './/JournalIssue/PubDate/Month')
+
     pubtypes = [''.join(p.itertext()).strip()
                 for p in art.findall('./MedlineCitation/Article/PublicationTypeList/PublicationType')]
 
@@ -489,6 +495,11 @@ def parse_article(art) -> dict:
         'doses': doses,
         'journal': journal,
         'year': year,
+        'month': month,
+        'volume': volume,
+        'issue': issue,
+        'pages': pages,
+        'medline_date': medline_date,
         'language': language,
         'design': design,
         'publication_types': pubtypes,
