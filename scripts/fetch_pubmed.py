@@ -141,6 +141,105 @@ COLLECTIONS = [
                  'AND (treatment[Title/Abstract] OR medication[Title/Abstract] OR dos*[Title/Abstract])',
         'retmax': 55,
     },
+    # Off-label prescribing is the coverage-authorization use case: the
+    # evidence a provider must cite under Health & Safety Code 1367.21(a)(3)(C).
+    {
+        'key': 'off-label',
+        'name': 'Off-label prescribing & indications',
+        'query': '("off-label"[Title/Abstract] OR "off label"[Title/Abstract] '
+                 'OR unlicensed[Title/Abstract]) '
+                 'AND (ADHD[Title/Abstract] OR "attention deficit"[Title/Abstract] '
+                 'OR stimulant*[Title/Abstract] OR methylphenidate[Title/Abstract] '
+                 'OR lisdexamfetamine[Title/Abstract] OR amphetamine[Title/Abstract] '
+                 'OR atomoxetine[Title/Abstract] OR guanfacine[Title/Abstract])',
+        'retmax': 70,
+    },
+    {
+        'key': 'adults',
+        'name': 'Adult ADHD',
+        'query': '(ADHD[Title/Abstract] OR "attention deficit"[Title/Abstract]) '
+                 'AND (adult*[Title/Abstract] OR "late diagnosis"[Title/Abstract] '
+                 'OR "undiagnosed"[Title/Abstract]) '
+                 'AND (medication[Title/Abstract] OR stimulant*[Title/Abstract] '
+                 'OR treatment[Title/Abstract])',
+        'retmax': 60,
+    },
+    {
+        'key': 'comorbidity-substance',
+        'name': 'Substance use & misuse',
+        'query': '(ADHD[Title/Abstract] AND (stimulant*[Title/Abstract] '
+                 'OR methylphenidate[Title/Abstract] OR amphetamine[Title/Abstract] '
+                 'OR lisdexamfetamine[Title/Abstract])) '
+                 'AND ("substance use"[Title/Abstract] OR misuse[Title/Abstract] '
+                 'OR diversion[Title/Abstract] OR addiction[Title/Abstract] '
+                 'OR "abuse liability"[Title/Abstract] OR dependence[Title/Abstract])',
+        'retmax': 55,
+    },
+    {
+        'key': 'shortage-access',
+        'name': 'Access, shortages & disparities',
+        'query': '(ADHD[Title/Abstract] AND (medication[Title/Abstract] '
+                 'OR stimulant*[Title/Abstract] OR prescri*[Title/Abstract])) '
+                 'AND (shortage[Title/Abstract] OR access[Title/Abstract] '
+                 'OR disparit*[Title/Abstract] OR equity[Title/Abstract] '
+                 'OR insurance[Title/Abstract] OR "prior authorization"[Title/Abstract] '
+                 'OR cost[Title/Abstract] OR adherence[Title/Abstract])',
+        'retmax': 60,
+    },
+    # Region-targeted passes. A single "international" query skews to the
+    # largest publishing countries, so each region is harvested explicitly.
+    {
+        'key': 'region-europe',
+        'name': 'European research',
+        'query': '(ADHD[Title/Abstract] AND (medication[Title/Abstract] '
+                 'OR stimulant*[Title/Abstract] OR pharmacotherap*[Title/Abstract])) '
+                 'AND (Europe[Title/Abstract] OR Sweden[Title/Abstract] '
+                 'OR Denmark[Title/Abstract] OR Norway[Title/Abstract] '
+                 'OR Finland[Title/Abstract] OR Iceland[Title/Abstract] '
+                 'OR Netherlands[Title/Abstract] OR Germany[Title/Abstract] '
+                 'OR France[Title/Abstract] OR Spain[Title/Abstract] '
+                 'OR Italy[Title/Abstract] OR Poland[Title/Abstract] '
+                 'OR "United Kingdom"[Title/Abstract] OR Scotland[Title/Abstract])',
+        'retmax': 60,
+    },
+    {
+        'key': 'region-asia',
+        'name': 'Asian research',
+        'query': '(ADHD[Title/Abstract] AND (medication[Title/Abstract] '
+                 'OR stimulant*[Title/Abstract] OR pharmacotherap*[Title/Abstract])) '
+                 'AND (Asia[Title/Abstract] OR China[Title/Abstract] '
+                 'OR Japan[Title/Abstract] OR Korea[Title/Abstract] '
+                 'OR Taiwan[Title/Abstract] OR India[Title/Abstract] '
+                 'OR Singapore[Title/Abstract] OR Thailand[Title/Abstract] '
+                 'OR Malaysia[Title/Abstract] OR Vietnam[Title/Abstract] '
+                 'OR Indonesia[Title/Abstract] OR Hong Kong[Title/Abstract])',
+        'retmax': 55,
+    },
+    {
+        'key': 'region-global-south',
+        'name': 'Latin America, Africa & Middle East research',
+        'query': '(ADHD[Title/Abstract] AND (medication[Title/Abstract] '
+                 'OR stimulant*[Title/Abstract] OR pharmacotherap*[Title/Abstract] '
+                 'OR treatment[Title/Abstract])) '
+                 'AND (Brazil[Title/Abstract] OR Mexico[Title/Abstract] '
+                 'OR Chile[Title/Abstract] OR Argentina[Title/Abstract] '
+                 'OR Colombia[Title/Abstract] OR Peru[Title/Abstract] '
+                 'OR "Latin America"[Title/Abstract] OR Africa[Title/Abstract] '
+                 'OR Nigeria[Title/Abstract] OR Kenya[Title/Abstract] '
+                 'OR Egypt[Title/Abstract] OR "South Africa"[Title/Abstract] '
+                 'OR Israel[Title/Abstract] OR Turkey[Title/Abstract] '
+                 'OR Iran[Title/Abstract] OR "Saudi Arabia"[Title/Abstract])',
+        'retmax': 55,
+    },
+    {
+        'key': 'region-oceania',
+        'name': 'Australia & New Zealand research',
+        'query': '(ADHD[Title/Abstract] AND (medication[Title/Abstract] '
+                 'OR stimulant*[Title/Abstract] OR pharmacotherap*[Title/Abstract] '
+                 'OR prescri*[Title/Abstract])) '
+                 'AND (Australia[Title/Abstract] OR "New Zealand"[Title/Abstract])',
+        'retmax': 35,
+    },
 ]
 
 # Study-design classification, checked in order. Driven by PubMed's own

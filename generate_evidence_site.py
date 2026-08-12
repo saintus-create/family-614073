@@ -25,6 +25,8 @@ from pathlib import Path
 
 import yaml
 
+import build_coverage_pages as bcp
+
 ROOT = Path(__file__).resolve().parent
 FERN = ROOT / 'fern'
 PAGES = FERN / 'docs' / 'pages'
@@ -34,6 +36,14 @@ LABELS_DIR = PAGES / 'labels'
 DOCS_YML = FERN / 'docs.yml'
 STUDIES_JSON = FERN / 'data' / 'studies.json'
 LABELS_JSON = FERN / 'data' / 'labels.json'
+FDA_JSON = FERN / 'data' / 'fda.json'
+TRIALS_JSON = FERN / 'data' / 'trials.json'
+COVERAGE_JSON = FERN / 'data' / 'coverage.json'
+PUBLIC_HEALTH_JSON = FERN / 'data' / 'public_health.json'
+COVERAGE_DIR = PAGES / 'coverage'
+FDA_DIR = PAGES / 'fda'
+TRIALS_DIR = PAGES / 'trials'
+GUIDANCE_DIR = PAGES / 'guidance'
 
 REGION_ORDER = [
     'North America', 'Europe', 'Asia', 'Oceania',
@@ -447,6 +457,16 @@ def results_list(studies: list, group: str = 'tier') -> list:
     return lines
 
 
+# collection key -> (fda key, trials key, label key) where the same drug is
+# covered by the other datasets
+DRUG_CROSSLINKS = {
+    'lisdexamfetamine': ('lisdexamfetamine', 'lisdexamfetamine', 'lisdexamfetamine'),
+    'amphetamine': ('amphetamine', 'amphetamine', 'amphetamine'),
+    'methylphenidate': ('methylphenidate', 'methylphenidate', 'methylphenidate'),
+    'atomoxetine': ('atomoxetine', 'atomoxetine', 'atomoxetine'),
+}
+
+
 def build_collection_page(coll: dict, studies: list) -> str:
     lines = [
         '---',
@@ -455,6 +475,21 @@ def build_collection_page(coll: dict, studies: list) -> str:
         '---',
         '',
     ]
+    xref = DRUG_CROSSLINKS.get(coll['key'])
+    if xref:
+        fda_key, trials_key, label_key = xref
+        lines += ['<CardGroup cols={3}>',
+                  f'  <Card title="Approval history" '
+                  f'icon="fa-regular fa-file-certificate" href="/fda-{fda_key}">',
+                  '  </Card>',
+                  f'  <Card title="Clinical trials" icon="fa-regular fa-flask" '
+                  f'href="/trials-{trials_key}">',
+                  '  </Card>',
+                  f'  <Card title="Prescribing information" '
+                  f'icon="fa-regular fa-file-prescription" '
+                  f'href="/label-{label_key}">',
+                  '  </Card>',
+                  '</CardGroup>', '']
     lines += results_list(studies)
     lines += [
         '<Accordion title="Search strategy">',
@@ -710,7 +745,18 @@ def build_browse_page(data: dict, studies: list) -> str:
         '',
         '## Regulatory',
         '',
-        '[Approved US prescribing information](/regulatory)',
+        '[Approved US prescribing information](/regulatory) · '
+        '[FDA approval history](/fda) · '
+        '[Coverage authorization](/coverage) · '
+        '[Forms and filing](/coverage-forms)',
+        '',
+        '## Trials',
+        '',
+        '[Clinical trials feed](/trials)',
+        '',
+        '## Guidance',
+        '',
+        '[Public health guidance](/guidance)',
         '',
     ]
     return '\n'.join(lines)
@@ -783,8 +829,14 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
         '  <Card title="Browse" icon="fa-regular fa-folder-open" href="/browse">',
         '    By drug, topic, study design, dosing regimen and region',
         '  </Card>',
+        '  <Card title="Coverage authorization" icon="fa-regular fa-list-check" href="/coverage">',
+        '    California prior authorization pathway, statute by statute',
+        '  </Card>',
         '  <Card title="Regulatory" icon="fa-regular fa-file-prescription" href="/regulatory">',
-        '    Approved US prescribing information',
+        '    Approved US prescribing information and FDA approval history',
+        '  </Card>',
+        '  <Card title="Clinical trials" icon="fa-regular fa-flask" href="/trials">',
+        '    Registrations and posted results',
         '  </Card>',
         '</CardGroup>',
         '',
@@ -800,7 +852,13 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
 # --------------------------------------------------------------------------
 
 def update_nav(data: dict, studies: list, designs: dict, topics: dict,
-               regions: dict, countries: dict, regimens: dict, labels: dict):
+               regions: dict, countries: dict, regimens: dict, labels: dict,
+               fda: dict = None, trials: dict = None, coverage: dict = None,
+               public_health: dict = None):
+    fda = fda or {'drugs': []}
+    trials = trials or {'drugs': [], 'trials': []}
+    coverage = coverage or {'statutes': []}
+    public_health = public_health or {'pages': []}
     with open(DOCS_YML) as f:
         d = yaml.safe_load(f)
 
@@ -893,6 +951,57 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
             } for lab in labels['labels']],
         })
 
+    if coverage.get('statutes'):
+        catalogue.append({
+            'section': 'Coverage authorization',
+            'collapsed': True,
+            'contents': [
+                {'page': 'Authorization pathway',
+                 'path': 'docs/pages/coverage.mdx',
+                 'icon': 'fa-regular fa-list-check'},
+                {'page': 'Forms and filing',
+                 'path': 'docs/pages/coverage/forms.mdx',
+                 'icon': 'fa-regular fa-file-signature'},
+                {'section': 'Authorities', 'collapsed': True, 'contents': [
+                    {'page': f'{s["code"]} {s["section"]}',
+                     'path': 'docs/pages/coverage/statute-'
+                             f'{s["code"].lower()}-'
+                             f'{s["section"].replace(".", "-")}.mdx',
+                     'icon': 'fa-regular fa-scale-balanced'}
+                    for s in coverage['statutes']]},
+            ],
+        })
+
+    if fda.get('drugs'):
+        fda_items = [{'page': 'Overview', 'path': 'docs/pages/fda.mdx',
+                      'icon': 'fa-regular fa-building-columns'}]
+        fda_items += [{'page': truncate(d['name']),
+                       'path': f'docs/pages/fda/{slugify(d["key"])}.mdx',
+                       'icon': 'fa-regular fa-file-certificate'}
+                      for d in fda['drugs'] if d['applications']]
+        catalogue.append({'section': 'FDA approval history',
+                          'collapsed': True, 'contents': fda_items})
+
+    if trials.get('trials'):
+        tr_items = [{'page': 'Feed', 'path': 'docs/pages/trials.mdx',
+                     'icon': 'fa-regular fa-rss'}]
+        tr_items += [{'page': truncate(d['name']),
+                      'path': f'docs/pages/trials/{slugify(d["key"])}.mdx',
+                      'icon': 'fa-regular fa-flask'}
+                     for d in trials['drugs'] if d['nctids']]
+        catalogue.append({'section': 'Clinical trials',
+                          'collapsed': True, 'contents': tr_items})
+
+    if public_health.get('pages'):
+        g_items = [{'page': 'Overview', 'path': 'docs/pages/guidance.mdx',
+                    'icon': 'fa-regular fa-notes-medical'}]
+        g_items += [{'page': truncate(pg['title']),
+                     'path': f'docs/pages/guidance/{slugify(pg["key"])}.mdx',
+                     'icon': 'fa-regular fa-circle-info'}
+                    for pg in public_health['pages']]
+        catalogue.append({'section': 'Public health guidance',
+                          'collapsed': True, 'contents': g_items})
+
     catalogue.append({
         'page': 'Disclaimer',
         'path': 'docs/pages/disclaimer.mdx',
@@ -980,6 +1089,22 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         'about a country or region, use those tags and say how many records support the '
         'answer. Coverage is concentrated in North America and Europe, so do not present '
         'the index as representative of worldwide practice.\n\n'
+        'Coverage authorization: the coverage pages reproduce California Health & '
+        'Safety Code and Insurance Code text verbatim. Quote the statute and cite the '
+        'section number; never paraphrase a legal requirement into your own words, and '
+        'never state a deadline, form number or criterion that is not in the quoted '
+        'text. It is statutory text, not legal advice, and it governs California plans '
+        'only. Health & Safety Code 1367.21(a)(3)(C) is the ground most relevant to '
+        'this index: two articles from major peer reviewed medical journals. When a '
+        'user is assembling that support, point to indexed records with the strongest '
+        'designs and give the full citation for each.\n\n'
+        'FDA and trials data: the FDA pages carry Drugs@FDA application and submission '
+        'records (application number, approval dates, document links); the trials pages '
+        'carry ClinicalTrials.gov registrations (NCT number, phase, enrolment, status). '
+        'These are registry facts, not findings. A registration is not evidence of '
+        'efficacy, and an approval date is not a clinical outcome.\n\n'
+        'Public health guidance pages reproduce CDC and NIMH text verbatim. Quote them '
+        'for general ADHD questions and attribute the agency.\n\n'
         'Dosing questions: separate the two sources sharply.\n'
         '- Study regimens (once daily, divided doses, extended release, titration) are '
         'tagged from abstracts and describe what a trial administered. Report them as study '
@@ -1008,7 +1133,16 @@ def main():
     studies = data['studies']
     labels = json.loads(LABELS_JSON.read_text()) if LABELS_JSON.exists() else {'labels': []}
 
-    for directory in (STUDIES_DIR, INDEX_DIR, LABELS_DIR):
+    def load(path, empty):
+        return json.loads(path.read_text()) if path.exists() else empty
+
+    fda = load(FDA_JSON, {'drugs': []})
+    trials = load(TRIALS_JSON, {'drugs': [], 'trials': []})
+    coverage = load(COVERAGE_JSON, {'statutes': [], 'regulations': [], 'forms': []})
+    public_health = load(PUBLIC_HEALTH_JSON, {'pages': []})
+
+    for directory in (STUDIES_DIR, INDEX_DIR, LABELS_DIR, COVERAGE_DIR,
+                      FDA_DIR, TRIALS_DIR, GUIDANCE_DIR):
         directory.mkdir(parents=True, exist_ok=True)
         for old in directory.glob('*.mdx'):
             old.unlink()
@@ -1074,12 +1208,49 @@ def main():
         for lab in labels['labels']:
             (LABELS_DIR / f'label-{lab["key"]}.mdx').write_text(build_label_page(lab))
 
+    if coverage.get('statutes'):
+        (PAGES / 'coverage.mdx').write_text(
+            bcp.build_coverage_overview(coverage, mdx_safe, jsx_attr))
+        (COVERAGE_DIR / 'forms.mdx').write_text(
+            bcp.build_coverage_forms(coverage, mdx_safe, jsx_attr))
+        for s in coverage['statutes']:
+            name = f'statute-{s["code"].lower()}-{s["section"].replace(".", "-")}'
+            (COVERAGE_DIR / f'{name}.mdx').write_text(
+                bcp.build_statute_page(s, mdx_safe))
+
+    if fda.get('drugs'):
+        (PAGES / 'fda.mdx').write_text(
+            bcp.build_fda_overview(fda, mdx_safe, jsx_attr, slugify))
+        for d in fda['drugs']:
+            if d['applications']:
+                (FDA_DIR / f'{slugify(d["key"])}.mdx').write_text(
+                    bcp.build_fda_drug_page(d, mdx_safe, jsx_attr, slugify))
+
+    if trials.get('trials'):
+        (PAGES / 'trials.mdx').write_text(
+            bcp.build_trials_feed(trials, mdx_safe, jsx_attr, slugify))
+        by_nct = {t_['nctid']: t_ for t_ in trials['trials']}
+        for d in trials['drugs']:
+            items = [by_nct[n] for n in d['nctids'] if n in by_nct]
+            if items:
+                (TRIALS_DIR / f'{slugify(d["key"])}.mdx').write_text(
+                    bcp.build_trials_drug_page(d['name'], d['key'], items,
+                                               mdx_safe, slugify))
+
+    if public_health.get('pages'):
+        (PAGES / 'guidance.mdx').write_text(
+            bcp.build_guidance_overview(public_health, mdx_safe, jsx_attr, slugify))
+        for pg in public_health['pages']:
+            (GUIDANCE_DIR / f'{slugify(pg["key"])}.mdx').write_text(
+                bcp.build_guidance_page(pg, mdx_safe, slugify))
+
     (PAGES / 'disclaimer.mdx').write_text(build_disclaimer_page())
     (PAGES / 'browse.mdx').write_text(build_browse_page(data, studies))
     (PAGES / 'welcome.mdx').write_text(
         build_welcome_page(data, studies, len(labels.get('labels', []))))
 
-    update_nav(data, studies, designs, topics, regions, countries, regimens, labels)
+    update_nav(data, studies, designs, topics, regions, countries, regimens,
+               labels, fda, trials, coverage, public_health)
 
     print(f'Generated {len(studies)} record pages, {len(by_coll)} collections, '
           f'{len(designs)} designs, {len(topics)} topics, {len(regions)} regions, '

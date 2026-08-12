@@ -11,21 +11,30 @@ PubMed returns them. No metadata is hand-entered.
 ## How it works
 
 ```
-scripts/fetch_pubmed.py    ->  fern/data/studies.json   (literature, from PubMed)
-scripts/fetch_labels.py    ->  fern/data/labels.json    (approved labelling, from DailyMed)
-generate_evidence_site.py  ->  fern/docs/pages/**       (render MDX + nav)
+scripts/fetch_pubmed.py        ->  fern/data/studies.json        (literature, PubMed)
+scripts/fetch_labels.py        ->  fern/data/labels.json         (labelling, DailyMed)
+scripts/fetch_fda.py           ->  fern/data/fda.json            (approvals, Drugs@FDA)
+scripts/fetch_trials.py        ->  fern/data/trials.json         (ClinicalTrials.gov)
+scripts/fetch_coverage.py      ->  fern/data/coverage.json       (CA statutes, leginfo)
+scripts/fetch_public_health.py ->  fern/data/public_health.json  (CDC / NIMH)
+generate_evidence_site.py      ->  fern/docs/pages/**            (render MDX + nav)
+build_coverage_pages.py        ->  page builders for the four newer datasets
 ```
 
-Those two JSON files are the single source of truth. Both the pages under
+Those six JSON files are the single source of truth. Both the pages under
 `fern/docs/pages/` and the `navigation` block of `fern/docs.yml` are generated — edit the
 data or the generator, never the output.
 
 ### Refresh the catalogue
 
 ```bash
-python3 scripts/fetch_pubmed.py      # re-query PubMed, rewrite studies.json
-python3 scripts/fetch_labels.py      # re-pull FDA labels, rewrite labels.json
-python3 generate_evidence_site.py    # rebuild all pages and navigation
+python3 scripts/fetch_pubmed.py        # re-query PubMed, rewrite studies.json
+python3 scripts/fetch_labels.py        # re-pull FDA labels, rewrite labels.json
+python3 scripts/fetch_fda.py           # re-pull Drugs@FDA approval history
+python3 scripts/fetch_trials.py        # re-pull ClinicalTrials.gov registrations
+python3 scripts/fetch_coverage.py      # re-pull California coverage statutes
+python3 scripts/fetch_public_health.py # re-pull CDC / NIMH guidance
+python3 generate_evidence_site.py      # rebuild all pages and navigation
 fern check                           # validate
 fern docs dev                        # preview locally
 ```
@@ -49,6 +58,10 @@ title has drifted from the stored copy. Run this before publishing.
 | Populations | matched against abstract text |
 | Countries / regions | author affiliations on the PubMed record |
 | Dosing regimens | abstract wording (once daily, divided doses, XR/IR, titration) |
+| Coverage authorization | California Health & Safety / Insurance Code, verbatim from the Legislative Counsel |
+| FDA approval history | Drugs@FDA applications, products and submission documents |
+| Clinical trials | ClinicalTrials.gov v2 interventional registrations and posted results |
+| Public health guidance | CDC and NIMH pages (US Government, public domain) |
 | Regulatory guidance | DailyMed Structured Product Labels |
 
 Adding a collection means adding one entry to `COLLECTIONS` in `scripts/fetch_pubmed.py`
