@@ -243,9 +243,23 @@ def jsx_attr(text: str) -> str:
 def author_line(authors: list, limit: int = 6) -> str:
     if not authors:
         return 'No author listed'
-    if len(authors) <= limit:
+    if limit == 0 or len(authors) <= limit:
         return ', '.join(authors)
     return ', '.join(authors[:limit]) + f', et al. ({len(authors)} authors)'
+
+
+def byline(s: dict) -> str:
+    """PubMed's collapsed byline: First Author et al. Journal. Year Mon."""
+    who = s['authors'][0] if s['authors'] else 'No author listed'
+    if len(s['authors']) > 1:
+        who += ', et al.'
+    elif s['authors']:
+        who += '.'
+    date = str(s['year'] or s.get('medline_date') or '').strip()
+    if s.get('month'):
+        date = f"{date} {s['month']}".strip()
+    tail = f"{s['journal']}. {date}" if s['journal'] else date
+    return mdx_safe(f"{who} {tail}".strip().rstrip('.') + '.')
 
 
 def source_line(s: dict) -> str:
@@ -289,20 +303,32 @@ def source_links(s: dict) -> str:
 def build_study_page(s: dict, related: list) -> str:
     lang = LANGUAGE_NAMES.get(s['language'], s['language'])
 
+    details = [f'{mdx_safe(author_line(s["authors"], 0))}', '', source_line(s), '']
+    ids = [f'PMID: [{s["pmid"]}]({pubmed_url(s["pmid"])})']
+    if s['pmcid']:
+        ids.append(f'PMCID: [{s["pmcid"]}]'
+                   f'(https://www.ncbi.nlm.nih.gov/pmc/articles/{s["pmcid"]}/)')
+    if s['doi']:
+        ids.append(f'DOI: [{mdx_safe(s["doi"])}](https://doi.org/{s["doi"]})')
+    if s['design'] and s['design'] != 'Other':
+        ids.append(mdx_safe(s['design']))
+    if lang and lang != 'English':
+        ids.append(mdx_safe(lang))
+    details.append(' · '.join(ids))
+
     lines = [
         '---',
         f'title: {yaml_quote(s["title"])}',
         f'slug: {study_slug(s)}',
         '---',
         '',
-        mdx_safe(author_line(s['authors'], 24)),
+        byline(s),
         '',
-        source_line(s),
+        '<Accordion title="Show details">',
         '',
-        f'PMID: [{s["pmid"]}]({pubmed_url(s["pmid"])})'
-        + (f' · PMCID: [{s["pmcid"]}](https://www.ncbi.nlm.nih.gov/pmc/articles/{s["pmcid"]}/)'
-           if s['pmcid'] else '')
-        + (f' · {mdx_safe(s["design"])}' if s['design'] and s['design'] != 'Other' else ''),
+        *details,
+        '',
+        '</Accordion>',
         '',
         '## Abstract',
         '',
@@ -324,8 +350,7 @@ def build_study_page(s: dict, related: list) -> str:
         lines += ['## Similar articles', '']
         for r in related:
             lines.append(f'- [{mdx_safe(r["title"])}](/{study_slug(r)})  ')
-            lines.append(f'  {mdx_safe(author_line(r["authors"], 3))} '
-                         f'{source_line(r)} PMID: {r["pmid"]}')
+            lines.append(f'  {byline(r)} PMID: {r["pmid"]}')
         lines.append('')
 
     return '\n'.join(lines)
@@ -377,12 +402,10 @@ def results_list(studies: list) -> list:
     for s in ordered:
         lines.append(f'### [{mdx_safe(s["title"])}](/{study_slug(s)})')
         lines.append('')
-        lines.append(mdx_safe(author_line(s['authors'], 8)))
-        lines.append('')
         tail = f'PMID: {s["pmid"]}'
         if s['design'] and s['design'] != 'Other':
             tail += f' · {mdx_safe(s["design"])}'
-        lines.append(f'{source_line(s)} {tail}')
+        lines.append(f'{byline(s)} {tail}')
         lines.append('')
         if s['conclusion']:
             lines.append(mdx_safe(s['conclusion']))
