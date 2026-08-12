@@ -186,6 +186,10 @@ LANGUAGE_NAMES = {
     'eng': 'English', 'spa': 'Spanish', 'jpn': 'Japanese', 'ger': 'German',
     'fre': 'French', 'ita': 'Italian', 'por': 'Portuguese', 'chi': 'Chinese',
     'rus': 'Russian', 'dut': 'Dutch', 'pol': 'Polish', 'tur': 'Turkish',
+    'dan': 'Danish', 'swe': 'Swedish', 'nor': 'Norwegian', 'fin': 'Finnish',
+    'cze': 'Czech', 'hun': 'Hungarian', 'gre': 'Greek', 'heb': 'Hebrew',
+    'kor': 'Korean', 'ara': 'Arabic', 'per': 'Persian', 'ukr': 'Ukrainian',
+    'rum': 'Romanian', 'slo': 'Slovak', 'srp': 'Serbian', 'hrv': 'Croatian',
 }
 
 MAX_NAV_LABEL = 62
@@ -307,16 +311,11 @@ def build_study_page(s: dict, related: list) -> str:
         '',
     ]
 
-    if s['title_translated']:
-        lines += [f'*Translated title; published in {lang}.*', '']
-
     if s['conclusion']:
         lines += [
-            '## What this study found',
+            '## Conclusion',
             '',
             '> ' + mdx_safe(s['conclusion']).replace('\n', ' '),
-            '',
-            '*Conclusion as stated by the authors.*',
             '',
         ]
 
@@ -343,10 +342,10 @@ def build_study_page(s: dict, related: list) -> str:
         f'| Country | {esc_cell(", ".join(s["countries"]) or "Not stated in affiliations")} |',
         f'| Dosing regimen | {esc_cell(", ".join(s["regimens"]) or "Not stated in abstract")} |',
         f'| Doses named | {esc_cell(", ".join(s["doses"]) or "None named in abstract")} |',
-        f'| Language | {esc_cell(lang)} |',
+        f'| Language | {esc_cell(lang + (" (title translated)" if s["title_translated"] else ""))} |',
         f'| Sources | {source_links(s)} |',
         '',
-        '## Full abstract',
+        '## Abstract',
         '',
         mdx_safe(s['abstract']),
         '',
@@ -411,7 +410,7 @@ def study_table(studies: list, show: str = 'design') -> list:
     return lines
 
 
-def findings_list(studies: list, limit: int = 40) -> list:
+def findings_list(studies: list, limit: int = 0) -> list:
     """The studies themselves, each leading with what its authors concluded.
 
     Strongest designs first, then most recent, so the top of every page is
@@ -423,7 +422,7 @@ def findings_list(studies: list, limit: int = 40) -> list:
         key=lambda s: (rank.get(s['design'], 99), -(s['year'] or 0)))
 
     lines = []
-    for s in ordered[:limit]:
+    for s in (ordered[:limit] if limit else ordered):
         lines.append(f'### [{mdx_safe(s["title"])}](/{study_slug(s)})')
         lines.append('')
         meta = f'{s["journal"]} · {s["year"] or "n.d."} · {s["design"]}'
@@ -438,9 +437,6 @@ def findings_list(studies: list, limit: int = 40) -> list:
             lines.append('**Reported:** ' + ' · '.join(
                 f'`{mdx_safe(st["value"])}`' for st in s['stats'][:5]))
             lines.append('')
-    if len(ordered) > limit:
-        lines += [f'*Showing {limit} of {len(ordered)}; the rest are in the '
-                  'sidebar under Records.*', '']
     return lines
 
 
@@ -539,9 +535,6 @@ def build_regimen_page(regimen: str, studies: list) -> str:
         f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: regimen-{slugify(regimen)}',
         '---',
-        '',
-        '*Study conditions, not dosing recommendations — see '
-        '[regulatory guidance](/regulatory).*',
         '',
     ]
     if doses:
@@ -673,10 +666,6 @@ def build_label_page(lab: dict) -> str:
             lines.append('  </Accordion>')
         lines += ['</AccordionGroup>', '']
 
-    lines += [
-        f'*Abridged for indexing — read the [full label]({lab["url"]}).*',
-        '',
-    ]
     return '\n'.join(lines)
 
 
@@ -694,7 +683,7 @@ def build_browse_page(data: dict, studies: list) -> str:
         'slug: browse',
         '---',
         '',
-        '## By drug',
+        '## Drugs',
         '',
         '<CardGroup cols={3}>',
     ]
@@ -709,7 +698,7 @@ def build_browse_page(data: dict, studies: list) -> str:
             f'href="/collection-{coll["key"]}">')
         lines.append(f'    {len(items)} studies · {syn} syntheses')
         lines.append('  </Card>')
-    lines += ['</CardGroup>', '', '## By question', '', '<CardGroup cols={2}>']
+    lines += ['</CardGroup>', '', '## Topics', '', '<CardGroup cols={2}>']
     for topic, n in topics.most_common():
         lines.append(
             f'  <Card title={jsx_attr(topic)} '
@@ -717,7 +706,7 @@ def build_browse_page(data: dict, studies: list) -> str:
             f'href="/topic-{slugify(topic)}">')
         lines.append(f'    {n} studies')
         lines.append('  </Card>')
-    lines += ['</CardGroup>', '', '## By strength of evidence', '', '<CardGroup cols={3}>']
+    lines += ['</CardGroup>', '', '## Study designs', '', '<CardGroup cols={3}>']
     for design in DESIGN_ORDER:
         if not designs.get(design):
             continue
@@ -731,23 +720,13 @@ def build_browse_page(data: dict, studies: list) -> str:
 
     regimens = Counter(r for s in studies for r in s['regimens'])
     regions = Counter(r for s in studies for r in s['regions'])
-    lines += ['## By dosing schedule', '', ' · '.join(
+    lines += ['## Dosing regimens', '', ' · '.join(
         f'[{r}](/regimen-{slugify(r)}) ({regimens[r]})'
         for r in REGIMEN_ORDER if regimens.get(r)), '']
-    lines += ['## By region', '', ' · '.join(
+    lines += ['## Regions', '', ' · '.join(
         f'[{r}](/region-{slugify(r)}) ({regions[r]})'
         for r in REGION_ORDER if regions.get(r)), '']
 
-    lines += [
-        '<AccordionGroup>',
-        '  <Accordion title="Coverage and limits">',
-        '    Collections are relevance-ranked PubMed queries capped at a fixed size — a '
-        'sample of the literature, not a systematic review. Records without an abstract '
-        'are excluded. Quoted conclusions are the authors\' own words, not a summary.',
-        '  </Accordion>',
-        '</AccordionGroup>',
-        '',
-    ]
     return '\n'.join(lines)
 
 
@@ -759,7 +738,7 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
     return '\n'.join([
         '---',
         'title: Clinical Evidence Index',
-        'subtitle: A PubMed-sourced clearing house for ADHD and binge-eating pharmacotherapy research',
+        'subtitle: ADHD and binge-eating pharmacotherapy research',
         'slug: welcome',
         'layout: overview',
         'hide-nav-links: true',
@@ -767,23 +746,21 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
         '',
         '<CardGroup cols={2}>',
         '  <Card title="Browse the index" icon="fa-regular fa-folder-open" href="/browse">',
-        '    By collection, design, topic, region and regimen',
+        f'    {len(studies)} studies',
         '  </Card>',
         '  <Card title="Randomized controlled trials" icon="fa-regular fa-flask" '
         'href="/design-randomized-controlled-trial">',
-        f'    {designs["Randomized controlled trial"]} controlled trials indexed',
+        f'    {designs["Randomized controlled trial"]} studies',
         '  </Card>',
         '  <Card title="Evidence syntheses" icon="fa-regular fa-layer-group" '
         'href="/design-meta-analysis">',
-        f'    {synth} meta-analyses and systematic reviews',
+        f'    {synth} studies',
         '  </Card>',
         '  <Card title="Regulatory guidance" icon="fa-regular fa-file-prescription" '
         'href="/regulatory">',
-        '    Approved US dosing, scheduling and boxed warnings',
+        f'    {n_labels} products',
         '  </Card>',
         '</CardGroup>',
-        '',
-        '## Holdings',
         '',
         '| | |',
         '|---|---|',
