@@ -310,6 +310,26 @@ def build_study_page(s: dict, related: list) -> str:
     if s['title_translated']:
         lines += [f'*Translated title; published in {lang}.*', '']
 
+    if s['conclusion']:
+        lines += [
+            '## What this study found',
+            '',
+            '> ' + mdx_safe(s['conclusion']).replace('\n', ' '),
+            '',
+            '*Conclusion as stated by the authors.*',
+            '',
+        ]
+
+    if s['stats']:
+        lines += ['**Reported:** ' + ' · '.join(
+            f'`{mdx_safe(st["value"])}`' for st in s['stats']), '']
+
+    if s['results']:
+        lines += ['## Results', '', mdx_safe(s['results']), '']
+
+    if s['objective']:
+        lines += ['## Objective', '', mdx_safe(s['objective']), '']
+
     lines += [
         '## Record',
         '',
@@ -319,7 +339,6 @@ def build_study_page(s: dict, related: list) -> str:
         f'| Journal | {esc_cell(s["journal"])} |',
         f'| Year | {s["year"] or "Not stated"} |',
         f'| Study design | {esc_cell(s["design"])} |',
-        f'| Publication types | {esc_cell(", ".join(s["publication_types"]) or "Not stated")} |',
         f'| Population | {esc_cell(", ".join(s["populations"]) or "Not specified in abstract")} |',
         f'| Country | {esc_cell(", ".join(s["countries"]) or "Not stated in affiliations")} |',
         f'| Dosing regimen | {esc_cell(", ".join(s["regimens"]) or "Not stated in abstract")} |',
@@ -327,7 +346,7 @@ def build_study_page(s: dict, related: list) -> str:
         f'| Language | {esc_cell(lang)} |',
         f'| Sources | {source_links(s)} |',
         '',
-        '## Abstract',
+        '## Full abstract',
         '',
         mdx_safe(s['abstract']),
         '',
@@ -392,33 +411,66 @@ def study_table(studies: list, show: str = 'design') -> list:
     return lines
 
 
+def findings_list(studies: list, limit: int = 40) -> list:
+    """The studies themselves, each leading with what its authors concluded.
+
+    Strongest designs first, then most recent, so the top of every page is
+    evidence rather than alphabetical filler.
+    """
+    rank = {name: i for i, name in enumerate(DESIGN_ORDER)}
+    ordered = sorted(
+        studies,
+        key=lambda s: (rank.get(s['design'], 99), -(s['year'] or 0)))
+
+    lines = []
+    for s in ordered[:limit]:
+        lines.append(f'### [{mdx_safe(s["title"])}](/{study_slug(s)})')
+        lines.append('')
+        meta = f'{s["journal"]} · {s["year"] or "n.d."} · {s["design"]}'
+        if s['countries']:
+            meta += ' · ' + ', '.join(s['countries'][:3])
+        lines.append(f'{mdx_safe(meta)}')
+        lines.append('')
+        if s['conclusion']:
+            lines.append('> ' + mdx_safe(s['conclusion']).replace('\n', ' '))
+            lines.append('')
+        if s['stats']:
+            lines.append('**Reported:** ' + ' · '.join(
+                f'`{mdx_safe(st["value"])}`' for st in s['stats'][:5]))
+            lines.append('')
+    if len(ordered) > limit:
+        lines += [f'*Showing {limit} of {len(ordered)}; the rest are in the '
+                  'sidebar under Records.*', '']
+    return lines
+
+
 def build_collection_page(coll: dict, studies: list) -> str:
     designs = Counter(s['design'] for s in studies)
     years = [s['year'] for s in studies if s['year']]
     lines = [
         '---',
         f'title: {yaml_quote(coll["name"])}',
-        f'subtitle: {yaml_quote(f"{len(studies)} indexed records")}',
+        f'subtitle: {yaml_quote(f"{len(studies)} studies, {min(years)}–{max(years)}" if years else f"{len(studies)} studies")}',
         f'slug: collection-{coll["key"]}',
         '---',
         '',
+        ' '.join(filter(None, [
+            f'<Badge intent="success" minimal>{designs["Meta-analysis"] + designs["Systematic review"]} evidence syntheses</Badge>'
+            if designs['Meta-analysis'] + designs['Systematic review'] else '',
+            f'<Badge intent="check" minimal>{designs["Randomized controlled trial"]} randomized trials</Badge>'
+            if designs['Randomized controlled trial'] else '',
+        ])),
+        '',
+    ]
+    lines += findings_list(studies)
+    lines += [
+        '<Accordion title="Search that produced this collection">',
         '```',
         coll['query'],
         '```',
-        '',
-        '| Metric | Value |',
-        '|---|---|',
-        f'| Records | {len(studies)} |',
-        f'| Publication years | {min(years)}–{max(years)} |' if years else '| Publication years | n/a |',
-        f'| Controlled trials | {designs["Randomized controlled trial"] + designs["Clinical trial"]} |',
-        f'| Evidence syntheses | {designs["Meta-analysis"] + designs["Systematic review"]} |',
-        f'| Free full text | {sum(1 for s in studies if s["pmcid"])} |',
-        '',
-        '## Records',
+        '</Accordion>',
         '',
     ]
-    lines += study_table(studies)
-    lines.append('')
     return '\n'.join(lines)
 
 
@@ -426,15 +478,12 @@ def build_design_page(design: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(design)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} records with this study design")}',
+        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: design-{slugify(design)}',
         '---',
         '',
-        f'<Badge intent="{DESIGN_INTENT.get(design, "note")}">{design}</Badge>',
-        '',
     ]
-    lines += study_table(studies)
-    lines.append('')
+    lines += findings_list(studies)
     return '\n'.join(lines)
 
 
@@ -442,36 +491,30 @@ def build_topic_page(topic: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(topic)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} records tagged {topic.lower()}")}',
+        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: topic-{slugify(topic)}',
         '---',
         '',
     ]
-    lines += study_table(studies)
-    lines.append('')
+    lines += findings_list(studies)
     return '\n'.join(lines)
 
 
 def build_region_page(region: str, studies: list) -> str:
     countries = Counter(c for s in studies for c in s['countries']
-                        if s['regions'] and region in s['regions'])
+                        if COUNTRY_REGION_LOOKUP.get(c) == region)
     lines = [
         '---',
         f'title: {yaml_quote(region)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} records with authors based in {region}")}',
+        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: region-{slugify(region)}',
         '---',
         '',
-        '## Countries',
+        ' '.join(f'[{c}](/country-{slugify(c)}) ({n})'
+                 for c, n in countries.most_common()),
         '',
-        '| Country | Records |',
-        '|---|---|',
     ]
-    for country, n in countries.most_common():
-        lines.append(f'| [{country}](/country-{slugify(country)}) | {n} |')
-    lines += ['', '## Records', '']
-    lines += study_table(studies)
-    lines.append('')
+    lines += findings_list(studies)
     return '\n'.join(lines)
 
 
@@ -479,22 +522,21 @@ def build_country_page(country: str, studies: list) -> str:
     lines = [
         '---',
         f'title: {yaml_quote(country)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} records with authors based in {country}")}',
+        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: country-{slugify(country)}',
         '---',
         '',
     ]
-    lines += study_table(studies)
-    lines.append('')
+    lines += findings_list(studies)
     return '\n'.join(lines)
 
 
 def build_regimen_page(regimen: str, studies: list) -> str:
-    doses = Counter(d.lower().replace(' ', '') for s in studies for d in s['doses'])
+    doses = Counter(d for s in studies for d in s['doses'])
     lines = [
         '---',
         f'title: {yaml_quote(regimen)}',
-        f'subtitle: {yaml_quote(f"{len(studies)} records describing this regimen")}',
+        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         f'slug: regimen-{slugify(regimen)}',
         '---',
         '',
@@ -503,10 +545,9 @@ def build_regimen_page(regimen: str, studies: list) -> str:
         '',
     ]
     if doses:
-        top = ', '.join(f'`{d}`' for d, _ in doses.most_common(12))
-        lines += ['**Dose strengths named in these abstracts:** ' + top, '']
-    lines += study_table(studies)
-    lines.append('')
+        lines += ['**Doses studied:** ' + ' · '.join(
+            f'`{d}`' for d, _ in doses.most_common(10)), '']
+    lines += findings_list(studies)
     return '\n'.join(lines)
 
 
@@ -643,90 +684,66 @@ def build_browse_page(data: dict, studies: list) -> str:
     by_coll = defaultdict(list)
     for s in studies:
         by_coll[s['collection']].append(s)
-    designs = Counter(s['design'] for s in studies)
     topics = Counter(t for s in studies for t in s['topics'])
-    years = [s['year'] for s in studies if s['year']]
+    designs = Counter(s['design'] for s in studies)
 
     lines = [
         '---',
-        'title: Browse the index',
-        f'subtitle: {yaml_quote(f"{len(studies)} PubMed records across {len(data['collections'])} collections")}',
+        'title: Browse',
+        f'subtitle: {yaml_quote(f"{len(studies)} studies")}',
         'slug: browse',
         '---',
         '',
-        '## Collections',
+        '## By drug',
         '',
         '<CardGroup cols={3}>',
     ]
     for coll in data['collections']:
-        items = by_coll.get(coll['key'], [])
+        items = by_coll.get(coll['key'])
         if not items:
             continue
+        syn = sum(1 for s in items if s['design'] in ('Meta-analysis', 'Systematic review'))
         lines.append(
             f'  <Card title={jsx_attr(coll["name"])} '
             f'icon="{COLLECTION_ICON.get(coll["key"], "fa-regular fa-folder")}" '
             f'href="/collection-{coll["key"]}">')
-        lines.append(f'    {len(items)} records')
+        lines.append(f'    {len(items)} studies · {syn} syntheses')
+        lines.append('  </Card>')
+    lines += ['</CardGroup>', '', '## By question', '', '<CardGroup cols={2}>']
+    for topic, n in topics.most_common():
+        lines.append(
+            f'  <Card title={jsx_attr(topic)} '
+            f'icon="{TOPIC_ICON.get(topic, "fa-regular fa-tag")}" '
+            f'href="/topic-{slugify(topic)}">')
+        lines.append(f'    {n} studies')
+        lines.append('  </Card>')
+    lines += ['</CardGroup>', '', '## By strength of evidence', '', '<CardGroup cols={3}>']
+    for design in DESIGN_ORDER:
+        if not designs.get(design):
+            continue
+        lines.append(
+            f'  <Card title={jsx_attr(design)} '
+            f'icon="{DESIGN_ICON.get(design, "fa-regular fa-file-lines")}" '
+            f'href="/design-{slugify(design)}">')
+        lines.append(f'    {designs[design]} studies')
         lines.append('  </Card>')
     lines += ['</CardGroup>', '']
 
-    lines += [
-        '## Holdings',
-        '',
-        '<Tabs>',
-        '  <Tab title="By study design">',
-        '',
-        '| Design | Records |',
-        '|---|---|',
-    ]
-    for design in DESIGN_ORDER:
-        if designs.get(design):
-            lines.append(f'| [{design}](/design-{slugify(design)}) | {designs[design]} |')
-    lines += ['', '  </Tab>', '  <Tab title="By topic">', '', '| Topic | Records |', '|---|---|']
-    for topic, n in topics.most_common():
-        lines.append(f'| [{topic}](/topic-{slugify(topic)}) | {n} |')
-    lines += ['', '  </Tab>', '  <Tab title="By region">', '', '| Region | Records |', '|---|---|']
-    regions = Counter(r for s in studies for r in s['regions'])
-    for region in REGION_ORDER:
-        if regions.get(region):
-            lines.append(f'| [{region}](/region-{slugify(region)}) | {regions[region]} |')
-    lines += ['', '  </Tab>', '  <Tab title="By regimen">', '',
-              '| Dosing regimen | Records |', '|---|---|']
     regimens = Counter(r for s in studies for r in s['regimens'])
-    for regimen in REGIMEN_ORDER:
-        if regimens.get(regimen):
-            lines.append(f'| [{regimen}](/regimen-{slugify(regimen)}) | {regimens[regimen]} |')
-    lines += ['', '  </Tab>', '  <Tab title="By decade">', '', '| Decade | Records |', '|---|---|']
-    decades = Counter(f'{(y // 10) * 10}s' for y in years)
-    for decade in sorted(decades):
-        lines.append(f'| {decade} | {decades[decade]} |')
-    lines += ['', '  </Tab>', '</Tabs>', '']
-
-    countries = Counter(c for s in studies for c in s['countries'])
-    lines += [
-        f'## Top countries of {len(countries)}',
-        '',
-        '| Country | Records |',
-        '|---|---|',
-    ]
-    for country, n in countries.most_common(15):
-        lines.append(f'| [{country}](/country-{slugify(country)}) | {n} |')
-    lines.append('')
+    regions = Counter(r for s in studies for r in s['regions'])
+    lines += ['## By dosing schedule', '', ' · '.join(
+        f'[{r}](/regimen-{slugify(r)}) ({regimens[r]})'
+        for r in REGIMEN_ORDER if regimens.get(r)), '']
+    lines += ['## By region', '', ' · '.join(
+        f'[{r}](/region-{slugify(r)}) ({regions[r]})'
+        for r in REGION_ORDER if regions.get(r)), '']
 
     lines += [
-        '## Scope',
-        '',
         '<AccordionGroup>',
         '  <Accordion title="Coverage and limits">',
         '    Collections are relevance-ranked PubMed queries capped at a fixed size — a '
-        'sample of the literature, not a systematic review or a complete census. Records '
-        'without an abstract are excluded, which skews away from older articles and '
-        'conference material. Non-English records appear only where PubMed supplies a '
-        'translated title. Grey literature and trial registries are out of scope.',
-        '  </Accordion>',
-        '  <Accordion title="Verifying the catalogue">',
-        '    `python3 scripts/fetch_pubmed.py --verify` re-queries every PMID and reports '
-        'any that no longer resolve or whose title has drifted.',
+        'sample of the literature, not a systematic review. Records without an abstract '
+        'are excluded. Quoted conclusions are the authors\' own words, not a summary.',
         '  </Accordion>',
         '</AccordionGroup>',
         '',

@@ -402,6 +402,78 @@ def parse_article(art) -> dict:
         re.findall(r'\b\d+(?:\.\d+)?\s?mg(?:/kg)?(?:/day)?\b', abstract, re.IGNORECASE)),
         key=lambda d: float(re.match(r'[\d.]+', d).group()))
 
+    # Pull the conclusion and results out of structured abstracts so the site can
+    # lead with what a study found instead of making people read the whole block.
+    def section(*labels):
+        for lab in labels:
+            m = re.search(
+                r'\*\*' + lab + r'[^:*]*:\*\*\s*(.+?)(?=\n\n\*\*|\Z)',
+                abstract, re.IGNORECASE | re.DOTALL)
+            if m:
+                return re.sub(r'\s+', ' ', m.group(1)).strip()
+        return ''
+
+    def tidy(text: str) -> str:
+        """Drop a trailing fragment left by a truncated source abstract.
+
+        Some PubMed abstracts are cut off mid-sentence (often mid-number, e.g.
+        "risk ratio 2."). Quoting that verbatim reads as a broken statistic, so
+        trim back to the last sentence that actually terminates.
+        """
+        if not text:
+            return text
+        # a final "sentence" that ends on a dangling number or open bracket is
+        # a truncation artefact, not a sentence
+        if re.search(r'(?:\(|\b(?:ratio|CI|SD|SE|IQR|range)\s*[=:]?\s*)[\d.,\s]*\.\s*$',
+                     text) or text.endswith('...'):
+            sentences = re.findall(r'[^.!?]*[.!?]', text)
+            while sentences:
+                sentences.pop()
+                cut = ''.join(sentences).strip()
+                if not re.search(
+                        r'(?:\(|\b(?:ratio|CI|SD|SE|IQR|range)\s*[=:]?\s*)[\d.,\s]*\.\s*$',
+                        cut) and len(cut) > 80:
+                    return cut
+        return text
+
+    conclusion = tidy(section('Conclusion', 'Interpretation', 'Conclusions and Relevance'))
+    results = tidy(section('Result', 'Finding', 'Main Outcomes'))
+    objective = section('Objective', 'Purpose', 'Aim', 'Importance', 'Background')
+
+    # Unstructured abstracts: fall back to sentences that read like a conclusion.
+    if not conclusion:
+        m = re.search(
+            r'((?:[A-Z][^.!?]*?\b(?:conclude|suggests?|indicates?|demonstrates?|'
+            r'we found|these (?:results|findings|data))\b[^.!?]*[.!?])'
+            r'(?:\s*[A-Z][^.!?]*[.!?])?)', abstract)
+        if m:
+            conclusion = tidy(re.sub(r'\s+', ' ', m.group(1)).strip())
+
+    # Reported numbers worth surfacing next to a claim. Only whole statements
+    # are kept -- a point estimate with its interval, or a standalone p-value.
+    # Partial captures like "OR 1" or a bare "95% CI]" are worse than nothing
+    # next to a clinical claim, so anything that does not match cleanly is dropped.
+    stats = []
+    num = r'-?\d+(?:\.\d+)?'
+    ci = (r'(?:,?\s*(?:95%\s?(?:CI|confidence interval)\s*[,:]?\s*'
+          r'\[?' + num + r'\s*(?:to|-|–|,)\s*' + num + r'\]?))')
+    patterns = [
+        # effect estimate followed by its confidence interval
+        (r'\b(?:aOR|aHR|OR|HR|RR|IRR|SMD|MD|WMD)\s?[=:]?\s?' + num + ci, 'estimate'),
+        # Cohen's d / Hedges' g
+        (r"\b(?:Cohen'?s?\s?d|Hedges'?\s?g)\s?[=:]?\s?" + num, 'effect size'),
+        # sample size, requires a plausible magnitude
+        (r'\b[Nn]\s?=\s?(?:\d{3,}|\d{1,3}(?:,\d{3})+)\b', 'sample'),
+        # p-value
+        (r'\b[Pp]\s?[<=>]\s?0?\.\d+', 'p-value'),
+    ]
+    for pat, kind in patterns:
+        for m in re.finditer(pat, abstract):
+            val = re.sub(r'\s+', ' ', m.group(0)).strip().rstrip('.,;')
+            if val.lower() not in [s['value'].lower() for s in stats]:
+                stats.append({'kind': kind, 'value': val})
+    stats = stats[:8]
+
     aff_text = ' ; '.join(affiliations)
     countries = [n for n, p in COUNTRY_PATTERNS if re.search(p, aff_text)]
     regions = sorted({COUNTRY_REGION[c] for c in countries if c in COUNTRY_REGION})
@@ -425,6 +497,10 @@ def parse_article(art) -> dict:
         'mesh': mesh[:12],
         'doi': doi,
         'pmcid': pmcid,
+        'objective': objective,
+        'results': results,
+        'conclusion': conclusion,
+        'stats': stats,
         'abstract': abstract,
     }
 
