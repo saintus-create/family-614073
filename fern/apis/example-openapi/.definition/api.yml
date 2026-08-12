@@ -1,7 +1,0 @@
-default-environment: Default
-display-name: Swagger Plant Store - OpenAPI 3.1
-environments:
-  Default: https://api.plantstore.dev/v3
-error-discrimination:
-  strategy: status-code
-name: api

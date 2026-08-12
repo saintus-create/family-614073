@@ -1,21 +1,69 @@
-<br/>
-<div align="center">
-  <a href="https://www.buildwithfern.com/?utm_source=github&utm_medium=readme&utm_campaign=fern&utm_content=logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="/fern/docs/assets/fern-logo-white.svg">
-      <source media="(prefers-color-scheme: light)" srcset="/fern/docs/assets/fern-logo-primary.svg">
-      <img alt="logo" src="/fern/docs/assets/fern-logo-primary.svg" height="50" align="center">
-    </picture>
-  </a>
-  
-  <br/>
-  
-# Docs starter template for FTUX
+# Clinical Evidence Index
 
-This is the internal starter template cloned when a user creates a new docs site through the FTUX dashboard flow. It ships with a sample Plant Store API so new users have working documentation out of the box.
+A bibliographic clearing house for published research on ADHD and binge-eating
+pharmacotherapy — lisdexamfetamine, amphetamines, methylphenidate, atomoxetine and
+other non-stimulants.
 
-The docs starter template for CLI users is still at [fern-api/docs-starter](https://github.com/fern-api/docs-starter).
+Every record in the catalogue is fetched from the NCBI PubMed E-utilities API. Titles,
+authors, journals, years, abstracts, MeSH headings, DOIs and PMCIDs are reproduced as
+PubMed returns them. No metadata is hand-entered.
 
-## Making changes to this template
+## How it works
 
-Any changes here affect what every new user gets when they create a docs site from the dashboard. Test locally with `fern docs dev` and `fern check` before merging.
+```
+scripts/fetch_pubmed.py    ->  fern/data/studies.json   (harvest from PubMed)
+generate_evidence_site.py  ->  fern/docs/pages/**       (render MDX + nav)
+```
+
+`fern/data/studies.json` is the single source of truth. Both the pages under
+`fern/docs/pages/` and the `navigation` block of `fern/docs.yml` are generated — edit the
+data or the generator, never the output.
+
+### Refresh the catalogue
+
+```bash
+python3 scripts/fetch_pubmed.py      # re-query PubMed, rewrite studies.json
+python3 generate_evidence_site.py    # rebuild all pages and navigation
+fern check                           # validate
+fern docs dev                        # preview locally
+```
+
+### Verify existing records
+
+```bash
+python3 scripts/fetch_pubmed.py --verify
+```
+
+Re-queries every PMID in the dataset and reports any that no longer resolve or whose
+title has drifted from the stored copy. Run this before publishing.
+
+## Catalogue structure
+
+| Axis | Source |
+|---|---|
+| Collections | one PubMed query each, printed on the collection page |
+| Study design | PubMed publication types, with an abstract-text fallback |
+| Topics | matched against abstract text; a record can carry several |
+| Populations | matched against abstract text |
+
+Adding a collection means adding one entry to `COLLECTIONS` in `scripts/fetch_pubmed.py`
+and re-running both scripts.
+
+## Conventions
+
+- **Native components only.** Pages are built from Fern's built-in `Badge`, `Callout`,
+  `Card`, `CardGroup`, `Accordion`, `Tabs` and `Steps`. No custom CSS or bespoke markup.
+- **Theme is hand-maintained.** Colors, logo, typography and `custom.js` in `docs.yml`
+  are not touched by the generator; it only rewrites `title`, `navigation` and
+  `ai-search`. Keep it that way — commit `d0a9697` records what happened last time the
+  generator clobbered those blocks.
+- **Abstract text is escaped.** PubMed abstracts contain `<18 years` and `p<0.05`, which
+  MDX would otherwise parse as JSX. `mdx_safe()` handles this; route any new
+  PubMed-derived text through it.
+
+## Scope
+
+This is a bibliographic index for research use. It reproduces published abstracts and
+does not interpret them, rank treatments, or offer medical advice. Collections are
+relevance-ranked PubMed samples capped at a fixed size — they are not systematic reviews,
+and absence from the index says nothing about a study's quality.

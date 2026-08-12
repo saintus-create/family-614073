@@ -1,0 +1,125 @@
+---
+title: Browse the index
+subtitle: "351 PubMed records across 9 collections"
+slug: browse
+---
+
+<Callout intent="success">
+Every record is fetched live from the NCBI PubMed E-utilities API (catalogue built 2026-08-12). Titles, authors, journals, abstracts and identifiers are reproduced as PubMed returns them.
+</Callout>
+
+## Collections
+
+<CardGroup cols={3}>
+  <Card title="Lisdexamfetamine" icon="fa-regular fa-capsules" href="/collection-lisdexamfetamine">
+    70 records
+  </Card>
+  <Card title="Amphetamine & mixed amphetamine salts" icon="fa-regular fa-pills" href="/collection-amphetamine">
+    35 records
+  </Card>
+  <Card title="Methylphenidate" icon="fa-regular fa-tablets" href="/collection-methylphenidate">
+    50 records
+  </Card>
+  <Card title="Non-stimulants (atomoxetine, guanfacine, viloxazine)" icon="fa-regular fa-prescription-bottle" href="/collection-atomoxetine">
+    29 records
+  </Card>
+  <Card title="Comparative effectiveness & safety" icon="fa-regular fa-code-compare" href="/collection-comparative">
+    24 records
+  </Card>
+  <Card title="Binge eating disorder" icon="fa-regular fa-utensils" href="/collection-binge-eating">
+    13 records
+  </Card>
+  <Card title="Randomized controlled trials" icon="fa-regular fa-flask" href="/collection-trials">
+    81 records
+  </Card>
+  <Card title="Pharmacokinetics & dosing" icon="fa-regular fa-chart-line" href="/collection-pharmacokinetics">
+    27 records
+  </Card>
+  <Card title="Long-term & cardiovascular safety" icon="fa-regular fa-heart-pulse" href="/collection-long-term-safety">
+    22 records
+  </Card>
+</CardGroup>
+
+## Holdings
+
+<Tabs>
+  <Tab title="By study design">
+
+| Design | Records |
+|---|---|
+| [Meta-analysis](/design-meta-analysis) | 27 |
+| [Systematic review](/design-systematic-review) | 34 |
+| [Randomized controlled trial](/design-randomized-controlled-trial) | 104 |
+| [Clinical trial](/design-clinical-trial) | 4 |
+| [Cohort study](/design-cohort-study) | 11 |
+| [Case-control study](/design-case-control-study) | 1 |
+| [Cross-sectional study](/design-cross-sectional-study) | 1 |
+| [Pharmacokinetic study](/design-pharmacokinetic-study) | 3 |
+| [Practice guideline](/design-practice-guideline) | 3 |
+| [Review](/design-review) | 138 |
+| [Case report](/design-case-report) | 8 |
+| [Other](/design-other) | 17 |
+
+  </Tab>
+  <Tab title="By topic">
+
+| Topic | Records |
+|---|---|
+| [Safety & tolerability](/topic-safety-tolerability) | 178 |
+| [Efficacy](/topic-efficacy) | 147 |
+| [Comorbidity](/topic-comorbidity) | 98 |
+| [Growth & development](/topic-growth-development) | 93 |
+| [Cognition & function](/topic-cognition-function) | 76 |
+| [Epidemiology & utilization](/topic-epidemiology-utilization) | 68 |
+| [Pharmacokinetics](/topic-pharmacokinetics) | 49 |
+| [Cardiovascular](/topic-cardiovascular) | 49 |
+| [Sleep](/topic-sleep) | 48 |
+| [Abuse liability](/topic-abuse-liability) | 32 |
+
+  </Tab>
+  <Tab title="By decade">
+
+| Decade | Records |
+|---|---|
+| 1980s | 1 |
+| 1990s | 11 |
+| 2000s | 57 |
+| 2010s | 108 |
+| 2020s | 174 |
+
+  </Tab>
+</Tabs>
+
+## How this index is built
+
+<Steps>
+  <Step title="Query PubMed">
+    Each collection is one E-utilities `esearch` query, filtered to human studies that have an abstract. The exact query string is printed on every collection page.
+  </Step>
+  <Step title="Fetch full records">
+    Matching PMIDs are retrieved with `efetch` in MEDLINE XML. Titles, authors, journal, year, abstract, MeSH headings, DOI and PMCID all come from that response.
+  </Step>
+  <Step title="Classify">
+    Study design comes from PubMed publication types, with an abstract-text fallback. Topic and population tags are matched against the abstract.
+  </Step>
+  <Step title="Render">
+    One page per record, plus the collection, design and topic indexes. Re-running the generator reproduces the site exactly.
+  </Step>
+</Steps>
+
+## Coverage and limits
+
+<AccordionGroup>
+  <Accordion title="What this index is">
+    A clearing house of published literature on ADHD and binge-eating pharmacotherapy. It points to primary sources; it does not summarise them into clinical recommendations.
+  </Accordion>
+  <Accordion title="What it is not">
+    Not a systematic review. Collections are relevance-ranked PubMed queries capped at a fixed number of records, so the index is a sample of the literature, not a complete or unbiased census of it. Absence from this index means nothing about a study's quality.
+  </Accordion>
+  <Accordion title="Known gaps">
+    Records without an abstract are excluded, which skews away from older articles, letters and conference material. Non-English records appear only when PubMed supplies a translated title. Grey literature, trial registries and unpublished results are out of scope.
+  </Accordion>
+  <Accordion title="Verifying the catalogue">
+    `python3 scripts/fetch_pubmed.py --verify` re-queries every PMID in the dataset and reports any that no longer resolve or whose title has drifted from the stored copy.
+  </Accordion>
+</AccordionGroup>
