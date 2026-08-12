@@ -308,13 +308,7 @@ def build_study_page(s: dict, related: list) -> str:
     ]
 
     if s['title_translated']:
-        lines += [
-            '<Callout intent="note">',
-            f'Translated title. The article was published in {lang}; PubMed supplies the '
-            'English rendering shown above.',
-            '</Callout>',
-            '',
-        ]
+        lines += [f'*Translated title; published in {lang}.*', '']
 
     lines += [
         '## Record',
@@ -344,14 +338,7 @@ def build_study_page(s: dict, related: list) -> str:
             f'<Badge intent="note" minimal outlined>{mdx_safe(m)}</Badge>' for m in s['mesh'])
         lines += ['## MeSH terms', '', terms, '']
 
-    lines += [
-        '## Cite this record',
-        '',
-        '<Callout intent="info">',
-        citation(s),
-        '</Callout>',
-        '',
-    ]
+    lines += ['## Citation', '', citation(s), '']
 
     if related:
         lines += ['## Related records', '', '<CardGroup cols={2}>']
@@ -415,15 +402,9 @@ def build_collection_page(coll: dict, studies: list) -> str:
         f'slug: collection-{coll["key"]}',
         '---',
         '',
-        '<Callout intent="info">',
-        f'**PubMed query.** All {len(studies)} records in this collection were retrieved with:',
-        '',
         '```',
         coll['query'],
         '```',
-        '</Callout>',
-        '',
-        '## At a glance',
         '',
         '| Metric | Value |',
         '|---|---|',
@@ -451,9 +432,6 @@ def build_design_page(design: str, studies: list) -> str:
         '',
         f'<Badge intent="{DESIGN_INTENT.get(design, "note")}">{design}</Badge>',
         '',
-        'Design is taken from the publication types PubMed assigns to each record, '
-        'falling back to abstract wording when no design tag is present.',
-        '',
     ]
     lines += study_table(studies)
     lines.append('')
@@ -467,9 +445,6 @@ def build_topic_page(topic: str, studies: list) -> str:
         f'subtitle: {yaml_quote(f"{len(studies)} records tagged {topic.lower()}")}',
         f'slug: topic-{slugify(topic)}',
         '---',
-        '',
-        'Topic tags are derived from each abstract, so a record can appear under more than '
-        'one topic.',
         '',
     ]
     lines += study_table(studies)
@@ -487,10 +462,7 @@ def build_region_page(region: str, studies: list) -> str:
         f'slug: region-{slugify(region)}',
         '---',
         '',
-        'Location is taken from author affiliations on the PubMed record, so a '
-        'multinational collaboration appears under every region it involves.',
-        '',
-        '## Countries represented',
+        '## Countries',
         '',
         '| Country | Records |',
         '|---|---|',
@@ -526,11 +498,8 @@ def build_regimen_page(regimen: str, studies: list) -> str:
         f'slug: regimen-{slugify(regimen)}',
         '---',
         '',
-        '<Callout intent="warning">',
-        'Regimens are detected from abstract wording, which reflects what each study '
-        'administered under trial conditions. These are not dosing recommendations. '
-        'Approved dosing is on the [regulatory guidance](/regulatory) pages.',
-        '</Callout>',
+        '*Study conditions, not dosing recommendations — see '
+        '[regulatory guidance](/regulatory).*',
         '',
     ]
     if doses:
@@ -550,14 +519,9 @@ def build_regulatory_overview(labels: dict) -> str:
         '---',
         '',
         '<Callout intent="warning">',
-        'Reference material, not medical advice. These pages reproduce approved US '
-        'prescribing information as published in DailyMed. Labelling, approved '
-        'indications, age limits and controlled-substance scheduling differ by country '
-        '— outside the US, consult the applicable national regulator. Always read the '
-        'current full label before any clinical decision.',
+        'Approved **US** labelling, reproduced from DailyMed '
+        f'({labels["generated"]}). Requirements differ by country. Not medical advice.',
         '</Callout>',
-        '',
-        f'Source: {labels["source"]}. Retrieved {labels["generated"]}.',
         '',
         '## Products',
         '',
@@ -592,17 +556,7 @@ def build_regulatory_overview(labels: dict) -> str:
             sched = 'See label'
         lines.append(
             f'| [{esc_cell(lab["name"])}](/label-{lab["key"]}) | {boxed} | {sched} |')
-    lines += [
-        '',
-        '<Callout intent="note">',
-        'International note: the index catalogues research from 45 countries, but the '
-        'labels below are US-specific. Lisdexamfetamine, for example, is marketed as '
-        'Vyvanse in the US and Elvanse in much of Europe, with differing approved '
-        'populations. See [research by region](/browse) for the evidence base outside '
-        'the US.',
-        '</Callout>',
-        '',
-    ]
+    lines.append('')
     return '\n'.join(lines)
 
 
@@ -679,11 +633,7 @@ def build_label_page(lab: dict) -> str:
         lines += ['</AccordionGroup>', '']
 
     lines += [
-        '<Callout intent="warning">',
-        'Reproduced from the approved US label; sections are abridged for indexing. '
-        f'Read the [complete current label]({lab["url"]}) before any clinical use. '
-        'Requirements differ outside the United States.',
-        '</Callout>',
+        f'*Abridged for indexing — read the [full label]({lab["url"]}).*',
         '',
     ]
     return '\n'.join(lines)
@@ -703,12 +653,6 @@ def build_browse_page(data: dict, studies: list) -> str:
         f'subtitle: {yaml_quote(f"{len(studies)} PubMed records across {len(data['collections'])} collections")}',
         'slug: browse',
         '---',
-        '',
-        '<Callout intent="success">',
-        f'Every record is fetched live from the NCBI PubMed E-utilities API '
-        f'(catalogue built {data["generated"]}). Titles, authors, journals, abstracts and '
-        'identifiers are reproduced as PubMed returns them.',
-        '</Callout>',
         '',
         '## Collections',
         '',
@@ -760,11 +704,7 @@ def build_browse_page(data: dict, studies: list) -> str:
 
     countries = Counter(c for s in studies for c in s['countries'])
     lines += [
-        '## Geographic coverage',
-        '',
-        f'Author affiliations place these records across **{len(countries)} countries**. '
-        'Coverage is uneven — the literature itself is concentrated in North America and '
-        'Europe, and this index inherits that skew.',
+        f'## Top countries of {len(countries)}',
         '',
         '| Country | Records |',
         '|---|---|',
@@ -774,51 +714,19 @@ def build_browse_page(data: dict, studies: list) -> str:
     lines.append('')
 
     lines += [
-        '## How this index is built',
-        '',
-        '<Steps>',
-        '  <Step title="Query PubMed">',
-        '    Each collection is one E-utilities `esearch` query, filtered to human studies '
-        'that have an abstract. The exact query string is printed on every collection page.',
-        '  </Step>',
-        '  <Step title="Fetch full records">',
-        '    Matching PMIDs are retrieved with `efetch` in MEDLINE XML. Titles, authors, '
-        'journal, year, abstract, MeSH headings, DOI and PMCID all come from that response.',
-        '  </Step>',
-        '  <Step title="Classify">',
-        '    Study design comes from PubMed publication types, with an abstract-text fallback. '
-        'Topic and population tags are matched against the abstract.',
-        '  </Step>',
-        '  <Step title="Render">',
-        '    One page per record, plus the collection, design and topic indexes. Re-running '
-        'the generator reproduces the site exactly.',
-        '  </Step>',
-        '</Steps>',
-        '',
-        '## Coverage and limits',
+        '## Scope',
         '',
         '<AccordionGroup>',
-        '  <Accordion title="What this index is">',
-        '    A clearing house of published literature on ADHD and binge-eating '
-        'pharmacotherapy. It points to primary sources; it does not summarise them into '
-        'clinical recommendations.',
-        '  </Accordion>',
-        '  <Accordion title="What it is not">',
-        '    Not a systematic review. Collections are relevance-ranked PubMed queries capped '
-        'at a fixed number of records, so the index is a sample of the literature, not a '
-        'complete or unbiased census of it. Absence from this index means nothing about a '
-        "study's quality.",
-        '  </Accordion>',
-        '  <Accordion title="Known gaps">',
-        '    Records without an abstract are excluded, which skews away from older articles, '
-        'letters and conference material. Non-English records appear only when PubMed supplies '
-        'a translated title. Grey literature, trial registries and unpublished results are '
-        'out of scope.',
+        '  <Accordion title="Coverage and limits">',
+        '    Collections are relevance-ranked PubMed queries capped at a fixed size — a '
+        'sample of the literature, not a systematic review or a complete census. Records '
+        'without an abstract are excluded, which skews away from older articles and '
+        'conference material. Non-English records appear only where PubMed supplies a '
+        'translated title. Grey literature and trial registries are out of scope.',
         '  </Accordion>',
         '  <Accordion title="Verifying the catalogue">',
-        '    `python3 scripts/fetch_pubmed.py --verify` re-queries every PMID in the dataset '
-        'and reports any that no longer resolve or whose title has drifted from the stored '
-        'copy.',
+        '    `python3 scripts/fetch_pubmed.py --verify` re-queries every PMID and reports '
+        'any that no longer resolve or whose title has drifted.',
         '  </Accordion>',
         '</AccordionGroup>',
         '',
@@ -840,14 +748,9 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
         'hide-nav-links: true',
         '---',
         '',
-        '<Callout intent="success">',
-        f'{len(studies)} records · {min(years)}–{max(years)} · every entry verified against '
-        'the NCBI PubMed API',
-        '</Callout>',
-        '',
         '<CardGroup cols={2}>',
         '  <Card title="Browse the index" icon="fa-regular fa-folder-open" href="/browse">',
-        '    Collections, study designs, topics and the method behind the catalogue',
+        '    By collection, design, topic, region and regimen',
         '  </Card>',
         '  <Card title="Randomized controlled trials" icon="fa-regular fa-flask" '
         'href="/design-randomized-controlled-trial">',
@@ -877,11 +780,7 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
         f'| Catalogue built | {data["generated"]} |',
         '',
         '<Callout intent="warning">',
-        'This is a bibliographic index for research use. It reproduces published abstracts and '
-        'does not interpret them, rank treatments, or constitute medical advice. Inclusion here '
-        'is not endorsement of a study\'s conclusions, and the collections are relevance-ranked '
-        'samples rather than exhaustive reviews. Consult a qualified clinician for care '
-        'decisions.',
+        'Bibliographic index for research use — not medical advice.',
         '</Callout>',
         '',
     ])

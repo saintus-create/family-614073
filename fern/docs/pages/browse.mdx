@@ -4,10 +4,6 @@ subtitle: "474 PubMed records across 12 collections"
 slug: browse
 ---
 
-<Callout intent="success">
-Every record is fetched live from the NCBI PubMed E-utilities API (catalogue built 2026-08-12). Titles, authors, journals, abstracts and identifiers are reproduced as PubMed returns them.
-</Callout>
-
 ## Collections
 
 <CardGroup cols={3}>
@@ -126,9 +122,7 @@ Every record is fetched live from the NCBI PubMed E-utilities API (catalogue bui
   </Tab>
 </Tabs>
 
-## Geographic coverage
-
-Author affiliations place these records across **45 countries**. Coverage is uneven — the literature itself is concentrated in North America and Europe, and this index inherits that skew.
+## Top countries of 45
 
 | Country | Records |
 |---|---|
@@ -148,36 +142,13 @@ Author affiliations place these records across **45 countries**. Coverage is une
 | [New Zealand](/country-new-zealand) | 16 |
 | [France](/country-france) | 15 |
 
-## How this index is built
-
-<Steps>
-  <Step title="Query PubMed">
-    Each collection is one E-utilities `esearch` query, filtered to human studies that have an abstract. The exact query string is printed on every collection page.
-  </Step>
-  <Step title="Fetch full records">
-    Matching PMIDs are retrieved with `efetch` in MEDLINE XML. Titles, authors, journal, year, abstract, MeSH headings, DOI and PMCID all come from that response.
-  </Step>
-  <Step title="Classify">
-    Study design comes from PubMed publication types, with an abstract-text fallback. Topic and population tags are matched against the abstract.
-  </Step>
-  <Step title="Render">
-    One page per record, plus the collection, design and topic indexes. Re-running the generator reproduces the site exactly.
-  </Step>
-</Steps>
-
-## Coverage and limits
+## Scope
 
 <AccordionGroup>
-  <Accordion title="What this index is">
-    A clearing house of published literature on ADHD and binge-eating pharmacotherapy. It points to primary sources; it does not summarise them into clinical recommendations.
-  </Accordion>
-  <Accordion title="What it is not">
-    Not a systematic review. Collections are relevance-ranked PubMed queries capped at a fixed number of records, so the index is a sample of the literature, not a complete or unbiased census of it. Absence from this index means nothing about a study's quality.
-  </Accordion>
-  <Accordion title="Known gaps">
-    Records without an abstract are excluded, which skews away from older articles, letters and conference material. Non-English records appear only when PubMed supplies a translated title. Grey literature, trial registries and unpublished results are out of scope.
+  <Accordion title="Coverage and limits">
+    Collections are relevance-ranked PubMed queries capped at a fixed size — a sample of the literature, not a systematic review or a complete census. Records without an abstract are excluded, which skews away from older articles and conference material. Non-English records appear only where PubMed supplies a translated title. Grey literature and trial registries are out of scope.
   </Accordion>
   <Accordion title="Verifying the catalogue">
-    `python3 scripts/fetch_pubmed.py --verify` re-queries every PMID in the dataset and reports any that no longer resolve or whose title has drifted from the stored copy.
+    `python3 scripts/fetch_pubmed.py --verify` re-queries every PMID and reports any that no longer resolve or whose title has drifted.
   </Accordion>
 </AccordionGroup>
