@@ -1,0 +1,64 @@
+---
+title: Provider workflow
+subtitle: From proposed off-label use to an auditable prescribing record
+slug: california-off-label/provider-workflow
+---
+
+# Provider workflow
+
+This is the eventual UI workflow. The provider should not have to know which statute answers which question before starting.
+
+## Stage 1 — Define
+
+**Drug** → **formulation** → **patient** → **condition** → **proposed indication** → **dose/regimen**
+
+The system determines what is FDA-approved and identifies that the proposed use is on-label or off-label.
+
+## Stage 2 — Identify applicable law
+
+The system evaluates:
+
+- California prescribing authority.
+- Controlled-substance status.
+- Telehealth status.
+- Patient population.
+- Practice setting.
+- Payer/program.
+- Workers' compensation status.
+- Drug- or indication-specific statutes and regulations.
+
+## Stage 3 — Build evidence dossier
+
+The provider reviews ranked evidence and can pin supporting and contradictory sources. The system should show study design and applicability rather than merely a citation count.
+
+## Stage 4 — Clinical rationale
+
+The provider records patient-specific facts and explains why the proposed treatment is medically appropriate, including alternatives and expected benefits/risks.
+
+## Stage 5 — Consent
+
+The system identifies applicable disclosure items and generates a documentation checklist. It should never silently convert a recommended disclosure into a claim that California law requires it.
+
+## Stage 6 — Prescribing record
+
+Generate a structured record containing the clinical rationale, evidence, consent documentation, monitoring plan, and authority provenance.
+
+## Stage 7 — Coverage
+
+If the provider needs payer authorization, transfer the relevant clinical evidence and rationale into the existing coverage workflow. Do not duplicate the clinical record unnecessarily.
+
+## Stage 8 — Follow-up
+
+Record response, adverse effects, monitoring results, continuation rationale, dose changes, and discontinuation decisions.
+
+## UI principles
+
+The interface should expose complexity progressively:
+
+**Provider-facing:** one workflow, clear decisions, minimal legal jargon.
+
+**Evidence-facing:** expandable source cards, study metadata, contradictory evidence, and provenance.
+
+**Legal-facing:** exact citation, quoted operative language, applicability, effective date, and primary source.
+
+**Audit-facing:** immutable source/version timestamps and the reasoning path used to produce the final record.
