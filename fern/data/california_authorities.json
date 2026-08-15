@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "jurisdiction": "California",
+  "authorities": [
+    {"id":"ca-bpc-2242","type":"statute","citation":"Cal. Bus. & Prof. Code § 2242","title":"Prior examination and medical indication","status":"mandatory","triggers":["dangerous-drug prescription"]},
+    {"id":"ca-bpc-2242-1","type":"statute","citation":"Cal. Bus. & Prof. Code § 2242.1","title":"Internet prescribing","status":"mandatory","triggers":["internet prescribing"]},
+    {"id":"ca-bpc-2290-5","type":"statute","citation":"Cal. Bus. & Prof. Code § 2290.5","title":"Telehealth","status":"mandatory","triggers":["telehealth"]},
+    {"id":"ca-hsc-11153","type":"statute","citation":"Cal. Health & Safety Code § 11153","title":"Controlled substances: legitimate medical purpose","status":"mandatory","triggers":["controlled substance"]},
+    {"id":"ca-hsc-1367-21","type":"statute","citation":"Cal. Health & Safety Code § 1367.21","title":"Off-label coverage","status":"conditional","triggers":["health-plan coverage"]},
+    {"id":"ca-ccr-8-9792-27-5","type":"regulation","citation":"8 C.C.R. § 9792.27.5","title":"MTUS Drug Formulary: Off-Label Use","status":"mandatory","triggers":["workers compensation","work-related injury"]},
+    {"id":"ca-ccr-8-9792-27-10","type":"regulation","citation":"8 C.C.R. § 9792.27.10","title":"MTUS Drug List and prospective review","status":"conditional","triggers":["workers compensation","drug formulary"]}
+  ]
+}
