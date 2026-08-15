@@ -1,13 +1,137 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "jurisdiction": "California",
+  "last_verified": "2026-08-15",
+  "source_policy": "Primary California statutory or regulatory source preferred. Secondary guidance and case/decision materials are stored separately from binding authority.",
   "authorities": [
-    {"id":"ca-bpc-2242","type":"statute","citation":"Cal. Bus. & Prof. Code § 2242","title":"Prior examination and medical indication","status":"mandatory","triggers":["dangerous-drug prescription"]},
-    {"id":"ca-bpc-2242-1","type":"statute","citation":"Cal. Bus. & Prof. Code § 2242.1","title":"Internet prescribing","status":"mandatory","triggers":["internet prescribing"]},
-    {"id":"ca-bpc-2290-5","type":"statute","citation":"Cal. Bus. & Prof. Code § 2290.5","title":"Telehealth","status":"mandatory","triggers":["telehealth"]},
-    {"id":"ca-hsc-11153","type":"statute","citation":"Cal. Health & Safety Code § 11153","title":"Controlled substances: legitimate medical purpose","status":"mandatory","triggers":["controlled substance"]},
-    {"id":"ca-hsc-1367-21","type":"statute","citation":"Cal. Health & Safety Code § 1367.21","title":"Off-label coverage","status":"conditional","triggers":["health-plan coverage"]},
-    {"id":"ca-ccr-8-9792-27-5","type":"regulation","citation":"8 C.C.R. § 9792.27.5","title":"MTUS Drug Formulary: Off-Label Use","status":"mandatory","triggers":["workers compensation","work-related injury"]},
-    {"id":"ca-ccr-8-9792-27-10","type":"regulation","citation":"8 C.C.R. § 9792.27.10","title":"MTUS Drug List and prospective review","status":"conditional","triggers":["workers compensation","drug formulary"]}
-  ]
+    {
+      "id": "ca-bpc-2234",
+      "type": "statute",
+      "citation": "Cal. Bus. & Prof. Code § 2234",
+      "title": "Unprofessional conduct and standard-of-care enforcement",
+      "status": "mandatory",
+      "triggers": ["medical practice", "professional discipline", "standard of care"],
+      "relevance": "Provides the disciplinary framework for gross negligence, repeated negligent acts, incompetence, and related unprofessional conduct.",
+      "effective_note": "Current statutory text verified 2026-08-15.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=2234"
+    },
+    {
+      "id": "ca-bpc-2242",
+      "type": "statute",
+      "citation": "Cal. Bus. & Prof. Code § 2242",
+      "title": "Prior examination and medical indication",
+      "status": "mandatory",
+      "triggers": ["dangerous-drug prescription"],
+      "relevance": "Prescribing, dispensing, or furnishing a dangerous drug without an appropriate prior examination and medical indication constitutes unprofessional conduct; the statute expressly permits an appropriate examination through telehealth when the standard of care is satisfied.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=2242",
+      "effective_note": "Current statutory text verified 2026-08-15."
+    },
+    {
+      "id": "ca-bpc-2242-1",
+      "type": "statute",
+      "citation": "Cal. Bus. & Prof. Code § 2242.1",
+      "title": "Internet prescribing",
+      "status": "mandatory",
+      "triggers": ["internet prescribing", "dangerous-drug prescription"],
+      "relevance": "Applies when dangerous drugs or devices are prescribed, dispensed, or furnished on the Internet for delivery to a person in California and requires an appropriate prior examination and medical indication, subject to § 2242.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=2242.1",
+      "effective_note": "Current statutory text verified 2026-08-15."
+    },
+    {
+      "id": "ca-bpc-2241-5",
+      "type": "statute",
+      "citation": "Cal. Bus. & Prof. Code § 2241.5",
+      "title": "Prescribing and disciplinary safeguards for controlled substances",
+      "status": "conditional",
+      "triggers": ["controlled substance", "substance use disorder", "prescribing discipline"],
+      "relevance": "Preserves Medical Board authority concerning gross negligence, repeated negligence, incompetence, substance-use-disorder treatment, §2242, Internet prescribing, and controlled-substance recordkeeping.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=2241.5",
+      "effective_note": "Current statutory text verified 2026-08-15."
+    },
+    {
+      "id": "ca-bpc-2266",
+      "type": "statute",
+      "citation": "Cal. Bus. & Prof. Code § 2266",
+      "title": "Adequate and accurate patient records",
+      "status": "mandatory",
+      "triggers": ["medical record", "prescribing documentation", "clinical documentation"],
+      "relevance": "Failure to maintain adequate and accurate records relating to patient services for at least seven years after the last date of service constitutes unprofessional conduct.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?article=12.&chapter=5.&division=2.&lawCode=BPC&part=&title=",
+      "effective_note": "Seven-year retention requirement verified 2026-08-15."
+    },
+    {
+      "id": "ca-bpc-2290-5",
+      "type": "statute",
+      "citation": "Cal. Bus. & Prof. Code § 2290.5",
+      "title": "Telehealth consent and documentation",
+      "status": "mandatory",
+      "triggers": ["telehealth"],
+      "relevance": "Before delivering health care via telehealth, the initiating provider must inform the patient about telehealth and obtain verbal or written consent; the consent must be documented.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=2290.5",
+      "effective_note": "Current statutory text verified 2026-08-15; current version effective January 1, 2026."
+    },
+    {
+      "id": "ca-hsc-11153",
+      "type": "statute",
+      "citation": "Cal. Health & Safety Code § 11153",
+      "title": "Controlled substances: legitimate medical purpose",
+      "status": "mandatory",
+      "triggers": ["controlled substance"],
+      "relevance": "Controlled-substance prescribing must be for a legitimate medical purpose and in the usual course of professional practice, subject to statutory requirements and exceptions.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?article=1.&chapter=4.&division=10.&lawCode=HSC&part=&title=",
+      "effective_note": "Current statutory text verified 2026-08-15."
+    },
+    {
+      "id": "ca-hsc-11157",
+      "type": "statute",
+      "citation": "Cal. Health & Safety Code § 11157",
+      "title": "False or fictitious prescriptions prohibited",
+      "status": "mandatory",
+      "triggers": ["prescription", "controlled substance"],
+      "relevance": "Prohibits issuing a prescription that is false or fictitious in any respect.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?chapter=1&division=10&lawCode=HSC&part=&title=",
+      "effective_note": "Current statutory text verified 2026-08-15."
+    },
+    {
+      "id": "ca-hsc-1367-21",
+      "type": "statute",
+      "citation": "Cal. Health & Safety Code § 1367.21",
+      "title": "Off-label prescription-drug coverage",
+      "status": "conditional",
+      "triggers": ["health-plan coverage", "off-label coverage", "commercial health plan"],
+      "relevance": "Limits certain health care service plan exclusions based solely on an FDA-approved drug being prescribed for a different use when statutory conditions are satisfied. The statute includes evidence pathways and assigns the participating prescriber responsibility for supporting documentation when requested.",
+      "important_scope": "This is a coverage rule, not a general authorization-to-prescribe rule. It does not apply to Medi-Cal contracts under the Waxman-Duffy Prepaid Health Plan Act.",
+      "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1367.21",
+      "effective_note": "Current text verified 2026-08-15; amended by Stats. 2025, Ch. 136, Sec. 15, effective September 26, 2025."
+    },
+    {
+      "id": "ca-ccr-8-9792-27-5",
+      "type": "regulation",
+      "citation": "8 C.C.R. § 9792.27.5",
+      "title": "MTUS Drug Formulary: Off-Label Use",
+      "status": "mandatory",
+      "triggers": ["workers compensation", "work-related injury", "off-label use"],
+      "relevance": "Governs off-label drug use within the MTUS Drug Formulary. Prospective review requirements differ depending on whether the drug is Exempt, Non-Exempt, Unlisted, and whether the MTUS Treatment Guidelines recommend the intended off-label use.",
+      "related_authorities": ["ca-ccr-8-9792-21", "ca-ccr-8-9792-21-1", "ca-ccr-8-9792-25", "ca-ccr-8-9792-25-1", "ca-ccr-8-9792-27-10"],
+      "primary_source": "https://www.dir.ca.gov/t8/9792_27_5.html",
+      "effective_note": "Current DWC regulation verified 2026-08-15; operative January 1, 2018."
+    },
+    {
+      "id": "ca-ccr-8-9792-27-10",
+      "type": "regulation",
+      "citation": "8 C.C.R. § 9792.27.10",
+      "title": "MTUS Drug List and prospective review",
+      "status": "conditional",
+      "triggers": ["workers compensation", "drug formulary", "prospective review"],
+      "relevance": "Classifies drugs as Exempt, Non-Exempt, or Unlisted and establishes when prospective review is required before dispensing.",
+      "primary_source": "https://www.dir.ca.gov/t8/9792_27_10.html",
+      "effective_note": "Current DWC regulation verified 2026-08-15; operative January 1, 2018."
+    }
+  ],
+  "status_definitions": {
+    "mandatory": "A binding statute or regulation imposes a requirement when its applicability conditions are met.",
+    "conditional": "A binding authority applies only when specified factual, program, payer, drug, setting, or procedural conditions are present.",
+    "advisory": "Guidance or recommendations that may inform practice but should not be represented as a binding statutory requirement.",
+    "evidentiary": "Material that supports or challenges a clinical or factual proposition but does not itself create a legal obligation."
+  }
 }
