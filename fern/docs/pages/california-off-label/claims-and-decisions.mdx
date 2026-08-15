@@ -1,0 +1,47 @@
+---
+title: Claims, authorization decisions, and real-world examples
+subtitle: A future evidence layer for approved and denied off-label claims
+slug: california-off-label/claims-and-decisions
+---
+
+<Callout intent="info">
+This collection is intentionally separate from statutes and clinical evidence. A claim approval or denial is an outcome under a particular plan, program, record, date, and legal standard. It is not, by itself, proof that an off-label use is medically effective or legally required in every case.
+</Callout>
+
+## What belongs here
+
+The eventual claims corpus should capture both approved and denied requests, including:
+
+- payer or program
+- jurisdiction
+- drug and indication
+- FDA-approved status
+- patient population
+- date
+- request type
+- evidence submitted
+- cited statute, regulation, guideline, or compendium
+- decision
+- stated rationale
+- appeal level
+- outcome on appeal
+- source document
+- whether the decision is binding, persuasive, administrative, or merely illustrative
+
+## Decision taxonomy
+
+Use structured labels rather than a simple approved/denied field:
+
+`approved` · `denied` · `partially approved` · `modified` · `overturned on appeal` · `remanded` · `dismissed` · `unknown`
+
+## Important distinction
+
+A payer decision answers a coverage or authorization question. It should not be automatically promoted into a rule about whether a California clinician may prescribe the medication.
+
+## Planned integration
+
+Once the claims dataset is populated, the provider workflow can surface analogous decisions after the clinical and legal facts are entered. Results should show the factual and legal similarities and differences rather than producing a binary “approved/denied” recommendation.
+
+## Source quality
+
+Priority should be given to primary decision documents, official administrative records, published appeals, and authenticated program materials. Secondary summaries should be labeled as secondary and linked to the underlying decision whenever available.
