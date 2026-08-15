@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://family-614073.docs.buildwithfern.com/schemas/off-label-record.json",
+  "title": "California Off-Label Prescribing Record",
+  "type": "object",
+  "required": ["drug", "patient", "proposedUse", "clinicalRationale", "evidence", "consent", "monitoring"],
+  "properties": {
+    "drug": {
+      "type": "object",
+      "required": ["activeIngredient", "formulation"],
+      "properties": {
+        "activeIngredient": {"type": "string"},
+        "formulation": {"type": "string"},
+        "route": {"type": "string"},
+        "strength": {"type": "string"},
+        "fdaLabelReference": {"type": "string"}
+      }
+    },
+    "patient": {
+      "type": "object",
+      "required": ["condition"],
+      "properties": {
+        "condition": {"type": "string"},
+        "population": {"type": "string"},
+        "relevantHistory": {"type": "string"},
+        "priorTreatments": {"type": "string"}
+      }
+    },
+    "proposedUse": {
+      "type": "object",
+      "required": ["indication", "doseRegimen", "labelStatus"],
+      "properties": {
+        "indication": {"type": "string"},
+        "doseRegimen": {"type": "string"},
+        "duration": {"type": "string"},
+        "labelStatus": {"enum": ["on-label", "off-label", "uncertain"]}
+      }
+    },
+    "clinicalRationale": {
+      "type": "object",
+      "required": ["medicalIndication", "patientSpecificRationale", "alternatives", "benefitRisk"],
+      "properties": {
+        "medicalIndication": {"type": "string"},
+        "patientSpecificRationale": {"type": "string"},
+        "alternatives": {"type": "string"},
+        "benefitRisk": {"type": "string"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["supporting", "contradictory", "limitations"],
+      "properties": {
+        "supporting": {"type": "array", "items": {"type": "string"}},
+        "contradictory": {"type": "array", "items": {"type": "string"}},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "consent": {
+      "type": "object",
+      "required": ["discussionDocumented"],
+      "properties": {
+        "discussionDocumented": {"type": "boolean"},
+        "disclosures": {"type": "array", "items": {"type": "string"}},
+        "statutoryRequirements": {"type": "array", "items": {"type": "string"}},
+        "patientQuestions": {"type": "string"}
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "controlledSubstance": {"type": "boolean"},
+        "telehealth": {"type": "boolean"},
+        "workersCompensation": {"type": "boolean"},
+        "facilitySpecific": {"type": "boolean"},
+        "payerAuthorization": {"type": "boolean"}
+      }
+    },
+    "monitoring": {
+      "type": "object",
+      "required": ["plan", "responseCriteria", "safetyCriteria"],
+      "properties": {
+        "plan": {"type": "string"},
+        "responseCriteria": {"type": "string"},
+        "safetyCriteria": {"type": "string"},
+        "followUp": {"type": "string"}
+      }
+    },
+    "authorityProvenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "citation", "sourceUrl"],
+        "properties": {
+          "type": {"type": "string"},
+          "citation": {"type": "string"},
+          "jurisdiction": {"type": "string"},
+          "effectiveDate": {"type": "string"},
+          "applicability": {"type": "string"},
+          "status": {"enum": ["mandatory", "permissive", "advisory", "evidentiary"]},
+          "sourceUrl": {"type": "string", "format": "uri"},
+          "verifiedAt": {"type": "string"}
+        }
+      }
+    }
+  }
+}
