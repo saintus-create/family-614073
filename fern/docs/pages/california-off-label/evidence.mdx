@@ -1,0 +1,49 @@
+---
+title: Evidence dossier
+subtitle: Build an evidence record that distinguishes support, uncertainty, and contradiction
+slug: california-off-label/evidence
+---
+
+## Evidence is an input, not a magic authorization
+
+The evidence module should answer two separate questions:
+
+1. What evidence exists for the proposed use?
+2. How does that evidence apply to this patient and clinical decision?
+
+A paper should never be treated as automatically establishing standard of care merely because it contains a positive result.
+
+## Evidence record
+
+For each source, capture:
+
+- Citation and persistent identifier.
+- Study design.
+- Population and inclusion criteria.
+- Intervention, dose, and formulation.
+- Comparator.
+- Outcomes.
+- Effect estimates and uncertainty where reported.
+- Adverse events and discontinuations.
+- Duration and follow-up.
+- Limitations and risk of bias.
+- Relevance to the proposed patient.
+- Whether the source supports, weakens, or is neutral toward the proposed use.
+
+## Evidence hierarchy
+
+Use the repository's existing evidence collections rather than inventing a new parallel database.
+
+[Systematic reviews](/design-systematic-review) · [Meta-analysis](/design-meta-analysis) · [Practice guidelines](/design-practice-guideline) · [Clinical trials](/trials) · [Off-label prescribing](/collection-off-label)
+
+## Contradictory evidence
+
+A defensible dossier must search for evidence that cuts against the proposed use. Record meaningful negative findings, safety signals, failed trials, guideline disagreement, and limitations rather than selectively collecting favorable studies.
+
+## Evidence-to-rationale bridge
+
+The final record should explicitly connect the literature to the patient:
+
+`Evidence → clinical inference → patient-specific facts → treatment rationale → monitoring plan`
+
+This bridge is the part that a bibliography cannot provide.
