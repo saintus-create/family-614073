@@ -1,0 +1,44 @@
+---
+title: Authority model
+subtitle: Machine-readable structure for statutes, regulations, guidance, labels, and evidence
+slug: california-off-label/authority-model
+---
+
+## Authority objects
+
+Every source used by the application should eventually be represented as a structured authority object.
+
+| Field | Purpose |
+| --- | --- |
+| `authorityType` | statute, regulation, case, agency guidance, FDA label, guideline, study, form |
+| `citation` | Human-readable legal or bibliographic citation |
+| `jurisdiction` | California, federal, payer/program, other |
+| `effectiveDate` | Date the authority became effective |
+| `verifiedDate` | Last primary-source verification |
+| `status` | current, amended, repealed, superseded, historical |
+| `applicability` | Conditions under which the authority applies |
+| `obligation` | mandatory, permissive, advisory, evidentiary |
+| `sourceUrl` | Primary source or authoritative repository |
+| `relatedAuthorities` | Connected provisions and cross-references |
+
+## Why this matters
+
+The same citation can answer different questions depending on context. The system therefore needs to preserve the relationship between an authority and the proposition for which it is being used.
+
+For example:
+
+`HSC § 1367.21 → coverage obligation`
+
+is not equivalent to:
+
+`HSC § 1367.21 → authorization to prescribe.`
+
+The first is a coverage proposition. The second would be a category error.
+
+## Evidence objects
+
+Evidence records should use the same provenance model. Store the citation, design, population, intervention, outcome, findings, limitations, funding/conflict information where available, and relevance to the proposed indication.
+
+## Verification policy
+
+Primary legal text should outrank secondary summaries. Current California Legislative Information, official agency material, official FDA labeling, and official program guidance should be preferred wherever available.
