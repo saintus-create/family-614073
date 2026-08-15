@@ -1,0 +1,60 @@
+---
+title: Prescribing documentation
+subtitle: The minimum data model for reconstructing an off-label clinical decision
+slug: california-off-label/documentation
+---
+
+## Purpose
+
+The documentation record should make the clinical reasoning reconstructable without requiring a reviewer to infer the provider's reasoning from scattered notes.
+
+## Structured record
+
+### Patient and condition
+
+- Diagnosis or clinical condition.
+- Relevant history and comorbidities.
+- Current medications and prior treatments.
+- Relevant contraindications, interactions, and risk factors.
+
+### Proposed treatment
+
+- Drug and formulation.
+- Dose, route, frequency, and duration.
+- FDA-approved indication.
+- Proposed indication.
+- Explicit off-label status where applicable.
+
+### Clinical rationale
+
+- Why treatment is medically indicated.
+- Why this drug was selected.
+- Why the proposed dose/regimen was selected.
+- Alternatives considered and why they were not selected.
+
+### Evidence
+
+- Supporting sources.
+- Safety sources.
+- Contradictory evidence.
+- Guidelines or consensus statements.
+- Date evidence was reviewed.
+
+### Consent and communication
+
+- Information discussed.
+- Material risks and benefits.
+- Alternatives.
+- Patient questions and decision.
+
+### Monitoring
+
+- Baseline measures.
+- Expected treatment response.
+- Safety monitoring.
+- Follow-up interval.
+- Criteria for continuation, modification, or discontinuation.
+
+## Auditability
+
+Each generated record should retain source identifiers and timestamps so that later reviewers can determine which law, label, guideline, or study supported each material assertion at the time the prescription was made.
