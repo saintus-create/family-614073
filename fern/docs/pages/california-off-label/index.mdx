@@ -1,34 +1,44 @@
 ---
 title: California off-label prescribing
-subtitle: A structured clinical, regulatory, evidence, and documentation framework for California prescribers
+subtitle: A structured clinical, regulatory, evidence, and documentation workspace for California prescribers
 slug: california-off-label
 layout: overview
 ---
 
-<Callout intent="info">
-**One workflow, separate legal questions.** This workspace connects FDA labeling, California prescribing authority, clinical evidence, informed discussion, documentation, monitoring, and coverage without treating them as the same thing.
+<Callout intent="info" title="One workflow. Separate legal questions." icon="fa-regular fa-compass">
+This workspace connects FDA labeling, California prescribing authority, clinical evidence, informed discussion, documentation, monitoring, and coverage without treating them as the same thing.
 </Callout>
+
+<Button href="/california-off-label/start" intent="primary" large icon="fa-regular fa-file-medical" rightIcon="arrow-right">Start a prescribing record</Button>
 
 ## Start here
 
 <CardGroup cols={2}>
-  <Card title="Start a prescribing record" icon="fa-regular fa-file-medical" href="/california-off-label/start">Walk through the clinical facts, applicable authority, evidence, consent, documentation, additional requirements, and coverage handoff.</Card>
-  <Card title="Authority registry" icon="fa-regular fa-landmark" href="/california-off-label/authority-registry">Explore California statutes and regulations by the circumstances that activate them.</Card>
-  <Card title="Evidence framework" icon="fa-regular fa-flask" href="/california-off-label/evidence">Build an evidence dossier with supporting and contradictory findings and patient-specific relevance.</Card>
-  <Card title="Claims & decisions" icon="fa-regular fa-gavel" href="/california-off-label/claims-and-decisions">Catalog approved, denied, modified, and appealed authorization decisions without mistaking them for law.</Card>
+  <Card title="Prescribing record" icon="fa-regular fa-file-medical" href="/california-off-label/start">
+    Walk through the clinical facts, applicable authority, evidence, consent, documentation, additional requirements, and coverage handoff.
+  </Card>
+  <Card title="Authority registry" icon="fa-regular fa-landmark" href="/california-off-label/authority-registry">
+    Explore California statutes and regulations by the circumstances that activate them.
+  </Card>
+  <Card title="Evidence framework" icon="fa-regular fa-flask" href="/california-off-label/evidence">
+    Build an evidence dossier with supporting and contradictory findings and patient-specific relevance.
+  </Card>
+  <Card title="Claims & decisions" icon="fa-regular fa-gavel" href="/california-off-label/claims-and-decisions">
+    Catalog approved, denied, modified, and appealed authorization decisions without mistaking them for law.
+  </Card>
 </CardGroup>
 
 ## The prescribing pathway
 
-<Steps toc={true}>
+<Steps toc={true} tocDepth={2}>
 
 <Step title="Identify the proposed use">
-Record the drug, formulation, dose, route, patient population, diagnosis, and proposed indication. Compare the proposed use against the current FDA-approved labeling.
+Record the drug, formulation, dose, route, patient population, diagnosis, and proposed indication. Compare the proposed use against current FDA-approved labeling.
 
 [FDA labeling and regulatory archive](/regulatory)
 </Step>
 
-<Step title="Establish California prescribing authority and clinical indication">
+<Step title="Establish authority and clinical indication">
 Document the applicable California authority, patient evaluation, diagnosis or condition, and why treatment is medically indicated for this particular patient.
 
 [California authority registry](/california-off-label/authority-registry)
@@ -91,10 +101,36 @@ A clinically defensible prescription and a payer's obligation to cover it are di
   </Tab>
 </Tabs>
 
-## Build principle
+## Trust and provenance
 
-Every proposition should eventually carry structured metadata: authority type, citation, jurisdiction, effective date, applicability conditions, obligation status, primary source, and verification date. Evidence records should carry provenance and quality metadata as well.
+<CardGroup cols={3}>
+  <Card title="Primary authority" icon="fa-regular fa-landmark">
+    Statutes and regulations are distinguished from agency guidance, clinical guidelines, and peer-reviewed evidence.
+  </Card>
+  <Card title="Evidence provenance" icon="fa-regular fa-flask">
+    Studies and guidelines retain source, design, relevance, limitations, and verification metadata.
+  </Card>
+  <Card title="Decision context" icon="fa-regular fa-gavel">
+    Authorization outcomes remain tied to their facts, governing standard, evidence, and appeal history.
+  </Card>
+</CardGroup>
 
-<Callout intent="warning">
+<Callout intent="tip" title="Interface language" icon="fa-regular fa-circle-info">
+The visual system deliberately distinguishes authority, clinical, evidence, and decision concepts. See the [interface and iconography system](/california-off-label/design-system) for the canonical vocabulary.
+</Callout>
+
+<AccordionGroup>
+  <Accordion title="Mandatory is not the same as advisory">
+    A statute or regulation may impose an obligation. Agency guidance may explain how an agency expects a rule to operate. A guideline may inform clinical reasoning. The application should preserve those distinctions instead of flattening every source into a generic “requirement.”
+  </Accordion>
+  <Accordion title="Off-label does not mean unlawful">
+    Off-label status is a classification that triggers evidence, clinical-reasoning, consent, documentation, and applicability questions. It is not by itself a universal prohibition or permission.
+  </Accordion>
+  <Accordion title="Approved and denied claims are decision evidence">
+    Real-world authorization outcomes will be catalogued with their fact pattern, evidence, cited authority, decision rationale, and appeal history. They are not substitutes for governing law.
+  </Accordion>
+</AccordionGroup>
+
+<Callout intent="warning" title="Use primary authority before relying" icon="fa-regular fa-triangle-exclamation">
 This resource is a research and documentation tool, not legal or medical advice. Requirements can vary by prescriber type, patient, drug, clinical setting, payer, and applicable program. Verify primary authority before relying on any proposition.
 </Callout>
