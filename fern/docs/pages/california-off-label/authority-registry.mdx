@@ -1,0 +1,62 @@
+---
+title: California authority registry
+subtitle: Primary legal and regulatory authorities mapped to the circumstances that activate them
+slug: california-off-label/authority-registry
+layout: overview
+---
+
+<Callout intent="warning">
+The registry is a structured research layer, not a substitute for reading the cited authority. “Mandatory” describes the modeled obligation status, while “conditional” means the authority applies only when its trigger is present.
+</Callout>
+
+## How to read the registry
+
+<Badge>Primary authority first</Badge>
+
+Each authority is modeled with an identifier, source type, citation, obligation status, and applicability triggers. The eventual provider workflow will use those triggers to surface only the authorities relevant to the facts entered.
+
+| Status | Meaning |
+| --- | --- |
+| **Mandatory** | A legal requirement applies when the stated trigger and other conditions are satisfied. |
+| **Conditional** | The authority governs only a defined circumstance, such as coverage or workers' compensation. |
+| **Permissive** | The authority establishes something a provider may do but does not require it. |
+| **Advisory** | Agency or professional guidance that informs practice without being treated as a statute or regulation. |
+| **Evidentiary** | Material that supports a clinical or factual proposition rather than creating a legal obligation. |
+
+## Current California core set
+
+<Tabs>
+  <Tab title="Prescribing">
+    <CardGroup cols={2}>
+      <Card title="BPC § 2242" icon="fa-regular fa-stethoscope">Prior examination and medical indication for dangerous-drug prescribing.</Card>
+      <Card title="BPC § 2242.1" icon="fa-regular fa-globe">Additional rules for Internet prescribing.</Card>
+      <Card title="BPC § 2290.5" icon="fa-regular fa-video">Telehealth consent and documentation requirements.</Card>
+      <Card title="HSC § 11153" icon="fa-regular fa-prescription-bottle-medical">Legitimate medical purpose and usual-course requirements for controlled substances.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Coverage">
+    <CardGroup cols={2}>
+      <Card title="HSC § 1367.21" icon="fa-regular fa-file-medical">California health-plan off-label coverage framework and evidence pathways.</Card>
+      <Card title="Coverage authorities" icon="fa-regular fa-list-check" href="/coverage">Related California coverage provisions and authorization procedures.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Workers' compensation">
+    <CardGroup cols={2}>
+      <Card title="8 CCR § 9792.27.5" icon="fa-regular fa-briefcase-medical">MTUS drug-formulary treatment of off-label use.</Card>
+      <Card title="8 CCR § 9792.27.10" icon="fa-regular fa-clipboard-check">MTUS drug-list and prospective-review framework.</Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
+
+## Applicability model
+
+<Steps>
+  <Step title="Identify the trigger">Drug type, prescribing method, care setting, patient circumstances, payer/program, and intended use determine which authorities enter the analysis.</Step>
+  <Step title="Load the authority">Retrieve the exact citation, source, effective date, and applicable conditions.</Step>
+  <Step title="Classify the obligation">Distinguish mandatory, conditional, permissive, advisory, and evidentiary material.</Step>
+  <Step title="Attach the provider action">Translate the authority into a documentation, consent, prescribing, monitoring, authorization, or appeal task without changing the legal meaning.</Step>
+</Steps>
+
+<Callout intent="info">
+The structured source is `fern/data/california_authorities.json`. The data model is intentionally separate from this presentation layer so the same authority records can drive navigation, checklists, evidence dossiers, and future decision-support interfaces.
+</Callout>
