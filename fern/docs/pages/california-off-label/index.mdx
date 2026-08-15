@@ -2,95 +2,99 @@
 title: California off-label prescribing
 subtitle: A structured clinical, regulatory, evidence, and documentation framework for California prescribers
 slug: california-off-label
+layout: overview
 ---
 
-<Callout intent="warning">
-This resource is a research and documentation tool, not legal or medical advice. Requirements can vary by prescriber type, patient, drug, clinical setting, payer, and applicable program. Verify primary authority before relying on any proposition.
+<Callout intent="info">
+**One workflow, separate legal questions.** This workspace connects FDA labeling, California prescribing authority, clinical evidence, informed discussion, documentation, monitoring, and coverage without treating them as the same thing.
 </Callout>
 
-## What this system does
+## Start here
 
-California does not reduce off-label prescribing to a single permission form. The defensible prescribing record is assembled from several distinct questions: authority to prescribe, patient-specific medical indication, applicable standard of care, evidence supporting the proposed use, informed discussion and consent where appropriate, documentation, monitoring, and any additional requirements imposed by controlled-substance law, telehealth, the treatment setting, or the payer.
-
-This section keeps those layers separate so a provider can see exactly which authority supports which conclusion.
+<CardGroup cols={2}>
+  <Card title="Start a prescribing record" icon="fa-regular fa-file-medical" href="/california-off-label/start">Walk through the clinical facts, applicable authority, evidence, consent, documentation, additional requirements, and coverage handoff.</Card>
+  <Card title="Authority registry" icon="fa-regular fa-landmark" href="/california-off-label/authority-registry">Explore California statutes and regulations by the circumstances that activate them.</Card>
+  <Card title="Evidence framework" icon="fa-regular fa-flask" href="/california-off-label/evidence">Build an evidence dossier with supporting and contradictory findings and patient-specific relevance.</Card>
+  <Card title="Claims & decisions" icon="fa-regular fa-gavel" href="/california-off-label/claims-and-decisions">Catalog approved, denied, modified, and appealed authorization decisions without mistaking them for law.</Card>
+</CardGroup>
 
 ## The prescribing pathway
 
 <Steps toc={true}>
 
 <Step title="Identify the proposed use">
-
 Record the drug, formulation, dose, route, patient population, diagnosis, and proposed indication. Compare the proposed use against the current FDA-approved labeling.
 
 [FDA labeling and regulatory archive](/regulatory)
-
 </Step>
 
 <Step title="Establish California prescribing authority and clinical indication">
+Document the applicable California authority, patient evaluation, diagnosis or condition, and why treatment is medically indicated for this particular patient.
 
-Document the applicable California authority, the patient evaluation, the diagnosis or condition being treated, and why treatment is medically indicated for this particular patient.
-
-[California prescribing authority](/california-off-label/prescribing-authority)
-
+[California authority registry](/california-off-label/authority-registry)
 </Step>
 
 <Step title="Evaluate the evidence">
-
-Identify evidence supporting efficacy and safety, assess its quality and relevance, and record material contradictory evidence. Do not treat an evidence citation as a substitute for patient-specific clinical reasoning.
+Identify evidence supporting efficacy and safety, assess quality and relevance, and record material contradictory evidence. An evidence citation is not a substitute for patient-specific clinical reasoning.
 
 [Evidence framework](/california-off-label/evidence)
-
 </Step>
 
 <Step title="Address informed discussion and consent">
-
 Determine what disclosure is required or clinically appropriate for the patient and setting. Separate general informed-consent principles from drug-specific, population-specific, facility-specific, and statutory requirements.
 
 [Consent framework](/california-off-label/consent)
-
 </Step>
 
 <Step title="Complete the prescribing record">
-
-Capture the indication, rationale, evidence, alternatives, risks, benefits, monitoring plan, and follow-up. The objective is that another qualified reviewer could reconstruct the clinical reasoning from the record.
+Capture the indication, rationale, evidence, alternatives, risks, benefits, monitoring plan, and follow-up so another qualified reviewer could reconstruct the clinical reasoning.
 
 [Documentation framework](/california-off-label/documentation)
-
 </Step>
 
 <Step title="Check additional regulatory layers">
-
 Determine whether controlled-substance, telehealth, workers' compensation, facility, public-program, or payer rules add requirements.
 
 [Additional requirements](/california-off-label/additional-requirements)
-
 </Step>
 
 <Step title="Separate prescribing from coverage">
-
 A clinically defensible prescription and a payer's obligation to cover it are different legal questions. If coverage is at issue, move into the existing authorization workflow rather than conflating the two.
 
 [Coverage authorization](/coverage)
-
 </Step>
 
 </Steps>
 
 ## System architecture
 
-| Layer | Core question | Primary output |
-| --- | --- | --- |
-| FDA | What is approved and labeled? | Label comparison |
-| California law | May the practitioner prescribe and under what conditions? | Authority checklist |
-| Clinical reasoning | Why is this use appropriate for this patient? | Patient-specific rationale |
-| Evidence | What supports efficacy and safety? | Evidence dossier |
-| Consent | What must or should be disclosed? | Consent record |
-| Documentation | Can the decision be reconstructed? | Prescribing record |
-| Monitoring | How will benefit and harm be assessed? | Follow-up plan |
-| Coverage | Will a payer authorize or cover it? | Authorization packet |
+<Tabs>
+  <Tab title="Authority">
+    **Question:** What law or regulation applies to these facts?
+
+    **Output:** Authority checklist with citation, trigger, obligation type, effective date, and provenance.
+  </Tab>
+  <Tab title="Clinical reasoning">
+    **Question:** Why is this proposed use appropriate for this patient?
+
+    **Output:** Patient-specific indication and rationale, alternatives, expected benefits, material risks, and monitoring plan.
+  </Tab>
+  <Tab title="Evidence">
+    **Question:** What supports or limits the proposed use?
+
+    **Output:** Evidence dossier containing study design, relevance, supporting findings, limitations, and contradictory evidence.
+  </Tab>
+  <Tab title="Coverage">
+    **Question:** Will a payer or program authorize or cover it?
+
+    **Output:** Separate authorization or appeal packet using the applicable coverage standard.
+  </Tab>
+</Tabs>
 
 ## Build principle
 
-Every proposition in the system should eventually carry structured metadata: authority type, citation, jurisdiction, effective date, applicability conditions, mandatory/advisory status, source URL, and verification date.
+Every proposition should eventually carry structured metadata: authority type, citation, jurisdiction, effective date, applicability conditions, obligation status, primary source, and verification date. Evidence records should carry provenance and quality metadata as well.
 
-That makes the system auditable instead of turning it into another enormous pile of vaguely authoritative-looking hyperlinks, a genre humanity has already perfected.
+<Callout intent="warning">
+This resource is a research and documentation tool, not legal or medical advice. Requirements can vary by prescriber type, patient, drug, clinical setting, payer, and applicable program. Verify primary authority before relying on any proposition.
+</Callout>
