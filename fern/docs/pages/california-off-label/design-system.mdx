@@ -1,0 +1,112 @@
+---
+title: Interface and iconography system
+subtitle: A restrained visual language for clinical, regulatory, evidence, and decision intelligence
+slug: california-off-label/design-system
+---
+
+<Callout intent="info" title="Design principle" icon="fa-regular fa-compass">
+The interface should feel like a clinical research workspace, not a generic documentation template. Icons communicate semantic meaning; color reinforces meaning; typography and spacing establish hierarchy.
+</Callout>
+
+## The visual grammar
+
+The application uses four semantic families. Each family should remain visually distinct and should not be mixed merely for decoration.
+
+<CardGroup cols={2}>
+  <Card title="Authority" icon="fa-regular fa-landmark">
+    Statutes, regulations, agency materials, FDA labeling, and provenance. Use institutional and documentary symbols.
+  </Card>
+  <Card title="Clinical" icon="fa-regular fa-stethoscope">
+    Patient evaluation, indication, consent, prescribing, and monitoring. Use medical and human-facing symbols.
+  </Card>
+  <Card title="Evidence" icon="fa-regular fa-flask">
+    Studies, trials, guidelines, safety findings, and comparative analysis. Use scientific and analytical symbols.
+  </Card>
+  <Card title="Decision" icon="fa-regular fa-gavel">
+    Coverage, authorization, denial, appeal, modification, and outcome. Use adjudication and workflow symbols.
+  </Card>
+</CardGroup>
+
+## Canonical icon vocabulary
+
+| Meaning | Canonical icon | Use it for |
+| --- | --- | --- |
+| Clinical record | `fa-regular fa-file-medical` | Provider workspace and record actions |
+| Prescribing | `fa-regular fa-stethoscope` | Clinical prescribing authority and treatment decisions |
+| California authority | `fa-regular fa-landmark` | Statutes, regulations, and governmental authority |
+| Legal rule | `fa-regular fa-scale-balanced` | Legal standards and interpretation |
+| Evidence | `fa-regular fa-flask` | Scientific evidence and evidence dossiers |
+| Study | `fa-regular fa-file-lines` | Individual studies and source documents |
+| Guideline | `fa-regular fa-book-medical` | Clinical guidelines and consensus statements |
+| Safety | `fa-regular fa-shield-halved` | Safety, contraindications, and risk assessment |
+| Consent | `fa-regular fa-file-signature` | Informed discussion and consent |
+| Documentation | `fa-regular fa-clipboard` | Recordkeeping and documentation requirements |
+| Monitoring | `fa-regular fa-heart-pulse` | Follow-up and monitoring plans |
+| Coverage | `fa-regular fa-list-check` | Coverage and authorization requirements |
+| Appeal | `fa-regular fa-gavel` | Appeals and administrative decisions |
+| Verified | `fa-regular fa-circle-check` | Verified provenance or completed requirements |
+| Warning | `fa-regular fa-triangle-exclamation` | Material uncertainty or risk |
+| Search | `fa-regular fa-magnifying-glass` | Discovery and research |
+| Compare | `fa-regular fa-code-compare` | Comparative analysis |
+| Workflow | `fa-regular fa-diagram-project` | Relationships and process maps |
+
+<Callout intent="warning" title="Avoid icon drift">
+Do not introduce a new icon when a canonical semantic icon already exists. A recognizable icon system depends on repetition. Decorative icons should not compete with workflow or authority indicators.
+</Callout>
+
+## Status language
+
+<Badge intent="check">Verified</Badge> means the source or proposition has been checked against its designated primary source.
+
+<Badge intent="info" minimal>Advisory</Badge> identifies guidance that informs practice without being presented as a mandatory statutory requirement.
+
+<Badge intent="warning" minimal>Review required</Badge> identifies a proposition whose applicability, currency, or source hierarchy requires provider review.
+
+<Badge intent="error" minimal>Not established</Badge> means the application does not have sufficient evidence to assert the proposition as a requirement.
+
+## Interaction principles
+
+<Tabs>
+  <Tab title="Progressive disclosure">
+    Show the provider the next decision that matters. Keep secondary legal detail available through linked authority records, accordions, and tooltips rather than forcing every provider through a wall of text.
+  </Tab>
+  <Tab title="Provenance">
+    Every legal or evidentiary assertion should be traceable to a source. Use source links, verification metadata, and explicit authority classifications rather than anonymous citations.
+  </Tab>
+  <Tab title="Comparison">
+    When presenting claims or appeal decisions, show the factual pattern, evidence, governing standard, decision, and appeal history side by side. Never reduce a complex decision to a green check or red X alone.
+  </Tab>
+  <Tab title="Accessibility">
+    Icons never carry meaning alone. Pair them with text, labels, or accessible names. Color is supplemental, not the sole indicator of status.
+  </Tab>
+</Tabs>
+
+## Provider workflow icon sequence
+
+<Steps toc={true}>
+  <Step title="Define" id="define">
+    <Icon icon="fa-regular fa-file-medical" /> Identify the proposed drug, formulation, patient, diagnosis, and indication.
+  </Step>
+  <Step title="Identify" id="identify">
+    <Icon icon="fa-regular fa-landmark" /> Determine which California and federal authority actually applies.
+  </Step>
+  <Step title="Evaluate" id="evaluate">
+    <Icon icon="fa-regular fa-flask" /> Assemble supporting, contradictory, and patient-relevant evidence.
+  </Step>
+  <Step title="Discuss" id="discuss">
+    <Icon icon="fa-regular fa-file-signature" /> Address material risks, alternatives, uncertainties, and consent requirements.
+  </Step>
+  <Step title="Document" id="document">
+    <Icon icon="fa-regular fa-clipboard" /> Preserve the clinical reasoning and authority trail.
+  </Step>
+  <Step title="Monitor" id="monitor">
+    <Icon icon="fa-regular fa-heart-pulse" /> Define follow-up, response, safety, and reassessment criteria.
+  </Step>
+  <Step title="Authorize" id="authorize">
+    <Icon icon="fa-regular fa-list-check" /> Treat coverage and authorization as a separate downstream question.
+  </Step>
+</Steps>
+
+## Design-system rule
+
+The site should look increasingly coherent as content grows. New statutes, forms, studies, and decisions should inherit the same semantic vocabulary rather than introducing a new visual treatment for every content type.
