@@ -1,0 +1,61 @@
+---
+title: Data model
+subtitle: The structured record behind the provider workflow
+slug: california-off-label/data-model
+---
+
+## Why structured data comes first
+
+The provider should enter a clinical fact once. That fact should then be reusable across the evidence dossier, consent checklist, prescribing record, monitoring plan, and coverage packet.
+
+The site therefore treats the prescribing record as structured data rather than as a form that produces an isolated block of prose.
+
+## Core objects
+
+<CardGroup cols={2}>
+  <Card title="Drug" icon="fa-regular fa-pills">
+    Active ingredient, formulation, route, strength, and current FDA labeling reference.
+  </Card>
+  <Card title="Patient" icon="fa-regular fa-user">
+    Condition, population, relevant history, and prior treatments needed to evaluate applicability.
+  </Card>
+  <Card title="Proposed use" icon="fa-regular fa-bullseye">
+    Indication, regimen, duration, and explicit on-label/off-label classification.
+  </Card>
+  <Card title="Clinical rationale" icon="fa-regular fa-stethoscope">
+    Medical indication, patient-specific reasoning, alternatives, and benefit-risk assessment.
+  </Card>
+  <Card title="Evidence dossier" icon="fa-regular fa-flask">
+    Supporting evidence, contradictory evidence, limitations, and source provenance.
+  </Card>
+  <Card title="Authority provenance" icon="fa-regular fa-scale-balanced">
+    Citation, jurisdiction, effective date, applicability, authority status, source URL, and verification timestamp.
+  </Card>
+  <Card title="Consent" icon="fa-regular fa-file-signature">
+    Discussion, disclosures, statutory requirements, and patient questions.
+  </Card>
+  <Card title="Monitoring" icon="fa-regular fa-chart-line">
+    Benefit criteria, safety criteria, follow-up, response, adverse effects, and continuation rationale.
+  </Card>
+</CardGroup>
+
+## Authority status is explicit
+
+Every legal or regulatory item will eventually be classified as one of four things:
+
+| Status | Meaning |
+| --- | --- |
+| Mandatory | A binding requirement applicable to the particular situation. |
+| Permissive | Authority that permits an action without itself imposing the action as a requirement. |
+| Advisory | Guidance or professional recommendation that is not itself a statutory command. |
+| Evidentiary | Material that may support a clinical, regulatory, or coverage proposition but does not itself create an obligation. |
+
+This prevents the application from turning a clinical guideline into a statute or turning an evidentiary source into a legal command.
+
+## Provenance is part of the record
+
+The production system should retain the exact source used, the jurisdiction, effective date where applicable, applicability conditions, and verification timestamp. If an authority changes, the system should be able to distinguish the version relied upon when the record was created from the authority currently in force.
+
+## Implementation target
+
+The schema is stored at `fern/data/off_label_record.schema.json`. It is deliberately conservative at this stage. The next layer can add enumerations, validation rules, authority relationships, evidence scoring, and machine-readable applicability conditions without changing the provider-facing workflow.
