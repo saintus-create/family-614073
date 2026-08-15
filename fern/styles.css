@@ -59,7 +59,7 @@
   height: 100%;
 }
 
-/* Center header tabs (replaces the Ledger-rejected theme.tabs.alignment: center) */
+/* Center header tabs */
 .fern-header-tabs {
   justify-content: center;
 }
@@ -92,4 +92,120 @@
   margin-top: -1rem;
   padding-top: 0.5rem;
   padding-bottom: 4rem;
+}
+
+/* Clinical Evidence Index visual identity layer. */
+:root {
+  --cei-radius-sm: 8px;
+  --cei-radius-md: 12px;
+  --cei-radius-lg: 16px;
+  --cei-shadow-soft: 0 1px 2px color-mix(in srgb, var(--grayscale-12), transparent 92%),
+    0 8px 24px color-mix(in srgb, var(--grayscale-12), transparent 95%);
+}
+
+/* Navigation should identify destinations, never become five-line paragraphs. */
+.fern-sidebar a,
+.fern-sidebar button {
+  min-width: 0;
+}
+
+.fern-sidebar a > span,
+.fern-sidebar button > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Quiet elevation for reusable content surfaces. */
+.fern-card {
+  border-radius: var(--cei-radius-md);
+  box-shadow: var(--cei-shadow-soft);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.fern-card:hover {
+  transform: translateY(-1px);
+}
+
+/* Small editorial section marker for intentional identity elements. */
+.cei-section-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-9);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.cei-section-marker::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent-9);
+}
+
+/* Reusable evidence/authority path motif. */
+.cei-path {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.cei-path::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 16px;
+  bottom: 16px;
+  width: 1px;
+  background: var(--border);
+}
+
+.cei-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cei-node > span:first-child {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--background);
+}
+
+/* Status is never conveyed by color alone. */
+.cei-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fern-card {
+    transition: none;
+  }
+
+  .fern-card:hover {
+    transform: none;
+  }
+
+  .fern-background-image::after {
+    animation: none;
+  }
 }
