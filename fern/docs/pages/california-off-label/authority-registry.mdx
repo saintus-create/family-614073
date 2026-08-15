@@ -13,7 +13,7 @@ The registry is a structured research layer, not a substitute for reading the ci
 
 <Badge>Primary authority first</Badge>
 
-Each authority is modeled with an identifier, source type, citation, obligation status, and applicability triggers. The eventual provider workflow will use those triggers to surface only the authorities relevant to the facts entered.
+Each authority is modeled with an identifier, source type, citation, obligation status, applicability triggers, relevance, primary-source URL, and verification metadata. The eventual provider workflow will use those triggers to surface only the authorities relevant to the facts entered.
 
 | Status | Meaning |
 | --- | --- |
@@ -28,10 +28,14 @@ Each authority is modeled with an identifier, source type, citation, obligation 
 <Tabs>
   <Tab title="Prescribing">
     <CardGroup cols={2}>
+      <Card title="BPC § 2234" icon="fa-regular fa-scale-balanced">Disciplinary framework including gross negligence, repeated negligent acts, and incompetence.</Card>
       <Card title="BPC § 2242" icon="fa-regular fa-stethoscope">Prior examination and medical indication for dangerous-drug prescribing.</Card>
+      <Card title="BPC § 2241.5" icon="fa-regular fa-shield-halved">Prescribing safeguards and preserved disciplinary authority for specified controlled-substance and prescribing conduct.</Card>
       <Card title="BPC § 2242.1" icon="fa-regular fa-globe">Additional rules for Internet prescribing.</Card>
+      <Card title="BPC § 2266" icon="fa-regular fa-clipboard">Adequate and accurate patient records, including the seven-year retention requirement.</Card>
       <Card title="BPC § 2290.5" icon="fa-regular fa-video">Telehealth consent and documentation requirements.</Card>
       <Card title="HSC § 11153" icon="fa-regular fa-prescription-bottle-medical">Legitimate medical purpose and usual-course requirements for controlled substances.</Card>
+      <Card title="HSC § 11157" icon="fa-regular fa-file-prescription">Prohibition on false or fictitious prescriptions.</Card>
     </CardGroup>
   </Tab>
   <Tab title="Coverage">
@@ -52,10 +56,18 @@ Each authority is modeled with an identifier, source type, citation, obligation 
 
 <Steps>
   <Step title="Identify the trigger">Drug type, prescribing method, care setting, patient circumstances, payer/program, and intended use determine which authorities enter the analysis.</Step>
-  <Step title="Load the authority">Retrieve the exact citation, source, effective date, and applicable conditions.</Step>
+  <Step title="Load the authority">Retrieve the exact citation, primary source, effective-date note, and applicable conditions.</Step>
   <Step title="Classify the obligation">Distinguish mandatory, conditional, permissive, advisory, and evidentiary material.</Step>
   <Step title="Attach the provider action">Translate the authority into a documentation, consent, prescribing, monitoring, authorization, or appeal task without changing the legal meaning.</Step>
 </Steps>
+
+## Provenance controls
+
+<CardGroup cols={3}>
+  <Card title="Primary source" icon="fa-regular fa-landmark">The registry records a direct California statutory or regulatory source for binding authorities.</Card>
+  <Card title="Verification date" icon="fa-regular fa-circle-check">Each record carries a last-verified date so stale authority can be identified rather than silently treated as current.</Card>
+  <Card title="Scope note" icon="fa-regular fa-circle-info">Coverage and workers' compensation provisions are explicitly scoped so they are not presented as universal prescribing rules.</Card>
+</CardGroup>
 
 <Callout intent="info">
 The structured source is `fern/data/california_authorities.json`. The data model is intentionally separate from this presentation layer so the same authority records can drive navigation, checklists, evidence dossiers, and future decision-support interfaces.
