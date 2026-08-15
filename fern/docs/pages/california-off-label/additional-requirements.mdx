@@ -1,0 +1,45 @@
+---
+title: Additional requirements
+subtitle: Controlled substances, telehealth, workers' compensation, settings, and coverage
+slug: california-off-label/additional-requirements
+---
+
+## Why this layer exists
+
+Off-label status is only one part of the analysis. Additional law may apply because of the drug, the patient, the practice setting, the delivery method, or the payment system.
+
+## Controlled substances
+
+Determine whether the drug is controlled and apply the California and federal controlled-substance requirements that correspond to the prescription.
+
+[Health & Safety Code § 11153](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=11153)
+
+## Telehealth
+
+If care is delivered by telehealth, evaluate the requirements governing disclosure, consent, standard of care, and documentation.
+
+[Business and Professions Code § 2290.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=2290.5)
+
+## Workers' compensation
+
+Workers' compensation treatment has its own utilization-review and Medical Treatment Utilization Schedule framework. Do not automatically apply commercial health-plan coverage rules to a workers' compensation prescription.
+
+[California Division of Workers' Compensation](https://www.dir.ca.gov/dwc/)
+
+## Payer coverage
+
+Coverage and prescribing are distinct. When authorization is required, use the existing coverage workflow and preserve the provider's clinical rationale and evidence dossier.
+
+[Coverage authorization](/coverage)
+
+## Setting-specific rules
+
+The application should eventually support requirements for hospitals, clinics, behavioral-health facilities, correctional settings, public programs, and other regulated environments as independent applicability modules.
+
+## Applicability engine
+
+Future implementation should ask:
+
+`drug → patient → indication → prescriber → setting → delivery method → payer → program`
+
+and return only the authorities that actually apply.
