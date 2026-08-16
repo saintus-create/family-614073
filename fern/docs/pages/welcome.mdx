@@ -8,9 +8,10 @@ hide-toc: true
 ---
 
 <style>
+main:has(.ci-landing) { position: relative; overflow: hidden; }
+main:has(.ci-landing) .background-graphic-wrapper { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .72; }
+main:has(.ci-landing) .background-graphic-wrapper canvas { width: 100% !important; height: 100% !important; }
 .ci-landing { position: relative; min-height: 100vh; overflow: hidden; padding: clamp(3rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem); }
-.ci-landing .background-graphic-wrapper { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .72; }
-.ci-landing .background-graphic-wrapper canvas { width: 100% !important; height: 100% !important; }
 .ci-shell { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; }
 .ci-kicker { display: inline-flex; align-items: center; gap: .55rem; padding: .42rem .75rem; border: 1px solid color-mix(in srgb, currentColor 18%, transparent); border-radius: 999px; font-size: .78rem; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; backdrop-filter: blur(12px); background: color-mix(in srgb, Canvas 72%, transparent); }
 .ci-dot { width: .45rem; height: .45rem; border-radius: 50%; background: currentColor; box-shadow: 0 0 18px currentColor; }
@@ -31,7 +32,7 @@ hide-toc: true
 .ci-footer { margin-top: 3rem; max-width: 720px; font-size: .78rem; line-height: 1.55; opacity: .55; }
 @media (max-width: 850px) { .ci-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ci-landing { padding-top: 3rem; } }
 @media (max-width: 520px) { .ci-grid { grid-template-columns: 1fr; } .ci-hero h1 { font-size: 3.35rem; } }
-@media (prefers-reduced-motion: reduce) { .ci-action, .ci-card { transition: none; } .ci-action:hover, .ci-card:hover { transform: none; } .ci-landing .background-graphic-wrapper { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ci-action, .ci-card { transition: none; } .ci-action:hover, .ci-card:hover { transform: none; } main:has(.ci-landing) .background-graphic-wrapper { display: none; } }
 </style>
 
 <div className="ci-landing">
