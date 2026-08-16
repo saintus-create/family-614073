@@ -1,58 +1,60 @@
 ---
 title: Clinical Evidence Index
-subtitle: Evidence, regulatory intelligence, and a California off-label prescribing workspace
+subtitle: A living map of clinical evidence, regulation, and prescribing context
 slug: welcome
-layout: overview
+layout: custom
 hide-nav-links: true
+hide-toc: true
 ---
 
-<Callout intent="info">
-**Built for clinicians who need to show their work.** Start with the proposed use, identify the rules that actually apply, assemble the evidence, document the clinical reasoning, and keep coverage analysis separate.
-</Callout>
+<style>
+.ci-landing { position: relative; min-height: 100vh; overflow: hidden; padding: clamp(3rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem); }
+.ci-landing .background-graphic-wrapper { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .72; }
+.ci-landing .background-graphic-wrapper canvas { width: 100% !important; height: 100% !important; }
+.ci-shell { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; }
+.ci-kicker { display: inline-flex; align-items: center; gap: .55rem; padding: .42rem .75rem; border: 1px solid color-mix(in srgb, currentColor 18%, transparent); border-radius: 999px; font-size: .78rem; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; backdrop-filter: blur(12px); background: color-mix(in srgb, Canvas 72%, transparent); }
+.ci-dot { width: .45rem; height: .45rem; border-radius: 50%; background: currentColor; box-shadow: 0 0 18px currentColor; }
+.ci-hero { max-width: 820px; padding-top: 2rem; }
+.ci-hero h1 { max-width: 850px; margin: 0; font-size: clamp(3.2rem, 8vw, 7.2rem); line-height: .92; letter-spacing: -.065em; font-weight: 760; text-wrap: balance; }
+.ci-hero p { max-width: 690px; margin: 1.75rem 0 0; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.65; opacity: .78; }
+.ci-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.ci-action { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.15rem; border-radius: .8rem; border: 1px solid color-mix(in srgb, currentColor 18%, transparent); text-decoration: none !important; font-weight: 650; backdrop-filter: blur(14px); background: color-mix(in srgb, Canvas 78%, transparent); transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.ci-action.primary { background: currentColor; color: Canvas !important; border-color: currentColor; }
+.ci-action:hover { transform: translateY(-2px); border-color: color-mix(in srgb, currentColor 45%, transparent); }
+.ci-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin-top: clamp(4rem, 9vw, 8rem); }
+.ci-card { min-height: 150px; padding: 1.2rem; border: 1px solid color-mix(in srgb, currentColor 14%, transparent); border-radius: 1rem; background: color-mix(in srgb, Canvas 70%, transparent); backdrop-filter: blur(18px); text-decoration: none !important; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.ci-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, currentColor 35%, transparent); background: color-mix(in srgb, Canvas 84%, transparent); }
+.ci-card strong { display: block; font-size: 1rem; letter-spacing: -.015em; }
+.ci-card span { display: block; margin-top: .55rem; font-size: .88rem; line-height: 1.5; opacity: .66; }
+.ci-meta { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.25rem; }
+.ci-chip { padding: .42rem .65rem; border-radius: .6rem; background: color-mix(in srgb, currentColor 8%, transparent); font-size: .76rem; opacity: .78; }
+.ci-footer { margin-top: 3rem; max-width: 720px; font-size: .78rem; line-height: 1.55; opacity: .55; }
+@media (max-width: 850px) { .ci-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ci-landing { padding-top: 3rem; } }
+@media (max-width: 520px) { .ci-grid { grid-template-columns: 1fr; } .ci-hero h1 { font-size: 3.35rem; } }
+@media (prefers-reduced-motion: reduce) { .ci-action, .ci-card { transition: none; } .ci-action:hover, .ci-card:hover { transform: none; } .ci-landing .background-graphic-wrapper { display: none; } }
+</style>
 
-## California off-label prescribing
+<div className="ci-landing">
+  <div className="nebula-anchor" aria-hidden="true"></div>
+  <div className="ci-shell">
+    <div className="ci-kicker"><span className="ci-dot"></span> Evidence system · continuously indexed</div>
 
-<CardGroup cols={2}>
-  <Card title="Start a prescribing record" icon="fa-regular fa-file-medical" href="/california-off-label/start">A guided workflow for the clinical facts, applicable California authority, evidence, consent, documentation, monitoring, and coverage handoff.</Card>
-  <Card title="California framework" icon="fa-regular fa-scale-balanced" href="/california-off-label">See how prescribing authority, evidence, consent, documentation, additional requirements, and coverage fit together.</Card>
-  <Card title="Authority registry" icon="fa-regular fa-landmark" href="/california-off-label/authority-registry">Structured California statutes and regulations with applicability, obligation type, provenance, and verification metadata.</Card>
-  <Card title="Evidence framework" icon="fa-regular fa-flask" href="/california-off-label/evidence">Connect studies, guidelines, safety findings, contradictory evidence, and patient-specific reasoning.</Card>
-</CardGroup>
+    <div className="ci-hero">
+      <h1>Find the evidence behind the decision.</h1>
+      <p>Clinical research, regulatory authority, prescribing context, dosing, safety, and real-world authorization decisions organized into one navigable evidence system.</p>
+      <div className="ci-actions">
+        <a className="ci-action primary" href="/browse">Explore the evidence</a>
+        <a className="ci-action" href="/california-off-label/start">Start a prescribing record</a>
+      </div>
+    </div>
 
-## Plan accountability
+    <div className="ci-grid">
+      <a className="ci-card" href="/browse"><strong>Evidence index</strong><span>Search by drug, study design, topic, regimen, population, and region.</span><div className="ci-meta"><span className="ci-chip">Studies</span><span className="ci-chip">Topics</span></div></a>
+      <a className="ci-card" href="/california-off-label/evidence"><strong>Clinical reasoning</strong><span>Connect evidence, uncertainty, contradictory findings, and patient-specific reasoning.</span><div className="ci-meta"><span className="ci-chip">Efficacy</span><span className="ci-chip">Safety</span></div></a>
+      <a className="ci-card" href="/california-off-label/authority-registry"><strong>Regulatory authority</strong><span>Separate statutes and regulations from guidance, evidence, and administrative material.</span><div className="ci-meta"><span className="ci-chip">California</span><span className="ci-chip">Authority</span></div></a>
+      <a className="ci-card" href="/california-off-label/claims-and-decisions"><strong>Coverage decisions</strong><span>Track approvals, denials, appeals, criteria, evidence, and decision rationale.</span><div className="ci-meta"><span className="ci-chip">Claims</span><span className="ci-chip">Appeals</span></div></a>
+    </div>
 
-<CardGroup cols={2}>
-  <Card title="CenCal Health responsibilities" icon="fa-regular fa-building-columns" href="/cencal-health">Understand the boundary between the prescriber, CenCal Health, DHCS/Medi-Cal, CMS, and other benefit administrators. Follow the authority chain instead of guessing which entity controls the decision.</Card>
-  <Card title="Claims & authorization decisions" icon="fa-regular fa-gavel" href="/california-off-label/claims-and-decisions">Track approvals, denials, appeals, criteria, evidence, and decision rationale as the real-world decision corpus develops.</Card>
-</CardGroup>
-
-## Research and regulatory library
-
-<CardGroup cols={3}>
-  <Card title="Browse evidence" icon="fa-regular fa-folder-open" href="/browse">Search by drug, topic, study design, regimen, and region.</Card>
-  <Card title="FDA labeling" icon="fa-regular fa-file-prescription" href="/regulatory">Current prescribing information and FDA approval history.</Card>
-  <Card title="Coverage authorization" icon="fa-regular fa-list-check" href="/coverage">California coverage requirements and authorization pathways.</Card>
-  <Card title="Clinical trials" icon="fa-regular fa-flask-vial" href="/trials">Registrations and posted results.</Card>
-  <Card title="Guidelines" icon="fa-regular fa-book-medical" href="/guidance">Public-health and clinical guidance relevant to interpretation.</Card>
-  <Card title="Decisions & claims" icon="fa-regular fa-gavel" href="/california-off-label/claims-and-decisions">Approved and denied authorization examples, appeal outcomes, and decision rationale as the corpus develops.</Card>
-</CardGroup>
-
-## How the system stays coherent
-
-<Tabs>
-  <Tab title="Prescribing">**Clinical decision:** Is the proposed use medically indicated for this patient, and what California requirements govern the prescription?</Tab>
-  <Tab title="Evidence">**Evidence dossier:** What supports efficacy and safety, what limits confidence, and what material evidence points the other way?</Tab>
-  <Tab title="Coverage">**Authorization:** What separate payer, public-program, or workers' compensation rules determine coverage or reimbursement?</Tab>
-  <Tab title="Plan accountability">**Plan role:** Which entity administers the benefit, which authority governs it, what criteria were actually applied, and what review or appeal route follows an adverse determination?</Tab>
-</Tabs>
-
-<AccordionGroup>
-  <Accordion title="Primary authority comes first">Statutes and regulations are distinguished from agency guidance, clinical guidelines, and peer-reviewed evidence. The application should never silently convert an advisory source into a mandatory requirement.</Accordion>
-  <Accordion title="Off-label does not mean unlawful">The workflow treats off-label status as a classification that triggers evidence and documentation questions, not as an automatic prohibition or permission.</Accordion>
-  <Accordion title="Prescribing and coverage are different decisions">The treating clinician makes the clinical prescribing decision. A plan or program may separately determine whether a requested service is a covered benefit and whether authorization requirements are satisfied.</Accordion>
-  <Accordion title="Approved and denied claims are evidence about decisions">Real-world authorization outcomes will be catalogued with their fact pattern, evidence, cited authority, decision rationale, and appeal history. They will not be presented as substitutes for the governing law.</Accordion>
-</AccordionGroup>
-
-<Callout intent="warning">
-Research and documentation tool only. Not legal or medical advice. Requirements vary by prescriber, patient, drug, setting, delivery method, payer, and program. [Read the full disclaimer](/disclaimer).
-</Callout>
+    <div className="ci-footer">Research and documentation tool only. Not legal or medical advice. Requirements vary by prescriber, patient, drug, setting, delivery method, payer, and program. <a href="/disclaimer">Read the full disclaimer</a>.</div>
+  </div>
+</div>
