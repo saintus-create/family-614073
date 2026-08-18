@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "purpose": "Machine-readable index for the off-label evidence and authority layer.",
+  "sources": {
+    "prescribingRecordSchema": "fern/data/off_label_record.schema.json",
+    "californiaAuthorities": "fern/data/california_authorities.json",
+    "coverageAuthorities": "fern/data/coverage.json",
+    "studyCorpus": "fern/data/studies.json",
+    "trialCorpus": "fern/data/trials.json",
+    "fdaCorpus": "fern/data/fda.json",
+    "labelsCorpus": "fern/data/labels.json"
+  },
+  "legalGraph": {
+    "relationshipSchema": "fern/data/legal/off-label/authority-relationship.schema.json",
+    "relationships": "fern/data/legal/off-label/relationships.json",
+    "claimsSchema": "fern/data/legal/off-label/claims.schema.json"
+  },
+  "provenancePolicy": {
+    "verified": "May be presented as verified against the designated source, subject to the source's scope and effective date.",
+    "source-derived": "Retains explicit source-derived status and must not be presented as independently verified current law.",
+    "review-required": "May guide discovery but requires review before being used as an authoritative proposition.",
+    "unreviewed": "Discovery-only; not suitable for authoritative output."
+  },
+  "workflow": [
+    "question",
+    "proposition",
+    "authority",
+    "counterauthority",
+    "evidence",
+    "procedure",
+    "form",
+    "coverage",
+    "decision",
+    "appeal",
+    "analysis"
+  ]
+}
