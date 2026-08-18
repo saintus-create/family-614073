@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://family-614073.docs.buildwithfern.com/schemas/authority-relationship.json",
+  "title": "Off-Label Evidence Authority Relationship",
+  "type": "object",
+  "required": ["from", "to", "relationship", "provenance"],
+  "properties": {
+    "from": {"type": "string"},
+    "to": {"type": "string"},
+    "relationship": {
+      "enum": ["supports", "contradicts", "limits", "distinguishes", "implements", "interprets", "cites", "related-to"]
+    },
+    "proposition": {"type": "string"},
+    "scope": {"type": "string"},
+    "provenance": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["verified", "source-derived", "review-required", "unreviewed"]},
+        "source": {"type": "string"},
+        "verifiedDate": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}
