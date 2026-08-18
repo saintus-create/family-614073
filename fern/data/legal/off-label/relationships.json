@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "statusPolicy": "Relationships never upgrade an unreviewed proposition into current law.",
+  "relationships": [
+    {
+      "from": "ca-hsc-1367-21",
+      "to": "ca-hsc-1367-24",
+      "relationship": "related-to",
+      "scope": "California health care service plan coverage workflow",
+      "provenance": {"status": "verified", "source": "fern/data/coverage.json", "verifiedDate": "2026-08-15"}
+    },
+    {
+      "from": "ca-ins-10123-195",
+      "to": "ca-hsc-1367-21",
+      "relationship": "related-to",
+      "scope": "Parallel California commercial coverage regimes; applicability depends on regulator and policy type",
+      "provenance": {"status": "verified", "source": "fern/data/coverage.json", "verifiedDate": "2026-08-15"}
+    },
+    {
+      "from": "ca-hsc-1367-21",
+      "to": "off-label-coverage",
+      "relationship": "supports",
+      "proposition": "Certain California health-plan coverage questions for FDA-approved drugs prescribed for unapproved uses are governed by statutory conditions.",
+      "scope": "Coverage only; not authorization to prescribe",
+      "provenance": {"status": "verified", "source": "fern/data/coverage.json", "verifiedDate": "2026-08-15"}
+    },
+    {
+      "from": "ca-bpc-2242",
+      "to": "prescribing-record",
+      "relationship": "related-to",
+      "scope": "Clinical examination and medical-indication documentation",
+      "provenance": {"status": "verified", "source": "fern/data/california_authorities.json", "verifiedDate": "2026-08-15"}
+    },
+    {
+      "from": "ca-bpc-2266",
+      "to": "prescribing-record",
+      "relationship": "related-to",
+      "scope": "Patient-record documentation",
+      "provenance": {"status": "verified", "source": "fern/data/california_authorities.json", "verifiedDate": "2026-08-15"}
+    },
+    {
+      "from": "ca-bpc-2290-5",
+      "to": "telehealth-consent",
+      "relationship": "implements",
+      "scope": "Telehealth consent and documentation",
+      "provenance": {"status": "verified", "source": "fern/data/california_authorities.json", "verifiedDate": "2026-08-15"}
+    },
+    {
+      "from": "ca-hsc-11153",
+      "to": "controlled-substance-prescribing",
+      "relationship": "related-to",
+      "scope": "Legitimate-medical-purpose requirement",
+      "provenance": {"status": "verified", "source": "fern/data/california_authorities.json", "verifiedDate": "2026-08-15"}
+    },
+    {
+      "from": "clinical-evidence",
+      "to": "coverage-decision",
+      "relationship": "supports",
+      "scope": "Evidence may be submitted to support a coverage request; it does not determine the legal standard by itself",
+      "provenance": {"status": "review-required", "notes": "Relationship is workflow-level, not a substantive legal conclusion."}
+    },
+    {
+      "from": "coverage-decision",
+      "to": "prescribing-authority",
+      "relationship": "distinguishes",
+      "scope": "A payer authorization outcome is not itself authority to prescribe",
+      "provenance": {"status": "verified", "source": "fern/docs/pages/california-off-label/claims-and-decisions.mdx"}
+    }
+  ]
+}
