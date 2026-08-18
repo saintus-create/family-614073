@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://family-614073.docs.buildwithfern.com/schemas/off-label-claim.json",
+  "title": "Off-Label Coverage Claim or Authorization Decision",
+  "type": "object",
+  "required": ["id", "request", "decision", "provenance"],
+  "properties": {
+    "id": {"type": "string"},
+    "request": {
+      "type": "object",
+      "required": ["drug", "indication", "labelStatus"],
+      "properties": {
+        "drug": {"type": "string"},
+        "indication": {"type": "string"},
+        "labelStatus": {"enum": ["on-label", "off-label", "uncertain"]},
+        "population": {"type": "string"},
+        "payer": {"type": "string"},
+        "jurisdiction": {"type": "string"},
+        "requestDate": {"type": "string"}
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "authorities": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "decision": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": ["approved", "denied", "partially approved", "modified", "overturned on appeal", "remanded", "dismissed", "unknown"]
+        },
+        "rationale": {"type": "string"},
+        "appealLevel": {"type": "string"},
+        "appealOutcome": {"type": "string"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["sourceType", "sourceStatus"],
+      "properties": {
+        "sourceType": {"enum": ["primary-decision", "administrative-record", "published-appeal", "official-program-material", "secondary-summary", "user-supplied"]},
+        "sourceStatus": {"enum": ["verified", "review-required", "unreviewed"]},
+        "sourceUrl": {"type": "string", "format": "uri"},
+        "verifiedDate": {"type": "string"}
+      }
+    }
+  }
+}
