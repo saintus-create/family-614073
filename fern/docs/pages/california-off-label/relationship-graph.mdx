@@ -1,0 +1,60 @@
+---
+title: Evidence and authority relationship graph
+subtitle: How clinical evidence, prescribing authority, coverage rules, and decisions connect without being conflated
+slug: california-off-label/relationship-graph
+layout: overview
+---
+
+<Callout intent="info" title="Relationships are not conclusions" icon="fa-regular fa-diagram-project">
+A relationship in this graph describes how two records are connected. It does not upgrade an unreviewed proposition into current law, and a coverage outcome does not become prescribing authority merely because the records are connected.
+</Callout>
+
+## Core path
+
+`Question → Proposition → Authority → Evidence → Coverage → Decision → Appeal`
+
+The same underlying clinical facts can feed several paths. The system keeps those paths separate so that a clinical finding is not silently converted into a legal requirement and a payer decision is not silently converted into law.
+
+## Relationship vocabulary
+
+| Relationship | Meaning |
+| --- | --- |
+| `supports` | The source provides evidence relevant to the proposition or decision. |
+| `contradicts` | The source materially conflicts with the proposition or another source. |
+| `limits` | The source narrows the scope or applicability of another record. |
+| `distinguishes` | The relationship prevents two otherwise similar concepts from being treated as equivalent. |
+| `implements` | A procedure, form, or workflow operationalizes an authority. |
+| `interprets` | A source explains or applies another authority. |
+| `cites` | One record expressly references another. |
+| `related-to` | The records are relevant to one another without asserting a stronger relationship. |
+
+## Current graph boundary
+
+The first graph layer connects the existing California authority registry and coverage corpus to the off-label workflow. It deliberately does not fabricate case holdings, payer decisions, or clinical conclusions that have not been independently verified.
+
+The machine-readable graph is stored at `fern/data/legal/off-label/relationships.json`, with relationship validation in `fern/data/legal/off-label/authority-relationship.schema.json`.
+
+## Decision boundary
+
+The application should be able to answer four different questions without collapsing them:
+
+1. **Can this use be clinically justified for this patient?**
+2. **What California or federal authority governs the prescribing situation?**
+3. **Does a particular coverage rule apply to this request?**
+4. **What happened in comparable authorization or appeal decisions?**
+
+Those answers can be connected, but they remain distinct records with their own provenance.
+
+## Provenance states
+
+<Badge intent="check">Verified</Badge> means the relationship has been checked against its designated source.
+
+<Badge intent="warning" minimal>Review required</Badge> means the relationship is useful for discovery but should not be presented as a settled proposition.
+
+<Badge intent="info" minimal>Source-derived</Badge> means the relationship is explicitly derived from supplied or indexed source material and retains that status until independently reviewed.
+
+<Badge intent="error" minimal>Unreviewed</Badge> means the system must not use the relationship as an authoritative legal conclusion.
+
+## Visual implementation
+
+The eventual interactive graph should use the same semantic families as the rest of the interface: Authority, Clinical, Evidence, and Decision. Nodes should be selectable and every edge should expose its relationship type and provenance. Decorative motion can represent graph activity, but it should never imply a relationship that does not exist in the corpus.
