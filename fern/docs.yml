@@ -26,7 +26,7 @@ navigation:
     slug: welcome
 - tab: evidence
   layout:
-  - page: Browse the index
+  - page: Browse
     path: docs/pages/browse.mdx
     icon: fa-regular fa-folder-open
   - section: Collections
@@ -92,7 +92,7 @@ navigation:
       path: docs/pages/index/collection-region-oceania.mdx
       icon: fa-regular fa-folder
     collapsed: true
-  - section: Study designs
+  - section: Designs
     contents:
     - page: Meta-analysis
       path: docs/pages/index/design-meta-analysis.mdx
@@ -164,7 +164,7 @@ navigation:
       path: docs/pages/index/topic-sleep.mdx
       icon: fa-regular fa-moon
     collapsed: true
-  - section: Dosing regimens
+  - section: Regimens
     contents:
     - page: Once daily
       path: docs/pages/index/regimen-once-daily.mdx
@@ -191,7 +191,7 @@ navigation:
       path: docs/pages/index/regimen-single-dose-study.mdx
       icon: fa-regular fa-1
     collapsed: true
-  - section: Regions & countries
+  - section: Regions
     contents:
     - section: North America
       collapsed: true
@@ -374,7 +374,7 @@ navigation:
         path: docs/pages/index/country-south-africa.mdx
         icon: fa-regular fa-location-dot
     collapsed: true
-  - section: Regulatory guidance
+  - section: Regulatory
     collapsed: true
     contents:
     - page: Overview
@@ -401,14 +401,20 @@ navigation:
     - page: Viloxazine (extended release)
       path: docs/pages/labels/label-viloxazine.mdx
       icon: fa-regular fa-file-prescription
-  - section: Coverage authorization
+  - section: Coverage
     collapsed: true
     contents:
-    - page: Authorization pathway
+    - page: Authorization
       path: docs/pages/coverage.mdx
       icon: fa-regular fa-list-check
-    - page: Forms and filing
+    - page: Forms
       path: docs/pages/coverage/forms.mdx
+      icon: fa-regular fa-file-signature
+    - page: CenCal
+      path: docs/pages/cencal-health/index.mdx
+      icon: fa-regular fa-building-columns
+    - page: Analysis
+      path: docs/pages/cencal-health/prior-authorization.mdx
       icon: fa-regular fa-file-signature
     - section: Authorities
       collapsed: true
@@ -440,7 +446,7 @@ navigation:
       - page: HSC 1368
         path: docs/pages/coverage/statute-hsc-1368.mdx
         icon: fa-regular fa-scale-balanced
-  - section: FDA approval history
+  - section: FDA
     collapsed: true
     contents:
     - page: Overview
@@ -473,7 +479,7 @@ navigation:
     - page: Clonidine
       path: docs/pages/fda/clonidine.mdx
       icon: fa-regular fa-file-certificate
-  - section: Clinical trials
+  - section: Trials
     collapsed: true
     contents:
     - page: Feed
@@ -500,7 +506,7 @@ navigation:
     - page: Viloxazine
       path: docs/pages/trials/viloxazine.mdx
       icon: fa-regular fa-flask
-  - section: Public health guidance
+  - section: Guidance
     collapsed: true
     contents:
     - page: Overview
@@ -3070,10 +3076,10 @@ ai-search:
     America and Europe, so do not present the index as representative of worldwide practice.
 
 
-    Coverage authorization: the coverage pages reproduce California Health & Safety Code and Insurance Code text verbatim. Quote the statute and cite the section number; never paraphrase a legal requirement
-    into your own words, and never state a deadline, form number or criterion that is not in the quoted text. It is statutory text, not legal advice, and it governs California plans only. Health & Safety
-    Code 1367.21(a)(3)(C) is the ground most relevant to this index: two articles from major peer reviewed medical journals. When a user is assembling that support, point to indexed records with the strongest
-    designs and give the full citation for each.
+    Coverage authorization: the coverage pages reproduce California Health & Safety Code and Insurance Code text verbatim. The CenCal PA/TAR page carries source-linked Medi-Cal Rx, DHCS and CenCal workflow
+    facts from the data file. Quote the statute and cite the section number; never paraphrase a legal requirement into your own words, and never state a deadline, form number or criterion that is not in
+    the quoted text. It is statutory text, not legal advice, and it governs California plans only. Health & Safety Code 1367.21(a)(3)(C) is the ground most relevant to this index: two articles from major
+    peer reviewed medical journals. When a user is assembling that support, point to indexed records with the strongest designs and give the full citation for each.
 
 
     FDA and trials data: the FDA pages carry Drugs@FDA application and submission records (application number, approval dates, document links); the trials pages carry ClinicalTrials.gov registrations (NCT

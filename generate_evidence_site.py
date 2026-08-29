@@ -40,10 +40,12 @@ FDA_JSON = FERN / 'data' / 'fda.json'
 TRIALS_JSON = FERN / 'data' / 'trials.json'
 COVERAGE_JSON = FERN / 'data' / 'coverage.json'
 PUBLIC_HEALTH_JSON = FERN / 'data' / 'public_health.json'
+CENCAL_PRIOR_AUTH_JSON = FERN / 'data' / 'cencal_prior_authorization.json'
 COVERAGE_DIR = PAGES / 'coverage'
 FDA_DIR = PAGES / 'fda'
 TRIALS_DIR = PAGES / 'trials'
 GUIDANCE_DIR = PAGES / 'guidance'
+CENCAL_DIR = PAGES / 'cencal-health'
 
 REGION_ORDER = [
     'North America', 'Europe', 'Asia', 'Oceania',
@@ -702,8 +704,64 @@ def build_browse_page(data: dict, studies: list) -> str:
     regimens = Counter(r for s in studies for r in s['regimens'])
     regions = Counter(r for s in studies for r in s['regions'])
 
+    menu_labels = {
+        'Amphetamine & mixed amphetamine salts': 'Amphetamine',
+        'Non-stimulants (atomoxetine, guanfacine, viloxazine)': 'Nonstimulants',
+        'Comparative effectiveness & safety': 'Comparative',
+        'Binge eating disorder': 'BED',
+        'Randomized controlled trials': 'RCTs',
+        'Pharmacokinetics & dosing': 'PK',
+        'Long-term & cardiovascular safety': 'Safety',
+        'Dosing regimens & daily schedules': 'Regimens',
+        'International & cross-national research': 'International',
+        'Clinical guidelines & consensus statements': 'Guidelines',
+        'Off-label prescribing & indications': 'OffLabel',
+        'Adult ADHD': 'Adults',
+        'Substance use & misuse': 'Misuse',
+        'Access, shortages & disparities': 'Access',
+        'Latin America, Africa & Middle East research': 'Global',
+        'European research': 'Europe',
+        'Asian research': 'Asia',
+        'Australia & New Zealand research': 'Oceania',
+        'Evidence synthesis': 'Synthesis',
+        'Observational studies': 'Observational',
+        'Other records': 'Other',
+        'Case reports': 'Cases',
+        'Meta-analysis': 'Meta',
+        'Systematic review': 'Systematic',
+        'Randomized controlled trial': 'RCT',
+        'Clinical trial': 'Trial',
+        'Cohort study': 'Cohort',
+        'Case-control study': 'CaseControl',
+        'Cross-sectional study': 'CrossSectional',
+        'Pharmacokinetic study': 'PK',
+        'Practice guideline': 'Guideline',
+        'Case report': 'CaseReport',
+        'Abuse liability': 'Abuse',
+        'Safety & tolerability': 'Safety',
+        'Growth & development': 'Growth',
+        'Cognition & function': 'Cognition',
+        'Epidemiology & utilization': 'Epidemiology',
+        'Once daily': 'Once',
+        'Twice daily': 'Twice',
+        'Three times daily': 'Thrice',
+        'Divided / multiple daily doses': 'Divided',
+        'Extended release': 'Extended',
+        'Immediate release': 'Immediate',
+        'Titrated to effect': 'Titrated',
+        'Single dose (study)': 'Single',
+        'North America': 'NorthAmerica',
+        'Latin America': 'LatAm',
+        'Middle East': 'MiddleEast',
+        'Clinical trials feed': 'Trials',
+        'Public health guidance': 'Guidance',
+    }
+
+    def menu_label(label):
+        return menu_labels.get(label, label)
+
     def links(pairs):
-        return ' · '.join(f'[{mdx_safe(label)}]({href})' for label, href in pairs)
+        return ' · '.join(f'[{mdx_safe(menu_label(label))}]({href})' for label, href in pairs)
 
     lines = [
         '---',
@@ -725,7 +783,7 @@ def build_browse_page(data: dict, studies: list) -> str:
         present = [d for d in tier_designs if designs.get(d)]
         if not present:
             continue
-        lines += [f'**{tier_name}** — '
+        lines += [f'**{menu_label(tier_name)}** — '
                   + links([(d, f'/design-{slugify(d)}') for d in present]), '']
 
     lines += [
@@ -745,18 +803,20 @@ def build_browse_page(data: dict, studies: list) -> str:
         '',
         '## Regulatory',
         '',
-        '[Approved US prescribing information](/regulatory) · '
-        '[FDA approval history](/fda) · '
-        '[Coverage authorization](/coverage) · '
-        '[Forms and filing](/coverage-forms)',
+        '[Labels](/regulatory) · '
+        '[FDA](/fda) · '
+        '[Coverage](/coverage) · '
+        '[Forms](/coverage-forms) · '
+        '[CenCal](/cencal-health) · '
+        '[Analysis](/cencal-health/prior-authorization)',
         '',
         '## Trials',
         '',
-        '[Clinical trials feed](/trials)',
+        '[Trials](/trials)',
         '',
         '## Guidance',
         '',
-        '[Public health guidance](/guidance)',
+        '[Guidance](/guidance)',
         '',
     ]
     return '\n'.join(lines)
@@ -854,11 +914,12 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
 def update_nav(data: dict, studies: list, designs: dict, topics: dict,
                regions: dict, countries: dict, regimens: dict, labels: dict,
                fda: dict = None, trials: dict = None, coverage: dict = None,
-               public_health: dict = None):
+               public_health: dict = None, cencal_prior_auth: dict = None):
     fda = fda or {'drugs': []}
     trials = trials or {'drugs': [], 'trials': []}
     coverage = coverage or {'statutes': []}
     public_health = public_health or {'pages': []}
+    cencal_prior_auth = cencal_prior_auth or {}
     with open(DOCS_YML) as f:
         d = yaml.safe_load(f)
 
@@ -876,7 +937,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         by_coll[s['collection']].append(s)
 
     catalogue = [{
-        'page': 'Browse the index',
+        'page': 'Browse',
         'path': 'docs/pages/browse.mdx',
         'icon': 'fa-regular fa-folder-open',
     }]
@@ -896,7 +957,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         'path': f'docs/pages/index/design-{slugify(name)}.mdx',
         'icon': DESIGN_ICON.get(name, 'fa-regular fa-file-lines'),
     } for name in DESIGN_ORDER if designs.get(name)]
-    catalogue.append({'section': 'Study designs', 'contents': design_items, 'collapsed': True})
+    catalogue.append({'section': 'Designs', 'contents': design_items, 'collapsed': True})
 
     topic_items = [{
         'page': truncate(name),
@@ -910,7 +971,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         'path': f'docs/pages/index/regimen-{slugify(name)}.mdx',
         'icon': REGIMEN_ICON.get(name, 'fa-regular fa-clock'),
     } for name in REGIMEN_ORDER if regimens.get(name)]
-    catalogue.append({'section': 'Dosing regimens', 'contents': regimen_items,
+    catalogue.append({'section': 'Regimens', 'contents': regimen_items,
                       'collapsed': True})
 
     # Regions nest their countries so the sidebar stays navigable at 45 countries.
@@ -933,12 +994,12 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
                 'icon': 'fa-regular fa-location-dot',
             } for c in in_region if countries.get(c)],
         })
-    catalogue.append({'section': 'Regions & countries', 'contents': region_items,
+    catalogue.append({'section': 'Regions', 'contents': region_items,
                       'collapsed': True})
 
     if labels.get('labels'):
         catalogue.append({
-            'section': 'Regulatory guidance',
+            'section': 'Regulatory',
             'collapsed': True,
             'contents': [{
                 'page': 'Overview',
@@ -952,24 +1013,37 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         })
 
     if coverage.get('statutes'):
+        coverage_items = [
+            {'page': 'Authorization',
+             'path': 'docs/pages/coverage.mdx',
+             'icon': 'fa-regular fa-list-check'},
+            {'page': 'Forms',
+             'path': 'docs/pages/coverage/forms.mdx',
+             'icon': 'fa-regular fa-file-signature'},
+        ]
+        if (PAGES / 'cencal-health' / 'index.mdx').exists():
+            coverage_items.append({
+                'page': 'CenCal',
+                'path': 'docs/pages/cencal-health/index.mdx',
+                'icon': 'fa-regular fa-building-columns',
+            })
+        if cencal_prior_auth:
+            coverage_items.append({
+                'page': 'Analysis',
+                'path': 'docs/pages/cencal-health/prior-authorization.mdx',
+                'icon': 'fa-regular fa-file-signature',
+            })
+        coverage_items.append({'section': 'Authorities', 'collapsed': True, 'contents': [
+            {'page': f'{s["code"]} {s["section"]}',
+             'path': 'docs/pages/coverage/statute-'
+                     f'{s["code"].lower()}-'
+                     f'{s["section"].replace(".", "-")}.mdx',
+             'icon': 'fa-regular fa-scale-balanced'}
+            for s in coverage['statutes']]})
         catalogue.append({
-            'section': 'Coverage authorization',
+            'section': 'Coverage',
             'collapsed': True,
-            'contents': [
-                {'page': 'Authorization pathway',
-                 'path': 'docs/pages/coverage.mdx',
-                 'icon': 'fa-regular fa-list-check'},
-                {'page': 'Forms and filing',
-                 'path': 'docs/pages/coverage/forms.mdx',
-                 'icon': 'fa-regular fa-file-signature'},
-                {'section': 'Authorities', 'collapsed': True, 'contents': [
-                    {'page': f'{s["code"]} {s["section"]}',
-                     'path': 'docs/pages/coverage/statute-'
-                             f'{s["code"].lower()}-'
-                             f'{s["section"].replace(".", "-")}.mdx',
-                     'icon': 'fa-regular fa-scale-balanced'}
-                    for s in coverage['statutes']]},
-            ],
+            'contents': coverage_items,
         })
 
     if fda.get('drugs'):
@@ -979,7 +1053,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
                        'path': f'docs/pages/fda/{slugify(d["key"])}.mdx',
                        'icon': 'fa-regular fa-file-certificate'}
                       for d in fda['drugs'] if d['applications']]
-        catalogue.append({'section': 'FDA approval history',
+        catalogue.append({'section': 'FDA',
                           'collapsed': True, 'contents': fda_items})
 
     if trials.get('trials'):
@@ -989,7 +1063,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
                       'path': f'docs/pages/trials/{slugify(d["key"])}.mdx',
                       'icon': 'fa-regular fa-flask'}
                      for d in trials['drugs'] if d['nctids']]
-        catalogue.append({'section': 'Clinical trials',
+        catalogue.append({'section': 'Trials',
                           'collapsed': True, 'contents': tr_items})
 
     if public_health.get('pages'):
@@ -999,7 +1073,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
                      'path': f'docs/pages/guidance/{slugify(pg["key"])}.mdx',
                      'icon': 'fa-regular fa-circle-info'}
                     for pg in public_health['pages']]
-        catalogue.append({'section': 'Public health guidance',
+        catalogue.append({'section': 'Guidance',
                           'collapsed': True, 'contents': g_items})
 
     catalogue.append({
@@ -1090,7 +1164,8 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         'answer. Coverage is concentrated in North America and Europe, so do not present '
         'the index as representative of worldwide practice.\n\n'
         'Coverage authorization: the coverage pages reproduce California Health & '
-        'Safety Code and Insurance Code text verbatim. Quote the statute and cite the '
+        'Safety Code and Insurance Code text verbatim. The CenCal PA/TAR page carries '
+        'source-linked Medi-Cal Rx, DHCS and CenCal workflow facts from the data file. Quote the statute and cite the '
         'section number; never paraphrase a legal requirement into your own words, and '
         'never state a deadline, form number or criterion that is not in the quoted '
         'text. It is statutory text, not legal advice, and it governs California plans '
@@ -1140,6 +1215,7 @@ def main():
     trials = load(TRIALS_JSON, {'drugs': [], 'trials': []})
     coverage = load(COVERAGE_JSON, {'statutes': [], 'regulations': [], 'forms': []})
     public_health = load(PUBLIC_HEALTH_JSON, {'pages': []})
+    cencal_prior_auth = load(CENCAL_PRIOR_AUTH_JSON, {})
 
     for directory in (STUDIES_DIR, INDEX_DIR, LABELS_DIR, COVERAGE_DIR,
                       FDA_DIR, TRIALS_DIR, GUIDANCE_DIR):
@@ -1218,6 +1294,11 @@ def main():
             (COVERAGE_DIR / f'{name}.mdx').write_text(
                 bcp.build_statute_page(s, mdx_safe))
 
+    if cencal_prior_auth:
+        CENCAL_DIR.mkdir(parents=True, exist_ok=True)
+        (CENCAL_DIR / 'prior-authorization.mdx').write_text(
+            bcp.build_cencal_prior_authorization(cencal_prior_auth, mdx_safe, jsx_attr))
+
     if fda.get('drugs'):
         (PAGES / 'fda.mdx').write_text(
             bcp.build_fda_overview(fda, mdx_safe, jsx_attr, slugify))
@@ -1250,7 +1331,7 @@ def main():
         build_welcome_page(data, studies, len(labels.get('labels', []))))
 
     update_nav(data, studies, designs, topics, regions, countries, regimens,
-               labels, fda, trials, coverage, public_health)
+               labels, fda, trials, coverage, public_health, cencal_prior_auth)
 
     print(f'Generated {len(studies)} record pages, {len(by_coll)} collections, '
           f'{len(designs)} designs, {len(topics)} topics, {len(regions)} regions, '

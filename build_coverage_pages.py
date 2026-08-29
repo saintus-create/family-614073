@@ -264,6 +264,161 @@ def build_statute_page(s, mdx_safe):
     return '\n'.join(lines)
 
 
+
+# --------------------------------------------------------------------------
+# CenCal Health prior authorization / TAR workflow
+# --------------------------------------------------------------------------
+
+def build_cencal_prior_authorization(data, mdx_safe, jsx_attr):
+    """Render the CenCal operational analysis as MDX content."""
+
+    wic_14087_54 = 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=WIC&sectionNum=14087.54'
+    wic_14087_5 = 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=WIC&sectionNum=14087.5'
+    history = 'https://www.cencalhealth.org/explore-cencal-health/our-history/'
+    medical_pharmacy = 'https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/'
+    pharmacy_benefit = 'https://www.cencalhealth.org/health-plans/medi-cal/pharmacy-benefits/'
+    medi_cal_rx_forms = 'https://medi-calrx.dhcs.ca.gov/provider/forms/'
+    treatment_authorization = 'https://www.cencalhealth.org/providers/authorizations/treatment-authorization/'
+    apl_21_011 = 'https://www.dhcs.ca.gov/file/apl21-011-pdf/'
+    boilerplate = 'https://www.dhcs.ca.gov/providers-partners/medi-cal-managed-care-boilerplate-contracts/'
+    audit = 'https://www.dhcs.ca.gov/services/Documents/CenCal-main-and-SSS-Reports.pdf'
+    ecm = 'https://www.cencalhealth.org/providers/enhanced-care-management/'
+    wcm = 'https://www.cencalhealth.org/providers/ccs-whole-child-model/'
+    careconnect = 'https://www.cencalhealth.org/providers/eligibility/'
+    transportation = 'https://www.cencalhealth.org/members/transportation/'
+    grievances = 'https://www.cencalhealth.org/health-plans/medi-cal/grievances-and-appeals/'
+    dmhc_faq = 'https://www.dmhc.ca.gov/FileaComplaint/FrequentlyAskedQuestions.aspx'
+
+    return f'''---
+title: Operational and Regulatory Analysis of CenCal Health as a County Organized Health System
+subtitle: COHS authority, medical-benefit administration, Medi-Cal Rx carve-outs, utilization management, care coordination and appeal pathways.
+slug: cencal-health/prior-authorization
+---
+
+## Statutory Origin and Enabling Legal Framework
+
+CenCal Health operates through the county health-system authority established in California Welfare and Institutions Code section 14087.54. The statute permits one or more county boards of supervisors to establish a special commission to arrange publicly assisted medical care, improve quality, and promote cost efficiency. CenCal’s institutional predecessor, the Santa Barbara Health Initiative, began operations in 1983; CenCal Health later expanded into San Luis Obispo County in 2008. CenCal identifies the resulting plan as a publicly funded health program for residents of Santa Barbara and San Luis Obispo counties. [WIC § 14087.54]({wic_14087_54}) [CenCal history]({history})
+
+Section 14087.54 authorizes the commission to negotiate the exclusive contract described in section 14087.5 and to arrange services under the Medi-Cal statutory framework. When the enabling ordinance is enacted, the commission receives the rights, powers, duties, privileges, and immunities assigned to the county under the county health-system article. The statute also provides that the commission is a public entity separate from the participating counties, and that its statutory, contractual, and other obligations are obligations of the commission alone, not of the county or the state. [WIC § 14087.54]({wic_14087_54}) [WIC § 14087.5]({wic_14087_5})
+
+The same statutory framework preserves a competitive provider environment. County-owned facilities do not occupy a superior or inferior contracting position solely because the commission was created by county ordinance. Section 14087.54 also prohibits the use of Medi-Cal payments or reserves for non-Medi-Cal programs that the commission may administer. [WIC § 14087.54]({wic_14087_54})
+
+## Governance Architecture and Regional Operating Scope
+
+CenCal Health is governed by a thirteen-member Board of Directors appointed by the Santa Barbara and San Luis Obispo County Boards of Supervisors. CenCal describes the board as including local government representatives, physicians, hospital representatives, member representatives, other health-care provider representatives, and business representatives. [CenCal history]({history})
+
+Within the County Organized Health System model, CenCal functions as the single Medi-Cal managed-care plan for its two-county service area. DHCS audit materials identify the legal entity as Santa Barbara San Luis Obispo Regional Health Authority, doing business as CenCal Health, and reported 241,571 Medi-Cal members as of December 2024. [DHCS FY 2024-25 audit]({audit})
+
+| Organizational metric | Operational specification | Primary authority |
+| --- | --- | --- |
+| Legal entity | Santa Barbara San Luis Obispo Regional Health Authority, dba CenCal Health | [DHCS audit]({audit}) |
+| Operating model | Single-plan County Organized Health System | [WIC § 14087.5]({wic_14087_5}) |
+| Service area | Santa Barbara County and San Luis Obispo County | [CenCal history]({history}) |
+| Governing body | Thirteen-member appointed Board of Directors | [CenCal history]({history}) |
+| Reported Medi-Cal enrollment | 241,571 members as of December 2024 | [DHCS audit]({audit}) |
+| Contract framework | DHCS managed-care contract, plan-specific exhibits, statutes, regulations and All Plan Letters | [DHCS boilerplate contracts]({boilerplate}) |
+
+## Medical Benefit Administration and Pharmacy Carve-Outs
+
+CenCal’s benefit administration turns on the distinction between pharmacy claims and medical claims. Since January 1, 2022, Medi-Cal Rx has administered the outpatient pharmacy benefit for CenCal Medi-Cal members. CenCal therefore does not adjudicate ordinary pharmacy point-of-sale claims or pharmacy prior authorizations for outpatient retail prescriptions covered through Medi-Cal Rx. [CenCal pharmacy benefits]({pharmacy_benefit}) [Medi-Cal Rx forms]({medi_cal_rx_forms})
+
+CenCal retains responsibility for physician-administered drugs when the medication is supplied and administered by a clinician in a medical setting and billed on a medical or institutional claim. CenCal’s Medical Pharmacy Management materials state that physician-administered drug authorization requests are evaluated through the plan’s medical pharmacy process, using the applicable PAD list, authorization criteria, and medical-necessity documentation. [Medical Pharmacy Management]({medical_pharmacy})
+
+CenCal also identifies five medication classes that are carved out of its benefit and reviewed or billed through State of California Fee-for-Service Medi-Cal for authorization consideration and reimbursement for both pharmacy and medical claims: antivirals; alcohol and heroin detoxification and dependency treatment drugs; blood-factor products for clotting-factor disorders; erectile-dysfunction drugs; and psychiatric drugs. [Medical Pharmacy Management]({medical_pharmacy})
+
+| Therapeutic benefit | Administrative entity | Authorization pathway |
+| --- | --- | --- |
+| Outpatient retail pharmacy | DHCS through Medi-Cal Rx | Medi-Cal Rx formulary, portal and DHCS 6560 process |
+| Physician-administered drugs | CenCal Health Pharmacy Services | CenCal Provider Portal or medical Treatment Authorization Request |
+| Antivirals | State Fee-for-Service Medi-Cal | State FFS review and reimbursement |
+| Alcohol and heroin detoxification and dependency treatment drugs | State Fee-for-Service Medi-Cal | State FFS review and reimbursement |
+| Blood-factor products for clotting-factor disorders | State Fee-for-Service Medi-Cal | State FFS review and reimbursement |
+| Erectile-dysfunction drugs | State Fee-for-Service Medi-Cal | State FFS review and reimbursement |
+| Psychiatric drugs | State Fee-for-Service Medi-Cal | State FFS review and reimbursement |
+
+## Utilization Management and Prior Authorization Procedures
+
+CenCal’s utilization-management process evaluates whether requested medical services and physician-administered drugs satisfy applicable benefit rules and medical-necessity criteria. Before rendering a service that may require authorization, providers should verify the governing rule through CenCal’s authorization resources, the HCPCS or CPT authorization search process, and the current physician-administered drug list when the request involves a medical-pharmacy product. [Treatment Authorization]({treatment_authorization}) [Medical Pharmacy Management]({medical_pharmacy})
+
+For retail pharmacy requests, the prescriber proceeds through Medi-Cal Rx by submitting the DHCS 6560 prior authorization form or by using an approved electronic submission route. For physician-administered drugs, the provider submits a CenCal medical authorization request before administration when the PAD list or code-search result requires a TAR. [Medi-Cal Rx forms]({medi_cal_rx_forms}) [Medical Pharmacy Management]({medical_pharmacy})
+
+Clinical submissions should identify the member, diagnosis, requested drug or procedure code, strength, route, dose, units or quantity, frequency, duration, prior treatment history, contraindications or failed alternatives, and the clinical rationale supporting the requested regimen. Off-label, non-preferred, quantity-limit, and multiple-dose requests require a record that connects the requested service to objective medical necessity criteria and the available clinical evidence. [Treatment Authorization]({treatment_authorization}) [Medical Pharmacy Management]({medical_pharmacy})
+
+| Authorization category | Primary use | Submission route |
+| --- | --- | --- |
+| Medical 50-1 TAR | Outpatient procedures, specialty services, medical treatments, durable medical equipment and physician-administered drugs | CenCal Provider Portal or designated authorization form |
+| Facility 18-1 authorization | Acute inpatient and facility-level requests | CenCal Provider Portal |
+| Long-Term Care 20-1 authorization | Skilled nursing, subacute and long-term care authorization | CenCal Provider Portal |
+| Referral Authorization Form | Primary-care referral to network specialty care | CenCal referral process |
+| Medi-Cal Rx prior authorization | Outpatient retail pharmacy benefit | Medi-Cal Rx portal, DHCS 6560 or electronic PA route |
+
+## Review Timelines and Adjudication Standards
+
+CenCal’s provider materials state that routine TARs are processed within five working days when appropriate documentation is supplied, may take up to fourteen days when additional documentation is required, and that expedited TARs are processed within three working days. Retroactive review may take up to thirty calendar days. DHCS All Plan Letter 21-011 sets the managed-care authorization standards for non-pharmacy prospective and concurrent requests, including five-business-day and fourteen-calendar-day limits for standard matters and a seventy-two-hour standard for expedited matters when the regulatory criteria are met. [Treatment Authorization]({treatment_authorization}) [DHCS APL 21-011]({apl_21_011})
+
+| Review category | Timeline reflected in the cited materials | Source |
+| --- | --- | --- |
+| Emergency services | Prior authorization is not required for emergency services | [DHCS APL 21-011]({apl_21_011}) |
+| Expedited authorization | CenCal states three working days; DHCS standards require decision and notice within the applicable expedited limit | [Treatment Authorization]({treatment_authorization}) [DHCS APL 21-011]({apl_21_011}) |
+| Standard authorization | CenCal states five working days with appropriate documentation and up to fourteen days when additional information is needed | [Treatment Authorization]({treatment_authorization}) |
+| Retroactive review | CenCal states up to thirty calendar days | [Treatment Authorization]({treatment_authorization}) |
+
+If the submission lacks the information necessary for review, the plan may defer the request and ask for specified clinical documentation. If a request is denied, deferred, or modified, CenCal states that the returned TAR identifies the reason and includes the appeal process. [Treatment Authorization]({treatment_authorization})
+
+## Provider TAR Appeal Framework
+
+A provider who receives a denial, deferral, or modification of a CenCal TAR may contact the physician reviewer or submit a TAR appeal. CenCal instructs providers to file the TAR Appeal Form within ninety calendar days of the original decision and to include the original TAR and denial notice, a written explanation of why the denial or modification should be overturned, and documentation supporting reversal. [Treatment Authorization]({treatment_authorization})
+
+## Integrated Care Coordination and CalAIM Programs
+
+CenCal administers Enhanced Care Management under CalAIM for eligible members with complex medical, behavioral, and social needs. CenCal describes ECM as intensive care management that coordinates physical health, behavioral health, long-term services, oral health, and social determinants of health through assigned care-management resources and contracted community providers. [Enhanced Care Management]({ecm})
+
+CenCal also administers the California Children’s Services Whole Child Model for eligible members in Santa Barbara and San Luis Obispo counties. Under that model, CenCal is responsible for payment, authorizations, care coordination, and claims processing for CCS-eligible CenCal members, while county CCS programs continue to determine CCS eligibility. [CCS Whole Child Model]({wcm})
+
+For dual-eligible members, CenCal CareConnect is CenCal’s Dual Eligible Special Needs Plan for individuals who qualify for both Medicare and Medi-Cal and reside in Santa Barbara or San Luis Obispo County. CenCal describes the product as combining Medicare, Medicare prescription drug coverage, and Medi-Cal benefits into a single coordinated plan. [CenCal eligibility]({careconnect})
+
+## Medical Transportation Administration
+
+CenCal administers non-emergency medical transportation and non-medical transportation benefits for members who need transportation to covered services. NEMT is used when the member requires specialized transport or assistance because of medical limitations; NMT covers less intensive transportation arrangements for members who can use ordinary transportation with coordination support. [Transportation]({transportation})
+
+## Member Grievances, Appeals and External Review
+
+CenCal’s member grievance and appeal system permits members to file complaints and appeals without retaliation. CenCal states that a member may appeal a denial, delay, modification, or other adverse plan decision verbally, in writing, online, or through Member Services within sixty days from the date of the decision. A provider filing an appeal on the member’s behalf must obtain written member consent. [Grievances and Appeals]({grievances})
+
+Standard member appeals are resolved within thirty calendar days. Expedited appeals are available when the ordinary timeframe could seriously jeopardize the member’s life, physical or mental health, or ability to attain, maintain, or regain maximum function. DHCS APL 21-011 also describes the State Fair Hearing framework after exhaustion of the managed-care appeal process. [Grievances and Appeals]({grievances}) [DHCS APL 21-011]({apl_21_011})
+
+| Dispute stage | Initiation window | Decision framework | Governing body |
+| --- | --- | --- | --- |
+| Member appeal | Sixty days from the adverse decision notice | Thirty calendar days standard; expedited review when criteria are met | CenCal Grievance and Appeals |
+| Provider TAR appeal | Ninety calendar days from the original TAR decision | Provider appeal with clinical justification and supporting records | CenCal Medical Management |
+| State Fair Hearing | After managed-care appeal exhaustion, subject to DHCS/CDSS deadlines | Administrative hearing process | California Department of Social Services |
+| Independent Medical Review | Depends on DMHC jurisdiction and eligibility criteria | DMHC review when available | Department of Managed Health Care |
+
+## Strategic Synthesis
+
+CenCal Health’s operating structure reflects the County Organized Health System model: a locally governed public entity with a DHCS managed-care contract, a defined two-county service area, and responsibility for administering covered managed-care benefits through regional provider networks. The model centralizes medical-benefit administration while preserving state-level carve-outs for Medi-Cal Rx pharmacy claims and specified Fee-for-Service drug categories.
+
+For medication-related requests, the controlling operational question is the benefit channel. Retail pharmacy claims proceed through Medi-Cal Rx. Physician-administered drugs billed on medical claims remain within CenCal’s medical-pharmacy authorization process unless a state carve-out applies. Effective submissions therefore identify the channel first, then align the clinical record, billing code, dose, quantity, duration, prior therapies, evidence base, and appeal route to that channel.
+
+## Principal Source Materials
+
+- [California Legislative Information — Welfare and Institutions Code section 14087.54]({wic_14087_54})
+- [California Legislative Information — Welfare and Institutions Code section 14087.5]({wic_14087_5})
+- [DHCS — Managed Care Boilerplate Contracts]({boilerplate})
+- [DHCS — All Plan Letter 21-011]({apl_21_011})
+- [DHCS — FY 2024-25 Medical Audit of Santa Barbara San Luis Obispo Regional Health Authority dba CenCal Health]({audit})
+- [CenCal Health — Our History]({history})
+- [CenCal Health — Medical Pharmacy Management]({medical_pharmacy})
+- [CenCal Health — Treatment Authorization]({treatment_authorization})
+- [CenCal Health — Grievances and Appeals]({grievances})
+- [CenCal Health — Enhanced Care Management]({ecm})
+- [CenCal Health — CCS Whole Child Model]({wcm})
+- [CenCal Health — Transportation]({transportation})
+- [Medi-Cal Rx — Provider Forms]({medi_cal_rx_forms})
+- [DMHC — Complaint and IMR Eligibility FAQ]({dmhc_faq})
+'''
+
+
 # --------------------------------------------------------------------------
 # FDA approval history
 # --------------------------------------------------------------------------

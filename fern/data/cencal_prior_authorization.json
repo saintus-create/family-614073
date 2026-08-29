@@ -1,0 +1,186 @@
+{
+  "provider_requirements": [
+    {
+      "value": "Be the treating/prescribing provider (or an authorized pharmacy/provider submitting on the prescriber's behalf) and identify the Medi-Cal member, diagnosis, requested drug, strength, route, dose, quantity, frequency and duration.",
+      "value_citation": "https://medi-calrx.dhcs.ca.gov/provider/forms/"
+    },
+    {
+      "value": "For a CenCal physician-administered drug (PAD), confirm that the drug/code is on the current PAD List as TAR-required (or that the requested use exceeds an indicated code/unit/diagnosis limit), and submit before administering it.",
+      "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+    },
+    {
+      "value": "For a drug dispensed by a pharmacy, use Medi-Cal Rx rather than CenCal Health: since January 1, 2022 DHCS and its vendor administer the pharmacy benefit, including formulary and pharmacy prior authorization.",
+      "value_citation": "https://www.cencalhealth.org/health-plans/medi-cal/pharmacy-benefits/"
+    },
+    {
+      "value": "Have sufficient clinical information to establish medical necessity under objective, evidence-based criteria; CenCal may disclose the criteria used for the particular modification, delay or denial.",
+      "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+    }
+  ],
+  "request_steps": [
+    {
+      "step_number": 1,
+      "step_number_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/",
+      "action": "Classify the request. If the medicine is dispensed through a pharmacy, check the Medi-Cal Rx formulary/covered-drug list and PA requirement and proceed through Medi-Cal Rx. If it is infused or injected in the office/facility and billed on a medical claim (for example, a J-code), check CenCal's PAD List and TAR/code search tool.",
+      "action_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/",
+      "required_documentation": [
+        {
+          "value": "Member identification and the exact prescription or PAD HCPCS/procedure code, dose, units/quantity, frequency and duration.",
+          "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+        }
+      ],
+      "responsible_party": "Treating provider/prescriber",
+      "responsible_party_citation": "https://medi-calrx.dhcs.ca.gov/provider/forms/"
+    },
+    {
+      "step_number": 2,
+      "step_number_citation": "https://medi-calrx.dhcs.ca.gov/provider/forms/",
+      "action": "For pharmacy benefit requests, complete the Medi-Cal Rx Prior Authorization Request (DHCS 6560), or submit electronically using one of the Medi-Cal Rx submission routes (the site also provides the PA Job Aid and five-ways flyer). For a CenCal PAD, submit a Treatment Authorization Request (TAR) through the CenCal Provider Portal; a downloadable form/fax route is available when portal submission is not possible.",
+      "action_citation": "https://medi-calrx.dhcs.ca.gov/provider/forms/",
+      "required_documentation": [
+        {
+          "value": "DHCS 6560 PA form for a Medi-Cal Rx pharmacy request, or the CenCal TAR/authorization form for a PAD.",
+          "value_citation": "https://medi-calrx.dhcs.ca.gov/provider/forms/"
+        },
+        {
+          "value": "Clinical records and supporting medical-necessity documentation; for an off-label, non-preferred, quantity-limit or multiple-dose request, explain the indication, prior treatment/alternatives and why the requested dose/quantity is necessary.",
+          "value_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/"
+        }
+      ],
+      "responsible_party": "Prescriber/requesting provider (Medi-Cal Rx PA) or contracted provider (CenCal TAR)",
+      "responsible_party_citation": "https://www.cencalhealth.org/providers/authorizations/"
+    },
+    {
+      "step_number": 3,
+      "step_number_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+      "action": "Mark the request routine or expedited and submit it before treatment/dispensing. Request expedited handling only when waiting for the standard timeframe could seriously jeopardize life, health, or the ability to attain, maintain, or regain maximum function.",
+      "action_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/",
+      "required_documentation": [
+        {
+          "value": "A statement supporting urgency and the clinical risk of delay, if expedited review is requested.",
+          "value_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+        }
+      ],
+      "responsible_party": "Requesting provider; CenCal or DHCS/Medi-Cal Rx reviews the request according to the applicable benefit channel",
+      "responsible_party_citation": "https://www.cencalhealth.org/health-plans/medi-cal/pharmacy-benefits/"
+    },
+    {
+      "step_number": 4,
+      "step_number_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+      "action": "Respond promptly to any request for additional information and track the PA/TAR. CenCal states routine authorizations are 5 working days with appropriate documentation (allow up to 14 days if more documentation is required), expedited authorizations are 3 working days, and retroactive review may take up to 30 calendar days.",
+      "action_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+      "required_documentation": [
+        {
+          "value": "Any additional records specifically requested by the plan, including records supporting medical necessity and the proposed off-label or multiple-dose regimen.",
+          "value_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/"
+        }
+      ],
+      "responsible_party": "CenCal utilization-management reviewer for a PAD/TAR; Medi-Cal Rx/DHCS for pharmacy benefit",
+      "responsible_party_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+    },
+    {
+      "step_number": 5,
+      "step_number_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/",
+      "action": "Receive the determination and follow the approval conditions. If denied, deferred or modified, review the written reasons and criteria; for a CenCal TAR, the returned TAR identifies why and includes the appeal process. Do not administer a TAR-required PAD without approval unless an applicable emergency/retroactive rule applies.",
+      "action_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+      "required_documentation": [
+        {
+          "value": "The determination/NOA and, where applicable, the plan's specific clinical criteria or policy used for the decision.",
+          "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+        }
+      ],
+      "responsible_party": "CenCal or Medi-Cal Rx/DHCS; provider implements the approved regimen",
+      "responsible_party_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+    },
+    {
+      "step_number": 6,
+      "step_number_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+      "action": "If a CenCal TAR is denied, deferred or modified, contact the physician reviewer or submit the CenCal TAR Appeal Form within 90 calendar days of the original decision, with documentation supporting reversal. If acting for the member in a Medi-Cal appeal, obtain the member's written consent.",
+      "action_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+      "required_documentation": [
+        {
+          "value": "CenCal TAR Appeal Form, original determination, and new/supporting medical justification.",
+          "value_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/"
+        },
+        {
+          "value": "Written member consent when a provider files an appeal on the member's behalf.",
+          "value_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+        }
+      ],
+      "responsible_party": "Provider for the provider TAR appeal; member or provider with member consent for the Medi-Cal member appeal",
+      "responsible_party_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+    }
+  ],
+  "cencal_statutory_responsibilities": {
+    "governing_laws": [
+      {
+        "value": "Welfare and Institutions Code section 14087.5 governs county organized health-system contracts and contract amendments; it is the statutory basis for the COHS contracting framework.",
+        "value_citation": "https://law.justia.com/codes/california/code-wic/division-9/part-3/chapter-7/article-2-8/section-14087-5/"
+      },
+      {
+        "value": "DHCS All Plan Letter 21-011 requires Medi-Cal managed care plans to process authorization decisions and adverse-benefit determinations under the stated state and federal requirements, including HSC section 1367.01, W&I sections 14197.3 and 10951, and the DHCS contract.",
+        "value_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+      },
+      {
+        "value": "The CY 2024 DHCS Managed Care Boilerplate Contract applies to all managed-care models, expressly including County Organized Health Systems; plan-specific provisions are in Exhibit L. CenCal's executed contract and amendments therefore control in addition to statutes, regulations and APLs.",
+        "value_citation": "https://www.dhcs.ca.gov/providers-partners/medi-cal-managed-care-boilerplate-contracts/"
+      },
+      {
+        "value": "For pharmacy claims, Medi-Cal Rx—not the COHS—administers the pharmacy benefit and PA policy; CenCal retains its medical PAD benefit. This carve-out is material to identifying the legally responsible reviewer.",
+        "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+      }
+    ],
+    "cohs_specific_mandates": "CenCal is the designated Medi-Cal managed-care plan for Santa Barbara and San Luis Obispo counties and operates as the single COHS plan rather than one plan among competing plans in those counties. The COHS model does not create a separate off-label drug standard: CenCal must apply the DHCS MCP contract, applicable APLs, Medi-Cal benefit rules and California utilization-review/notice requirements. Its distinctive responsibility is county-wide administration and financial/operational responsibility for covered managed-care services, while pharmacy-benefit PA is carved out to DHCS Medi-Cal Rx and physician-administered drugs billed medically remain CenCal's responsibility. CenCal must use objective written criteria, apply medical-necessity criteria consistently, disclose the case-specific criteria on request/when used for a denial, issue notices, and maintain appeal routes.",
+    "cohs_specific_mandates_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/",
+    "compliance_standards": [
+      {
+        "value": "For non-pharmacy standard prospective/concurrent requests, decide in the shortest clinically appropriate period and no later than 5 business days after receiving information reasonably necessary to decide, and never later than 14 calendar days after receipt of the request; notify the provider within 24 hours of the decision and the member within 2 business days.",
+        "value_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+      },
+      {
+        "value": "For expedited requests, decide and notify within an appropriate period no longer than 72 hours after receiving all information needed; an extension of up to 14 calendar days is permitted only under the stated federal/member-interest conditions.",
+        "value_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+      },
+      {
+        "value": "CenCal's operational provider standard states routine TARs: 5 working days with appropriate documentation, up to 14 days when further documentation is needed; expedited TARs: 3 working days; retroactive review: up to 30 calendar days.",
+        "value_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/"
+      },
+      {
+        "value": "Standard member appeals must be acknowledged in writing within 5 calendar days and resolved within 30 calendar days; expedited appeals must be resolved within 72 hours.",
+        "value_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+      }
+    ]
+  },
+  "clinical_justification_criteria": [
+    {
+      "value": "Identify the diagnosis/clinical indication and explain why the requested drug and exact dose, frequency, quantity, duration or multiple-dose regimen is medically necessary for this member.",
+      "value_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/"
+    },
+    {
+      "value": "Explain why covered formulary/preferred alternatives, standard labeled dosing, or lower quantity have failed, are contraindicated, are clinically inappropriate, or are expected to be ineffective; include prior treatment history and outcomes.",
+      "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+    },
+    {
+      "value": "Provide relevant chart notes, diagnosis and treatment history, objective findings/laboratory or imaging evidence where relevant, and literature/guideline or compendia support for an off-label use. CenCal's criteria hierarchy includes FDA labeling, clinical trials, CMS-approved compendia, peer-reviewed literature and evidence-based guidelines.",
+      "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+    },
+    {
+      "value": "For a preferred PAD exception, document that the preferred biosimilar/product was tried and failed or why it is medically inappropriate; CenCal states preferred alternatives must be tried and failed before reference-product consideration.",
+      "value_citation": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+    }
+  ],
+  "review_timeline": {
+    "standard_turnaround_time": "CenCal TAR: 5 working days with appropriate documentation; up to 14 days if additional documentation is required. DHCS APL standard: no later than 5 business days after reasonably necessary information and no later than 14 calendar days after request (non-pharmacy).",
+    "standard_turnaround_time_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+    "expedited_turnaround_time": "CenCal TAR: 3 working days. DHCS APL expedited standard: no longer than 72 hours after all information needed to decide; up to 14 calendar-day extension only under the stated conditions.",
+    "expedited_turnaround_time_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+  },
+  "appeals_and_imr": {
+    "internal_appeal_process": "A provider may contact the CenCal physician reviewer or appeal a denied/deferred/modified TAR using the TAR Appeal Form within 90 calendar days of the original decision, including the original decision and documentation supporting reversal. For the Medi-Cal member appeal system, the member may appeal orally or in writing; a provider filing for the member needs written consent. The MCP must acknowledge within 5 calendar days and resolve a standard appeal within 30 calendar days, or resolve an expedited appeal within 72 hours.",
+    "internal_appeal_process_citation": "https://www.cencalhealth.org/providers/authorizations/treatment-authorization/",
+    "imr_eligibility": "A Medi-Cal managed-care denial is ordinarily pursued through the MCP appeal and then a DHCS State Fair Hearing, not the ordinary DMHC commercial-plan IMR route. DMHC's eligibility FAQ distinguishes Medi-Cal fee-for-service as ineligible and says non-covered-benefit cases do not qualify for IMR; verify current jurisdiction with DMHC/DHCS because CenCal is a Medi-Cal COHS and pharmacy PA is administered by DHCS Medi-Cal Rx.",
+    "imr_eligibility_citation": "https://www.dmhc.ca.gov/FileaComplaint/FrequentlyAskedQuestions.aspx",
+    "state_fair_hearing_process": "The member generally must file the MCP appeal within 60 calendar days of the Notice of Action and exhaust the MCP appeal before requesting a State Fair Hearing, except deemed-exhaustion situations. Failure to meet appeal/notice timeframes can deem the internal process exhausted. After exhaustion, request the State Fair Hearing through the California Department of Social Services; the Medi-Cal Rx forms page provides a State Fair Hearing Request Form. Timely appeals of a termination, suspension or reduction can preserve Aid Paid Pending when filed within 10 days of the NOA or before the effective date.",
+    "state_fair_hearing_process_citation": "https://www.dhcs.ca.gov/file/apl21-011-pdf/"
+  }
+}

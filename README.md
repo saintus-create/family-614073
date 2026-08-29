@@ -17,11 +17,12 @@ scripts/fetch_fda.py           ->  fern/data/fda.json            (approvals, Dru
 scripts/fetch_trials.py        ->  fern/data/trials.json         (ClinicalTrials.gov)
 scripts/fetch_coverage.py      ->  fern/data/coverage.json       (CA statutes, leginfo)
 scripts/fetch_public_health.py ->  fern/data/public_health.json  (CDC / NIMH)
+manual/source-linked data      ->  fern/data/cencal_prior_authorization.json (CenCal / Medi-Cal Rx PA/TAR)
 generate_evidence_site.py      ->  fern/docs/pages/**            (render MDX + nav)
-build_coverage_pages.py        ->  page builders for the four newer datasets
+build_coverage_pages.py        ->  page builders for coverage, FDA, trials, guidance and CenCal
 ```
 
-Those six JSON files are the single source of truth. Both the pages under
+Those data JSON files are the single source of truth. Both the pages under
 `fern/docs/pages/` and the `navigation` block of `fern/docs.yml` are generated — edit the
 data or the generator, never the output.
 
@@ -34,6 +35,7 @@ python3 scripts/fetch_fda.py           # re-pull Drugs@FDA approval history
 python3 scripts/fetch_trials.py        # re-pull ClinicalTrials.gov registrations
 python3 scripts/fetch_coverage.py      # re-pull California coverage statutes
 python3 scripts/fetch_public_health.py # re-pull CDC / NIMH guidance
+# update fern/data/cencal_prior_authorization.json when CenCal/Medi-Cal Rx source facts change
 python3 generate_evidence_site.py      # rebuild all pages and navigation
 fern check                           # validate
 fern docs dev                        # preview locally
@@ -97,3 +99,20 @@ This is a bibliographic index for research use. It reproduces published abstract
 does not interpret them, rank treatments, or offer medical advice. Collections are
 relevance-ranked PubMed samples capped at a fixed size — they are not systematic reviews,
 and absence from the index says nothing about a study's quality.
+
+## Web app (MDX)
+
+`web/` serves every page — the generated Fern MDX under `fern/docs/pages/` and
+the generated medication docs under `web/content/docs/` — through one uniform
+MDX renderer, so all pages share the same layout and components.
+
+```bash
+cd web
+npm install
+node scripts/generate-docs.mjs   # rebuild the medication MDX pages
+npm run dev                      # http://localhost:3000
+```
+
+Medication pages are generated from `fern/data/*.json`; the CenCal PA/TAR page
+is generated from `fern/data/cencal_prior_authorization.json` by
+`generate_evidence_site.py`. Edit the data or generator, never the output.
