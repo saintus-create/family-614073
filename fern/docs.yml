@@ -1,3 +1,7 @@
+landing-page:
+  page: Home
+  path: docs/pages/landing.mdx
+  slug: /
 instances:
 - url: us-fda-154115.docs.buildwithfern.com
   edit-this-page:
