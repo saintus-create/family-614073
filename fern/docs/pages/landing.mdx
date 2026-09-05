@@ -1,116 +1,117 @@
 ---
-title: California's COHS Plans
+title: Welcome to Fern!
+subtitle: Everything you need to build the best developer experience
 slug: /
-hide-nav-links: true
-layout: overview
 ---
 
-<div style="position:relative;min-height:100vh;min-height:100svh;overflow:hidden;margin:-8px -8px 54px;isolation:isolate;background:#010409;">
-  <video autoplay muted loop playsinline preload="auto" poster="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_00000_print.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.78) saturate(.78);z-index:-4;">
-    <source src="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_1080p30.mp4" type="video/mp4" />
-  </video>
-  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,4,9,.9) 0%,rgba(1,4,9,.48) 42%,rgba(1,4,9,.08) 72%,rgba(1,4,9,.22) 100%),linear-gradient(0deg,rgba(1,4,9,.72) 0%,transparent 48%,rgba(1,4,9,.12) 100%);z-index:-3;"></div>
-  <div style="position:absolute;inset:0;background:radial-gradient(circle at 72% 48%,transparent 0,transparent 38%,rgba(0,0,0,.28) 100%);z-index:-2;"></div>
+This repository is a starter template for building documentation with [Fern](https://buildwithfern.com). It includes a sample Plant Store API to demonstrate how Fern generates interactive API reference documentation from an OpenAPI specification.
 
-  <div style="position:relative;display:flex;align-items:center;min-height:100vh;min-height:100svh;padding:clamp(30px,7vw,92px);">
-    <div style="max-width:690px;">
-      <div style="display:flex;align-items:center;gap:9px;margin-bottom:22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);">
-        <span style="width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 14px rgba(255,255,255,.95);"></span>
-        California · Medi-Cal geography
-      </div>
-      <h1 style="font-size:clamp(46px,7.2vw,88px);line-height:.93;letter-spacing:-.06em;color:#fff;margin:0 0 22px;text-shadow:0 4px 34px rgba(0,0,0,.55);">California's COHS Plans</h1>
-      <p style="font-size:clamp(21px,2.5vw,31px);line-height:1.12;color:rgba(255,255,255,.94);margin:0 0 10px;">CenCal Health</p>
-      <p style="max-width:610px;font-size:16px;line-height:1.65;color:rgba(255,255,255,.68);margin:0;">Medi-Cal coverage · pharmacy · authorization · medical necessity · appeals</p>
-    </div>
-  </div>
+Use this template to get started quickly, then replace the sample content with your own API and documentation.
 
-  <div style="position:absolute;left:clamp(30px,7vw,92px);bottom:26px;font-size:10px;letter-spacing:.04em;color:rgba(255,255,255,.42);">NASA / NOAA · VIIRS Day/Night Band</div>
-  <div style="position:absolute;right:clamp(30px,7vw,92px);bottom:26px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.38);">Explore below</div>
-</div>
+## What's included
 
-<Callout intent="info">
-<strong>Start with the program.</strong> Medi-Cal is California's Medicaid program. Medicare is a separate federal health insurance program. For members in Santa Barbara and San Luis Obispo Counties, CenCal Health is the local County Organized Health System (COHS) Medi-Cal managed care plan.
-</Callout>
+<Files>
+  <File name="docs.yml" comment="Configures navigation, theme, and hosting" />
+  <File name="fern.config.json" comment="Sets your organization name and CLI version" />
+  <File name="openapi.yaml" comment="Sample Plant Store API specification" />
+  <Folder name="docs" defaultOpen>
+    <Folder name="pages" comment="Markdown content for your documentation" />
+    <Folder name="assets" comment="Logos, favicon, and other assets" />
+  </Folder>
+</Files>
 
-## Start with the decision you are trying to make
+## Getting started
+
+<Steps>
+<Step title="Clone this repository">
+
+```bash
+git clone <your-template-repo.git>
+cd docs-starter
+```
+
+</Step>
+
+<Step title="Install the Fern CLI">
+
+```bash
+npm install -g fern-api
+```
+
+</Step>
+
+<Step title="Preview locally">
+
+Start a local development server with hot-reloading:
+
+```bash
+fern docs dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see your docs.
+
+</Step>
+
+<Step title="Make it yours">
+
+Update `fern.config.json` with your organization name and `docs.yml` with your desired URL. The `version` refers to [the Fern CLI](https://buildwithfern.com/learn/cli-api-reference/cli-reference/overview):
+
+```json title="fern.config.json"
+{
+  "organization": "your-org-name",
+  "version": "0.46.15"
+}
+```
+
+```yaml title="docs.yml"
+instances:
+  - url: your-org.docs.buildwithfern.com
+```
+
+</Step>
+
+<Step title="Publish">
+
+When you're ready to go live:
+
+```bash
+fern generate --docs
+```
+
+</Step>
+</Steps>
+
+## Next steps
+
+Replace the sample Plant Store API with your own OpenAPI specification, update the Markdown pages with your content, and customize the theme to match your brand. For detailed guidance, explore the pages in this documentation or visit the [Fern documentation](https://buildwithfern.com/learn).
 
 <CardGroup cols={2}>
-  <Card title="I need a medication covered" icon="fa-regular fa-pills" href="/medication-coverage">
-    Determine whether the request is handled by Medi-Cal Rx or CenCal's medical benefit.
+  <Card
+    title="Edit your docs"
+    icon="duotone pen-to-square"
+    href="/editing-your-docs"
+  >
+    Learn how to preview and publish changes using the CLI or Fern Editor
   </Card>
-  <Card title="Prior authorization" icon="fa-regular fa-file-check" href="/prior-authorization">
-    Find the decision-maker, submission requirements, review standard, and deadline.
+  <Card
+    title="Set up navigation"
+    icon="duotone sitemap"
+    href="/navigation"
+  >
+    Configure tabs, sections, and pages in your docs.yml file
   </Card>
-  <Card title="Medical necessity" icon="fa-regular fa-stethoscope" href="/medical-necessity">
-    Find the clinical criteria and the authority that permits those criteria to be used.
+  <Card
+    title="Customize your docs"
+    icon="duotone palette"
+    href="/customization"
+  >
+    Brand your documentation with colors, logos, and layouts
   </Card>
-  <Card title="My medication was denied" icon="fa-regular fa-circle-xmark" href="/denial">
-    Find the required notice and the available reconsideration, appeal, or hearing process.
-  </Card>
-</CardGroup>
-
-## Know which system applies
-
-<CardGroup cols={2}>
-  <Card title="Medi-Cal" icon="fa-regular fa-id-card">
-    California's Medicaid program. This is not Medicare.
-  </Card>
-  <Card title="Medicare" icon="fa-regular fa-hospital-user">
-    A separate federal health insurance program. Medicare rules do not automatically govern a Medi-Cal decision.
-  </Card>
-  <Card title="Medi-Cal Rx" icon="fa-regular fa-prescription-bottle-medical">
-    The statewide Medi-Cal pharmacy benefit for most outpatient prescription drugs.
-  </Card>
-  <Card title="CenCal Health" icon="fa-regular fa-hospital">
-    The COHS Medi-Cal managed care plan serving Santa Barbara and San Luis Obispo Counties.
-  </Card>
-  <Card title="DHCS" icon="fa-regular fa-building-columns">
-    California's Department of Health Care Services, the state agency that administers Medi-Cal.
+  <Card
+    title="API reference"
+    icon="duotone code"
+    href="/api-reference"
+  >
+    See how Fern generates interactive API documentation
   </Card>
 </CardGroup>
-
-## California's other COHS plans
-
-These are reference links. The initial research focus is CenCal Health.
-
-<CardGroup cols={2}>
-  <Card title="Central California Alliance for Health" icon="fa-regular fa-location-dot" href="https://thealliance.health/">
-    Official plan website
-  </Card>
-  <Card title="CalOptima Health" icon="fa-regular fa-location-dot" href="https://www.caloptima.org/">
-    Official plan website
-  </Card>
-  <Card title="Health Plan of San Mateo" icon="fa-regular fa-location-dot" href="https://www.hpsm.org/">
-    Official plan website
-  </Card>
-  <Card title="Partnership HealthPlan of California" icon="fa-regular fa-location-dot" href="https://www.partnershiphp.org/">
-    Official plan website
-  </Card>
-  <Card title="Gold Coast Health Plan" icon="fa-regular fa-location-dot" href="https://www.goldcoasthealthplan.org/">
-    Official plan website
-  </Card>
-</CardGroup>
-
-## The path from prescription to decision
-
-**Program** → Medi-Cal, Medicare, or both
-
-**Benefit** → Pharmacy prescription or medical benefit
-
-**Decision-maker** → Medi-Cal Rx, CenCal Health, or another responsible entity
-
-**Authority** → Federal rule, California statute or regulation, DHCS requirement, contract, or authorized plan policy
-
-**Review** → Coverage, prior authorization, utilization management, or medical necessity
-
-**Deadline** → Required decision and notice timeframe
-
-**Remedy** → Reconsideration, appeal, grievance, or State Fair Hearing, as applicable
-
-<Callout intent="warning">
-A plan policy is not treated as self-justifying. This handbook identifies the legal, regulatory, contractual, or delegated authority behind the requirement.
-</Callout>
-
-<div style="margin-top:28px;padding:16px 18px;border-top:1px solid rgba(127,127,127,.18);font-size:12px;color:rgba(127,127,127,.82);">
-The hero imagery uses NASA/NOAA VIIRS nighttime satellite imagery. The imagery is illustrative context; the legal analysis on this site is based on the governing Medi-Cal statutes, regulations, contracts, and published plan/DHCS materials.
-</div>
