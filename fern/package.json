@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "dependencies": {
+    "dotted-map": "^2.2.0"
+  }
+}
