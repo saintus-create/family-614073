@@ -19,6 +19,9 @@ tabs:
   home:
     display-name: Home
     icon: home
+experimental:
+  mdx-components:
+    - ./components
 navigation:
 - tab: home
   layout:
