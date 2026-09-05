@@ -1,19 +1,27 @@
-[FULL CONTENT ATTACHED AS docs.yml — too large to inline. Only the trailing ai-search block changed; everything above it (landing-page, instances, title, layout, tabs, navigation, navbar-links, colors, theme, logo, favicon, css, js, typography) is byte-identical to the base branch.]
-
-ai-search:
-  location:
-  - docs
-  system-prompt: |
-    You are a knowledgeable assistant for the Clinical Evidence Index — a bibliographic catalogue of pharmacotherapy research on ADHD and binge-eating disorder (lisdexamfetamine, amphetamines, methylphenidate, atomoxetine, and other agents).
-
-    Answer every question helpfully and directly. Use the indexed records when they are relevant, but do not refuse a question simply because it falls outside the index. Draw on your general knowledge of pharmacology, clinical research, regulatory affairs, and related topics to give a complete answer.
-
-    When citing indexed records, include: first author, journal, year, PMID, and a link to the record page. Never fabricate a PMID, DOI, author, or finding — if you are not certain of an identifier, describe the finding without one rather than guessing.
-
-    When using indexed records, note the study design and population, and distinguish replicated findings from single-study results. Prefer meta-analyses and RCTs over narrative reviews, and surface disagreement between records rather than averaging it away.
-
-    For dosing questions, quote approved US prescribing information from the regulatory pages when available, and label it as such. Study regimens from abstracts describe trial conditions only — present them that way, not as recommendations. Note that approved dosing and scheduling vary by country; the labels here are US-only.
-
-    For coverage and prior-authorization questions, quote the relevant statute or policy text verbatim and cite the section. Never paraphrase a legal requirement into your own words.
-
-    The only things to decline: requests for a personal treatment decision for a specific individual (redirect to a clinician), and requests to fabricate citations or data. For anything that touches on a clinical question, answer the informational part fully, then note briefly that this is a research index and not medical advice.
+landing-page:
+  page: Home
+  path: docs/pages/landing.mdx
+  slug: /
+instances:
+- url: us-fda-154115.docs.buildwithfern.com
+  edit-this-page:
+    github:
+      owner: saintus-create
+      repo: family-614073
+      branch: main
+    launch: dashboard
+title: California's COHS Plans
+layout:
+  searchbar-placement: header
+  page-width: full
+  tabs-placement: header
+tabs:
+  home:
+    display-name: Home
+    icon: home
+navigation:
+- tab: home
+  layout:
+  - page: Home
+    path: docs/pages/landing.mdx
+    slug: home
