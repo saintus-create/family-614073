@@ -5,15 +5,37 @@ hide-nav-links: true
 layout: overview
 ---
 
-# California's COHS Plans
+<div style="position:relative;min-height:72vh;overflow:hidden;border-radius:28px;background:#02050a;margin:-8px 0 42px;isolation:isolate;">
+  <video autoplay muted loop playsinline preload="metadata" poster="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_00000_print.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.72) saturate(.72);z-index:-3;">
+    <source src="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_1080p30.mp4" type="video/mp4" />
+  </video>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,4,9,.96) 0%,rgba(1,4,9,.72) 38%,rgba(1,4,9,.16) 78%,rgba(1,4,9,.38) 100%),linear-gradient(0deg,rgba(1,4,9,.72) 0%,transparent 55%);z-index:-2;"></div>
+  <div style="position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),inset 0 -120px 140px rgba(0,0,0,.38);pointer-events:none;z-index:-1;"></div>
 
-## CenCal Health
+  <div style="display:flex;align-items:flex-end;min-height:72vh;padding:clamp(28px,6vw,72px);">
+    <div style="max-width:720px;">
+      <div style="display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(3,7,14,.42);backdrop-filter:blur(10px);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.76);margin-bottom:20px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.9);"></span>
+        California · Medi-Cal geography
+      </div>
+      <h1 style="font-size:clamp(42px,7vw,82px);line-height:.96;letter-spacing:-.055em;color:#fff;margin:0 0 18px;text-shadow:0 3px 30px rgba(0,0,0,.42);">California's COHS Plans</h1>
+      <p style="font-size:clamp(20px,2.5vw,30px);line-height:1.15;color:rgba(255,255,255,.92);margin:0 0 12px;">CenCal Health</p>
+      <p style="max-width:600px;font-size:16px;line-height:1.65;color:rgba(255,255,255,.72);margin:0 0 28px;">Medi-Cal coverage · pharmacy · authorization · medical necessity · appeals</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href="/medication-coverage" style="display:inline-flex;align-items:center;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,.94);color:#07101b;text-decoration:none;font-weight:600;">Explore coverage</a>
+        <a href="https://worldview.earthdata.nasa.gov/" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(3,7,14,.38);color:#fff;text-decoration:none;backdrop-filter:blur(10px);">Open live satellite view ↗</a>
+      </div>
+    </div>
+  </div>
 
-Medi-Cal coverage · pharmacy · authorization · medical necessity · appeals
+  <div style="position:absolute;right:24px;bottom:20px;font-size:10px;letter-spacing:.03em;color:rgba(255,255,255,.48);">NASA / NOAA · VIIRS Day/Night Band</div>
+</div>
 
 <Callout intent="info">
 <strong>Start with the program.</strong> Medi-Cal is California's Medicaid program. Medicare is a separate federal health insurance program. For members in Santa Barbara and San Luis Obispo Counties, CenCal Health is the local County Organized Health System (COHS) Medi-Cal managed care plan.
 </Callout>
+
+## Start with the decision you are trying to make
 
 <CardGroup cols={2}>
   <Card title="I need a medication covered" icon="fa-regular fa-pills" href="/medication-coverage">
@@ -91,3 +113,7 @@ These are reference links. The initial research focus is CenCal Health.
 <Callout intent="warning">
 A plan policy is not treated as self-justifying. This handbook identifies the legal, regulatory, contractual, or delegated authority behind the requirement.
 </Callout>
+
+<div style="margin-top:28px;padding:16px 18px;border-top:1px solid rgba(127,127,127,.18);font-size:12px;color:rgba(127,127,127,.82);">
+The hero imagery uses NASA/NOAA VIIRS nighttime satellite imagery. The imagery is illustrative context; the legal analysis on this site is based on the governing Medi-Cal statutes, regulations, contracts, and published plan/DHCS materials.
+</div>
