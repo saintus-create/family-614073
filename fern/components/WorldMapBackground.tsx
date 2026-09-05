@@ -1,117 +1,72 @@
-import DottedMap from "dotted-map";
+import { useEffect, useRef } from "react";
 
-type Point = { lat: number; lng: number };
-type Dot = { start: Point; end: Point };
-
-const dots: Dot[] = [
-  { start: { lat: 37.7749, lng: -122.4194 }, end: { lat: 34.0522, lng: -118.2437 } },
-  { start: { lat: 34.0522, lng: -118.2437 }, end: { lat: 40.7128, lng: -74.006 } },
-  { start: { lat: 37.7749, lng: -122.4194 }, end: { lat: 47.6062, lng: -122.3321 } },
-  { start: { lat: 34.0522, lng: -118.2437 }, end: { lat: 19.4326, lng: -99.1332 } },
-];
-
-const map = new DottedMap({ height: 60, grid: "diagonal" });
-const svgMap = map.getSVG({
-  radius: 0.22,
-  color: "#00000030",
-  shape: "circle",
-  backgroundColor: "transparent",
-});
-
-function project(point: Point) {
-  return {
-    x: (point.lng + 180) * (800 / 360),
-    y: (90 - point.lat) * (400 / 180),
-  };
-}
-
-function path(start: Point, end: Point) {
-  const a = project(start);
-  const b = project(end);
-  const midX = (a.x + b.x) / 2;
-  const midY = Math.min(a.y, b.y) - 50;
-  return { a, b, d: `M ${a.x} ${a.y} Q ${midX} ${midY} ${b.x} ${b.y}` };
-}
+const MAPBOX_TOKEN =
+  "pk.eyJ1Ijoic3RhbXBlbWVkaWEiLCJhIjoiY210b293OGFoMDlxZzJ4cTgzdWxhcTZlOSJ9.woZXmBqNxSPkFE5g9bivAw";
+const MAPBOX_CSS_URL = "https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css";
+const MAPBOX_JS_URL = "https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js";
 
 export function WorldMapBackground() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Inject Mapbox CSS if not already present
+    if (!document.querySelector(`link[href="${MAPBOX_CSS_URL}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = MAPBOX_CSS_URL;
+      document.head.appendChild(link);
+    }
+
+    // Inject Mapbox JS if not already present, then initialise the map
+    let map: any = null;
+    let script: HTMLScriptElement | null = null;
+
+    function initMap() {
+      if (!containerRef.current) return;
+      const mapboxgl = (window as any).mapboxgl;
+      if (!mapboxgl) return;
+
+      mapboxgl.accessToken = MAPBOX_TOKEN;
+      map = new mapboxgl.Map({
+        container: containerRef.current,
+        style: "mapbox://styles/mapbox/satellite-streets-v12",
+        center: [-119.7, 34.5],
+        zoom: 8,
+      });
+    }
+
+    if ((window as any).mapboxgl) {
+      // Already loaded from a previous render
+      initMap();
+    } else if (!document.querySelector(`script[src="${MAPBOX_JS_URL}"]`)) {
+      script = document.createElement("script");
+      script.src = MAPBOX_JS_URL;
+      script.onload = initMap;
+      document.head.appendChild(script);
+    } else {
+      // Script tag exists but may still be loading
+      const existing = document.querySelector(
+        `script[src="${MAPBOX_JS_URL}"]`
+      ) as HTMLScriptElement;
+      existing.addEventListener("load", initMap);
+    }
+
+    return () => {
+      if (map) {
+        map.remove();
+      }
+    };
+  }, []);
+
   return (
     <div
-      aria-hidden="true"
+      ref={containerRef}
       style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: "none",
-        overflow: "hidden",
-        opacity: 0.32,
+        width: "100%",
+        height: "100%",
+        minHeight: "500px",
       }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          inset: "4vh 0 0",
-          width: "100%",
-          height: "96vh",
-        }}
-      >
-        <img
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
-          alt=""
-          draggable={false}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-            opacity: 0.55,
-            maskImage: "linear-gradient(to bottom, transparent, white 10%, white 90%, transparent)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent, white 10%, white 90%, transparent)",
-          }}
-        />
-        <svg
-          viewBox="0 0 800 400"
-          preserveAspectRatio="none"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-        >
-          <defs>
-            <linearGradient id="world-map-line" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="white" stopOpacity="0" />
-              <stop offset="5%" stopColor="#0ea5e9" stopOpacity="1" />
-              <stop offset="95%" stopColor="#0ea5e9" stopOpacity="1" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          {dots.map((dot, i) => {
-            const p = path(dot.start, dot.end);
-            return (
-              <g key={i}>
-                <path
-                  d={p.d}
-                  fill="none"
-                  stroke="url(#world-map-line)"
-                  strokeWidth="1"
-                  pathLength="1"
-                  strokeDasharray="0.08 0.04"
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    from="0.12"
-                    to="0"
-                    dur="2.4s"
-                    begin={`${i * 0.45}s`}
-                    repeatCount="indefinite"
-                  />
-                </path>
-                <circle cx={p.a.x} cy={p.a.y} r="2" fill="#0ea5e9">
-                  <animate attributeName="r" from="2" to="8" dur="1.5s" begin={`${i * 0.45}s`} repeatCount="indefinite" />
-                  <animate attributeName="opacity" from="0.6" to="0" dur="1.5s" begin={`${i * 0.45}s`} repeatCount="indefinite" />
-                </circle>
-              </g>
-            );
-          })}
-        </svg>
-      </div>
-    </div>
+    />
   );
 }
 
