@@ -5,30 +5,27 @@ hide-nav-links: true
 layout: overview
 ---
 
-<div style="position:relative;min-height:72vh;overflow:hidden;border-radius:28px;background:#02050a;margin:-8px 0 42px;isolation:isolate;">
-  <video autoplay muted loop playsinline preload="metadata" poster="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_00000_print.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.72) saturate(.72);z-index:-3;">
+<div style="position:relative;min-height:100vh;min-height:100svh;overflow:hidden;margin:-8px -8px 54px;isolation:isolate;background:#010409;">
+  <video autoplay muted loop playsinline preload="auto" poster="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_00000_print.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.78) saturate(.78);z-index:-4;">
     <source src="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_1080p30.mp4" type="video/mp4" />
   </video>
-  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,4,9,.96) 0%,rgba(1,4,9,.72) 38%,rgba(1,4,9,.16) 78%,rgba(1,4,9,.38) 100%),linear-gradient(0deg,rgba(1,4,9,.72) 0%,transparent 55%);z-index:-2;"></div>
-  <div style="position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),inset 0 -120px 140px rgba(0,0,0,.38);pointer-events:none;z-index:-1;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,4,9,.9) 0%,rgba(1,4,9,.48) 42%,rgba(1,4,9,.08) 72%,rgba(1,4,9,.22) 100%),linear-gradient(0deg,rgba(1,4,9,.72) 0%,transparent 48%,rgba(1,4,9,.12) 100%);z-index:-3;"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 72% 48%,transparent 0,transparent 38%,rgba(0,0,0,.28) 100%);z-index:-2;"></div>
 
-  <div style="display:flex;align-items:flex-end;min-height:72vh;padding:clamp(28px,6vw,72px);">
-    <div style="max-width:720px;">
-      <div style="display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(3,7,14,.42);backdrop-filter:blur(10px);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.76);margin-bottom:20px;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.9);"></span>
+  <div style="position:relative;display:flex;align-items:center;min-height:100vh;min-height:100svh;padding:clamp(30px,7vw,92px);">
+    <div style="max-width:690px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);">
+        <span style="width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 14px rgba(255,255,255,.95);"></span>
         California · Medi-Cal geography
       </div>
-      <h1 style="font-size:clamp(42px,7vw,82px);line-height:.96;letter-spacing:-.055em;color:#fff;margin:0 0 18px;text-shadow:0 3px 30px rgba(0,0,0,.42);">California's COHS Plans</h1>
-      <p style="font-size:clamp(20px,2.5vw,30px);line-height:1.15;color:rgba(255,255,255,.92);margin:0 0 12px;">CenCal Health</p>
-      <p style="max-width:600px;font-size:16px;line-height:1.65;color:rgba(255,255,255,.72);margin:0 0 28px;">Medi-Cal coverage · pharmacy · authorization · medical necessity · appeals</p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;">
-        <a href="/medication-coverage" style="display:inline-flex;align-items:center;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,.94);color:#07101b;text-decoration:none;font-weight:600;">Explore coverage</a>
-        <a href="https://worldview.earthdata.nasa.gov/" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(3,7,14,.38);color:#fff;text-decoration:none;backdrop-filter:blur(10px);">Open live satellite view ↗</a>
-      </div>
+      <h1 style="font-size:clamp(46px,7.2vw,88px);line-height:.93;letter-spacing:-.06em;color:#fff;margin:0 0 22px;text-shadow:0 4px 34px rgba(0,0,0,.55);">California's COHS Plans</h1>
+      <p style="font-size:clamp(21px,2.5vw,31px);line-height:1.12;color:rgba(255,255,255,.94);margin:0 0 10px;">CenCal Health</p>
+      <p style="max-width:610px;font-size:16px;line-height:1.65;color:rgba(255,255,255,.68);margin:0;">Medi-Cal coverage · pharmacy · authorization · medical necessity · appeals</p>
     </div>
   </div>
 
-  <div style="position:absolute;right:24px;bottom:20px;font-size:10px;letter-spacing:.03em;color:rgba(255,255,255,.48);">NASA / NOAA · VIIRS Day/Night Band</div>
+  <div style="position:absolute;left:clamp(30px,7vw,92px);bottom:26px;font-size:10px;letter-spacing:.04em;color:rgba(255,255,255,.42);">NASA / NOAA · VIIRS Day/Night Band</div>
+  <div style="position:absolute;right:clamp(30px,7vw,92px);bottom:26px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.38);">Explore below</div>
 </div>
 
 <Callout intent="info">
