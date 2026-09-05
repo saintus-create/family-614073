@@ -11,9 +11,10 @@ slug: /
   playsInline
   preload="auto"
   poster="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_00000_print.jpg"
-  style={{position: "fixed", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", opacity: 0.22, mixBlendMode: "screen", pointerEvents: "none", zIndex: 0}}
+  style={{position: "fixed", top: "-4vh", left: "-4vw", width: "108vw", height: "108vh", objectFit: "cover", objectPosition: "center", opacity: 0.13, mixBlendMode: "screen", filter: "blur(0.35px)", pointerEvents: "none", zIndex: 0, animation: "cei-map-drift 38s ease-in-out infinite alternate"}}
   aria-hidden="true"
 >
+  <source src="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_1080p30.webm" type="video/webm" />
   <source src="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_1080p30.mp4" type="video/mp4" />
 </video>
 
@@ -97,7 +98,7 @@ slug: /
 
   ## Next steps
 
-  Replace the sample Plant Store API with your own OpenAPI specification, update the Markdown pages with your content, and customize the theme to match your brand. For detailed guidance, explore the pages in this documentation or visit the [Fern documentation](https://buildwithfern.com/learn).
+  Replace the sample Plant Store API with your own OpenAPI specification, update the Markdown pages with your own content, and customize the theme to match your brand. For detailed guidance, explore the pages in this documentation or visit the [Fern documentation](https://buildwithfern.com/learn).
 
   <CardGroup cols={2}>
     <Card
@@ -130,3 +131,14 @@ slug: /
     </Card>
   </CardGroup>
 </div>
+
+<style>
+{`@keyframes cei-map-drift {
+  0% { transform: scale(1.02) translate3d(-0.5%, -0.25%, 0); }
+  100% { transform: scale(1.09) translate3d(0.7%, 0.45%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  video[aria-hidden="true"] { animation: none !important; }
+}`}
+</style>
