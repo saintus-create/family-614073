@@ -4,19 +4,33 @@ subtitle: Everything you need to build the best developer experience
 slug: /
 ---
 
-<video
-  autoPlay
-  muted
-  loop
-  playsInline
-  preload="auto"
-  poster="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_00000_print.jpg"
-  style={{position: "fixed", top: "-4vh", left: "-4vw", width: "108vw", height: "108vh", objectFit: "cover", objectPosition: "center", opacity: 0.13, mixBlendMode: "screen", filter: "blur(0.35px)", pointerEvents: "none", zIndex: 0, animation: "cei-map-drift 38s ease-in-out infinite alternate"}}
-  aria-hidden="true"
->
-  <source src="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_1080p30.webm" type="video/webm" />
-  <source src="https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031110/day-night-california_vir_2012271_lrg_1080p30.mp4" type="video/mp4" />
-</video>
+<div style={{position: "fixed", inset: 0, zIndex: 0, overflow: "hidden", pointerEvents: "none", opacity: 0.14}}>
+  <svg viewBox="0 0 1200 700" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="map-line" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.15" />
+        <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.8" />
+        <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.15" />
+      </linearGradient>
+      <filter id="map-glow"><feGaussianBlur stdDeviation="2.5" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+    </defs>
+    <g fill="none" stroke="#38bdf8" strokeOpacity="0.28" strokeWidth="1">
+      <path d="M80 100 C220 40 300 170 430 120 S650 40 790 150 S1030 120 1160 220" />
+      <path d="M20 260 C180 170 300 310 450 250 S690 180 830 300 S1030 270 1200 350" />
+      <path d="M0 450 C150 340 300 490 470 410 S700 350 850 470 S1050 430 1200 520" />
+      <path d="M100 620 C260 500 360 650 540 570 S760 500 920 610 S1080 570 1200 640" />
+    </g>
+    <g filter="url(#map-glow)" stroke="url(#map-line)" strokeWidth="1.5" strokeDasharray="7 13">
+      <path d="M140 560 C280 430 350 250 520 180 S760 230 880 120" />
+      <path d="M250 80 C390 190 500 300 650 280 S850 360 1050 250" />
+      <path d="M70 360 C260 330 380 420 570 390 S850 300 1120 430" />
+    </g>
+    <g fill="#38bdf8">
+      <circle cx="140" cy="560" r="3" /><circle cx="520" cy="180" r="3" /><circle cx="880" cy="120" r="3" />
+      <circle cx="250" cy="80" r="3" /><circle cx="650" cy="280" r="3" /><circle cx="1050" cy="250" r="3" />
+    </g>
+  </svg>
+</div>
 
 <div style={{position: "relative", zIndex: 1}}>
   This repository is a starter template for building documentation with [Fern](https://buildwithfern.com). It includes a sample Plant Store API to demonstrate how Fern generates interactive API reference documentation from an OpenAPI specification.
@@ -59,29 +73,13 @@ slug: /
 
   Start a local development server with hot-reloading:
 
-  ```bash
-  fern docs dev
-  ```
-
   Open [http://localhost:3000](http://localhost:3000) to see your docs.
 
   </Step>
 
   <Step title="Make it yours">
 
-  Update `fern.config.json` with your organization name and `docs.yml` with your desired URL. The `version` refers to [the Fern CLI](https://buildwithfern.com/learn/cli-api-reference/cli-reference/overview):
-
-  ```json title="fern.config.json"
-  {
-    "organization": "your-org-name",
-    "version": "0.46.15"
-  }
-  ```
-
-  ```yaml title="docs.yml"
-  instances:
-    - url: your-org.docs.buildwithfern.com
-  ```
+  Update `fern.config.json` with your organization name and `docs.yml` with your desired URL.
 
   </Step>
 
@@ -101,44 +99,22 @@ slug: /
   Replace the sample Plant Store API with your own OpenAPI specification, update the Markdown pages with your own content, and customize the theme to match your brand. For detailed guidance, explore the pages in this documentation or visit the [Fern documentation](https://buildwithfern.com/learn).
 
   <CardGroup cols={2}>
-    <Card
-      title="Edit your docs"
-      icon="duotone pen-to-square"
-      href="/editing-your-docs"
-    >
-      Learn how to preview and publish changes using the CLI or Fern Editor
-    </Card>
-    <Card
-      title="Set up navigation"
-      icon="duotone sitemap"
-      href="/navigation"
-    >
-      Configure tabs, sections, and pages in your docs.yml file
-    </Card>
-    <Card
-      title="Customize your docs"
-      icon="duotone palette"
-      href="/customization"
-    >
-      Brand your documentation with colors, logos, and layouts
-    </Card>
-    <Card
-      title="API reference"
-      icon="duotone code"
-      href="/api-reference"
-    >
-      See how Fern generates interactive API documentation
-    </Card>
+    <Card title="Edit your docs" icon="duotone pen-to-square" href="/editing-your-docs">Learn how to preview and publish changes using the CLI or Fern Editor</Card>
+    <Card title="Set up navigation" icon="duotone sitemap" href="/navigation">Configure tabs, sections, and pages in your docs.yml file</Card>
+    <Card title="Customize your docs" icon="duotone palette" href="/customization">Brand your documentation with colors, logos, and layouts</Card>
+    <Card title="API reference" icon="duotone code" href="/api-reference">See how Fern generates interactive API documentation</Card>
   </CardGroup>
 </div>
 
 <style>
-{`@keyframes cei-map-drift {
-  0% { transform: scale(1.02) translate3d(-0.5%, -0.25%, 0); }
-  100% { transform: scale(1.09) translate3d(0.7%, 0.45%, 0); }
+{`@keyframes map-drift {
+  0% { transform: scale(1.02) translate3d(-1%, -0.5%, 0); }
+  100% { transform: scale(1.08) translate3d(1%, 0.7%, 0); }
 }
 
+svg { animation: map-drift 28s ease-in-out infinite alternate; }
+
 @media (prefers-reduced-motion: reduce) {
-  video[aria-hidden="true"] { animation: none !important; }
+  svg { animation: none !important; }
 }`}
 </style>
