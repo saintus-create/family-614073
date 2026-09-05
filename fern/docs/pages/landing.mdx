@@ -5,147 +5,391 @@ hide-nav-links: true
 layout: custom
 ---
 
-<div id="cei-landing" style={{position:"fixed",inset:0,zIndex:0,overflow:"hidden",background:"#0a0f1e"}}>
-  <canvas id="cei-canvas" style={{display:"block",width:"100%",height:"100%"}} />
-  <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",zIndex:10,pointerEvents:"none"}}>
-    <div style={{textAlign:"center",color:"#e8edf8",pointerEvents:"auto"}}>
-      <p style={{fontSize:"clamp(0.75rem,1.5vw,1rem)",letterSpacing:"0.25em",textTransform:"uppercase",color:"#7b9ccc",marginBottom:"1rem",fontFamily:"system-ui,sans-serif"}}>US FDA · ADHD &amp; Binge-Eating Pharmacotherapy</p>
-      <h1 style={{fontSize:"clamp(2rem,5vw,4rem)",fontWeight:700,letterSpacing:"-0.02em",margin:"0 0 1rem",fontFamily:"system-ui,sans-serif",lineHeight:1.1}}>Clinical Evidence Index</h1>
-      <p style={{fontSize:"clamp(0.9rem,1.8vw,1.2rem)",color:"#9ab0d0",maxWidth:"520px",margin:"0 auto 2.5rem",fontFamily:"system-ui,sans-serif",lineHeight:1.6}}>A structured bibliographic index of pharmacotherapy research — browse by drug, study design, topic, and region.</p>
-      <div style={{display:"flex",gap:"1rem",justifyContent:"center",flexWrap:"wrap"}}>
-        <a href="/browse" style={{padding:"0.75rem 1.75rem",background:"rgba(100,160,255,0.15)",border:"1px solid rgba(100,160,255,0.4)",borderRadius:"8px",color:"#a8c8ff",textDecoration:"none",fontFamily:"system-ui,sans-serif",fontSize:"0.95rem",backdropFilter:"blur(8px)",transition:"all 0.2s"}}>Browse Evidence</a>
-        <a href="/welcome" style={{padding:"0.75rem 1.75rem",background:"transparent",border:"1px solid rgba(255,255,255,0.15)",borderRadius:"8px",color:"#9ab0d0",textDecoration:"none",fontFamily:"system-ui,sans-serif",fontSize:"0.95rem",backdropFilter:"blur(8px)",transition:"all 0.2s"}}>View Collections</a>
-      </div>
+<div id="cei-loading" style={{position:"fixed",inset:0,zIndex:30,display:"flex",alignItems:"center",justifyContent:"center",background:"#02040a",color:"#9ab0d0",fontFamily:"system-ui,sans-serif",fontSize:"0.95rem",letterSpacing:"0.15em",textTransform:"uppercase",transition:"opacity 0.8s ease"}}>Loading…</div>
+
+<canvas id="cei-canvas" style={{position:"fixed",inset:0,zIndex:0,display:"block",width:"100%",height:"100%",background:"#02040a"}} />
+
+<div id="cei-hero" style={{position:"fixed",inset:0,zIndex:10,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",pointerEvents:"none",opacity:0}}>
+  <div style={{textAlign:"center",color:"#f4f7fc",pointerEvents:"auto",padding:"0 1.5rem"}}>
+    <p style={{fontSize:"clamp(0.7rem,1.4vw,0.95rem)",letterSpacing:"0.28em",textTransform:"uppercase",color:"#8fb3e6",marginBottom:"1rem",fontFamily:"system-ui,sans-serif",textShadow:"0 1px 12px rgba(0,0,0,0.5)"}}>US FDA · ADHD &amp; Binge-Eating Pharmacotherapy</p>
+    <h1 style={{fontSize:"clamp(2.2rem,6vw,4.5rem)",fontWeight:700,letterSpacing:"-0.03em",margin:"0 0 1rem",color:"#ffffff",fontFamily:"system-ui,sans-serif",lineHeight:1.05,textShadow:"0 2px 24px rgba(0,0,0,0.55)"}}>Clinical Evidence Index</h1>
+    <p style={{fontSize:"clamp(0.95rem,1.8vw,1.25rem)",color:"#dbe6f7",maxWidth:"560px",margin:"0 auto 2.5rem",fontFamily:"system-ui,sans-serif",lineHeight:1.6,textShadow:"0 1px 14px rgba(0,0,0,0.5)"}}>A structured bibliographic index of pharmacotherapy research</p>
+    <div style={{display:"flex",gap:"1rem",justifyContent:"center",flexWrap:"wrap"}}>
+      <a href="/browse" style={{padding:"0.8rem 1.9rem",background:"rgba(255,255,255,0.16)",border:"1px solid rgba(255,255,255,0.45)",borderRadius:"999px",color:"#ffffff",textDecoration:"none",fontFamily:"system-ui,sans-serif",fontSize:"0.95rem",fontWeight:600,backdropFilter:"blur(10px)",boxShadow:"0 4px 24px rgba(0,0,0,0.25)"}}>Browse Evidence</a>
+      <a href="/welcome" style={{padding:"0.8rem 1.9rem",background:"rgba(0,0,0,0.18)",border:"1px solid rgba(255,255,255,0.25)",borderRadius:"999px",color:"#eaf1fb",textDecoration:"none",fontFamily:"system-ui,sans-serif",fontSize:"0.95rem",fontWeight:500,backdropFilter:"blur(10px)"}}>View Collections</a>
     </div>
   </div>
 </div>
 
+<div id="cei-scroll-hint" style={{position:"fixed",left:0,right:0,bottom:"2rem",zIndex:11,display:"flex",flexDirection:"column",alignItems:"center",gap:"0.5rem",color:"#9ab0d0",fontFamily:"system-ui,sans-serif",fontSize:"0.7rem",letterSpacing:"0.25em",textTransform:"uppercase",pointerEvents:"none",transition:"opacity 0.6s ease"}}>
+  <span>Scroll</span>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{animation:"cei-bounce 1.8s ease-in-out infinite"}}><path d="M12 4v16" /><path d="M6 14l6 6 6-6" /></svg>
+</div>
+
+<style dangerouslySetInnerHTML={{__html: `
+@keyframes cei-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+`}} />
+
 <script type="module" dangerouslySetInnerHTML={{__html: `
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/controls/OrbitControls.js';
 
-(function() {
+(function () {
   const canvas = document.getElementById('cei-canvas');
-  if (!canvas) return;
+  const hero = document.getElementById('cei-hero');
+  const hint = document.getElementById('cei-scroll-hint');
+  const loading = document.getElementById('cei-loading');
+  if (!canvas || !hero) return;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  document.body.style.minHeight = '400vh';
+  document.body.style.margin = '0';
+
+  const TEXTURES = {
+    galaxy: 'https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/starmap_2020_4k.jpg',
+    earthDay: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/74000/74117/world.200412.3x5400x2700.jpg',
+    clouds: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg',
+    earthNight: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg'
+  };
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0x0a0f1e, 1);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.setClearColor(0x02040a, 1);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 30;
+  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
+  camera.position.set(0, 0, 80);
 
-  // Icon SVG paths as sequences of 2D points (normalised -1..1 space)
-  // Each icon is a list of polyline strips: [ [[x,y],...], ... ]
-  const ICONS = [
-    // Flask
-    { strips: [
-      [[-0.2,0.9],[-0.2,0.2],[-0.7,-0.7],[-0.7,-0.9],[0.7,-0.9],[0.7,-0.7],[0.2,0.2],[0.2,0.9]],
-      [[-0.2,0.9],[0.2,0.9]],
-      [[-0.55,-0.5],[0.55,-0.5]]
-    ]},
-    // Brain (simplified outline)
-    { strips: [
-      [[0,-0.9],[0.3,-0.8],[0.7,-0.5],[0.9,-0.1],[0.8,0.3],[0.5,0.6],[0.2,0.9],[0,0.85]],
-      [[0,0.85],[-0.2,0.9],[-0.5,0.6],[-0.8,0.3],[-0.9,-0.1],[-0.7,-0.5],[-0.3,-0.8],[0,-0.9]],
-      [[0,-0.9],[0,0.85]],
-      [[-0.5,0.1],[-0.3,-0.2],[0,-0.1],[0.3,-0.2],[0.5,0.1]]
-    ]},
-    // Heart pulse
-    { strips: [
-      [[-0.9,0.1],[-0.5,0.1],[-0.3,0.6],[0,-0.9],[0.3,0.6],[0.5,0.1],[0.9,0.1]],
-      [[-0.9,0.1],[-0.9,0.3],[-0.6,0.7],[-0.3,0.9],[0,0.7],[0.3,0.9],[0.6,0.7],[0.9,0.3],[0.9,0.1]]
-    ]},
-    // Shield
-    { strips: [
-      [[-0.7,0.9],[-0.7,0.1],[0,-0.9],[0.7,0.1],[0.7,0.9],[-0.7,0.9]],
-      [[0,0.5],[0,-0.3]],
-      [[-0.35,0.1],[0.35,0.1]]
-    ]},
-    // Chart line (upward trend)
-    { strips: [
-      [[-0.9,-0.9],[-0.9,0.9],[0.9,0.9]],
-      [[-0.7,0.3],[-0.3,-0.1],[0.1,0.5],[0.5,-0.3],[0.8,0.1]]
-    ]},
-    // Book (open)
-    { strips: [
-      [[-0.9,-0.7],[-0.9,0.8],[0,0.6],[0.9,0.8],[0.9,-0.7],[0,-0.9],[-0.9,-0.7]],
-      [[0,-0.9],[0,0.6]],
-      [[-0.6,0.1],[-0.2,0.1]],
-      [[0.2,0.1],[0.6,0.1]],
-      [[-0.6,-0.2],[-0.2,-0.2]],
-      [[0.2,-0.2],[0.6,-0.2]]
-    ]},
-    // Capsule / pill
-    { strips: [
-      [[-0.9,0],[-0.6,-0.5],[0,-0.7],[0.6,-0.5],[0.9,0],[0.6,0.5],[0,-0.7]],
-      [[0,-0.7],[0,0.7]],
-      [[-0.9,0],[-0.6,0.5],[0,0.7],[0.6,0.5],[0.9,0]]
-    ]},
-    // Microscope / vial
-    { strips: [
-      [[-0.2,0.9],[0.2,0.9],[0.2,0.3],[0.5,-0.5],[0.5,-0.9],[-0.5,-0.9],[-0.5,-0.5],[-0.2,0.3],[-0.2,0.9]],
-      [[-0.6,0.9],[0.6,0.9]],
-      [[-0.3,-0.3],[0.3,-0.3]]
-    ]}
-  ];
+  const controls = new OrbitControls(camera, canvas);
+  controls.enabled = false;
+  controls.enableZoom = false;
+  controls.enablePan = false;
+  controls.enableDamping = true;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.15;
 
-  // Build a flat array of THREE.Line objects from icon strips
-  function buildIconLines(iconDef, scale, color) {
-    const group = new THREE.Group();
-    for (const strip of iconDef.strips) {
-      const points = strip.map(([x, y]) => new THREE.Vector3(x * scale, y * scale, 0));
-      const geo = new THREE.BufferGeometry().setFromPoints(points);
-      const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0 });
-      group.add(new THREE.Line(geo, mat));
+  scene.add(new THREE.AmbientLight(0x334466, 0.35));
+  const sun = new THREE.DirectionalLight(0xfff4e0, 2.4);
+  sun.position.set(-40, 15, 30);
+  scene.add(sun);
+
+  const loader = new THREE.TextureLoader();
+  loader.setCrossOrigin('anonymous');
+  const maxAniso = renderer.capabilities.getMaxAnisotropy();
+
+  function loadTexture(url, colorSpace) {
+    return new Promise(function (resolve) {
+      loader.load(
+        url,
+        function (tex) {
+          tex.colorSpace = colorSpace || THREE.SRGBColorSpace;
+          tex.anisotropy = maxAniso;
+          resolve(tex);
+        },
+        undefined,
+        function () { resolve(null); }
+      );
+    });
+  }
+
+  // --- Act 1: star sphere skybox + star particles ---------------------------
+  const starSphereMat = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.BackSide, transparent: true, opacity: 1, depthWrite: false, fog: false });
+  const starSphere = new THREE.Mesh(new THREE.SphereGeometry(500, 64, 64), starSphereMat);
+  starSphere.rotation.z = 0.35;
+  scene.add(starSphere);
+
+  const STAR_COUNT = 8000;
+  const starPositions = new Float32Array(STAR_COUNT * 3);
+  const starColors = new Float32Array(STAR_COUNT * 3);
+  for (let i = 0; i < STAR_COUNT; i++) {
+    const u = Math.random();
+    const v = Math.random();
+    const theta = 2 * Math.PI * u;
+    const phi = Math.acos(2 * v - 1);
+    const r = 300;
+    starPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+    starPositions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+    starPositions[i * 3 + 2] = r * Math.cos(phi);
+    const tint = 0.85 + Math.random() * 0.15;
+    starColors[i * 3] = tint * 0.9;
+    starColors[i * 3 + 1] = tint * 0.95;
+    starColors[i * 3 + 2] = 1.0;
+  }
+  const starGeo = new THREE.BufferGeometry();
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+  starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+  const starMat = new THREE.PointsMaterial({ size: 0.4, vertexColors: true, transparent: true, opacity: 1, sizeAttenuation: true, depthWrite: false, fog: false });
+  const stars = new THREE.Points(starGeo, starMat);
+  scene.add(stars);
+
+  // --- Act 2: Earth, clouds, night lights, atmosphere -----------------------
+  const earthGroup = new THREE.Group();
+  earthGroup.position.set(0, -60, 0);
+  scene.add(earthGroup);
+
+  const earthMat = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    roughness: 0.9,
+    metalness: 0.0,
+    emissive: new THREE.Color(0xffffff),
+    emissiveIntensity: 0.0,
+    transparent: true,
+    opacity: 1
+  });
+  const earth = new THREE.Mesh(new THREE.SphereGeometry(10, 128, 128), earthMat);
+  earthGroup.add(earth);
+
+  const cloudMat = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0.85,
+    depthWrite: false,
+    roughness: 1.0,
+    metalness: 0.0
+  });
+  const earthClouds = new THREE.Mesh(new THREE.SphereGeometry(10.05, 128, 128), cloudMat);
+  earthClouds.rotation.y = 0.4;
+  earthGroup.add(earthClouds);
+
+  const atmosphereVertex = [
+    'varying vec3 vNormal;',
+    'varying vec3 vViewDir;',
+    'void main() {',
+    '  vNormal = normalize(normalMatrix * normal);',
+    '  vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);',
+    '  vViewDir = normalize(-mvPosition.xyz);',
+    '  gl_Position = projectionMatrix * mvPosition;',
+    '}'
+  ].join('\\n');
+  const atmosphereFragment = [
+    'uniform vec3 uColor;',
+    'uniform float uIntensity;',
+    'uniform float uPower;',
+    'varying vec3 vNormal;',
+    'varying vec3 vViewDir;',
+    'void main() {',
+    '  float fresnel = 1.0 - max(dot(vNormal, vViewDir), 0.0);',
+    '  fresnel = pow(fresnel, uPower);',
+    '  float alpha = fresnel * uIntensity;',
+    '  gl_FragColor = vec4(uColor, alpha);',
+    '}'
+  ].join('\\n');
+  const atmosphereMat = new THREE.ShaderMaterial({
+    uniforms: {
+      uColor: { value: new THREE.Color(0x4f9dff) },
+      uIntensity: { value: 0.0 },
+      uPower: { value: 3.2 }
+    },
+    vertexShader: atmosphereVertex,
+    fragmentShader: atmosphereFragment,
+    transparent: true,
+    side: THREE.FrontSide,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending
+  });
+  const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(10.4, 96, 96), atmosphereMat);
+  earthGroup.add(atmosphere);
+
+  // --- Act 3: cloud dome --------------------------------------------------------
+  const domeMat = new THREE.MeshBasicMaterial({
+    color: 0x87ceeb,
+    side: THREE.BackSide,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false
+  });
+  const cloudDome = new THREE.Mesh(new THREE.SphereGeometry(8, 64, 32), domeMat);
+  cloudDome.visible = false;
+  scene.add(cloudDome);
+
+  const domeHazeMat = new THREE.MeshBasicMaterial({
+    color: 0xcfe9ff,
+    side: THREE.BackSide,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false
+  });
+  const cloudDomeInner = new THREE.Mesh(new THREE.SphereGeometry(6.5, 64, 32), domeHazeMat);
+  cloudDomeInner.visible = false;
+  scene.add(cloudDomeInner);
+
+  const skyFogColor = new THREE.Color(0x87ceeb);
+  const spaceFogColor = new THREE.Color(0x02040a);
+  scene.fog = new THREE.FogExp2(0x02040a, 0.0);
+  const clearColor = new THREE.Color(0x02040a);
+
+  // --- Textures ----------------------------------------------------------------
+  let texturesReady = false;
+  let firstFrameRendered = false;
+
+  Promise.all([
+    loadTexture(TEXTURES.galaxy),
+    loadTexture(TEXTURES.earthDay),
+    loadTexture(TEXTURES.clouds),
+    loadTexture(TEXTURES.earthNight)
+  ]).then(function (results) {
+    const galaxyTex = results[0];
+    const dayTex = results[1];
+    const cloudTex = results[2];
+    const nightTex = results[3];
+
+    if (galaxyTex) {
+      starSphereMat.map = galaxyTex;
+      starSphereMat.needsUpdate = true;
     }
-    return group;
-  }
+    if (dayTex) {
+      earthMat.map = dayTex;
+      earthMat.needsUpdate = true;
+    }
+    if (nightTex) {
+      earthMat.emissiveMap = nightTex;
+      earthMat.emissiveIntensity = 0.9;
+      earthMat.needsUpdate = true;
+    }
+    if (cloudTex) {
+      cloudMat.map = cloudTex;
+      cloudMat.alphaMap = cloudTex;
+      cloudMat.needsUpdate = true;
 
-  const COLORS = [0x64a0ff, 0x7ecfb0, 0xc084fc, 0xfbbf24, 0xf472b6, 0x34d399, 0x60a5fa, 0xa78bfa];
-  const COUNT = 18;
-  const particles = [];
+      const domeTex = cloudTex.clone();
+      domeTex.wrapS = THREE.RepeatWrapping;
+      domeTex.wrapT = THREE.RepeatWrapping;
+      domeTex.repeat.set(2, 1);
+      domeTex.needsUpdate = true;
+      domeMat.map = domeTex;
+      domeMat.needsUpdate = true;
 
-  for (let i = 0; i < COUNT; i++) {
-    const iconDef = ICONS[i % ICONS.length];
-    const scale = 1.2 + Math.random() * 1.4;
-    const color = COLORS[i % COLORS.length];
-    const group = buildIconLines(iconDef, scale, color);
-
-    const spread = 28;
-    group.position.set(
-      (Math.random() - 0.5) * spread,
-      (Math.random() - 0.5) * spread * 0.7,
-      (Math.random() - 0.5) * 10
-    );
-    group.rotation.z = (Math.random() - 0.5) * 0.4;
-
-    const vx = (Math.random() - 0.5) * 0.012;
-    const vy = (Math.random() - 0.5) * 0.008;
-    const vr = (Math.random() - 0.5) * 0.003;
-
-    // Stagger the draw-on animation
-    const drawDelay = Math.random() * 4;
-    const drawDuration = 1.5 + Math.random() * 1.5;
-    const holdDuration = 3 + Math.random() * 4;
-    const fadeDuration = 1.2;
-
-    particles.push({ group, vx, vy, vr, drawDelay, drawDuration, holdDuration, fadeDuration, age: -drawDelay });
-    scene.add(group);
-  }
-
-  // Subtle fog
-  scene.fog = new THREE.FogExp2(0x0a0f1e, 0.018);
-
-  // Mouse parallax
-  let mx = 0, my = 0;
-  window.addEventListener('mousemove', e => {
-    mx = (e.clientX / window.innerWidth - 0.5) * 2;
-    my = (e.clientY / window.innerHeight - 0.5) * 2;
+      const hazeTex = cloudTex.clone();
+      hazeTex.wrapS = THREE.RepeatWrapping;
+      hazeTex.wrapT = THREE.RepeatWrapping;
+      hazeTex.repeat.set(3, 1.5);
+      hazeTex.needsUpdate = true;
+      domeHazeMat.map = hazeTex;
+      domeHazeMat.alphaMap = hazeTex;
+      domeHazeMat.needsUpdate = true;
+    }
+    texturesReady = true;
   });
 
+  // --- Scroll driver ---------------------------------------------------------------
+  const scrollFraction = function () {
+    return Math.max(0, Math.min(1, window.scrollY / (document.body.scrollHeight - window.innerHeight || 1)));
+  };
+  const clamp01 = function (x) { return Math.max(0, Math.min(1, x)); };
+  const smooth = function (x) { x = clamp01(x); return x * x * (3 - 2 * x); };
+  const lerp = function (a, b, s) { return a + (b - a) * s; };
+  const EASE = 0.06;
+
+  const state = {
+    camX: 0,
+    camZ: 80,
+    camY: 0,
+    earthY: -60,
+    earthOpacity: 1,
+    atmosphere: 0,
+    starSphereOpacity: 1,
+    starOpacity: 1,
+    domeOpacity: 0,
+    fogDensity: 0,
+    skyMix: 0
+  };
+
+  function computeTargets(t) {
+    const target = {};
+    if (t < 0.33) {
+      const a = t / 0.33;
+      target.camX = 0;
+      target.camZ = 80;
+      target.camY = 0;
+      target.earthY = lerp(-60, -52, smooth(a));
+      target.earthOpacity = 1;
+      target.atmosphere = 0;
+      target.starSphereOpacity = 1;
+      target.starOpacity = 1;
+      target.domeOpacity = 0;
+      target.fogDensity = 0;
+      target.skyMix = 0;
+    } else if (t < 0.66) {
+      const a = smooth((t - 0.33) / 0.33);
+      target.camX = 0;
+      target.camZ = lerp(80, 20, a);
+      target.camY = lerp(0, 2, a);
+      target.earthY = lerp(-52, 0, a);
+      target.earthOpacity = 1;
+      target.atmosphere = a;
+      target.starSphereOpacity = lerp(1, 0.2, a);
+      target.starOpacity = lerp(1, 0.4, a);
+      target.domeOpacity = 0;
+      target.fogDensity = 0;
+      target.skyMix = 0;
+    } else {
+      const a = smooth((t - 0.66) / 0.34);
+      target.camX = 0;
+      target.camZ = lerp(20, 9, a);
+      target.camY = lerp(2, 0, a);
+      target.earthY = 0;
+      target.earthOpacity = 1 - a;
+      target.atmosphere = 1 - a;
+      target.starSphereOpacity = lerp(0.2, 0, a);
+      target.starOpacity = lerp(0.4, 0, a);
+      target.domeOpacity = a;
+      target.fogDensity = lerp(0, 0.08, a);
+      target.skyMix = a;
+    }
+    return target;
+  }
+
+  function applyState(dt, elapsed) {
+    if (!controls.enabled) {
+      camera.position.set(state.camX, state.camY, state.camZ);
+      camera.lookAt(0, state.earthY > -5 ? 0 : state.earthY * 0.15, 0);
+    }
+
+    earthGroup.position.y = state.earthY;
+    earth.rotation.y += dt * 0.03;
+    earthClouds.rotation.y += dt * 0.045;
+    earthGroup.visible = state.earthOpacity > 0.01;
+    earthMat.opacity = state.earthOpacity;
+    cloudMat.opacity = 0.85 * state.earthOpacity;
+    atmosphereMat.uniforms.uIntensity.value = 1.6 * state.atmosphere * state.earthOpacity;
+
+    starSphere.rotation.y += dt * 0.004;
+    stars.rotation.y -= dt * 0.006;
+    stars.rotation.x += dt * 0.0015;
+    starSphereMat.opacity = state.starSphereOpacity;
+    starSphere.visible = state.starSphereOpacity > 0.005;
+    starMat.opacity = state.starOpacity;
+    stars.visible = state.starOpacity > 0.005;
+
+    const domeVisible = state.domeOpacity > 0.005;
+    cloudDome.visible = domeVisible;
+    cloudDomeInner.visible = domeVisible;
+    domeMat.opacity = state.domeOpacity;
+    domeHazeMat.opacity = state.domeOpacity * 0.55;
+    cloudDome.position.copy(camera.position);
+    cloudDomeInner.position.copy(camera.position);
+    cloudDome.rotation.y += dt * 0.012;
+    cloudDomeInner.rotation.y -= dt * 0.02;
+    if (domeMat.map) domeMat.map.offset.x = (elapsed * 0.004) % 1;
+    if (domeHazeMat.map) domeHazeMat.map.offset.x = (-elapsed * 0.007) % 1;
+
+    scene.fog.density = state.fogDensity;
+    scene.fog.color.copy(spaceFogColor).lerp(skyFogColor, state.skyMix);
+    clearColor.copy(spaceFogColor).lerp(skyFogColor, state.skyMix);
+    renderer.setClearColor(clearColor, 1);
+    renderer.toneMappingExposure = lerp(1.2, 1.35, state.skyMix);
+  }
+
+  function updateOverlay(t) {
+    hero.style.opacity = String(Math.min(1, t * 3));
+    if (hint) hint.style.opacity = t > 0.05 ? '0' : '1';
+  }
+
   function resize() {
-    const w = window.innerWidth, h = window.innerHeight;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
@@ -154,60 +398,57 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.m
   resize();
 
   let last = performance.now();
+  const start = last;
+  let lastScrollY = window.scrollY;
+  let idleTime = 0;
 
   function animate(now) {
     requestAnimationFrame(animate);
     const dt = Math.min((now - last) / 1000, 0.05);
     last = now;
+    const elapsed = (now - start) / 1000;
 
-    // Gentle camera parallax
-    camera.position.x += (mx * 1.5 - camera.position.x) * 0.04;
-    camera.position.y += (-my * 1.0 - camera.position.y) * 0.04;
-    camera.lookAt(scene.position);
+    const t = scrollFraction();
+    const target = computeTargets(t);
+    for (const key in target) {
+      state[key] += (target[key] - state[key]) * EASE;
+    }
 
-    const halfW = 20, halfH = 14;
-
-    for (const p of particles) {
-      p.age += dt;
-      p.group.position.x += p.vx;
-      p.group.position.y += p.vy;
-      p.group.rotation.z += p.vr;
-
-      // Wrap around edges
-      if (p.group.position.x > halfW) p.group.position.x = -halfW;
-      if (p.group.position.x < -halfW) p.group.position.x = halfW;
-      if (p.group.position.y > halfH) p.group.position.y = -halfH;
-      if (p.group.position.y < -halfH) p.group.position.y = halfH;
-
-      // Opacity: draw-on → hold → fade → reset
-      let opacity = 0;
-      const a = p.age;
-      if (a < 0) {
-        opacity = 0;
-      } else if (a < p.drawDuration) {
-        opacity = a / p.drawDuration;
-      } else if (a < p.drawDuration + p.holdDuration) {
-        opacity = 1;
-      } else if (a < p.drawDuration + p.holdDuration + p.fadeDuration) {
-        opacity = 1 - (a - p.drawDuration - p.holdDuration) / p.fadeDuration;
+    if (Math.abs(window.scrollY - lastScrollY) > 0.5) {
+      idleTime = 0;
+      lastScrollY = window.scrollY;
+    } else {
+      idleTime += dt;
+    }
+    const orbitEligible = idleTime > 1.5 && t > 0.33 && t < 0.66;
+    if (orbitEligible !== controls.enabled) {
+      controls.enabled = orbitEligible;
+      if (orbitEligible) {
+        controls.target.set(0, state.earthY, 0);
+        controls.update();
       } else {
-        // Reset
-        p.age = -(2 + Math.random() * 3);
-        p.group.position.set(
-          (Math.random() - 0.5) * halfW * 2,
-          (Math.random() - 0.5) * halfH * 2,
-          (Math.random() - 0.5) * 10
-        );
-        opacity = 0;
-      }
-
-      opacity = Math.max(0, Math.min(1, opacity)) * 0.55;
-      for (const child of p.group.children) {
-        child.material.opacity = opacity;
+        state.camX = camera.position.x;
+        state.camY = camera.position.y;
+        state.camZ = camera.position.z;
       }
     }
 
+    if (controls.enabled) {
+      controls.target.set(0, state.earthY, 0);
+      controls.update();
+    }
+    applyState(dt, elapsed);
+    updateOverlay(t);
+
     renderer.render(scene, camera);
+
+    if (!firstFrameRendered && texturesReady) {
+      firstFrameRendered = true;
+      if (loading) {
+        loading.style.opacity = '0';
+        setTimeout(function () { loading.style.display = 'none'; }, 850);
+      }
+    }
   }
 
   animate(performance.now());
