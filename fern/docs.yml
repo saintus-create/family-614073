@@ -14,16 +14,22 @@ title: California's COHS Plans
 colors:
   accent-primary:
     light: "#3B3A36"
+    dark: "#E8E7E2"
   background:
     light: "#F8F7F3"
+    dark: "#181816"
   border:
     light: "#C9C8C1"
+    dark: "#4A4943"
   sidebar-background:
     light: "#F0EFEA"
+    dark: "#232320"
   header-background:
     light: "#F8F7F3"
+    dark: "#181816"
   card-background:
     light: "#F0EFEA"
+    dark: "#232320"
 css: ./styles.css
 layout:
   searchbar-placement: header

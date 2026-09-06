@@ -1,16 +1,73 @@
-/* ── Typography ── */
+/* ── Söhne Typography ── */
 @import url('https://fonts.cdnfonts.com/css/sohne');
 
+/* ── CSS Custom Properties ── */
 :root {
-  --font-sans: 'Söhne', Arial, sans-serif;
+  --color-primary-bg: #E8E7E2;
+  --color-primary-fg: #242421;
+  --color-secondary-bg: #DFDED8;
+  --color-secondary-fg: #3B3A36;
+  --color-accent-bg: #3B3A36;
+  --color-accent-fg: #F8F7F3;
+  --color-base-bg: #F8F7F3;
+  --color-base-fg: #3B3A36;
+  --color-card-bg: #F0EFEA;
+  --color-card-fg: #292925;
+  --color-popover-bg: #EBEAE5;
+  --color-popover-fg: #242421;
+  --color-muted-bg: #E9E8E3;
+  --color-muted-fg: #85847E;
+  --color-destructive-bg: #55534D;
+  --color-destructive-fg: #F8F7F3;
+  --color-nav-bg: #F0EFEA;
+  --color-nav-fg: #292925;
+  --color-nav-hover: #E7E6E0;
+  --color-nav-active-bg: #DFDED8;
+  --color-nav-active-fg: #1D1D1A;
+  --color-nav-muted: #85847D;
+  --color-border: #C9C8C1;
+  --radius-sm: 0.375rem;
+  --radius-base: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-interactive: 0 2px 12px rgba(36, 36, 33, 0.025);
+  --accent: #3B3A36;
+  --accent-foreground: #F8F7F3;
 }
 
-body, .fern-docs {
+.dark, [data-theme="dark"] {
+  --color-primary-bg: #292925;
+  --color-primary-fg: #F1F0EB;
+  --color-secondary-bg: #353530;
+  --color-secondary-fg: #E8E7E2;
+  --color-accent-bg: #E8E7E2;
+  --color-accent-fg: #292925;
+  --color-base-bg: #181816;
+  --color-base-fg: #E8E7E2;
+  --color-card-bg: #232320;
+  --color-card-fg: #F1F0EB;
+  --color-popover-bg: #2D2D29;
+  --color-popover-fg: #F1F0EB;
+  --color-muted-bg: #292925;
+  --color-muted-fg: #92918A;
+  --color-destructive-bg: #77736A;
+  --color-destructive-fg: #181816;
+  --color-nav-bg: #232320;
+  --color-nav-fg: #F1F0EB;
+  --color-nav-hover: #2D2D29;
+  --color-nav-active-bg: #353530;
+  --color-nav-active-fg: #F8F7F3;
+  --color-nav-muted: #92918A;
+  --color-border: #4A4943;
+  --shadow-interactive: 0 2px 12px rgba(0, 0, 0, 0.12);
+  --accent: #E8E7E2;
+  --accent-foreground: #292925;
+}
+
+/* ── Base typography ── */
+body, .fern-docs, html {
   font-family: 'Söhne', Arial, sans-serif;
   font-weight: 400;
   letter-spacing: -0.01em;
-  background: radial-gradient(ellipse at 50% 100%, #EAE9E4 0%, #F1F0EC 30%, #F8F7F3 70%);
-  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,53 +76,172 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
 }
 
-/* ── Borders — none by default ── */
+label, .fern-label, [class*="label"] {
+  font-family: 'Söhne', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ── Page atmosphere ── */
+body:not(.dark) .fern-layout-main,
+body:not(.dark) main,
+body:not([data-theme="dark"]) .fern-layout-main,
+body:not([data-theme="dark"]) main {
+  background: radial-gradient(ellipse at 50% 100%, #EAE9E4 0%, #F1F0EC 30%, #F8F7F3 70%);
+  min-height: 100vh;
+}
+
+.dark .fern-layout-main,
+.dark main,
+[data-theme="dark"] .fern-layout-main,
+[data-theme="dark"] main {
+  background: radial-gradient(ellipse at 50% 100%, #292925 0%, #20201E 35%, #181816 75%);
+  min-height: 100vh;
+}
+
+/* ── Remove all default borders ── */
 * {
-  border-color: transparent;
+  border-color: transparent !important;
 }
 
 /* Selected / active items only */
 .fern-sidebar-item[data-selected="true"],
-.fern-sidebar-item:focus-visible {
-  border: 1px solid #C9C8C1;
+.fern-sidebar-item:focus-visible,
+[aria-selected="true"],
+[aria-current="page"] {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-base);
 }
 
-/* ── Shadows — none by default ── */
+/* ── Remove all default shadows ── */
 * {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 /* Interactive surfaces */
 .fern-card,
-[class*="card"] {
-  box-shadow: 0 2px 12px rgba(36, 36, 33, 0.025);
+[class*="card"],
+.fern-callout,
+[class*="callout"] {
+  box-shadow: var(--shadow-interactive) !important;
+  border-radius: var(--radius-base);
+  background: var(--color-card-bg);
+  color: var(--color-card-fg);
 }
 
-/* ── Cards ── */
-.fern-card,
-[class*="card"] {
-  background: #F0EFEA;
-  border-radius: 0.5rem;
+/* ── Navigation ── */
+.fern-sidebar,
+[class*="sidebar"],
+nav {
+  background: var(--color-nav-bg);
+  color: var(--color-nav-fg);
 }
 
-/* ── Page background gradient ── */
-.fern-layout-main,
-main {
-  background: radial-gradient(ellipse at 50% 100%, #EAE9E4 0%, #F1F0EC 30%, #F8F7F3 70%);
+.fern-sidebar-item:hover,
+[class*="sidebar-item"]:hover {
+  background: var(--color-nav-hover);
+  border-radius: var(--radius-base);
 }
 
-/* ── Text inputs / search box ── */
-input, textarea, [role="searchbox"], .fern-search-input {
-  background: linear-gradient(145deg, #F3F2ED 0%, #EBEAE5 100%);
-  border: none;
+.fern-sidebar-item[data-active="true"],
+[class*="sidebar-item"][data-active="true"] {
+  background: var(--color-nav-active-bg);
+  color: var(--color-nav-active-fg);
+  border-radius: var(--radius-base);
+}
+
+/* ── Search / text inputs ── */
+input,
+textarea,
+[role="searchbox"],
+.fern-search-input,
+[class*="search-input"],
+[class*="input"] {
+  background: linear-gradient(145deg, #F3F2ED 0%, #EBEAE5 100%) !important;
+  color: #292925 !important;
+  border: none !important;
+  border-radius: var(--radius-base) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.65),
-    0 4px 18px rgba(36, 36, 33, 0.025);
-  border-radius: 0.5rem;
+    0 4px 18px rgba(36, 36, 33, 0.025) !important;
 }
 
-/* ── Remove default Fern pink/purple accent ── */
-:root {
-  --accent: #3B3A36;
-  --accent-foreground: #F8F7F3;
+.dark input,
+.dark textarea,
+.dark [role="searchbox"],
+.dark .fern-search-input,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] [role="searchbox"] {
+  background: linear-gradient(145deg, #292925 0%, #232320 100%) !important;
+  color: #F1F0EB !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 4px 18px rgba(0, 0, 0, 0.12) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #85847D;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder,
+[data-theme="dark"] input::placeholder {
+  color: #92918A;
+}
+
+input:focus,
+textarea:focus,
+[role="searchbox"]:focus {
+  background: #F7F6F2 !important;
+  box-shadow: 0 0 0 2px rgba(59, 58, 54, 0.10) !important;
+  outline: none !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+[data-theme="dark"] input:focus {
+  background: #30302C !important;
+  box-shadow: 0 0 0 2px rgba(232, 231, 226, 0.10) !important;
+}
+
+/* ── Popover / dropdown ── */
+[class*="popover"],
+[class*="dropdown"],
+[role="dialog"],
+[role="listbox"] {
+  background: var(--color-popover-bg) !important;
+  color: var(--color-popover-fg) !important;
+  border-radius: var(--radius-base) !important;
+  border: none !important;
+  box-shadow: var(--shadow-interactive) !important;
+}
+
+/* ── Muted text ── */
+[class*="muted"],
+.fern-muted {
+  color: var(--color-muted-fg) !important;
+}
+
+/* ── Accent / primary button ── */
+.fern-button[data-intent="primary"],
+button[data-intent="primary"] {
+  background: var(--color-accent-bg) !important;
+  color: var(--color-accent-fg) !important;
+  border: none !important;
+  border-radius: var(--radius-base) !important;
+}
+
+/* ── Border radius ── */
+button, .fern-button, [class*="badge"], [class*="tag"] {
+  border-radius: var(--radius-base);
+}
+
+code, pre {
+  border-radius: var(--radius-sm);
+}
+
+[class*="modal"], [class*="panel"] {
+  border-radius: var(--radius-lg);
 }
