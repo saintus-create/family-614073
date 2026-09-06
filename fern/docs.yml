@@ -11,6 +11,20 @@ instances:
       branch: main
     launch: dashboard
 title: California's COHS Plans
+colors:
+  accent-primary:
+    light: "#3B3A36"
+  background:
+    light: "#F8F7F3"
+  border:
+    light: "#C9C8C1"
+  sidebar-background:
+    light: "#F0EFEA"
+  header-background:
+    light: "#F8F7F3"
+  card-background:
+    light: "#F0EFEA"
+css: ./styles.css
 layout:
   searchbar-placement: header
   page-width: full
