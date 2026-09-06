@@ -1,211 +1,71 @@
-/* Custom styles for Fern Docs Starter */
+/* ── Typography ── */
+@import url('https://fonts.cdnfonts.com/css/sohne');
 
-/* Subtle linear gradient background */
-.fern-background-image {
-  background-image: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 50%);
-}
-
-/* WebGL mesh gradient canvas */
-.mesh-gradient-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Animated film grain overlay */
-.fern-background-image::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  opacity: 0.1;
-  pointer-events: none;
-  animation: grain 3s steps(10) infinite;
-}
-
-@keyframes grain {
-  0%, 100% { background-position: 0 0; }
-  10% { background-position: -50px -100px; }
-  20% { background-position: -150px 50px; }
-  30% { background-position: 70px -250px; }
-  40% { background-position: -50px 250px; }
-  50% { background-position: -150px 100px; }
-  60% { background-position: 150px 0; }
-  70% { background-position: 0 150px; }
-  80% { background-position: 30px 350px; }
-  90% { background-position: -100px 100px; }
-}
-
-/* Nebula WebGL background */
-.background-graphic-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.background-graphic-wrapper canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* Center header tabs */
-.fern-header-tabs {
-  justify-content: center;
-}
-
-/* Welcome page: extra spacing around header and action buttons */
-.fern-layout-overview article > header {
-  padding-top: 4rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.fern-layout-overview article > header > div:first-child {
-  justify-content: center;
-}
-
-.fern-layout-overview article > header h1 {
-  font-size: 3rem;
-}
-
-.welcome-help {
-  text-align: center;
-}
-
-.welcome-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: -1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 4rem;
-}
-
-/* Clinical Evidence Index visual identity layer. */
 :root {
-  --cei-radius-sm: 8px;
-  --cei-radius-md: 12px;
-  --cei-radius-lg: 16px;
-  --cei-shadow-soft: 0 1px 2px color-mix(in srgb, var(--grayscale-12), transparent 92%),
-    0 8px 24px color-mix(in srgb, var(--grayscale-12), transparent 95%);
+  --font-sans: 'Söhne', Arial, sans-serif;
 }
 
-/* Navigation should identify destinations, never become five-line paragraphs. */
-.fern-sidebar a,
-.fern-sidebar button {
-  min-width: 0;
+body, .fern-docs {
+  font-family: 'Söhne', Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  background: radial-gradient(ellipse at 50% 100%, #EAE9E4 0%, #F1F0EC 30%, #F8F7F3 70%);
+  min-height: 100vh;
 }
 
-.fern-sidebar a > span,
-.fern-sidebar button > span {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Söhne', Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
 }
 
-/* Quiet elevation for reusable content surfaces. */
-.fern-card {
-  border-radius: var(--cei-radius-md);
-  box-shadow: var(--cei-shadow-soft);
-  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+/* ── Borders — none by default ── */
+* {
+  border-color: transparent;
 }
 
-.fern-card:hover {
-  transform: translateY(-1px);
+/* Selected / active items only */
+.fern-sidebar-item[data-selected="true"],
+.fern-sidebar-item:focus-visible {
+  border: 1px solid #C9C8C1;
 }
 
-/* Small editorial section marker for intentional identity elements. */
-.cei-section-marker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--accent-9);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
+/* ── Shadows — none by default ── */
+* {
+  box-shadow: none;
 }
 
-.cei-section-marker::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--accent-9);
+/* Interactive surfaces */
+.fern-card,
+[class*="card"] {
+  box-shadow: 0 2px 12px rgba(36, 36, 33, 0.025);
 }
 
-/* Reusable evidence/authority path motif. */
-.cei-path {
-  position: relative;
-  display: grid;
-  gap: 12px;
+/* ── Cards ── */
+.fern-card,
+[class*="card"] {
+  background: #F0EFEA;
+  border-radius: 0.5rem;
 }
 
-.cei-path::before {
-  content: "";
-  position: absolute;
-  left: 15px;
-  top: 16px;
-  bottom: 16px;
-  width: 1px;
-  background: var(--border);
+/* ── Page background gradient ── */
+.fern-layout-main,
+main {
+  background: radial-gradient(ellipse at 50% 100%, #EAE9E4 0%, #F1F0EC 30%, #F8F7F3 70%);
 }
 
-.cei-node {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* ── Text inputs / search box ── */
+input, textarea, [role="searchbox"], .fern-search-input {
+  background: linear-gradient(145deg, #F3F2ED 0%, #EBEAE5 100%);
+  border: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 4px 18px rgba(36, 36, 33, 0.025);
+  border-radius: 0.5rem;
 }
 
-.cei-node > span:first-child {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--background);
-}
-
-/* Status is never conveyed by color alone. */
-.cei-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 3px 9px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fern-card {
-    transition: none;
-  }
-
-  .fern-card:hover {
-    transform: none;
-  }
-
-  .fern-background-image::after {
-    animation: none;
-  }
+/* ── Remove default Fern pink/purple accent ── */
+:root {
+  --accent: #3B3A36;
+  --accent-foreground: #F8F7F3;
 }
