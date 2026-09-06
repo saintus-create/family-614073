@@ -35,11 +35,21 @@ const COHS_COUNTY_FIPS = [
   "06111", // Ventura
 ];
 
+const PLAN_MARKERS = [
+  { id: "partnership", coordinates: [-121.7, 40.5] },
+  { id: "alliance", coordinates: [-121.0, 36.5] },
+  { id: "cencal", coordinates: [-120.0, 34.6] },
+  { id: "gold-coast", coordinates: [-119.1, 34.3] },
+  { id: "caloptima", coordinates: [-117.8, 33.7] },
+];
+
 const HIGHLIGHT_FILL = "rgba(100, 180, 255, 0.35)";
 const HIGHLIGHT_LINE = "rgb(100, 180, 255)";
 
 export function WorldMapBackground() {
   const containerRef = useRef(null);
+  const markersRef = useRef([]);
+  const pointerRef = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
     if (!document.querySelector(`link[href="${MAPBOX_CSS_URL}"]`)) {
@@ -51,6 +61,78 @@ export function WorldMapBackground() {
 
     let map = null;
     let cancelled = false;
+    let animationFrame = null;
+
+    function updateMarkerPositions() {
+      if (!map) return;
+      markersRef.current.forEach(({ element, coordinates }) => {
+        const point = map.project(coordinates);
+        element.style.transform = `translate3d(${point.x}px, ${point.y}px, 0) translate(-50%, -50%)`;
+      });
+      updateMarkerScale();
+    }
+
+    function updateMarkerScale() {
+      const pointer = pointerRef.current;
+      markersRef.current.forEach(({ element }) => {
+        const rect = element.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const distance = Math.hypot(pointer.x - x, pointer.y - y);
+        const proximity = Math.max(0, 1 - distance / 280);
+        const scale = 0.52 + proximity * 0.82;
+        const opacity = 0.42 + proximity * 0.58;
+        element.style.setProperty("--marker-scale", scale.toFixed(3));
+        element.style.opacity = opacity.toFixed(3);
+      });
+    }
+
+    function createPlanMarkers() {
+      if (!map || !containerRef.current) return;
+
+      const layer = document.createElement("div");
+      layer.style.position = "absolute";
+      layer.style.inset = "0";
+      layer.style.zIndex = "3";
+      layer.style.pointerEvents = "none";
+      containerRef.current.appendChild(layer);
+
+      PLAN_MARKERS.forEach(({ id, coordinates }) => {
+        const marker = document.createElement("div");
+        marker.setAttribute("aria-label", `${id} health plan`);
+        marker.style.position = "absolute";
+        marker.style.left = "0";
+        marker.style.top = "0";
+        marker.style.width = "76px";
+        marker.style.height = "76px";
+        marker.style.borderRadius = "999px";
+        marker.style.transformOrigin = "center";
+        marker.style.transform = "translate(-50%, -50%) scale(0.52)";
+        marker.style.transition = "transform 180ms ease-out, opacity 180ms ease-out";
+        marker.style.opacity = "0.42";
+        marker.style.setProperty("--marker-scale", "0.52");
+        marker.style.background = "rgba(255,255,255,0.92)";
+        marker.style.border = "1px solid rgba(255,255,255,0.95)";
+        marker.style.boxShadow = "0 8px 28px rgba(0,0,0,0.28), 0 0 0 8px rgba(255,255,255,0.08)";
+        marker.style.display = "grid";
+        marker.style.placeItems = "center";
+        marker.style.overflow = "hidden";
+
+        const mark = document.createElement("div");
+        mark.style.width = "30px";
+        mark.style.height = "30px";
+        mark.style.borderRadius = "10px 18px 10px 18px";
+        mark.style.background = "linear-gradient(135deg, rgba(40,120,190,0.95), rgba(90,180,235,0.8))";
+        mark.style.transform = "rotate(-12deg)";
+        mark.style.boxShadow = "inset 0 0 0 5px rgba(255,255,255,0.28)";
+        marker.appendChild(mark);
+
+        layer.appendChild(marker);
+        markersRef.current.push({ element: marker, coordinates });
+      });
+
+      updateMarkerPositions();
+    }
 
     async function addCountyLayers() {
       try {
@@ -114,10 +196,28 @@ export function WorldMapBackground() {
         center: [-119.5, 37.2],
         zoom: 6,
         attributionControl: false,
+        dragRotate: false,
+        pitchWithRotate: false,
       });
 
-      map.on("load", addCountyLayers);
+      map.on("load", () => {
+        createPlanMarkers();
+        addCountyLayers();
+        map.on("move", updateMarkerPositions);
+        map.on("resize", updateMarkerPositions);
+      });
     }
+
+    function handlePointerMove(event) {
+      pointerRef.current = { x: event.clientX, y: event.clientY };
+      if (animationFrame) return;
+      animationFrame = requestAnimationFrame(() => {
+        animationFrame = null;
+        updateMarkerScale();
+      });
+    }
+
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
 
     if (window.mapboxgl) {
       initMap();
@@ -133,6 +233,9 @@ export function WorldMapBackground() {
 
     return () => {
       cancelled = true;
+      window.removeEventListener("pointermove", handlePointerMove);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      markersRef.current = [];
       if (map) {
         map.remove();
         map = null;
@@ -146,13 +249,36 @@ export function WorldMapBackground() {
       aria-hidden="true"
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
+        inset: 0,
         width: "100vw",
         height: "100vh",
         zIndex: 0,
+        overflow: "hidden",
+        borderRadius: "28px",
       }}
-    />
+    >
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 4,
+          pointerEvents: "none",
+          background:
+            "linear-gradient(90deg, rgba(0,0,0,0.48) 0%, rgba(0,0,0,0.22) 16%, rgba(0,0,0,0) 34%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.22) 84%, rgba(0,0,0,0.48) 100%)",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: "12px",
+          zIndex: 5,
+          pointerEvents: "none",
+          border: "1px solid rgba(255,255,255,0.24)",
+          borderRadius: "28px",
+          boxShadow: "inset 0 0 70px rgba(0,0,0,0.14)",
+        }}
+      />
+    </div>
   );
 }
 
