@@ -48,3 +48,6 @@ navigation:
   - page: Home
     path: docs/pages/landing.mdx
     slug: home
+  - page: How to Make Your Map Perfect
+    path: docs/pages/map-design.mdx
+    slug: map-design
