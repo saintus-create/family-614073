@@ -9,30 +9,10 @@ const MAPBOX_JS_URL = "https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js";
 const COUNTIES_GEOJSON_URL =
   "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json";
 
-// California COHS counties (FIPS codes)
 const COHS_COUNTY_FIPS = [
-  "06001", // Alameda
-  "06013", // Contra Costa
-  "06019", // Fresno
-  "06029", // Kern
-  "06031", // Kings
-  "06037", // Los Angeles
-  "06039", // Madera
-  "06041", // Marin
-  "06045", // Mendocino
-  "06047", // Merced
-  "06053", // Monterey
-  "06059", // Orange
-  "06065", // Riverside
-  "06067", // Sacramento
-  "06071", // San Bernardino
-  "06073", // San Diego
-  "06075", // San Francisco
-  "06081", // San Mateo
-  "06083", // Santa Barbara
-  "06085", // Santa Clara
-  "06095", // Solano
-  "06111", // Ventura
+  "06001", "06013", "06019", "06029", "06031", "06037", "06039", "06041",
+  "06045", "06047", "06053", "06059", "06065", "06067", "06071", "06073",
+  "06075", "06081", "06083", "06085", "06095", "06111",
 ];
 
 const PLAN_MARKERS = [
@@ -45,11 +25,25 @@ const PLAN_MARKERS = [
 
 const HIGHLIGHT_FILL = "rgba(100, 180, 255, 0.35)";
 const HIGHLIGHT_LINE = "rgb(100, 180, 255)";
+const INITIAL_CENTER = [-120.0, 34.6];
+const INITIAL_ZOOM = 5.6;
+const INITIAL_PITCH = 48;
+
+function angularDistance(a, b) {
+  const toRad = (value) => (value * Math.PI) / 180;
+  const lat1 = toRad(a[1]);
+  const lat2 = toRad(b[1]);
+  const dLat = lat2 - lat1;
+  const dLon = toRad(b[0] - a[0]);
+  const sinLat = Math.sin(dLat / 2);
+  const sinLon = Math.sin(dLon / 2);
+  const value = Math.min(1, sinLat * sinLat + Math.cos(lat1) * Math.cos(lat2) * sinLon * sinLon);
+  return (2 * Math.asin(Math.sqrt(value)) * 180) / Math.PI;
+}
 
 export function WorldMapBackground() {
   const containerRef = useRef(null);
   const markersRef = useRef([]);
-  const pointerRef = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
     if (!document.querySelector(`link[href="${MAPBOX_CSS_URL}"]`)) {
@@ -61,29 +55,21 @@ export function WorldMapBackground() {
 
     let map = null;
     let cancelled = false;
-    let animationFrame = null;
 
     function updateMarkerPositions() {
       if (!map) return;
-      markersRef.current.forEach(({ element, coordinates }) => {
-        const point = map.project(coordinates);
-        element.style.transform = `translate3d(${point.x}px, ${point.y}px, 0) translate(-50%, -50%)`;
-      });
-      updateMarkerScale();
-    }
+      const center = map.getCenter();
 
-    function updateMarkerScale() {
-      const pointer = pointerRef.current;
-      markersRef.current.forEach(({ element }) => {
-        const rect = element.getBoundingClientRect();
-        const x = rect.left + rect.width / 2;
-        const y = rect.top + rect.height / 2;
-        const distance = Math.hypot(pointer.x - x, pointer.y - y);
-        const proximity = Math.max(0, 1 - distance / 280);
-        const scale = 0.52 + proximity * 0.82;
-        const opacity = 0.42 + proximity * 0.58;
-        element.style.setProperty("--marker-scale", scale.toFixed(3));
-        element.style.opacity = opacity.toFixed(3);
+      markersRef.current.forEach(({ element, coordinates }) => {
+        const distance = angularDistance([center.lng, center.lat], coordinates);
+        const visible = distance < 104;
+        const point = map.project(coordinates);
+        const depth = Math.max(0, 1 - distance / 104);
+        const scale = 0.48 + depth * 0.72;
+
+        element.style.transform = `translate3d(${point.x}px, ${point.y}px, 0) translate(-50%, -50%) scale(${scale.toFixed(3)})`;
+        element.style.opacity = visible ? (0.22 + depth * 0.78).toFixed(3) : "0";
+        element.style.visibility = visible ? "visible" : "hidden";
       });
     }
 
@@ -103,29 +89,37 @@ export function WorldMapBackground() {
         marker.style.position = "absolute";
         marker.style.left = "0";
         marker.style.top = "0";
-        marker.style.width = "76px";
-        marker.style.height = "76px";
+        marker.style.width = "82px";
+        marker.style.height = "82px";
         marker.style.borderRadius = "999px";
         marker.style.transformOrigin = "center";
-        marker.style.transform = "translate(-50%, -50%) scale(0.52)";
-        marker.style.transition = "transform 180ms ease-out, opacity 180ms ease-out";
-        marker.style.opacity = "0.42";
-        marker.style.setProperty("--marker-scale", "0.52");
-        marker.style.background = "rgba(255,255,255,0.92)";
-        marker.style.border = "1px solid rgba(255,255,255,0.95)";
-        marker.style.boxShadow = "0 8px 28px rgba(0,0,0,0.28), 0 0 0 8px rgba(255,255,255,0.08)";
+        marker.style.background = "rgba(255,255,255,0.94)";
+        marker.style.border = "1px solid rgba(255,255,255,0.98)";
+        marker.style.boxShadow = "0 10px 34px rgba(0,0,0,0.32), 0 0 0 8px rgba(255,255,255,0.09)";
         marker.style.display = "grid";
         marker.style.placeItems = "center";
-        marker.style.overflow = "hidden";
+        marker.style.overflow = "visible";
+        marker.style.transition = "opacity 160ms ease-out, transform 160ms ease-out";
 
         const mark = document.createElement("div");
         mark.style.width = "30px";
         mark.style.height = "30px";
         mark.style.borderRadius = "10px 18px 10px 18px";
-        mark.style.background = "linear-gradient(135deg, rgba(40,120,190,0.95), rgba(90,180,235,0.8))";
+        mark.style.background = "linear-gradient(135deg, rgba(40,120,190,0.98), rgba(90,180,235,0.86))";
         mark.style.transform = "rotate(-12deg)";
         mark.style.boxShadow = "inset 0 0 0 5px rgba(255,255,255,0.28)";
         marker.appendChild(mark);
+
+        const stem = document.createElement("div");
+        stem.style.position = "absolute";
+        stem.style.left = "50%";
+        stem.style.top = "calc(100% - 2px)";
+        stem.style.width = "12px";
+        stem.style.height = "18px";
+        stem.style.transform = "translateX(-50%)";
+        stem.style.background = "rgba(255,255,255,0.94)";
+        stem.style.clipPath = "polygon(0 0, 100% 0, 50% 100%)";
+        marker.appendChild(stem);
 
         layer.appendChild(marker);
         markersRef.current.push({ element: marker, coordinates });
@@ -152,11 +146,7 @@ export function WorldMapBackground() {
 
         if (map.getSource("ca-counties")) return;
 
-        map.addSource("ca-counties", {
-          type: "geojson",
-          data: california,
-        });
-
+        map.addSource("ca-counties", { type: "geojson", data: california });
         const cohsFilter = ["in", ["get", "fips"], ["literal", COHS_COUNTY_FIPS]];
 
         map.addLayer({
@@ -164,9 +154,7 @@ export function WorldMapBackground() {
           type: "fill",
           source: "ca-counties",
           filter: cohsFilter,
-          paint: {
-            "fill-color": HIGHLIGHT_FILL,
-          },
+          paint: { "fill-color": HIGHLIGHT_FILL },
         });
 
         map.addLayer({
@@ -174,10 +162,7 @@ export function WorldMapBackground() {
           type: "line",
           source: "ca-counties",
           filter: cohsFilter,
-          paint: {
-            "line-color": HIGHLIGHT_LINE,
-            "line-width": 2,
-          },
+          paint: { "line-color": HIGHLIGHT_LINE, "line-width": 2 },
         });
       } catch (error) {
         console.error("Failed to load California county boundaries", error);
@@ -193,11 +178,14 @@ export function WorldMapBackground() {
       map = new mapboxgl.Map({
         container: containerRef.current,
         style: "mapbox://styles/mapbox/satellite-streets-v12",
-        center: [-119.5, 37.2],
-        zoom: 6,
+        center: INITIAL_CENTER,
+        zoom: INITIAL_ZOOM,
+        pitch: INITIAL_PITCH,
+        projection: "globe",
         attributionControl: false,
         dragRotate: false,
         pitchWithRotate: false,
+        scrollZoom: false,
       });
 
       map.on("load", () => {
@@ -205,19 +193,9 @@ export function WorldMapBackground() {
         addCountyLayers();
         map.on("move", updateMarkerPositions);
         map.on("resize", updateMarkerPositions);
+        updateMarkerPositions();
       });
     }
-
-    function handlePointerMove(event) {
-      pointerRef.current = { x: event.clientX, y: event.clientY };
-      if (animationFrame) return;
-      animationFrame = requestAnimationFrame(() => {
-        animationFrame = null;
-        updateMarkerScale();
-      });
-    }
-
-    window.addEventListener("pointermove", handlePointerMove, { passive: true });
 
     if (window.mapboxgl) {
       initMap();
@@ -233,8 +211,6 @@ export function WorldMapBackground() {
 
     return () => {
       cancelled = true;
-      window.removeEventListener("pointermove", handlePointerMove);
-      if (animationFrame) cancelAnimationFrame(animationFrame);
       markersRef.current = [];
       if (map) {
         map.remove();
@@ -255,13 +231,14 @@ export function WorldMapBackground() {
         zIndex: 0,
         overflow: "hidden",
         borderRadius: "28px",
+        touchAction: "none",
       }}
     >
       <div
         style={{
           position: "absolute",
           inset: 0,
-          zIndex: 4,
+          zIndex: 2,
           pointerEvents: "none",
           background:
             "linear-gradient(90deg, rgba(0,0,0,0.48) 0%, rgba(0,0,0,0.22) 16%, rgba(0,0,0,0) 34%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.22) 84%, rgba(0,0,0,0.48) 100%)",
