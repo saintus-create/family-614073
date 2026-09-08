@@ -33,12 +33,34 @@ tabs:
   home:
     display-name: Home
     icon: home
-experimental:
-  mdx-components:
-    - ./components
 navigation:
 - tab: home
   layout:
   - page: Home
     path: docs/pages/landing.mdx
     slug: home
+  - page: COHS off-label workflow
+    path: docs/pages/cohs-workflow/index.mdx
+    slug: cohs-workflow
+    layout:
+    - page: Start
+      path: docs/pages/cohs-workflow/index.mdx
+    - page: Role-based workflows
+      path: docs/pages/cohs-workflow/roles.mdx
+    - page: Request builder
+      path: docs/pages/cohs-workflow/request-builder.mdx
+    - page: Decision states
+      path: docs/pages/cohs-workflow/decision-states.mdx
+    - page: Denial & appeals navigator
+      path: docs/pages/cohs-workflow/appeals.mdx
+    - page: Completeness dashboard
+      path: docs/pages/cohs-workflow/completeness.mdx
+  - page: Evidence index
+    path: docs/pages/browse.mdx
+    slug: browse
+  - page: CenCal Health
+    path: docs/pages/cencal-health/index.mdx
+    slug: cencal-health
+  - page: California off-label prescribing
+    path: docs/pages/california-off-label/index.mdx
+    slug: california-off-label
