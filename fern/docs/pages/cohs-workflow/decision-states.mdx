@@ -1,0 +1,52 @@
+---
+title: Decision states
+subtitle: A structured interpreter for authorization outcomes and what each state should trigger next.
+slug: cohs-workflow/decision-states
+layout: overview
+---
+
+<Callout intent="info" title="A decision state is not a clinical judgment">
+The status recorded by an authorization system describes an administrative decision. It should be preserved with the written reason, criteria, scope, date, and next available process.
+</Callout>
+
+<Tabs>
+  <Tab title="Approved">
+    Record the approved drug, formulation, dose/quantity limits, duration, effective period, conditions, and any remaining dispensing or administration requirements. Approval does not replace the prescription or clinical judgment.
+  </Tab>
+  <Tab title="Partially approved">
+    Compare the requested and approved regimen. Record exactly what changed and whether the remaining portion requires a new request, clarification, or appeal.
+  </Tab>
+  <Tab title="Modified">
+    Preserve the requested regimen, the modified regimen, the stated reason, and the criteria used. Do not describe the modification as a finding that the original treatment was medically inappropriate unless the decision actually says so.
+  </Tab>
+  <Tab title="Deferred / pended">
+    Treat a pend as an information or review state. Record the missing information, request date, response deadline if stated, and who must respond. A pend is not the same as a denial.
+  </Tab>
+  <Tab title="Denied">
+    Preserve the written denial, reason, criteria, notice date, benefit channel, and appeal deadline. Identify whether the issue is medical necessity, benefit exclusion, formulary/PA criteria, missing information, coding, or another stated basis without inventing a reason.
+  </Tab>
+  <Tab title="Information requested">
+    Track the exact records requested, source of the request, date received, response route, and whether the request changes the applicable review timeframe.
+  </Tab>
+</Tabs>
+
+## Minimum decision record
+
+<Steps>
+<Step title="Identify the decision maker">
+Record CenCal, Medi-Cal Rx/DHCS, or another responsible entity and the benefit channel that gave rise to the decision.
+</Step>
+<Step title="Capture the written decision">
+Store the determination/Notice of Action and the stated rationale. Preserve the exact criteria or policy identified as controlling when available.
+</Step>
+<Step title="Capture dates and deadlines">
+Record request date, decision date, notice date, authorization period, response deadline, and appeal deadline when stated. Do not substitute a generic deadline for a missing source-specific date.
+</Step>
+<Step title="Route the next action">
+Approval proceeds under its conditions. Modification, deferral, denial, or unresolved requests move to the applicable clarification, reconsideration, appeal, or other review route.
+</Step>
+</Steps>
+
+<Callout intent="warning" title="Do not flatten benefit channels">
+The repository's CenCal source record distinguishes pharmacy-benefit PA administered through Medi-Cal Rx from CenCal medical-benefit PAD/TAR processing. The appeal and submission path must follow the actual benefit channel.
+</Callout>
