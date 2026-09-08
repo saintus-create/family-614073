@@ -9,16 +9,18 @@ hide-feedback: true
 
 import { WorldMapBackground } from "../../components/WorldMapBackground";
 
-<div
-  style={{
-    position: "fixed",
-    inset: 0,
-    zIndex: 0,
-    background:
-      "radial-gradient(circle at 50% 38%, rgba(38, 83, 112, 0.45) 0%, rgba(8, 17, 25, 0.94) 58%, #03070c 100%)",
-  }}
->
+<div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
   <WorldMapBackground />
+  <div
+    aria-hidden="true"
+    style={{
+      position: "absolute",
+      inset: 0,
+      background:
+        "linear-gradient(to bottom, rgba(3, 7, 12, 0) 0%, rgba(3, 7, 12, 0.02) 34%, rgba(3, 7, 12, 0.38) 55%, rgba(3, 7, 12, 0.9) 78%, rgba(3, 7, 12, 0.98) 100%)",
+      pointerEvents: "none",
+    }}
+  />
 </div>
 
 <div
@@ -28,15 +30,19 @@ import { WorldMapBackground } from "../../components/WorldMapBackground";
     zIndex: 10,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "1.5rem",
+    justifyContent: "flex-end",
+    alignItems: "stretch",
     pointerEvents: "none",
-    textAlign: "center",
-    padding: "1.5rem",
+    padding: "0 clamp(1.25rem, 5vw, 4rem) clamp(2rem, 6vh, 4rem)",
   }}
 >
-  <div style={{ maxWidth: "44rem", pointerEvents: "auto" }}>
+  <div
+    style={{
+      width: "min(100%, 46rem)",
+      margin: "0 auto",
+      pointerEvents: "auto",
+    }}
+  >
     <div
       style={{
         display: "inline-flex",
@@ -60,12 +66,13 @@ import { WorldMapBackground } from "../../components/WorldMapBackground";
     <h1
       style={{
         margin: 0,
+        maxWidth: "42rem",
         color: "#ffffff",
         fontSize: "clamp(2rem, 8vw, 4.25rem)",
         fontWeight: 700,
         lineHeight: 0.98,
         letterSpacing: "-0.035em",
-        textShadow: "0 2px 24px rgba(0, 0, 0, 0.7)",
+        textShadow: "0 2px 24px rgba(0, 0, 0, 0.55)",
       }}
     >
       County Organized Health System
@@ -73,20 +80,20 @@ import { WorldMapBackground } from "../../components/WorldMapBackground";
 
     <p
       style={{
-        margin: "1rem auto 1.4rem",
+        margin: "1rem 0 1.4rem",
         maxWidth: "38rem",
-        color: "rgba(235, 242, 248, 0.9)",
+        color: "rgba(235, 242, 248, 0.88)",
         fontSize: "clamp(1rem, 2.8vw, 1.2rem)",
         lineHeight: 1.5,
-        textShadow: "0 2px 14px rgba(0, 0, 0, 0.75)",
+        textShadow: "0 2px 14px rgba(0, 0, 0, 0.7)",
       }}
     >
-      A source-linked workspace for clinical evidence, coverage, authorization,
-      and health-system workflows across California.
+      A clinical evidence index for understanding care, coverage, and health
+      systems across California.
     </p>
 
-    <Button href="/cohs-workflow" intent="primary" rightIcon="arrow-right">
-      Open the COHS Workflow Bank
+    <Button href="/home" intent="primary" rightIcon="arrow-right">
+      Explore the Index
     </Button>
   </div>
 </div>
