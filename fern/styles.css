@@ -73,6 +73,25 @@ body:has([href="/cohs-workflow"]) [role="banner"] {
   box-shadow: none !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body:has([href="/cohs-workflow"]) header a,
+body:has([href="/cohs-workflow"]) nav a,
+body:has([href="/cohs-workflow"]) [role="banner"] a,
+body:has([href="/cohs-workflow"]) header button,
+body:has([href="/cohs-workflow"]) nav button,
+body:has([href="/cohs-workflow"]) [role="banner"] button {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body:has([href="/cohs-workflow"]) header a:hover,
+body:has([href="/cohs-workflow"]) nav a:hover,
+body:has([href="/cohs-workflow"]) [role="banner"] a:hover,
+body:has([href="/cohs-workflow"]) header button:hover,
+body:has([href="/cohs-workflow"]) nav button:hover,
+body:has([href="/cohs-workflow"]) [role="banner"] button:hover {
+  color: #ffffff !important;
 }
 
 /* ── Remove default Fern pink/purple accent ── */
