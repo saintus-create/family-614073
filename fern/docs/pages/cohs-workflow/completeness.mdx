@@ -1,0 +1,65 @@
+---
+title: Completeness dashboard
+subtitle: See what the current bank establishes, what is source-derived, and what still requires current verification.
+slug: cohs-workflow/completeness
+layout: overview
+---
+
+<Callout intent="info" title="Completeness is scoped, not absolute">
+“Complete” means complete for the stated jurisdiction, plan, benefit channel, medication scope, and effective date. The bank does not claim that every California law, COHS, formulary, form, or medication is represented.
+</Callout>
+
+## Current coverage of the bank
+
+| Workflow dimension | Current state | What is represented |
+| --- | --- | --- |
+| California off-label authority | Source-linked | California authority registry and provenance model |
+| FDA label / approved use | Source-linked | DailyMed / FDA records already indexed |
+| Published evidence | Source-linked | PubMed study corpus and ClinicalTrials.gov records |
+| CenCal legal/operational role | Source-linked | CenCal COHS and authorization analysis |
+| Pharmacy benefit routing | Source-linked | Medi-Cal Rx / DHCS route in the CenCal record |
+| Medical PAD/TAR routing | Source-linked | CenCal medical-pharmacy/TAR workflow |
+| Request documentation | Framework + source-linked examples | Provider/member packet structure and clinical-justification checklist |
+| Current formulary/preferred status | Verification required | Status can change and must be checked for the requested drug/date |
+| Current form revision | Verification required | Linked form/source does not establish that a revision remains current |
+| Every COHS plan | Not established | Current bank is not a universal COHS catalogue |
+| Every medication/formulation | Not established | Existing medication corpus is broader than the authorization workflow scope |
+| Commercial-plan IMR | Outside current COHS scope | Do not substitute commercial-plan rules for Medi-Cal routing |
+
+## Provenance states
+
+<Tabs>
+  <Tab title="Verified">
+    The record may be presented as verified against its designated source, subject to the source's scope and effective date.
+  </Tab>
+  <Tab title="Source-derived">
+    The fact is reproduced or structured from a source but should not be presented as independently verified current law or policy.
+  </Tab>
+  <Tab title="Review required">
+    The source helps locate an issue, but a reviewer should confirm the current authority, applicability, or version before relying on it.
+  </Tab>
+  <Tab title="Unreviewed">
+    Discovery-only material. It should not be used as an authoritative proposition.
+  </Tab>
+</Tabs>
+
+## Before relying on a workflow
+
+<Steps>
+<Step title="Match scope">
+Confirm county, plan/program, benefit channel, medication/formulation, requested use, and date.
+</Step>
+<Step title="Match authority">
+Open the underlying statute, regulation, agency/plan policy, contract provision, form, or source record rather than relying on a summary alone.
+</Step>
+<Step title="Check currentness">
+Confirm the source is current for the date of the request and record the verification date.
+</Step>
+<Step title="Record the gap">
+If the bank does not establish an answer, label it **verification required**. Do not convert absence of data into a negative coverage or legal conclusion.
+</Step>
+</Steps>
+
+<Callout intent="warning" title="No universal-coverage claim">
+The completeness dashboard is deliberately conservative. A missing formulary entry, plan policy, form revision, or jurisdiction-specific rule means the answer is unknown from this bank—not that the item does not exist.
+</Callout>
