@@ -9,7 +9,17 @@ hide-feedback: true
 
 import { WorldMapBackground } from "../../components/WorldMapBackground";
 
-<WorldMapBackground />
+<div
+  style={{
+    position: "fixed",
+    inset: 0,
+    zIndex: 0,
+    background:
+      "radial-gradient(circle at 50% 38%, rgba(38, 83, 112, 0.45) 0%, rgba(8, 17, 25, 0.94) 58%, #03070c 100%)",
+  }}
+>
+  <WorldMapBackground />
+</div>
 
 <div
   style={{
@@ -23,24 +33,60 @@ import { WorldMapBackground } from "../../components/WorldMapBackground";
     gap: "1.5rem",
     pointerEvents: "none",
     textAlign: "center",
-    padding: "0 1.5rem",
+    padding: "1.5rem",
   }}
 >
-  <h1
-    style={{
-      margin: 0,
-      color: "#ffffff",
-      fontSize: "clamp(2rem, 5vw, 3.5rem)",
-      fontWeight: 700,
-      lineHeight: 1.1,
-      textShadow: "0 2px 16px rgba(0, 0, 0, 0.7)",
-    }}
-  >
-    County Organized Health System
-  </h1>
-  <div style={{ pointerEvents: "auto" }}>
-    <Button href="/home" intent="primary" rightIcon="arrow-right">
-      Enter
+  <div style={{ maxWidth: "44rem", pointerEvents: "auto" }}>
+    <div
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        marginBottom: "0.9rem",
+        padding: "0.35rem 0.65rem",
+        borderRadius: "999px",
+        background: "rgba(255, 255, 255, 0.08)",
+        border: "1px solid rgba(255, 255, 255, 0.16)",
+        color: "rgba(232, 247, 255, 0.9)",
+        fontSize: "0.72rem",
+        fontWeight: 600,
+        letterSpacing: "0.09em",
+        textTransform: "uppercase",
+        backdropFilter: "blur(10px)",
+      }}
+    >
+      Clinical Evidence Index
+    </div>
+
+    <h1
+      style={{
+        margin: 0,
+        color: "#ffffff",
+        fontSize: "clamp(2rem, 8vw, 4.25rem)",
+        fontWeight: 700,
+        lineHeight: 0.98,
+        letterSpacing: "-0.035em",
+        textShadow: "0 2px 24px rgba(0, 0, 0, 0.7)",
+      }}
+    >
+      County Organized Health System
+    </h1>
+
+    <p
+      style={{
+        margin: "1rem auto 1.4rem",
+        maxWidth: "38rem",
+        color: "rgba(235, 242, 248, 0.9)",
+        fontSize: "clamp(1rem, 2.8vw, 1.2rem)",
+        lineHeight: 1.5,
+        textShadow: "0 2px 14px rgba(0, 0, 0, 0.75)",
+      }}
+    >
+      A source-linked workspace for clinical evidence, coverage, authorization,
+      and health-system workflows across California.
+    </p>
+
+    <Button href="/cohs-workflow" intent="primary" rightIcon="arrow-right">
+      Open the COHS Workflow Bank
     </Button>
   </div>
 </div>
