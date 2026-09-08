@@ -1,0 +1,59 @@
+---
+title: Request builder
+subtitle: Assemble an auditable off-label medication authorization packet before submission.
+slug: cohs-workflow/request-builder
+layout: overview
+---
+
+<Callout intent="info" title="Build facts before conclusions">
+The checklist below is a documentation framework. It does not determine medical necessity or guarantee authorization.
+</Callout>
+
+## Request identity
+
+<Steps>
+<Step title="Medication and proposed use">
+Record generic and brand name when relevant, formulation/strength, route, requested dose, quantity, frequency, duration, diagnosis, indication, and patient population. State whether the proposed use differs from the current US FDA labeling.
+</Step>
+<Step title="Benefit channel">
+Record whether the request is pharmacy-dispensed or physician-administered/billed through the medical benefit. For the current CenCal source set, pharmacy-benefit PA is routed through Medi-Cal Rx; medical PAD/TAR processing remains a CenCal workflow.
+</Step>
+<Step title="Coverage status">
+Record the current formulary/preferred status or PAD/code requirement if verified. If the repository does not establish the current status, mark it **verification required** rather than assuming non-preferred or covered status.
+</Step>
+</Steps>
+
+## Clinical justification checklist
+
+- [ ] Diagnosis and clinical indication are documented.
+- [ ] Exact requested regimen is stated.
+- [ ] Patient-specific medical necessity is explained.
+- [ ] Prior therapies and outcomes are documented.
+- [ ] Covered/preferred alternatives are identified and the reason they are unsuitable, failed, contraindicated, or expected to be ineffective is documented when applicable.
+- [ ] Relevant chart notes and objective findings are attached where relevant.
+- [ ] Evidence supporting the proposed use is cited.
+- [ ] Material limitations or contradictory evidence are acknowledged.
+- [ ] Monitoring and follow-up plan are documented where clinically relevant.
+
+## Submission checklist
+
+For a pharmacy-benefit request, verify the current Medi-Cal Rx PA route and form revision before submission. The repository's source-linked record identifies DHCS 6560 as the PA form and also identifies electronic submission routes.
+
+For a CenCal physician-administered drug, verify the current PAD List/code requirements and use the applicable CenCal TAR route. A downloadable/fax route may exist when portal submission is not possible; verify the current instructions before sending.
+
+<Callout intent="warning" title="Form revisions matter">
+A linked form is not proof that it is the current revision or that it applies to every drug. Record the form name, revision/effective date when available, source URL, and the date you verified it.
+</Callout>
+
+## Packet provenance
+
+For each material attachment or proposition, capture:
+
+- source authority
+- URL or document identifier
+- jurisdiction and plan
+- effective/publication date
+- verification date
+- whether it is primary authority, agency/plan guidance, clinical evidence, or a real-world decision record
+
+This keeps an evidence packet auditable without turning source material into an unsupported legal or clinical conclusion.
