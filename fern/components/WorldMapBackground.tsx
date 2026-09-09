@@ -23,7 +23,7 @@ const PLAN_POINTS = {
     { type: "Feature", properties: { id: "hpsm", name: "Health Plan of San Mateo", coverage: "San Mateo County", logo: "/assets/cohs-logos/health-plan-san-mateo.png", source: "https://www.hpsm.org/" }, geometry: { type: "Point", coordinates: [-122.4, 37.55] } },
     { type: "Feature", properties: { id: "cencal", name: "CenCal Health", coverage: "Santa Barbara and San Luis Obispo counties", logo: "/assets/cohs-logos/cencal-health.png", source: "https://www.cencalhealth.org/" }, geometry: { type: "Point", coordinates: [-120.0, 34.6] } },
     { type: "Feature", properties: { id: "gold-coast", name: "Gold Coast Health Plan", coverage: "Ventura County", logo: "/assets/cohs-logos/gold-coast-health-plan.jpg", source: "https://www.goldcoasthealthplan.org/" }, geometry: { type: "Point", coordinates: [-119.1, 34.3] } },
-    { type: "Feature", properties: { id: "caloptima", name: "CalOptima Health", coverage: "Orange County", logo: "/assets/cohs-logos/caloptima-health.webp", source: "https://www.caloptima.org/" }, geometry: { type: "Point", coordinates: [-117.8, 33.7] } },
+    { type: "Feature", properties: { id: "caloptima", name: "CalOptima Health", coverage: "Orange County", logo: "/assets/cohs-logos/caloptima-health.png", source: "https://www.caloptima.org/" }, geometry: { type: "Point", coordinates: [-117.8, 33.7] } },
   ],
 };
 
