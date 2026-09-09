@@ -1,0 +1,77 @@
+---
+title: Clinical Concept Index
+subtitle: A concept-first layer for answering COHS clinical questions from authoritative evidence.
+slug: clinical-concepts
+layout: overview
+---
+
+The Clinical Concept Index sits above the document catalogue. It recognizes the clinical idea in a question, expands its terminology, maps it to policies and requirements, and then retrieves evidence according to source authority.
+
+This prevents a literal keyword search from becoming a false answer. A question does not need to use the exact title of a policy to be answerable; the index should be able to assemble a scoped answer from related, authoritative sources.
+
+## Evidence architecture
+
+```text
+Question
+  ↓
+Clinical concept recognition
+  ↓
+Concept expansion and synonyms
+  ↓
+Policy + regulation + criteria mapping
+  ↓
+Evidence retrieval
+  ↓
+Authority ranking
+  ↓
+Answer synthesis
+  ↓
+Citation + confidence
+  ↓
+Gap detection
+```
+
+## Authority hierarchy
+
+When sources disagree or answer different parts of a question, the index preserves the distinction rather than flattening everything into one result.
+
+1. Federal law and regulation
+2. California law and regulation
+3. DHCS Medi-Cal requirements
+4. CenCal contract requirements
+5. CenCal policy
+6. CenCal clinical criteria
+7. CenCal provider manual
+8. CenCal operational guidance
+9. Clinical guideline
+10. Educational or member material
+
+The hierarchy is a ranking aid, not a substitute for checking the source's scope, effective date, benefit channel, and verification state.
+
+## Benchmark concept
+
+[Polypharmacy](/clinical-concepts/polypharmacy) is the first benchmark concept. It tests whether the index can answer a clinically obvious question even when the exact term is absent from the plan's published documents.
+
+## Concept record contract
+
+Every canonical concept record should provide a definition, synonyms, related concepts, relevant services or medications, mapped CenCal policies, mapped DHCS requirements, applicable clinical guidance, member and provider resources, a review date, and a source-authority classification.
+
+## Index quality signals
+
+- **Direct policy found:** the corpus contains a source explicitly addressing the concept.
+- **Related policies found:** the corpus contains authoritative sources that address the concept through adjacent functions.
+- **Regulatory authority found:** a governing requirement supports the mapped function.
+- **Confidence:** a scoped synthesis of authority, coverage, recency, and directness.
+- **Concept gap:** retrieval found material, but not a coherent or sufficiently authoritative answer.
+
+A concept gap is an index maintenance signal. It should trigger creation or refresh of the concept record instead of silently returning the highest-scoring document.
+
+## Related workflow material
+
+- [CenCal Health as a County Organized Health System](/cencal-health)
+- [COHS workflow bank](/cohs-workflow)
+- [CenCal prior authorization analysis](/cencal-health/prior-authorization)
+
+## Boundary
+
+This index is a research and navigation layer. It does not prescribe treatment, determine an individual member's coverage, replace clinical judgment, or make an authorization decision. Current plan documents, criteria, forms, and effective dates require verification before operational use.
