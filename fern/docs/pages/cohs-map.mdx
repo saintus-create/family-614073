@@ -1,0 +1,32 @@
+---
+title: COHS Plan Map
+subtitle: California County Organized Health System plans, service-area orientation, and plan identity.
+slug: cohs-map
+layout: overview
+---
+
+import CohsMap from "@/app/components/cohs-map";
+
+<CohsMap />
+
+## Why a plan map belongs in the responsibility index
+
+A member or provider may begin with a county, a benefit, or a plan logo rather than a policy title. The map provides a visual first step: identify the COHS plan associated with the service area, then move into the jurisdiction, obligation, and escalation layers.
+
+The map distinguishes plan identity from benefit ownership. For example, a prescription pharmacy transaction may route through Medi-Cal Rx even when the member is enrolled in a COHS plan, while a physician-administered drug may route through the plan's medical-pharmacy workflow.
+
+## Map implementation
+
+The page supports Mapbox GL JS with custom logo markers. When `NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` is configured, the component renders Mapbox light tiles and interactive plan-logo markers. Without a token, it renders a tokenless California-oriented fallback with the same plan cards and accessible legend, so the page remains usable in local development and documentation builds.
+
+The implementation follows Mapbox's custom-marker pattern: each plan is represented by a keyboard-accessible DOM marker with an image, a plan record, coordinates, and a linked official source. Plan identity assets are stored locally under `web/public/logos/` rather than fetched at runtime.
+
+## Source and verification boundary
+
+The six-plan model is based on the Local Health Plans of California description of six COHS plans operating in 22 counties and the DHCS Medi-Cal Managed Care Health Plan Directory. The map is an orientation aid, not a legal county-boundary or eligibility determination. Confirm the current county directory, plan enrollment rules, benefit channel, effective date, and responsible administrator before using it for a member-specific matter.
+
+- [DHCS Medi-Cal Managed Care Health Plan Directory](https://www.dhcs.ca.gov/individuals/medi-cal-managed-care-health-plan-directory/)
+- [DHCS Managed Care County Map](https://www.dhcs.ca.gov/file/mmcd-cnty-map-pdf/)
+- [Local Health Plans of California — Key Terms](https://www.lhpc.org/key-terms)
+- [Jurisdiction & Responsibility Map](/clinical-concepts/jurisdiction-responsibility)
+- [Plan Obligations & Member/Provider Requests](/clinical-concepts/plan-obligations)
