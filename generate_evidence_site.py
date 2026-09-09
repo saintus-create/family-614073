@@ -945,10 +945,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         d = yaml.safe_load(f)
 
     d['title'] = "California's COHS Clinical Knowledge Index"
-    d.setdefault('tabs', {}).setdefault('evidence', {
-        'display-name': 'Evidence library',
-        'icon': 'book-open',
-    })
+    d.pop('tabs', None)
 
     # keep the published instance honest about who owns the repo
     for inst in d.get('instances', []):
@@ -1177,11 +1174,9 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         ]},
     ]
 
-    for tab in d['navigation']:
-        if tab.get('tab') == 'home':
-            tab['layout'] = product_navigation
-        elif tab.get('tab') == 'evidence':
-            tab['layout'] = catalogue
+    d['navigation'] = product_navigation + [
+        {'section': 'Evidence library', 'collapsed': True, 'contents': catalogue},
+    ]
 
     ai = d.setdefault('ai-search', {})
     ai['system-prompt'] = (
