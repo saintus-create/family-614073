@@ -878,30 +878,51 @@ def build_disclaimer_page() -> str:
 def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
     return '\n'.join([
         '---',
-        'title: Clinical Evidence Index',
-        'subtitle: ADHD and binge-eating pharmacotherapy research',
+        "title: California's COHS Clinical Knowledge Index",
+        'subtitle: Start with the request, identify who owns it, then follow the evidence and next action.',
         'slug: welcome',
         'layout: overview',
-        'hide-nav-links: true',
         '---',
         '',
+        'This site connects **clinical concepts**, **plan obligations**, **responsible organizations**, **coverage decisions**, and **source-linked evidence** for California County Organized Health System workflows.',
+        '',
+        '## Start with the question',
+        '',
         '<CardGroup cols={2}>',
-        '  <Card title="Browse" icon="fa-regular fa-folder-open" href="/browse">',
-        '    By drug, topic, study design, dosing regimen and region',
+        '  <Card title="What is the plan required to do?" icon="fa-regular fa-route" href="/cohs-workflow">',
+        '    Classify the request, identify the benefit channel, capture the obligation, and route the next action.',
         '  </Card>',
-        '  <Card title="Coverage authorization" icon="fa-regular fa-list-check" href="/coverage">',
-        '    California prior authorization pathway, statute by statute',
+        '  <Card title="Who owns this request?" icon="fa-regular fa-sitemap" href="/clinical-concepts/jurisdiction-responsibility">',
+        '    Resolve the benefit administrator, plan operator, responsible department, governing authority, and escalation path.',
         '  </Card>',
-        '  <Card title="Regulatory" icon="fa-regular fa-file-prescription" href="/regulatory">',
-        '    Approved US prescribing information and FDA approval history',
+        '  <Card title="What changed in the decision?" icon="fa-regular fa-timeline" href="/clinical-concepts/coverage-decision-anatomy">',
+        '    Compare prior approvals, renewals, denials, criteria, quantities, administrators, and authorization history.',
         '  </Card>',
-        '  <Card title="Clinical trials" icon="fa-regular fa-flask" href="/trials">',
-        '    Registrations and posted results',
+        '  <Card title="What evidence supports the question?" icon="fa-regular fa-folder-open" href="/browse">',
+        '    Search the indexed literature, labels, regulatory materials, trials, coverage authorities, and guidance.',
         '  </Card>',
         '</CardGroup>',
         '',
-        '<Callout intent="warning">',
-        'Bibliographic index for research use — not medical advice. [Disclaimer](/disclaimer)',
+        '## The core path',
+        '',
+        '<Steps>',
+        '  <Step title="Identify the request">Record the member or provider request, medication or service, indication, existing authorization, urgency, and relevant dates.</Step>',
+        '  <Step title="Route the responsibility">Distinguish pharmacy, medical, institutional, eligibility, and other benefit pathways. Identify the entity and department that must act.</Step>',
+        '  <Step title="Apply the governing standard">Connect the request to the applicable authority, policy, criteria, medical-necessity standard, and source-specific deadline.</Step>',
+        '  <Step title="Preserve the decision and next action">Record the written determination, reason, notice, deadline, appeal or grievance route, and escalation path.</Step>',
+        '</Steps>',
+        '',
+        '## Explore the system',
+        '',
+        '- [COHS plan map](/cohs-map) — plan identity and service-area orientation.',
+        '- [Clinical Concept Index](/clinical-concepts) — concepts above the document catalogue.',
+        '- [Plan Obligations](/clinical-concepts/plan-obligations) — trigger, obligation, standard, procedure, and deadline.',
+        '- [Previously Authorized Treatment](/clinical-concepts/previously-authorized) — continuity-of-care and active authorization routing.',
+        '- [CenCal Health](/cencal-health) — plan structure, benefit channels, and operational context.',
+        '- [Evidence library](/browse) — indexed research, labels, trials, coverage, and guidance.',
+        '',
+        '<Callout intent="warning" title="Use current source documents">',
+        'This is a research and workflow-navigation resource. It does not prescribe treatment, determine individual coverage, replace a notice or authorization decision, or provide legal advice. Confirm the current plan, benefit channel, source, effective date, deadline, and responsible entity before operational use. [Read the scope and disclaimer](/disclaimer).',
         '</Callout>',
         '',
     ])
@@ -923,7 +944,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
     with open(DOCS_YML) as f:
         d = yaml.safe_load(f)
 
-    d['title'] = 'Clinical Evidence Index'
+    d['title'] = "California's COHS Clinical Knowledge Index"
 
     # keep the published instance honest about who owns the repo
     for inst in d.get('instances', []):
@@ -1126,13 +1147,29 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
 
     catalogue.append({'section': 'Records', 'contents': record_sections, 'collapsed': True})
 
+    product_navigation = [
+        {'page': 'Home', 'path': 'docs/pages/welcome.mdx', 'slug': 'welcome'},
+        {'page': 'COHS workflow bank', 'path': 'docs/pages/cohs-workflow/index.mdx', 'slug': 'cohs-workflow'},
+        {'page': 'Role-based workflows', 'path': 'docs/pages/cohs-workflow/roles.mdx', 'slug': 'cohs-workflow/roles'},
+        {'page': 'Request builder', 'path': 'docs/pages/cohs-workflow/request-builder.mdx', 'slug': 'cohs-workflow/request-builder'},
+        {'page': 'Decision states', 'path': 'docs/pages/cohs-workflow/decision-states.mdx', 'slug': 'cohs-workflow/decision-states'},
+        {'page': 'Denial & appeals', 'path': 'docs/pages/cohs-workflow/appeals.mdx', 'slug': 'cohs-workflow/appeals'},
+        {'page': 'Completeness', 'path': 'docs/pages/cohs-workflow/completeness.mdx', 'slug': 'cohs-workflow/completeness'},
+        {'page': 'COHS plan map', 'path': 'docs/pages/cohs-map.mdx', 'slug': 'cohs-map'},
+        {'page': 'Clinical concept index', 'path': 'docs/pages/clinical-concepts/index.mdx', 'slug': 'clinical-concepts'},
+        {'page': 'Plan obligations', 'path': 'docs/pages/clinical-concepts/plan-obligations.mdx', 'slug': 'clinical-concepts/plan-obligations'},
+        {'page': 'Previously authorized treatment', 'path': 'docs/pages/clinical-concepts/previously-authorized.mdx', 'slug': 'clinical-concepts/previously-authorized'},
+        {'page': 'Jurisdiction & responsibility', 'path': 'docs/pages/clinical-concepts/jurisdiction-responsibility.mdx', 'slug': 'clinical-concepts/jurisdiction-responsibility'},
+        {'page': 'Coverage decision anatomy', 'path': 'docs/pages/clinical-concepts/coverage-decision-anatomy.mdx', 'slug': 'clinical-concepts/coverage-decision-anatomy'},
+        {'page': 'CenCal Health', 'path': 'docs/pages/cencal-health/index.mdx', 'slug': 'cencal-health'},
+        {'page': 'CenCal authorization analysis', 'path': 'docs/pages/cencal-health/prior-authorization.mdx', 'slug': 'cencal-health/prior-authorization'},
+        {'page': 'California off-label prescribing', 'path': 'docs/pages/california-off-label/index.mdx', 'slug': 'california-off-label'},
+        {'page': 'Disclaimer', 'path': 'docs/pages/disclaimer.mdx', 'slug': 'disclaimer'},
+    ]
+
     for tab in d['navigation']:
         if tab.get('tab') == 'home':
-            tab['layout'] = [{
-                'page': 'Home',
-                'path': 'docs/pages/welcome.mdx',
-                'slug': 'welcome',
-            }]
+            tab['layout'] = product_navigation
         elif tab.get('tab') == 'evidence':
             tab['layout'] = catalogue
 
