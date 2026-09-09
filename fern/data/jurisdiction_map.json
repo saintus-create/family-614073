@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "last_verified": "verification-required",
+  "authority_roles": [
+    {
+      "role": "regulatory_authority",
+      "name": "California Department of Health Care Services (DHCS)",
+      "scope": "Medi-Cal managed-care contract and program authority",
+      "source": "https://www.dhcs.ca.gov/"
+    },
+    {
+      "role": "plan_operator",
+      "name": "CenCal Health",
+      "scope": "County Organized Health System managed-care plan for Santa Barbara and San Luis Obispo counties",
+      "source": "https://www.cencalhealth.org/"
+    },
+    {
+      "role": "pharmacy_benefit_administrator",
+      "name": "Medi-Cal Rx / DHCS and contracted administrator",
+      "scope": "Prescription pharmacy benefit administration; verify current vendor and operational route",
+      "source": "https://medi-calrx.dhcs.ca.gov/"
+    },
+    {
+      "role": "medical_pharmacy_operator",
+      "name": "CenCal Pharmacy Services",
+      "scope": "Medical-pharmacy management for applicable physician-administered drugs billed through the medical or institutional benefit",
+      "source": "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/"
+    }
+  ],
+  "responsibility_cards": [
+    {
+      "issue": "Previously authorized medication / continuity of care",
+      "benefit_category": "identify pharmacy versus medical benefit before routing",
+      "primary_responsible_entity": "verification-required",
+      "responsible_department": "CenCal Pharmacy Services for applicable medical-pharmacy issues; Medi-Cal Rx route for prescription pharmacy benefit",
+      "governing_authority": ["DHCS requirements", "applicable plan policy", "benefit-specific criteria"],
+      "required_action": "Verify prior authorization and treatment status, identify benefit owner, review continuation or transition requirements, notify the member/provider, and arrange service or provide applicable rights",
+      "time_limit": "source-specific; capture the applicable continuity-of-care or expedited-review deadline",
+      "provider_contact": "verify current provider contact and extension",
+      "member_contact": "verify current Member Services contact",
+      "escalation": "responsible plan department → CenCal Health grievance/appeal pathway → DHCS or other applicable authority",
+      "appeal_or_grievance": "verify current notice, grievance, appeal, and State Fair Hearing pathway",
+      "source_documents": [
+        "https://www.dhcs.ca.gov/individuals/Pages/Continuity-of-Care.aspx",
+        "https://www.cencalhealth.org/providers/pharmacy/medical-pharmacy-management/",
+        "https://medi-calrx.dhcs.ca.gov/"
+      ],
+      "last_verified": "verification-required"
+    }
+  ]
+}

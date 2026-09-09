@@ -1,0 +1,118 @@
+---
+title: Jurisdiction & Responsibility Map
+subtitle: Resolve who owns a request, what authority governs it, how to reach the operator, and where to escalate.
+slug: clinical-concepts/jurisdiction-responsibility
+layout: overview
+---
+
+## The first question: who owns this?
+
+The Clinical Concept Index now includes an explicit **Jurisdiction & Responsibility Map**. A useful COHS answer must distinguish the authority that governs a requirement from the entity that administers the benefit, the department that operates the workflow, and the authority that receives an escalation.
+
+> Authority ≠ operator ≠ responsible department ≠ escalation authority.
+
+## Resolver sequence
+
+```text
+Member/provider problem or request
+  ↓
+Who administers the benefit?
+  ↓
+Who operates the plan?
+  ↓
+Which department owns the issue?
+  ↓
+Which authority governs the decision?
+  ↓
+Who must act and by when?
+  ↓
+Who can resolve or escalate it?
+```
+
+The resolver must not assume that “the county” owns every member issue. A COHS is a county-organized managed-care structure, but the request may be administered by DHCS, Medi-Cal Rx and its contracted administrator, CenCal Health, a CenCal department, a county eligibility interface, or another delivery system.
+
+## Responsibility card
+
+Each resolved issue should produce a structured card:
+
+| Field | Meaning |
+| --- | --- |
+| Issue | The member/provider problem or request. |
+| Benefit | Pharmacy, medical, institutional, eligibility, or other category. |
+| Primary responsible entity | The organization that owns the transaction or decision. |
+| Responsible department | The operational team that receives and acts on the request. |
+| Governing authority | DHCS contract, All Plan Letter, statute, regulation, policy, or criteria. |
+| Required action | What the responsible entity must do. |
+| Time limit | The source-specific deadline, including an expedited standard where applicable. |
+| Provider contact | Current number, extension, portal, or submission route. |
+| Member contact | Current Member Services route. |
+| Escalation | The next responsible authority if the workflow is not fulfilled. |
+| Appeal/grievance | The applicable notice, appeal, grievance, or State Fair Hearing mechanism. |
+| Sources and last verified | Citations, review state, and verification date. |
+
+## Pharmacy example
+
+A prescription pharmacy benefit should not be labeled simply “CenCal Pharmacy.” The responsibility map distinguishes the prescription pharmacy benefit administered through **Medi-Cal Rx / DHCS and its contracted administrator** from CenCal's **medical-pharmacy management** for applicable physician-administered drugs billed through the medical or institutional benefit.
+
+| Layer | Example responsibility | Classification |
+| --- | --- | --- |
+| Regulatory authority | DHCS | Governing program and contract authority |
+| Plan operator | CenCal Health | Managed-care plan responsibility where applicable |
+| Pharmacy benefit administrator | Medi-Cal Rx / DHCS and contracted administrator | Prescription pharmacy transaction route; verify current administrator |
+| Operational department | CenCal Pharmacy Services | Medical-pharmacy management and related utilization workflows where applicable |
+| Eligibility interface | County human services department, where applicable | Enrollment or eligibility issue, not automatically clinical authorization |
+| Escalation authority | CenCal grievance/appeal pathway, DHCS, or other applicable authority | Depends on benefit, notice, and issue |
+
+## Sample responsibility card: previously authorized medication
+
+| Field | Source-derived working value |
+| --- | --- |
+| Issue | Previously authorized medication / continuity of care |
+| Benefit | Identify prescription pharmacy versus medical benefit first |
+| Primary responsible entity | Verification required after benefit routing |
+| Responsible department | CenCal Pharmacy Services for applicable medical-pharmacy issues; Medi-Cal Rx route for prescription pharmacy benefit |
+| Governing authority | DHCS requirements, applicable plan policy, and benefit-specific criteria |
+| Required action | Verify prior authorization and treatment status, identify benefit owner, review continuation or transition requirements, notify member/provider, and arrange service or provide applicable rights |
+| Time limit | Source-specific; capture continuity-of-care or expedited-review deadline |
+| Provider contact | Verify current provider contact and extension before use |
+| Member contact | Verify current Member Services contact before use |
+| Escalation | Responsible department → CenCal grievance/appeal pathway → DHCS or other applicable authority |
+| Last verified | Verification required |
+
+## Organizational hierarchy
+
+```text
+Member / provider
+  ↓
+CenCal department
+  ↓
+CenCal Health organizational authority
+  ↓
+COHS governing structure
+  ↓
+Santa Barbara or San Luis Obispo County governmental interface, where applicable
+  ↓
+DHCS division or program
+  ↓
+California Health & Human Services or other state authority, where applicable
+  ↓
+CMS or federal authority, where applicable
+```
+
+Every relationship in this hierarchy should be labeled and sourced. The hierarchy is a routing model, not an assumption that every issue travels to the top.
+
+## Structured data
+
+The initial map is stored in [`fern/data/jurisdiction_map.json`](https://github.com/saintus-create/family-614073/blob/main/fern/data/jurisdiction_map.json). Its `last_verified` field intentionally remains `verification-required` until current department contacts, vendor arrangements, deadlines, and escalation routes are checked against authoritative source documents.
+
+## Related concepts
+
+- [Plan Obligations & Member/Provider Requests](/clinical-concepts/plan-obligations)
+- [Previously Authorized Treatment](/clinical-concepts/previously-authorized)
+- [Clinical Concept Index](/clinical-concepts)
+- [CenCal Health](/cencal-health)
+- [CenCal prior authorization analysis](/cencal-health/prior-authorization)
+
+## Safety and verification boundary
+
+This map is a responsibility-routing aid. It does not create a legal duty, determine coverage, replace a notice, or guarantee that a contact, vendor, department, or deadline remains current. Confirm the source, effective date, benefit channel, plan contract, current contact route, and applicable member-specific procedure before operational use.
