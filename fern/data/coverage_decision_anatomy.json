@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "last_verified": "verification-required",
+  "coverage_decision_fields": [
+    "drug",
+    "coverage_status",
+    "fda_indication",
+    "requested_indication",
+    "off_label",
+    "formulary_status",
+    "prior_authorization_required",
+    "quantity",
+    "days_supply",
+    "dosing_frequency",
+    "step_therapy",
+    "clinical_criteria",
+    "medical_necessity_standard",
+    "documentation_submitted",
+    "alternatives_tried",
+    "contraindications_or_intolerances",
+    "supporting_literature",
+    "previous_authorization",
+    "previous_denial",
+    "previous_denial_reason",
+    "appeal_or_reconsideration",
+    "responsible_decision_maker",
+    "applicable_deadline",
+    "escalation_mechanism"
+  ],
+  "request_types": [
+    "new_request",
+    "renewal",
+    "continuation_of_previously_authorized_therapy",
+    "repeatedly_denied_request",
+    "previously_approved_then_denied",
+    "established_treatment_with_new_administrator"
+  ],
+  "decision_consistency_questions": [
+    "What changed in the clinical facts?",
+    "What changed in the requested therapy or dosing?",
+    "What changed in the governing policy or criteria?",
+    "What changed in the benefit administrator or responsible decision-maker?",
+    "Did a prior authorization expire?",
+    "Was the decision administrative, quantity-based, or clinical?",
+    "Was continuity of care implicated?"
+  ]
+}
