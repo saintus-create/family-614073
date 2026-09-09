@@ -1,101 +1,216 @@
-/* ── Typography ── */
+/* California COHS design system: chalk/oil in light mode, charcoal/ink in dark mode. */
 @import url('https://fonts.cdnfonts.com/css/sohne');
 
 :root {
   --font-sans: 'Söhne', Arial, sans-serif;
+  --oil: #11110f;
+  --charcoal: #1b1c1a;
+  --chalk: #faf9f5;
+  --paper: #f3f1eb;
+  --line: #d9d6cd;
+  --muted: #696860;
+  --accent: #4b9ed8;
+  --accent-strong: #2377ae;
+  --surface: var(--chalk);
+  --surface-raised: #f0eee7;
+  --text: var(--oil);
+  --text-muted: var(--muted);
+  --control: #ebe9e1;
+  --control-hover: #e2dfd6;
+  --control-text: var(--oil);
+  --shadow: 0 12px 32px rgba(17, 17, 15, 0.08);
+  --radius: 0.75rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: var(--charcoal);
+    --surface-raised: #242522;
+    --text: #f8f7f2;
+    --text-muted: #b9b9b1;
+    --line: #3a3b36;
+    --control: #2b2c28;
+    --control-hover: #353631;
+    --control-text: #f8f7f2;
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+  }
+}
+
+html { background: var(--surface); }
 body, .fern-docs {
-  font-family: 'Söhne', Arial, sans-serif;
+  color: var(--text);
+  font-family: var(--font-sans);
   font-weight: 400;
   letter-spacing: -0.01em;
-  background: radial-gradient(ellipse at 50% 100%, #EAE9E4 0%, #F1F0EC 30%, #F8F7F3 70%);
+  background: var(--surface);
   min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Söhne', Arial, sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.025em;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+h1 { font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 0.98; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1.05; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.65rem); }
+p, li { line-height: 1.65; }
+a { color: var(--accent-strong); }
+
+.fern-layout-main, main {
+  background: var(--surface);
 }
 
-/* ── Borders — none by default ── */
-* {
-  border-color: transparent;
-}
-
-/* Selected / active items only */
 .fern-sidebar-item[data-selected="true"],
 .fern-sidebar-item:focus-visible {
-  border: 1px solid #C9C8C1;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
 }
 
-/* ── Shadows — none by default ── */
-* {
+.fern-card, [class*="card"] {
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+input, textarea, [role="searchbox"], .fern-search-input {
+  color: var(--control-text);
+  background: var(--control);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
   box-shadow: none;
 }
 
-/* Interactive surfaces */
-.fern-card,
-[class*="card"] {
-  box-shadow: 0 2px 12px rgba(36, 36, 33, 0.025);
+button, [role="button"] {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-/* ── Cards ── */
-.fern-card,
-[class*="card"] {
-  background: #F0EFEA;
-  border-radius: 0.5rem;
-}
-
-/* ── Page background gradient ── */
-.fern-layout-main,
-main {
-  background: radial-gradient(ellipse at 50% 100%, #EAE9E4 0%, #F1F0EC 30%, #F8F7F3 70%);
-}
-
-/* ── Text inputs / search box ── */
-input, textarea, [role="searchbox"], .fern-search-input {
-  background: linear-gradient(145deg, #F3F2ED 0%, #EBEAE5 100%);
-  border: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.65),
-    0 4px 18px rgba(36, 36, 33, 0.025);
-  border-radius: 0.5rem;
-}
-
-/* ── Landing-page navigation ── */
-body:has([href="/cohs-workflow"]) header,
-body:has([href="/cohs-workflow"]) nav,
-body:has([href="/cohs-workflow"]) [role="banner"] {
-  background: rgba(3, 7, 12, 0.28) !important;
-  border-color: rgba(255, 255, 255, 0.10) !important;
+/* The dark map hero is the only surface that intentionally overrides the page theme. */
+body:has(.cohs-landing) header,
+body:has(.cohs-landing) nav,
+body:has(.cohs-landing) [role="banner"] {
+  background: rgba(17, 17, 15, 0.46) !important;
+  border-color: rgba(250, 249, 245, 0.14) !important;
   box-shadow: none !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: rgba(250, 249, 245, 0.94) !important;
 }
-
-body:has([href="/cohs-workflow"]) header a,
-body:has([href="/cohs-workflow"]) nav a,
-body:has([href="/cohs-workflow"]) [role="banner"] a,
-body:has([href="/cohs-workflow"]) header button,
-body:has([href="/cohs-workflow"]) nav button,
-body:has([href="/cohs-workflow"]) [role="banner"] button {
-  color: rgba(255, 255, 255, 0.92) !important;
+body:has(.cohs-landing) header a,
+body:has(.cohs-landing) nav a,
+body:has(.cohs-landing) [role="banner"] a,
+body:has(.cohs-landing) header button,
+body:has(.cohs-landing) nav button,
+body:has(.cohs-landing) [role="banner"] button {
+  color: rgba(250, 249, 245, 0.94) !important;
 }
-
-body:has([href="/cohs-workflow"]) header a:hover,
-body:has([href="/cohs-workflow"]) nav a:hover,
-body:has([href="/cohs-workflow"]) [role="banner"] a:hover,
-body:has([href="/cohs-workflow"]) header button:hover,
-body:has([href="/cohs-workflow"]) nav button:hover,
-body:has([href="/cohs-workflow"]) [role="banner"] button:hover {
+body:has(.cohs-landing) header a:hover,
+body:has(.cohs-landing) nav a:hover,
+body:has(.cohs-landing) [role="banner"] a:hover,
+body:has(.cohs-landing) header button:hover,
+body:has(.cohs-landing) nav button:hover,
+body:has(.cohs-landing) [role="banner"] button:hover {
   color: #ffffff !important;
 }
 
-/* ── Remove default Fern pink/purple accent ── */
-:root {
-  --accent: #3B3A36;
-  --accent-foreground: #F8F7F3;
+.cohs-landing {
+  color: #faf9f5;
+}
+.cohs-landing__hero {
+  width: min(100%, 70rem);
+  margin: 0 auto;
+}
+.cohs-landing__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(250, 249, 245, 0.22);
+  border-radius: 999px;
+  background: rgba(17, 17, 15, 0.34);
+  color: rgba(250, 249, 245, 0.86);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cohs-landing__title {
+  max-width: 54rem;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3.1rem, 9vw, 7.4rem);
+  font-weight: 600;
+  line-height: 0.91;
+  letter-spacing: -0.065em;
+  text-shadow: 0 3px 28px rgba(0, 0, 0, 0.42);
+}
+.cohs-landing__lede {
+  max-width: 43rem;
+  margin: 1.5rem 0 0;
+  color: rgba(250, 249, 245, 0.82);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.45;
+}
+.cohs-landing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+.cohs-landing__actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.9rem;
+  padding: 0.75rem 1.15rem;
+  border: 1px solid rgba(250, 249, 245, 0.24);
+  border-radius: 999px;
+  background: #faf9f5;
+  color: #11110f !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease;
+}
+.cohs-landing__actions a:hover { background: #ffffff; transform: translateY(-1px); }
+.cohs-landing__actions a[data-secondary="true"] {
+  background: rgba(17, 17, 15, 0.34);
+  color: #faf9f5 !important;
+}
+.cohs-landing__plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2.4rem;
+}
+.cohs-landing__plan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.3rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.35rem;
+  border: 1px solid rgba(250, 249, 245, 0.16);
+  border-radius: 999px;
+  background: rgba(17, 17, 15, 0.3);
+  color: rgba(250, 249, 245, 0.86);
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+.cohs-landing__plan img {
+  width: 1.7rem;
+  height: 1.7rem;
+  padding: 0.15rem;
+  border-radius: 50%;
+  background: #faf9f5;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .cohs-landing__title { font-size: clamp(2.8rem, 15vw, 4.8rem); }
+  .cohs-landing__plans { gap: 0.35rem; }
+  .cohs-landing__plan { font-size: 0.68rem; }
 }

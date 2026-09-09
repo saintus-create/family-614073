@@ -9,15 +9,15 @@ hide-feedback: true
 
 import { WorldMapBackground } from "../../components/WorldMapBackground";
 
-<div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
+<div className="cohs-landing" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
   <WorldMapBackground />
   <div
     aria-hidden="true"
     style={{
       position: "absolute",
       inset: 0,
-      background:
-        "linear-gradient(to bottom, rgba(3, 7, 12, 0) 0%, rgba(3, 7, 12, 0.02) 34%, rgba(3, 7, 12, 0.38) 55%, rgba(3, 7, 12, 0.9) 78%, rgba(3, 7, 12, 0.98) 100%)",
+        background:
+        "linear-gradient(to bottom, rgba(17, 17, 15, 0) 0%, rgba(17, 17, 15, 0.04) 30%, rgba(17, 17, 15, 0.48) 56%, rgba(17, 17, 15, 0.94) 82%, rgba(17, 17, 15, 1) 100%)",
       pointerEvents: "none",
     }}
   />
@@ -37,51 +37,36 @@ import { WorldMapBackground } from "../../components/WorldMapBackground";
   }}
 >
   <div
+    className="cohs-landing"
     style={{
-      width: "min(100%, 46rem)",
+      width: "min(100%, 70rem)",
       margin: "0 auto",
       pointerEvents: "auto",
     }}
   >
-    <div
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        marginBottom: "1rem",
-        padding: "0.35rem 0.65rem",
-        borderRadius: "999px",
-        background: "rgba(255, 255, 255, 0.08)",
-        border: "1px solid rgba(255, 255, 255, 0.16)",
-        color: "rgba(232, 247, 255, 0.9)",
-        fontSize: "0.72rem",
-        fontWeight: 600,
-        letterSpacing: "0.09em",
-        textTransform: "uppercase",
-        backdropFilter: "blur(10px)",
-      }}
-    >
+    <div className="cohs-landing__hero">
+    <div className="cohs-landing__eyebrow">
       2026
     </div>
 
-    <h1
-      style={{
-        margin: 0,
-        maxWidth: "42rem",
-        color: "#ffffff",
-        fontSize: "clamp(2rem, 8vw, 4.25rem)",
-        fontWeight: 700,
-        lineHeight: 1.06,
-        letterSpacing: "-0.035em",
-        textShadow: "0 2px 24px rgba(0, 0, 0, 0.55)",
-      }}
-    >
-      County Organized Health System
-    </h1>
+    <h1 className="cohs-landing__title">County Organized Health System</h1>
+    <p className="cohs-landing__lede">
+      A source-linked map of plan responsibility, clinical concepts, coverage decisions, and evidence.
+    </p>
 
-    <div style={{ marginTop: "1.4rem" }}>
-      <Button href="/cohs-workflow" intent="primary">
-        Explore the Index
-      </Button>
+    <div className="cohs-landing__actions">
+      <a href="/cohs-workflow">Explore the workflow</a>
+      <a href="/clinical-concepts" data-secondary="true">Browse the clinical index</a>
+    </div>
+
+    <div className="cohs-landing__plans" aria-label="California COHS plan identities">
+      <span className="cohs-landing__plan"><img src="/assets/cohs-logos/partnership-healthplan.png" alt="" /> Partnership</span>
+      <span className="cohs-landing__plan"><img src="/assets/cohs-logos/central-california-alliance.png" alt="" /> Central California Alliance</span>
+      <span className="cohs-landing__plan"><img src="/assets/cohs-logos/health-plan-san-mateo.png" alt="" /> Health Plan of San Mateo</span>
+      <span className="cohs-landing__plan"><img src="/assets/cohs-logos/cencal-health.png" alt="" /> CenCal Health</span>
+      <span className="cohs-landing__plan"><img src="/assets/cohs-logos/gold-coast-health-plan.jpg" alt="" /> Gold Coast</span>
+      <span className="cohs-landing__plan"><img src="/assets/cohs-logos/caloptima-health.webp" alt="" /> CalOptima Health</span>
+    </div>
     </div>
   </div>
 </div>
