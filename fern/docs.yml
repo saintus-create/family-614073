@@ -10,7 +10,7 @@ instances:
       repo: family-614073
       branch: main
     launch: dashboard
-title: California's COHS Clinical Knowledge Index
+title: Clinical and coverage reference
 colors:
   accent-primary:
     light: '#3B3A36'
@@ -39,13 +39,13 @@ navigation:
 - section: Workflow
   collapsed: false
   contents:
-  - page: COHS workflow bank
+  - page: Medication request workflow
     path: docs/pages/cohs-workflow/index.mdx
     slug: cohs-workflow
   - page: Role-based workflows
     path: docs/pages/cohs-workflow/roles.mdx
     slug: cohs-workflow/roles
-  - page: Request builder
+  - page: Request checklist
     path: docs/pages/cohs-workflow/request-builder.mdx
     slug: cohs-workflow/request-builder
   - page: Decision states
@@ -63,7 +63,7 @@ navigation:
   - page: COHS plan map
     path: docs/pages/cohs-map.mdx
     slug: cohs-map
-  - page: Clinical concept index
+  - page: Clinical concepts
     path: docs/pages/clinical-concepts/index.mdx
     slug: clinical-concepts
   - page: Plan obligations
@@ -84,7 +84,7 @@ navigation:
   - page: CenCal Health
     path: docs/pages/cencal-health/index.mdx
     slug: cencal-health
-  - page: CenCal authorization analysis
+  - page: CenCal authorization
     path: docs/pages/cencal-health/prior-authorization.mdx
     slug: cencal-health/prior-authorization
   - page: California off-label prescribing
@@ -93,7 +93,7 @@ navigation:
   - page: Disclaimer
     path: docs/pages/disclaimer.mdx
     slug: disclaimer
-- section: Evidence library
+- section: Evidence
   collapsed: true
   contents:
   - page: Browse

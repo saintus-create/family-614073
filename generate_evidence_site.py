@@ -878,15 +878,15 @@ def build_disclaimer_page() -> str:
 def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
     return '\n'.join([
         '---',
-        "title: California's COHS Clinical Knowledge Index",
-        'subtitle: Start with the request, identify who owns it, then follow the evidence and next action.',
+        'title: Clinical and coverage reference',
+        'subtitle: Clinical, coverage, and administrative sources for California COHS workflows.',
         'slug: welcome',
         'layout: overview',
         '---',
         '',
         'This site connects **clinical concepts**, **plan obligations**, **responsible organizations**, **coverage decisions**, and **source-linked evidence** for California County Organized Health System workflows.',
         '',
-        '## Start with the question',
+        '## Reference areas',
         '',
         '<CardGroup cols={2}>',
         '  <Card title="What is the plan required to do?" icon="fa-regular fa-route" href="/cohs-workflow">',
@@ -903,7 +903,7 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
         '  </Card>',
         '</CardGroup>',
         '',
-        '## The core path',
+        '## Request sequence',
         '',
         '<Steps>',
         '  <Step title="Identify the request">Record the member or provider request, medication or service, indication, existing authorization, urgency, and relevant dates.</Step>',
@@ -912,7 +912,7 @@ def build_welcome_page(data: dict, studies: list, n_labels: int = 0) -> str:
         '  <Step title="Preserve the decision and next action">Record the written determination, reason, notice, deadline, appeal or grievance route, and escalation path.</Step>',
         '</Steps>',
         '',
-        '## Explore the system',
+        '## Related pages',
         '',
         '- [COHS plan map](/cohs-map) — plan identity and service-area orientation.',
         '- [Clinical Concept Index](/clinical-concepts) — concepts above the document catalogue.',
@@ -944,7 +944,7 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
     with open(DOCS_YML) as f:
         d = yaml.safe_load(f)
 
-    d['title'] = "California's COHS Clinical Knowledge Index"
+    d['title'] = 'Clinical and coverage reference'
     d.pop('tabs', None)
 
     # keep the published instance honest about who owns the repo
@@ -1151,16 +1151,16 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
     product_navigation = [
         {'page': 'Home', 'path': 'docs/pages/welcome.mdx', 'slug': 'welcome'},
         {'section': 'Workflow', 'collapsed': False, 'contents': [
-            {'page': 'COHS workflow bank', 'path': 'docs/pages/cohs-workflow/index.mdx', 'slug': 'cohs-workflow'},
+            {'page': 'Medication request workflow', 'path': 'docs/pages/cohs-workflow/index.mdx', 'slug': 'cohs-workflow'},
             {'page': 'Role-based workflows', 'path': 'docs/pages/cohs-workflow/roles.mdx', 'slug': 'cohs-workflow/roles'},
-            {'page': 'Request builder', 'path': 'docs/pages/cohs-workflow/request-builder.mdx', 'slug': 'cohs-workflow/request-builder'},
+            {'page': 'Request checklist', 'path': 'docs/pages/cohs-workflow/request-builder.mdx', 'slug': 'cohs-workflow/request-builder'},
             {'page': 'Decision states', 'path': 'docs/pages/cohs-workflow/decision-states.mdx', 'slug': 'cohs-workflow/decision-states'},
             {'page': 'Denial & appeals', 'path': 'docs/pages/cohs-workflow/appeals.mdx', 'slug': 'cohs-workflow/appeals'},
             {'page': 'Completeness', 'path': 'docs/pages/cohs-workflow/completeness.mdx', 'slug': 'cohs-workflow/completeness'},
         ]},
         {'section': 'Clinical index', 'collapsed': False, 'contents': [
             {'page': 'COHS plan map', 'path': 'docs/pages/cohs-map.mdx', 'slug': 'cohs-map'},
-            {'page': 'Clinical concept index', 'path': 'docs/pages/clinical-concepts/index.mdx', 'slug': 'clinical-concepts'},
+            {'page': 'Clinical concepts', 'path': 'docs/pages/clinical-concepts/index.mdx', 'slug': 'clinical-concepts'},
             {'page': 'Plan obligations', 'path': 'docs/pages/clinical-concepts/plan-obligations.mdx', 'slug': 'clinical-concepts/plan-obligations'},
             {'page': 'Previously authorized treatment', 'path': 'docs/pages/clinical-concepts/previously-authorized.mdx', 'slug': 'clinical-concepts/previously-authorized'},
             {'page': 'Jurisdiction & responsibility', 'path': 'docs/pages/clinical-concepts/jurisdiction-responsibility.mdx', 'slug': 'clinical-concepts/jurisdiction-responsibility'},
@@ -1168,14 +1168,14 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         ]},
         {'section': 'Plan & authority', 'collapsed': False, 'contents': [
             {'page': 'CenCal Health', 'path': 'docs/pages/cencal-health/index.mdx', 'slug': 'cencal-health'},
-            {'page': 'CenCal authorization analysis', 'path': 'docs/pages/cencal-health/prior-authorization.mdx', 'slug': 'cencal-health/prior-authorization'},
+            {'page': 'CenCal authorization', 'path': 'docs/pages/cencal-health/prior-authorization.mdx', 'slug': 'cencal-health/prior-authorization'},
             {'page': 'California off-label prescribing', 'path': 'docs/pages/california-off-label/index.mdx', 'slug': 'california-off-label'},
             {'page': 'Disclaimer', 'path': 'docs/pages/disclaimer.mdx', 'slug': 'disclaimer'},
         ]},
     ]
 
     d['navigation'] = product_navigation + [
-        {'section': 'Evidence library', 'collapsed': True, 'contents': catalogue},
+        {'section': 'Evidence', 'collapsed': True, 'contents': catalogue},
     ]
 
     ai = d.setdefault('ai-search', {})
