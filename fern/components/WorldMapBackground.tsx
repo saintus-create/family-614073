@@ -18,11 +18,12 @@ const COHS_COUNTY_FIPS = [
 const PLAN_POINTS = {
   type: "FeatureCollection",
   features: [
-    { type: "Feature", properties: { id: "partnership" }, geometry: { type: "Point", coordinates: [-121.7, 40.5] } },
-    { type: "Feature", properties: { id: "alliance" }, geometry: { type: "Point", coordinates: [-121.0, 36.5] } },
-    { type: "Feature", properties: { id: "cencal" }, geometry: { type: "Point", coordinates: [-120.0, 34.6] } },
-    { type: "Feature", properties: { id: "gold-coast" }, geometry: { type: "Point", coordinates: [-119.1, 34.3] } },
-    { type: "Feature", properties: { id: "caloptima" }, geometry: { type: "Point", coordinates: [-117.8, 33.7] } },
+    { type: "Feature", properties: { id: "partnership", name: "Partnership HealthPlan of California", coverage: "North Coast and North State counties", logo: "/assets/cohs-logos/partnership-healthplan.png", source: "https://www.partnershiphp.org/" }, geometry: { type: "Point", coordinates: [-121.7, 40.5] } },
+    { type: "Feature", properties: { id: "alliance", name: "Central California Alliance for Health", coverage: "Monterey, Santa Cruz, and Merced counties", logo: "/assets/cohs-logos/central-california-alliance.png", source: "https://thealliance.health/" }, geometry: { type: "Point", coordinates: [-121.0, 36.5] } },
+    { type: "Feature", properties: { id: "hpsm", name: "Health Plan of San Mateo", coverage: "San Mateo County", logo: "/assets/cohs-logos/health-plan-san-mateo.png", source: "https://www.hpsm.org/" }, geometry: { type: "Point", coordinates: [-122.4, 37.55] } },
+    { type: "Feature", properties: { id: "cencal", name: "CenCal Health", coverage: "Santa Barbara and San Luis Obispo counties", logo: "/assets/cohs-logos/cencal-health.png", source: "https://www.cencalhealth.org/" }, geometry: { type: "Point", coordinates: [-120.0, 34.6] } },
+    { type: "Feature", properties: { id: "gold-coast", name: "Gold Coast Health Plan", coverage: "Ventura County", logo: "/assets/cohs-logos/gold-coast-health-plan.jpg", source: "https://www.goldcoasthealthplan.org/" }, geometry: { type: "Point", coordinates: [-119.1, 34.3] } },
+    { type: "Feature", properties: { id: "caloptima", name: "CalOptima Health", coverage: "Orange County", logo: "/assets/cohs-logos/caloptima-health.jpg", source: "https://www.caloptima.org/" }, geometry: { type: "Point", coordinates: [-117.8, 33.7] } },
   ],
 };
 
@@ -120,6 +121,41 @@ export function WorldMapBackground() {
           "circle-stroke-color": "#ffffff",
           "circle-stroke-opacity": 0.85,
         },
+      });
+
+      // Use the existing Mapbox instance for plan identity markers. Assets are
+      // local Fern assets so the published docs do not depend on a second app.
+      PLAN_POINTS.features.forEach((feature) => {
+        const properties = feature.properties;
+        const marker = document.createElement("a");
+        marker.href = properties.source;
+        marker.target = "_blank";
+        marker.rel = "noreferrer";
+        marker.setAttribute("aria-label", `${properties.name} — ${properties.coverage}`);
+        marker.style.cssText = [
+          "display:flex",
+          "align-items:center",
+          "justify-content:center",
+          "width:42px",
+          "height:42px",
+          "padding:4px",
+          "border:2px solid #ffffff",
+          "border-radius:50%",
+          "background:#ffffff",
+          "box-shadow:0 3px 12px rgba(0,0,0,.32)",
+          "overflow:hidden",
+          "transition:transform .15s ease",
+        ].join(";");
+        marker.addEventListener("mouseenter", () => { marker.style.transform = "scale(1.12)"; });
+        marker.addEventListener("mouseleave", () => { marker.style.transform = "scale(1)"; });
+        const logo = document.createElement("img");
+        logo.src = properties.logo;
+        logo.alt = properties.name;
+        logo.style.cssText = "width:100%;height:100%;object-fit:contain;border-radius:50%;";
+        marker.appendChild(logo);
+        new window.mapboxgl.Marker({ element: marker, anchor: "center" })
+          .setLngLat(feature.geometry.coordinates)
+          .addTo(map);
       });
     }
 

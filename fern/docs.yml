@@ -66,6 +66,27 @@ navigation:
   - page: CenCal Health
     path: docs/pages/cencal-health/index.mdx
     slug: cencal-health
+  - page: COHS plan map
+    path: docs/pages/cohs-map.mdx
+    slug: cohs-map
+  - page: Clinical concept index
+    path: docs/pages/clinical-concepts/index.mdx
+    slug: clinical-concepts
+  - page: Plan obligations
+    path: docs/pages/clinical-concepts/plan-obligations.mdx
+    slug: clinical-concepts/plan-obligations
+  - page: Previously authorized treatment
+    path: docs/pages/clinical-concepts/previously-authorized.mdx
+    slug: clinical-concepts/previously-authorized
+  - page: Polypharmacy benchmark
+    path: docs/pages/clinical-concepts/polypharmacy.mdx
+    slug: clinical-concepts/polypharmacy
+  - page: Jurisdiction & responsibility
+    path: docs/pages/clinical-concepts/jurisdiction-responsibility.mdx
+    slug: clinical-concepts/jurisdiction-responsibility
+  - page: Coverage decision anatomy
+    path: docs/pages/clinical-concepts/coverage-decision-anatomy.mdx
+    slug: clinical-concepts/coverage-decision-anatomy
   - page: California off-label prescribing
     path: docs/pages/california-off-label/index.mdx
     slug: california-off-label

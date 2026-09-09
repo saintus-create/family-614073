@@ -13,9 +13,9 @@ The map distinguishes plan identity from benefit ownership. For example, a presc
 
 ## Map implementation
 
-The page supports Mapbox GL JS with custom logo markers. When `NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` is configured, the component renders Mapbox light tiles and interactive plan-logo markers. Without a token, it renders a tokenless California-oriented fallback with the same plan cards and accessible legend, so the page remains usable in local development and documentation builds.
+The Fern landing page already uses Mapbox GL JS for its California COHS map. The canonical map layer now adds six interactive plan-logo markers to that existing instance, each linked to the plan's official site and labeled with its service-area identity.
 
-The implementation follows Mapbox's custom-marker pattern: each plan is represented by a keyboard-accessible DOM marker with an image, a plan record, coordinates, and a linked official source. Plan identity assets are stored locally under `web/public/logos/` rather than fetched at runtime.
+The implementation follows Mapbox's custom-marker pattern: each plan is represented by a keyboard-accessible DOM marker with an image, a plan record, coordinates, and a linked official source. Plan identity assets are stored locally under `fern/docs/assets/cohs-logos/` rather than fetched at runtime.
 
 ## Source and verification boundary
 
