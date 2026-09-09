@@ -42,54 +42,63 @@ navigation:
   - page: Home
     path: docs/pages/welcome.mdx
     slug: welcome
-  - page: COHS workflow bank
-    path: docs/pages/cohs-workflow/index.mdx
-    slug: cohs-workflow
-  - page: Role-based workflows
-    path: docs/pages/cohs-workflow/roles.mdx
-    slug: cohs-workflow/roles
-  - page: Request builder
-    path: docs/pages/cohs-workflow/request-builder.mdx
-    slug: cohs-workflow/request-builder
-  - page: Decision states
-    path: docs/pages/cohs-workflow/decision-states.mdx
-    slug: cohs-workflow/decision-states
-  - page: Denial & appeals
-    path: docs/pages/cohs-workflow/appeals.mdx
-    slug: cohs-workflow/appeals
-  - page: Completeness
-    path: docs/pages/cohs-workflow/completeness.mdx
-    slug: cohs-workflow/completeness
-  - page: COHS plan map
-    path: docs/pages/cohs-map.mdx
-    slug: cohs-map
-  - page: Clinical concept index
-    path: docs/pages/clinical-concepts/index.mdx
-    slug: clinical-concepts
-  - page: Plan obligations
-    path: docs/pages/clinical-concepts/plan-obligations.mdx
-    slug: clinical-concepts/plan-obligations
-  - page: Previously authorized treatment
-    path: docs/pages/clinical-concepts/previously-authorized.mdx
-    slug: clinical-concepts/previously-authorized
-  - page: Jurisdiction & responsibility
-    path: docs/pages/clinical-concepts/jurisdiction-responsibility.mdx
-    slug: clinical-concepts/jurisdiction-responsibility
-  - page: Coverage decision anatomy
-    path: docs/pages/clinical-concepts/coverage-decision-anatomy.mdx
-    slug: clinical-concepts/coverage-decision-anatomy
-  - page: CenCal Health
-    path: docs/pages/cencal-health/index.mdx
-    slug: cencal-health
-  - page: CenCal authorization analysis
-    path: docs/pages/cencal-health/prior-authorization.mdx
-    slug: cencal-health/prior-authorization
-  - page: California off-label prescribing
-    path: docs/pages/california-off-label/index.mdx
-    slug: california-off-label
-  - page: Disclaimer
-    path: docs/pages/disclaimer.mdx
-    slug: disclaimer
+  - section: Workflow
+    collapsed: false
+    contents:
+    - page: COHS workflow bank
+      path: docs/pages/cohs-workflow/index.mdx
+      slug: cohs-workflow
+    - page: Role-based workflows
+      path: docs/pages/cohs-workflow/roles.mdx
+      slug: cohs-workflow/roles
+    - page: Request builder
+      path: docs/pages/cohs-workflow/request-builder.mdx
+      slug: cohs-workflow/request-builder
+    - page: Decision states
+      path: docs/pages/cohs-workflow/decision-states.mdx
+      slug: cohs-workflow/decision-states
+    - page: Denial & appeals
+      path: docs/pages/cohs-workflow/appeals.mdx
+      slug: cohs-workflow/appeals
+    - page: Completeness
+      path: docs/pages/cohs-workflow/completeness.mdx
+      slug: cohs-workflow/completeness
+  - section: Clinical index
+    collapsed: false
+    contents:
+    - page: COHS plan map
+      path: docs/pages/cohs-map.mdx
+      slug: cohs-map
+    - page: Clinical concept index
+      path: docs/pages/clinical-concepts/index.mdx
+      slug: clinical-concepts
+    - page: Plan obligations
+      path: docs/pages/clinical-concepts/plan-obligations.mdx
+      slug: clinical-concepts/plan-obligations
+    - page: Previously authorized treatment
+      path: docs/pages/clinical-concepts/previously-authorized.mdx
+      slug: clinical-concepts/previously-authorized
+    - page: Jurisdiction & responsibility
+      path: docs/pages/clinical-concepts/jurisdiction-responsibility.mdx
+      slug: clinical-concepts/jurisdiction-responsibility
+    - page: Coverage decision anatomy
+      path: docs/pages/clinical-concepts/coverage-decision-anatomy.mdx
+      slug: clinical-concepts/coverage-decision-anatomy
+  - section: Plan & authority
+    collapsed: false
+    contents:
+    - page: CenCal Health
+      path: docs/pages/cencal-health/index.mdx
+      slug: cencal-health
+    - page: CenCal authorization analysis
+      path: docs/pages/cencal-health/prior-authorization.mdx
+      slug: cencal-health/prior-authorization
+    - page: California off-label prescribing
+      path: docs/pages/california-off-label/index.mdx
+      slug: california-off-label
+    - page: Disclaimer
+      path: docs/pages/disclaimer.mdx
+      slug: disclaimer
 - tab: evidence
   display-name: Evidence library
   layout:
