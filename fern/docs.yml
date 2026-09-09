@@ -33,6 +33,9 @@ tabs:
   home:
     display-name: Home
     icon: home
+  evidence:
+    display-name: Evidence library
+    icon: book-open
 experimental:
   mdx-components:
   - ./components

@@ -945,6 +945,10 @@ def update_nav(data: dict, studies: list, designs: dict, topics: dict,
         d = yaml.safe_load(f)
 
     d['title'] = "California's COHS Clinical Knowledge Index"
+    d.setdefault('tabs', {}).setdefault('evidence', {
+        'display-name': 'Evidence library',
+        'icon': 'book-open',
+    })
 
     # keep the published instance honest about who owns the repo
     for inst in d.get('instances', []):
