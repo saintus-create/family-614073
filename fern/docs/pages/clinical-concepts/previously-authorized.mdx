@@ -1,0 +1,60 @@
+---
+title: Previously Authorized Treatment
+subtitle: Continuity-of-care benchmark for active prior authorizations, existing treatment, and transition requests.
+slug: clinical-concepts/previously-authorized
+layout: overview
+---
+
+## Core question
+
+A provider has already obtained authorization for a member's treatment. Can the plan treat a subsequent continuation request as entirely new?
+
+The index must not answer that question by retrieving the word “authorization” alone. **Previously authorized treatment** is a first-class concept because an active authorization can create continuity-of-care consequences, distinct from a new request.
+
+## Requirement record
+
+| Field | Indexed value |
+| --- | --- |
+| Trigger | A member enrolls, changes provider, changes plan, or requests continuation of an existing authorized treatment. |
+| Obligation | Identify the prior authorization and review continuation under applicable continuity-of-care and authorization requirements. |
+| Standard | DHCS continuity-of-care requirements, the applicable plan contract and policy, medical necessity, and current clinical criteria. |
+| Procedure | Receive and document the request → verify prior authorization and treatment status → identify benefit owner → determine continuation or transition path → notify member/provider → arrange service or provide applicable appeal rights. |
+| Deadline | Source-specific. Record the applicable timeframe and any faster response required by the member's medical condition; do not infer a universal deadline. |
+
+## Key distinctions
+
+- **Active prior authorization** is not merely another document; it may change the continuity-of-care analysis.
+- **Existing treatment** is not necessarily the same as a new start request.
+- **Continuation of medication** differs from a new medication request, a medication change, and an interruption caused by an administrative problem.
+- **Benefit ownership** must be established before assigning operational responsibility: Medi-Cal Rx and CenCal medical-pharmacy pathways are not interchangeable.
+- **Urgent requests** may require an expedited pathway; the current source and condition-specific standard must be verified.
+
+## Continuity-of-care evidence
+
+DHCS continuity-of-care materials describe member rights and plan responsibilities concerning existing treatment and prior treatment authorizations. The index should capture the exact source, effective date, scenario, duration, notification requirement, and exception rather than generalize one scenario into a universal rule.
+
+For example, one DHCS continuity-of-care scenario states that the plan must tell the member within **30 days of receiving the request**, or sooner if the member's medical condition requires more immediate attention, whether the member can continue with the fee-for-service provider. This is a scenario-specific source-derived deadline, not a universal deadline for every authorization request.
+
+DHCS materials also describe circumstances in which an active prior treatment authorization remains in effect following enrollment for a defined period, including a **90-day** rule in the applicable scenario and additional rules concerning authorization duration or a new authorization. Verify the current source and applicability before using this operationally.
+
+## Answerability tests
+
+1. Can a plan treat a previously authorized treatment as an entirely new request?
+2. What facts make an authorization “active” for continuity analysis?
+3. Who owns the benefit and who is responsible for clinical review?
+4. What must the plan document, decide, notify, and arrange?
+5. What deadline applies to this specific continuity-of-care scenario?
+6. What changes if the request is urgent or the member's condition may worsen?
+7. What happens when a provider is out-of-network or nonparticipating?
+8. What notice, grievance, appeal, or escalation path applies?
+
+## Source links
+
+- [DHCS continuity of care resources](https://www.dhcs.ca.gov/individuals/Pages/Continuity-of-Care.aspx)
+- [CenCal Health](/cencal-health)
+- [CenCal prior authorization analysis](/cencal-health/prior-authorization)
+- [Plan Obligations & Member/Provider Requests](/clinical-concepts/plan-obligations)
+
+## Verification boundary
+
+This record is a concept and routing model, not a determination of an individual member's rights or coverage. Verify the member's enrollment date, prior authorization, benefit channel, provider status, current DHCS requirement, plan policy, effective date, and applicable notice or appeal procedure.

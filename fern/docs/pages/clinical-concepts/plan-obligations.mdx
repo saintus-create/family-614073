@@ -1,0 +1,98 @@
+---
+title: Plan Obligations & Member/Provider Requests
+subtitle: A trigger-to-deadline index for understanding what the responsible entity must do when a request is made.
+slug: clinical-concepts/plan-obligations
+layout: overview
+---
+
+## Purpose
+
+The Clinical Concept Index now includes a **Plan Obligations & Member/Provider Requests** dimension. It answers a different question from document search:
+
+> What is the responsible entity required to do when this member or provider request occurs?
+
+This layer distinguishes a plan's discretion from an affirmative obligation, and it preserves the operational sequence and deadline that can be lost when requirements are represented only as document chunks.
+
+## Requirement record
+
+Every indexed requirement should capture five fields:
+
+| Field | Question | Example |
+| --- | --- | --- |
+| Trigger | What happened? | A provider requests continuation of an existing treatment. |
+| Obligation | What must the responsible entity do? | Review the request under applicable continuity-of-care and authorization requirements. |
+| Standard | What governs the decision? | Medical necessity, DHCS requirements, continuity-of-care rules, and clinical criteria. |
+| Procedure | What must happen operationally? | Receive → document → review → determine → notify → arrange service or provide appeal rights. |
+| Deadline | How quickly must it happen? | Capture the source-specific timeframe; urgent conditions may require faster action. |
+
+A record is incomplete if it says what may happen but omits who owns the benefit, who has clinical responsibility, or what response deadline applies.
+
+## Request concepts
+
+- Member request
+- Provider request
+- Previously authorized service
+- Active prior authorization
+- Existing treatment or medication
+- Continuity of care
+- Transition of care
+- Change of provider
+- Out-of-network or nonparticipating provider
+- Urgent or expedited request
+- Medical necessity determination
+- Prior authorization, renewal, and continuation
+- Denial, Notice of Action, appeal, and grievance
+- Second opinion, referral, and care coordination
+- Medication continuity
+- Provider escalation
+- Member and provider notification
+
+## Responsibility graph
+
+```text
+Request
+  ↓
+Benefit category
+  ↓
+Responsible entity
+  ↓
+Applicable authority
+  ↓
+Plan responsibility + member/provider responsibility
+  ↓
+Required action
+  ↓
+Deadline
+  ↓
+Escalation path
+```
+
+This prevents a technically correct but operationally incomplete answer such as “Here is a pharmacy policy” when the real question is “Who must prevent interruption of an already established treatment, and what must happen after the provider asks?”
+
+## Benefit ownership is not clinical responsibility
+
+Medi-Cal pharmacy coverage is not one monolithic bucket. Medi-Cal Rx administers prescription drug benefits, while managed-care plans cover certain provider-administered drugs. The index must therefore route the request to the correct benefit owner before describing the plan's obligations.
+
+| Request type | First routing question | Verification boundary |
+| --- | --- | --- |
+| New prescription drug request | Is this a Medi-Cal Rx pharmacy benefit? | Confirm current Medi-Cal Rx routing and criteria. |
+| Provider-administered drug | Is this a medical or institutional claim? | Confirm CenCal medical-pharmacy responsibility and any carve-out. |
+| Existing treatment continuation | Is there an active authorization or continuity-of-care fact? | Confirm authorization duration, transition rules, and applicable notice. |
+| Urgent medication request | Does delay risk the member's condition? | Confirm expedited review standard and deadline. |
+| Administrative interruption | Was treatment interrupted without a new clinical decision? | Escalate for continuity, notice, and remediation analysis. |
+
+## Primary query mode
+
+“What is the plan required to do?” should be a primary query mode of the COHS site, alongside evidence search and workflow navigation. A useful answer should return the trigger, responsible entity, authority, obligation, procedure, deadline, and escalation path with citations and confidence.
+
+## Related concepts
+
+- [Previously authorized treatment](/clinical-concepts/previously-authorized)
+- [Polypharmacy](/clinical-concepts/polypharmacy)
+- [Clinical Concept Index](/clinical-concepts)
+- [CenCal Health](/cencal-health)
+- [COHS workflow bank](/cohs-workflow)
+
+## Safety and verification boundary
+
+This index is a structured research aid. It does not determine an individual member's eligibility, coverage, medical necessity, or appeal rights. Confirm the current DHCS requirement, plan contract, benefit channel, effective date, source-specific deadline, and responsible entity before operational use.
