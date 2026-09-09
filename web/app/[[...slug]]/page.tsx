@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { allSlugs, readPage } from "@/lib/pages";
+import CohsMap from "@/app/components/cohs-map";
 
 export const dynamicParams = false;
 
@@ -76,6 +77,7 @@ export default async function MdxPage({
           )}
         </div>
         <div className="w-full max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400 [&_a]:font-medium [&_a]:text-zinc-950 dark:[&_a]:text-zinc-50 [&_h2]:mt-8 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:leading-8 [&_h2]:text-black dark:[&_h2]:text-zinc-50 [&_h3]:mt-6 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:leading-7 [&_h3]:text-black dark:[&_h3]:text-zinc-50 [&_p]:mt-3 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:mt-3 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-2 [&_table]:mt-4 [&_table]:w-full [&_table]:text-sm [&_th]:pr-4 [&_th]:text-left [&_th]:font-medium [&_td]:pr-4 [&_td]:align-top [&_blockquote]:mt-4 [&_blockquote]:border-l [&_blockquote]:border-black/[.08] [&_blockquote]:pl-4 dark:[&_blockquote]:border-white/[.145]">
+          {key === "cohs-map" && <CohsMap />}
           {content}
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
