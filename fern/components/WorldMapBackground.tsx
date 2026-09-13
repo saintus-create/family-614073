@@ -144,14 +144,33 @@ export function WorldMapBackground() {
           "background:#ffffff",
           "box-shadow:0 3px 12px rgba(0,0,0,.32)",
           "overflow:hidden",
+          "color:#173044",
+          "font:700 14px/1 Arial,sans-serif",
           "transition:transform .15s ease",
         ].join(";");
         marker.addEventListener("mouseenter", () => { marker.style.transform = "scale(1.12)"; });
         marker.addEventListener("mouseleave", () => { marker.style.transform = "scale(1)"; });
+        const fallback = document.createElement("span");
+        fallback.textContent = properties.name
+          .split(/\s+/)
+          .filter((word) => word.length > 2)
+          .slice(0, 2)
+          .map((word) => word[0])
+          .join("");
+        fallback.setAttribute("aria-hidden", "true");
+        fallback.style.cssText = "display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#e7f4fb;border-radius:50%;";
+        marker.appendChild(fallback);
         const logo = document.createElement("img");
-        logo.src = properties.logo;
+        logo.src = new URL(properties.logo, window.location.origin).toString();
         logo.alt = properties.name;
-        logo.style.cssText = "width:100%;height:100%;object-fit:contain;border-radius:50%;";
+        logo.style.cssText = "display:none;width:100%;height:100%;object-fit:contain;border-radius:50%;background:#ffffff;";
+        logo.addEventListener("load", () => {
+          fallback.style.display = "none";
+          logo.style.display = "block";
+        }, { once: true });
+        logo.addEventListener("error", () => {
+          logo.remove();
+        }, { once: true });
         marker.appendChild(logo);
         new window.mapboxgl.Marker({ element: marker, anchor: "center" })
           .setLngLat(feature.geometry.coordinates)
