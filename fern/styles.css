@@ -184,18 +184,12 @@ body:has(.cohs-landing) [role="banner"] button:hover {
 .cohs-landing__plans {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 2.4rem;
+  gap: 1.5rem;
 }
 .cohs-landing__plan {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  min-height: 2.3rem;
-  padding: 0.3rem 0.7rem 0.3rem 0.35rem;
-  border: 1px solid rgba(250, 249, 245, 0.16);
-  border-radius: 999px;
-  background: rgba(17, 17, 15, 0.3);
   color: rgba(250, 249, 245, 0.86);
   font-size: 0.74rem;
   font-weight: 500;
@@ -203,14 +197,11 @@ body:has(.cohs-landing) [role="banner"] button:hover {
 .cohs-landing__plan img {
   width: 1.7rem;
   height: 1.7rem;
-  padding: 0.15rem;
-  border-radius: 50%;
-  background: #faf9f5;
   object-fit: contain;
 }
 
 @media (max-width: 640px) {
   .cohs-landing__title { font-size: clamp(2.8rem, 15vw, 4.8rem); }
-  .cohs-landing__plans { gap: 0.35rem; }
+  .cohs-landing__plans { gap: 0.9rem; }
   .cohs-landing__plan { font-size: 0.68rem; }
 }
