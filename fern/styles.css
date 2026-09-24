@@ -125,26 +125,33 @@ body:has(.cohs-landing) [role="banner"] button:hover {
   width: min(100%, 70rem);
   margin: 0 auto;
 }
+.cohs-landing__frame {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0 clamp(1.25rem, 5vw, 4rem) clamp(2.5rem, 8vh, 5.5rem);
+}
+.cohs-landing__frame > div { pointer-events: auto; }
 .cohs-landing__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  padding: 0.4rem 0.75rem;
-  border: 1px solid rgba(250, 249, 245, 0.22);
-  border-radius: 999px;
-  background: rgba(17, 17, 15, 0.34);
-  color: rgba(250, 249, 245, 0.86);
-  font-size: 0.72rem;
+  margin-bottom: 1.1rem;
+  color: rgba(250, 249, 245, 0.72);
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 .cohs-landing__title {
   max-width: 54rem;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(3.1rem, 9vw, 7.4rem);
+  font-size: clamp(3rem, 8vw, 6.6rem);
   font-weight: 600;
   line-height: 0.91;
   letter-spacing: -0.065em;
@@ -152,16 +159,16 @@ body:has(.cohs-landing) [role="banner"] button:hover {
 }
 .cohs-landing__lede {
   max-width: 43rem;
-  margin: 1.5rem 0 0;
-  color: rgba(250, 249, 245, 0.82);
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  margin: 1.35rem 0 0;
+  color: rgba(250, 249, 245, 0.76);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
   line-height: 1.45;
 }
 .cohs-landing__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.75rem;
+  margin-top: 1.6rem;
 }
 .cohs-landing__actions a {
   display: inline-flex;
@@ -181,36 +188,15 @@ body:has(.cohs-landing) [role="banner"] button:hover {
   background: rgba(17, 17, 15, 0.34);
   color: #faf9f5 !important;
 }
-.cohs-landing__plans {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 2.4rem;
-}
-.cohs-landing__plan {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 2.3rem;
-  padding: 0.3rem 0.7rem 0.3rem 0.35rem;
-  border: 1px solid rgba(250, 249, 245, 0.16);
-  border-radius: 999px;
-  background: rgba(17, 17, 15, 0.3);
-  color: rgba(250, 249, 245, 0.86);
-  font-size: 0.74rem;
-  font-weight: 500;
-}
-.cohs-landing__plan img {
-  width: 1.7rem;
-  height: 1.7rem;
-  padding: 0.15rem;
-  border-radius: 50%;
-  background: #faf9f5;
-  object-fit: contain;
+.cohs-landing__note {
+  max-width: 37rem;
+  margin-top: 1.35rem;
+  color: rgba(250, 249, 245, 0.55);
+  font-size: 0.76rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 640px) {
   .cohs-landing__title { font-size: clamp(2.8rem, 15vw, 4.8rem); }
-  .cohs-landing__plans { gap: 0.35rem; }
-  .cohs-landing__plan { font-size: 0.68rem; }
+  .cohs-landing__frame { padding-bottom: 2rem; }
 }
